@@ -1,0 +1,8 @@
+{
+    "widgetid": "b465b4cf-b7ca-40e3-87d2-24801547e7be",
+    "name": "sketchfab-widget",
+    "component": "views/components/widgets/sketchfab-widget",
+    "defaultconfig":null,
+    "helptext": "Copy and paste Sketchpad link from the top of your browser",
+    "datatype": "non-localized-string"
+}

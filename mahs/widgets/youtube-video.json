@@ -1,7 +1,8 @@
 {
-    "name": "sketchfab-widget",
-    "component": "views/components/widgets/sketchfab-widget",
+    "widgetid": "c58e6015-db3d-4f04-8d67-55696eb662f9",
+    "name": "youtube-video",
+    "component": "views/components/widgets/youtube-video",
     "defaultconfig":null,
-    "helptext": "Copy and paste Sketchpad link from the top of your browser",
+    "helptext": "Click share on the desired Youtube video and copy and paste the link ",
     "datatype": "non-localized-string"
 }
