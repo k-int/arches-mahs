@@ -1,0 +1,136 @@
+{
+    "graph": [
+        {
+            "author": "",
+            "cards": [
+                {
+                    "active": true,
+                    "cardid": "b0ce44f2-496b-11ef-b689-19c85e1db281",
+                    "component_id": "f05e4d3a-53c1-11e8-b0ea-784f435179ea",
+                    "config": null,
+                    "constraints": [],
+                    "cssclass": null,
+                    "description": {
+                        "en": ""
+                    },
+                    "graph_id": "b0ce44f0-496b-11ef-b689-19c85e1db281",
+                    "helpenabled": false,
+                    "helptext": {
+                        "en": null
+                    },
+                    "helptitle": {
+                        "en": null
+                    },
+                    "instructions": {
+                        "en": null
+                    },
+                    "is_editable": true,
+                    "name": {
+                        "en": "Material"
+                    },
+                    "nodegroup_id": "b0ce44f1-496b-11ef-b689-19c85e1db281",
+                    "sortorder": null,
+                    "visible": true
+                }
+            ],
+            "cards_x_nodes_x_widgets": [],
+            "color": "rgba(93,122,222,1)",
+            "config": {
+                "nodes": [
+                    "54275930-fccd-11ec-9eef-0050568e7db6"
+                ]
+            },
+            "deploymentdate": null,
+            "deploymentfile": null,
+            "description": {
+                "en": ""
+            },
+            "edges": [],
+            "functions_x_graphs": [],
+            "graphid": "b0ce44f0-496b-11ef-b689-19c85e1db281",
+            "iconclass": "fa fa-cube",
+            "is_editable": true,
+            "isresource": false,
+            "jsonldcontext": null,
+            "name": {
+                "en": "Material"
+            },
+            "nodegroups": [
+                {
+                    "cardinality": "1",
+                    "legacygroupid": null,
+                    "nodegroupid": "b0ce44f1-496b-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                }
+            ],
+            "nodes": [
+                {
+                    "alias": "material",
+                    "config": {
+                        "rdmCollection": "44ead824-c306-4d2d-a001-3472793e542a"
+                    },
+                    "datatype": "concept-list",
+                    "description": "Represents a single node in a graph",
+                    "exportable": true,
+                    "fieldname": "material",
+                    "graph_id": "b0ce44f0-496b-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": true,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": true,
+                    "name": "Material",
+                    "nodegroup_id": "b0ce44f1-496b-11ef-b689-19c85e1db281",
+                    "nodeid": "b0ce44f1-496b-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E57_Material",
+                    "parentproperty": "",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                }
+            ],
+            "ontology_id": "e6e8db47-2ccf-11e6-927e-b8f6b115d7dd",
+            "publication": {
+                "graph_id": "b0ce44f0-496b-11ef-b689-19c85e1db281",
+                "notes": null,
+                "publicationid": "1cfedc0d-8bae-11ef-b90d-1b51b0144d8c",
+                "published_time": "2024-10-16T06:02:20.864"
+            },
+            "relatable_resource_model_ids": [],
+            "resource_2_resource_constraints": [],
+            "root": {
+                "alias": "material",
+                "config": {
+                    "rdmCollection": "44ead824-c306-4d2d-a001-3472793e542a"
+                },
+                "datatype": "concept-list",
+                "description": "Represents a single node in a graph",
+                "exportable": true,
+                "fieldname": "material",
+                "graph_id": "b0ce44f0-496b-11ef-b689-19c85e1db281",
+                "hascustomalias": false,
+                "is_collector": true,
+                "isrequired": false,
+                "issearchable": true,
+                "istopnode": true,
+                "name": "Material",
+                "nodegroup_id": "b0ce44f1-496b-11ef-b689-19c85e1db281",
+                "nodeid": "b0ce44f1-496b-11ef-b689-19c85e1db281",
+                "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E57_Material",
+                "sortorder": 0,
+                "sourcebranchpublication_id": null
+            },
+            "slug": null,
+            "subtitle": {
+                "en": ""
+            },
+            "template_id": "50000000-0000-0000-0000-000000000003",
+            "version": ""
+        }
+    ],
+    "metadata": {
+        "db": "PostgreSQL 14.5 (Debian 14.5-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit",
+        "git hash": "fatal: detected dubious ownership in repository at '/home/mahs/mahs_project/arches'",
+        "os": "Linux",
+        "os version": "5.15.0-91-generic"
+    }
+}

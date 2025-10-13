@@ -1,0 +1,218 @@
+{
+    "graph": [
+        {
+            "author": "",
+            "cards": [
+                {
+                    "active": true,
+                    "cardid": "eab8923c-02d8-11ef-b689-19c85e1db281",
+                    "component_id": "f05e4d3a-53c1-11e8-b0ea-784f435179ea",
+                    "config": null,
+                    "constraints": [],
+                    "cssclass": null,
+                    "description": {
+                        "en": ""
+                    },
+                    "graph_id": "eab8923a-02d8-11ef-b689-19c85e1db281",
+                    "helpenabled": false,
+                    "helptext": {
+                        "en": null
+                    },
+                    "helptitle": {
+                        "en": null
+                    },
+                    "instructions": {
+                        "en": null
+                    },
+                    "is_editable": true,
+                    "name": {
+                        "en": "Embedded URL"
+                    },
+                    "nodegroup_id": "eab8923b-02d8-11ef-b689-19c85e1db281",
+                    "sortorder": 3,
+                    "visible": true
+                }
+            ],
+            "cards_x_nodes_x_widgets": [
+                {
+                    "card_id": "eab8923c-02d8-11ef-b689-19c85e1db281",
+                    "config": {
+                        "defaultValue": "",
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Embedded URL Type",
+                        "options": [],
+                        "placeholder": {
+                            "en": "Select an option"
+                        }
+                    },
+                    "id": "eab8923e-02d8-11ef-b689-19c85e1db281",
+                    "label": {
+                        "en": "Embedded URL Type"
+                    },
+                    "node_id": "eab8923d-02d8-11ef-b689-19c85e1db281",
+                    "sortorder": 0,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000002"
+                },
+                {
+                    "card_id": "eab8923c-02d8-11ef-b689-19c85e1db281",
+                    "config": {
+                        "defaultValue": {
+                            "en": {
+                                "direction": "ltr",
+                                "value": ""
+                            }
+                        },
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Embedded URL",
+                        "maxLength": null,
+                        "placeholder": {
+                            "en": "Enter text"
+                        },
+                        "sketchfab_placeholder": "Enter Sketchfab URL",
+                        "uneditable": false,
+                        "width": "100%"
+                    },
+                    "id": "eab8923f-02d8-11ef-b689-19c85e1db281",
+                    "label": {
+                        "en": "Embedded URL"
+                    },
+                    "node_id": "eab8923b-02d8-11ef-b689-19c85e1db281",
+                    "sortorder": 1,
+                    "visible": true,
+                    "widget_id": "b465b4cf-b7ca-40e3-87d2-24801547e7be"
+                }
+            ],
+            "color": "rgba(37,168,152,1)",
+            "config": {
+                "nodes": [
+                    "9f210d2d-e74a-11e6-84a6-026d961c88e6"
+                ]
+            },
+            "deploymentdate": null,
+            "deploymentfile": null,
+            "description": {
+                "en": ""
+            },
+            "edges": [
+                {
+                    "description": null,
+                    "domainnode_id": "eab8923b-02d8-11ef-b689-19c85e1db281",
+                    "edgeid": "eab89240-02d8-11ef-b689-19c85e1db281",
+                    "graph_id": "eab8923a-02d8-11ef-b689-19c85e1db281",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type",
+                    "rangenode_id": "eab8923d-02d8-11ef-b689-19c85e1db281"
+                }
+            ],
+            "functions_x_graphs": [],
+            "graphid": "eab8923a-02d8-11ef-b689-19c85e1db281",
+            "iconclass": "fa fa-file-text-o",
+            "is_editable": true,
+            "isresource": false,
+            "jsonldcontext": null,
+            "name": {
+                "en": "Embedded URL"
+            },
+            "nodegroups": [
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "eab8923b-02d8-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                }
+            ],
+            "nodes": [
+                {
+                    "alias": "embedded_url",
+                    "config": {},
+                    "datatype": "string",
+                    "description": "",
+                    "exportable": true,
+                    "fieldname": "embed_url",
+                    "graph_id": "eab8923a-02d8-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": true,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": true,
+                    "name": "Embedded URL",
+                    "nodegroup_id": "eab8923b-02d8-11ef-b689-19c85e1db281",
+                    "nodeid": "eab8923b-02d8-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object",
+                    "parentproperty": "",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "embedded_url_type",
+                    "config": {
+                        "rdmCollection": "8274b905-d052-4169-a5b6-93b019394a24"
+                    },
+                    "datatype": "concept",
+                    "description": null,
+                    "exportable": true,
+                    "fieldname": "emburltyp",
+                    "graph_id": "eab8923a-02d8-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Embedded URL Type",
+                    "nodegroup_id": "eab8923b-02d8-11ef-b689-19c85e1db281",
+                    "nodeid": "eab8923d-02d8-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E55_Type",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                }
+            ],
+            "ontology_id": "e6e8db47-2ccf-11e6-927e-b8f6b115d7dd",
+            "publication": {
+                "graph_id": "eab8923a-02d8-11ef-b689-19c85e1db281",
+                "notes": null,
+                "publicationid": "1cfedc0a-8bae-11ef-b90d-1b51b0144d8c",
+                "published_time": "2024-10-16T06:02:20.718"
+            },
+            "relatable_resource_model_ids": [],
+            "resource_2_resource_constraints": [],
+            "root": {
+                "alias": "embedded_url",
+                "config": {},
+                "datatype": "string",
+                "description": "",
+                "exportable": true,
+                "fieldname": "embed_url",
+                "graph_id": "eab8923a-02d8-11ef-b689-19c85e1db281",
+                "hascustomalias": false,
+                "is_collector": true,
+                "isrequired": false,
+                "issearchable": true,
+                "istopnode": true,
+                "name": "Embedded URL",
+                "nodegroup_id": "eab8923b-02d8-11ef-b689-19c85e1db281",
+                "nodeid": "eab8923b-02d8-11ef-b689-19c85e1db281",
+                "ontologyclass": "http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object",
+                "sortorder": 0,
+                "sourcebranchpublication_id": null
+            },
+            "slug": null,
+            "subtitle": {
+                "en": ""
+            },
+            "template_id": "50000000-0000-0000-0000-000000000001",
+            "version": ""
+        }
+    ],
+    "metadata": {
+        "db": "PostgreSQL 14.5 (Debian 14.5-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit",
+        "git hash": "fatal: detected dubious ownership in repository at '/home/mahs/mahs_project/arches'",
+        "os": "Linux",
+        "os version": "5.15.0-91-generic"
+    }
+}

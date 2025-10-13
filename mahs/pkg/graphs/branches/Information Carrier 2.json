@@ -1,0 +1,308 @@
+{
+    "graph": [
+        {
+            "author": "",
+            "cards": [
+                {
+                    "active": true,
+                    "cardid": "211430ec-49e3-11ef-b689-19c85e1db281",
+                    "component_id": "f05e4d3a-53c1-11e8-b0ea-784f435179ea",
+                    "config": null,
+                    "constraints": [],
+                    "cssclass": null,
+                    "description": {
+                        "en": ""
+                    },
+                    "graph_id": "211430ea-49e3-11ef-b689-19c85e1db281",
+                    "helpenabled": false,
+                    "helptext": {
+                        "en": null
+                    },
+                    "helptitle": {
+                        "en": null
+                    },
+                    "instructions": {
+                        "en": null
+                    },
+                    "is_editable": true,
+                    "name": {
+                        "en": "Information Carrier 2"
+                    },
+                    "nodegroup_id": "211430eb-49e3-11ef-b689-19c85e1db281",
+                    "sortorder": 15,
+                    "visible": true
+                }
+            ],
+            "cards_x_nodes_x_widgets": [
+                {
+                    "card_id": "211430ec-49e3-11ef-b689-19c85e1db281",
+                    "config": {
+                        "defaultValue": {
+                            "en": {
+                                "direction": "ltr",
+                                "value": ""
+                            }
+                        },
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Caption",
+                        "maxLength": null,
+                        "placeholder": {
+                            "en": "Enter text"
+                        },
+                        "uneditable": false,
+                        "width": "100%"
+                    },
+                    "id": "211430f0-49e3-11ef-b689-19c85e1db281",
+                    "label": {
+                        "en": "Caption"
+                    },
+                    "node_id": "211430ef-49e3-11ef-b689-19c85e1db281",
+                    "sortorder": 0,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000001"
+                },
+                {
+                    "card_id": "211430ec-49e3-11ef-b689-19c85e1db281",
+                    "config": {
+                        "defaultValue": "",
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Information Carrier Format Type",
+                        "options": [],
+                        "placeholder": {
+                            "en": "Select an option"
+                        }
+                    },
+                    "id": "211430f1-49e3-11ef-b689-19c85e1db281",
+                    "label": {
+                        "en": "Information Carrier Format Type"
+                    },
+                    "node_id": "211430ed-49e3-11ef-b689-19c85e1db281",
+                    "sortorder": 1,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000002"
+                },
+                {
+                    "card_id": "211430ec-49e3-11ef-b689-19c85e1db281",
+                    "config": {
+                        "acceptedFiles": "",
+                        "defaultValue": [],
+                        "label": "Information Carrier",
+                        "maxFilesize": "200",
+                        "rerender": true
+                    },
+                    "id": "211430f2-49e3-11ef-b689-19c85e1db281",
+                    "label": {
+                        "en": "Information Carrier"
+                    },
+                    "node_id": "211430ee-49e3-11ef-b689-19c85e1db281",
+                    "sortorder": 2,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000019"
+                }
+            ],
+            "color": "rgba(207,78,101,1)",
+            "config": {
+                "activeTabIndex": 0,
+                "nodes": [
+                    "5b144b25-fc19-11ec-9eef-0050568e7db6"
+                ],
+                "tabs": [
+                    {
+                        "icon": "fa fa-adjust",
+                        "name": "New Tab",
+                        "nodegroup_ids": []
+                    }
+                ]
+            },
+            "deploymentdate": null,
+            "deploymentfile": null,
+            "description": {
+                "en": ""
+            },
+            "edges": [
+                {
+                    "description": null,
+                    "domainnode_id": "211430eb-49e3-11ef-b689-19c85e1db281",
+                    "edgeid": "211430f3-49e3-11ef-b689-19c85e1db281",
+                    "graph_id": "211430ea-49e3-11ef-b689-19c85e1db281",
+                    "name": null,
+                    "ontologyproperty": "http://www.ics.forth.gr/isl/CRMdig/L54_is_same-as",
+                    "rangenode_id": "211430ee-49e3-11ef-b689-19c85e1db281"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "211430eb-49e3-11ef-b689-19c85e1db281",
+                    "edgeid": "211430f4-49e3-11ef-b689-19c85e1db281",
+                    "graph_id": "211430ea-49e3-11ef-b689-19c85e1db281",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P102_has_title",
+                    "rangenode_id": "211430ef-49e3-11ef-b689-19c85e1db281"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "211430eb-49e3-11ef-b689-19c85e1db281",
+                    "edgeid": "211430f5-49e3-11ef-b689-19c85e1db281",
+                    "graph_id": "211430ea-49e3-11ef-b689-19c85e1db281",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type",
+                    "rangenode_id": "211430ed-49e3-11ef-b689-19c85e1db281"
+                }
+            ],
+            "functions_x_graphs": [],
+            "graphid": "211430ea-49e3-11ef-b689-19c85e1db281",
+            "iconclass": "fa fa-th",
+            "is_editable": true,
+            "isresource": false,
+            "jsonldcontext": null,
+            "name": {
+                "en": "Information Carrier 2"
+            },
+            "nodegroups": [
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "211430eb-49e3-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                }
+            ],
+            "nodes": [
+                {
+                    "alias": "information_carrier_2",
+                    "config": {},
+                    "datatype": "semantic",
+                    "description": null,
+                    "exportable": false,
+                    "fieldname": null,
+                    "graph_id": "211430ea-49e3-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": true,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": true,
+                    "name": "Information Carrier 2",
+                    "nodegroup_id": "211430eb-49e3-11ef-b689-19c85e1db281",
+                    "nodeid": "211430eb-49e3-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E84_Information_Carrier",
+                    "parentproperty": "",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "information_carrier_format_type",
+                    "config": {
+                        "rdmCollection": "3b5a3cd9-c0ff-4053-88a2-9ce94aeec2cb"
+                    },
+                    "datatype": "concept",
+                    "description": null,
+                    "exportable": true,
+                    "fieldname": "infcarrtyp",
+                    "graph_id": "211430ea-49e3-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Information Carrier Format Type",
+                    "nodegroup_id": "211430eb-49e3-11ef-b689-19c85e1db281",
+                    "nodeid": "211430ed-49e3-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E55_Type",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "information_carrier",
+                    "config": {
+                        "activateMax": false,
+                        "imagesOnly": false,
+                        "maxFileSize": null,
+                        "maxFiles": 20
+                    },
+                    "datatype": "file-list",
+                    "description": null,
+                    "exportable": true,
+                    "fieldname": "infocarrie",
+                    "graph_id": "211430ea-49e3-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Information Carrier",
+                    "nodegroup_id": "211430eb-49e3-11ef-b689-19c85e1db281",
+                    "nodeid": "211430ee-49e3-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E84_Information_Carrier",
+                    "parentproperty": "http://www.ics.forth.gr/isl/CRMdig/L54_is_same-as",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "caption",
+                    "config": {},
+                    "datatype": "string",
+                    "description": null,
+                    "exportable": true,
+                    "fieldname": "carrier",
+                    "graph_id": "211430ea-49e3-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Caption",
+                    "nodegroup_id": "211430eb-49e3-11ef-b689-19c85e1db281",
+                    "nodeid": "211430ef-49e3-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E35_Title",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P102_has_title",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                }
+            ],
+            "ontology_id": "e6e8db47-2ccf-11e6-927e-b8f6b115d7dd",
+            "publication": {
+                "graph_id": "211430ea-49e3-11ef-b689-19c85e1db281",
+                "notes": null,
+                "publicationid": "1dbed60f-8bae-11ef-b90d-1b51b0144d8c",
+                "published_time": "2024-10-16T06:02:22.165"
+            },
+            "relatable_resource_model_ids": [],
+            "resource_2_resource_constraints": [],
+            "root": {
+                "alias": "information_carrier_2",
+                "config": {},
+                "datatype": "semantic",
+                "description": null,
+                "exportable": false,
+                "fieldname": null,
+                "graph_id": "211430ea-49e3-11ef-b689-19c85e1db281",
+                "hascustomalias": false,
+                "is_collector": true,
+                "isrequired": false,
+                "issearchable": true,
+                "istopnode": true,
+                "name": "Information Carrier 2",
+                "nodegroup_id": "211430eb-49e3-11ef-b689-19c85e1db281",
+                "nodeid": "211430eb-49e3-11ef-b689-19c85e1db281",
+                "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E84_Information_Carrier",
+                "sortorder": 0,
+                "sourcebranchpublication_id": null
+            },
+            "slug": null,
+            "subtitle": {
+                "en": ""
+            },
+            "template_id": "50000000-0000-0000-0000-000000000003",
+            "version": ""
+        }
+    ],
+    "metadata": {
+        "db": "PostgreSQL 14.5 (Debian 14.5-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit",
+        "git hash": "fatal: detected dubious ownership in repository at '/home/mahs/mahs_project/arches'",
+        "os": "Linux",
+        "os version": "5.15.0-91-generic"
+    }
+}

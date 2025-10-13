@@ -1,0 +1,217 @@
+{
+    "graph": [
+        {
+            "author": "",
+            "cards": [
+                {
+                    "active": true,
+                    "cardid": "3d046f9e-49af-11ef-b689-19c85e1db281",
+                    "component_id": "f05e4d3a-53c1-11e8-b0ea-784f435179ea",
+                    "config": null,
+                    "constraints": [],
+                    "cssclass": "",
+                    "description": {
+                        "en": ""
+                    },
+                    "graph_id": "3d046f9c-49af-11ef-b689-19c85e1db281",
+                    "helpenabled": false,
+                    "helptext": {
+                        "en": null
+                    },
+                    "helptitle": {
+                        "en": null
+                    },
+                    "instructions": {
+                        "en": "Enter the information resource's title and the type of that title. "
+                    },
+                    "is_editable": true,
+                    "name": {
+                        "en": "Title"
+                    },
+                    "nodegroup_id": "3d046f9d-49af-11ef-b689-19c85e1db281",
+                    "sortorder": 0,
+                    "visible": true
+                }
+            ],
+            "cards_x_nodes_x_widgets": [
+                {
+                    "card_id": "3d046f9e-49af-11ef-b689-19c85e1db281",
+                    "config": {
+                        "defaultValue": {
+                            "en": {
+                                "direction": "ltr",
+                                "value": ""
+                            }
+                        },
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Title",
+                        "maxLength": null,
+                        "placeholder": {
+                            "en": "Enter text"
+                        },
+                        "uneditable": false,
+                        "width": "100%"
+                    },
+                    "id": "3d046fa0-49af-11ef-b689-19c85e1db281",
+                    "label": {
+                        "en": "Title"
+                    },
+                    "node_id": "3d046f9d-49af-11ef-b689-19c85e1db281",
+                    "sortorder": null,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000001"
+                },
+                {
+                    "card_id": "3d046f9e-49af-11ef-b689-19c85e1db281",
+                    "config": {
+                        "defaultValue": "",
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Title Type",
+                        "options": [],
+                        "placeholder": {
+                            "en": "Select an option"
+                        }
+                    },
+                    "id": "3d046fa1-49af-11ef-b689-19c85e1db281",
+                    "label": {
+                        "en": "Title Type"
+                    },
+                    "node_id": "3d046f9f-49af-11ef-b689-19c85e1db281",
+                    "sortorder": null,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000002"
+                }
+            ],
+            "color": "rgba(37,168,152,1)",
+            "config": {
+                "nodes": [
+                    "9f210d2d-e74a-11e6-84a6-026d961c88e6"
+                ]
+            },
+            "deploymentdate": null,
+            "deploymentfile": null,
+            "description": {
+                "en": ""
+            },
+            "edges": [
+                {
+                    "description": null,
+                    "domainnode_id": "3d046f9d-49af-11ef-b689-19c85e1db281",
+                    "edgeid": "3d046fa2-49af-11ef-b689-19c85e1db281",
+                    "graph_id": "3d046f9c-49af-11ef-b689-19c85e1db281",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type",
+                    "rangenode_id": "3d046f9f-49af-11ef-b689-19c85e1db281"
+                }
+            ],
+            "functions_x_graphs": [],
+            "graphid": "3d046f9c-49af-11ef-b689-19c85e1db281",
+            "iconclass": "fa fa-file-text-o",
+            "is_editable": true,
+            "isresource": false,
+            "jsonldcontext": null,
+            "name": {
+                "en": "Title"
+            },
+            "nodegroups": [
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "3d046f9d-49af-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                }
+            ],
+            "nodes": [
+                {
+                    "alias": "title",
+                    "config": {},
+                    "datatype": "string",
+                    "description": "",
+                    "exportable": false,
+                    "fieldname": "",
+                    "graph_id": "3d046f9c-49af-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": true,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": true,
+                    "name": "Title",
+                    "nodegroup_id": "3d046f9d-49af-11ef-b689-19c85e1db281",
+                    "nodeid": "3d046f9d-49af-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E41_Appellation",
+                    "parentproperty": "",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "title_type",
+                    "config": {
+                        "rdmCollection": "a6998a7d-c618-4a49-8018-f8dcbc6b202d"
+                    },
+                    "datatype": "concept",
+                    "description": "Represents a single node in a graph",
+                    "exportable": false,
+                    "fieldname": "",
+                    "graph_id": "3d046f9c-49af-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Title Type",
+                    "nodegroup_id": "3d046f9d-49af-11ef-b689-19c85e1db281",
+                    "nodeid": "3d046f9f-49af-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E55_Type",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                }
+            ],
+            "ontology_id": "e6e8db47-2ccf-11e6-927e-b8f6b115d7dd",
+            "publication": {
+                "graph_id": "3d046f9c-49af-11ef-b689-19c85e1db281",
+                "notes": null,
+                "publicationid": "1dbed60a-8bae-11ef-b90d-1b51b0144d8c",
+                "published_time": "2024-10-16T06:02:21.520"
+            },
+            "relatable_resource_model_ids": [],
+            "resource_2_resource_constraints": [],
+            "root": {
+                "alias": "title",
+                "config": {},
+                "datatype": "string",
+                "description": "",
+                "exportable": false,
+                "fieldname": "",
+                "graph_id": "3d046f9c-49af-11ef-b689-19c85e1db281",
+                "hascustomalias": false,
+                "is_collector": true,
+                "isrequired": false,
+                "issearchable": true,
+                "istopnode": true,
+                "name": "Title",
+                "nodegroup_id": "3d046f9d-49af-11ef-b689-19c85e1db281",
+                "nodeid": "3d046f9d-49af-11ef-b689-19c85e1db281",
+                "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E41_Appellation",
+                "sortorder": 0,
+                "sourcebranchpublication_id": null
+            },
+            "slug": null,
+            "subtitle": {
+                "en": ""
+            },
+            "template_id": "50000000-0000-0000-0000-000000000003",
+            "version": ""
+        }
+    ],
+    "metadata": {
+        "db": "PostgreSQL 14.5 (Debian 14.5-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit",
+        "git hash": "fatal: detected dubious ownership in repository at '/home/mahs/mahs_project/arches'",
+        "os": "Linux",
+        "os version": "5.15.0-91-generic"
+    }
+}

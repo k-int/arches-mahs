@@ -1,0 +1,235 @@
+{
+    "graph": [
+        {
+            "author": "",
+            "cards": [
+                {
+                    "active": true,
+                    "cardid": "32ee160a-d91e-11ef-b90d-1b51b0144d8c",
+                    "component_id": "f05e4d3a-53c1-11e8-b0ea-784f435179ea",
+                    "config": null,
+                    "constraints": [],
+                    "cssclass": null,
+                    "description": {
+                        "en": ""
+                    },
+                    "graph_id": "32ee1608-d91e-11ef-b90d-1b51b0144d8c",
+                    "helpenabled": false,
+                    "helptext": {
+                        "en": ""
+                    },
+                    "helptitle": {
+                        "en": ""
+                    },
+                    "instructions": {
+                        "en": ""
+                    },
+                    "is_editable": true,
+                    "name": {
+                        "en": "Related Feature"
+                    },
+                    "nodegroup_id": "32ee1609-d91e-11ef-b90d-1b51b0144d8c",
+                    "sortorder": null,
+                    "visible": true
+                }
+            ],
+            "cards_x_nodes_x_widgets": [
+                {
+                    "card_id": "32ee160a-d91e-11ef-b90d-1b51b0144d8c",
+                    "config": {
+                        "defaultResourceInstance": [],
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Related Feature",
+                        "placeholder": {
+                            "en": ""
+                        }
+                    },
+                    "id": "32ee160b-d91e-11ef-b90d-1b51b0144d8c",
+                    "label": {
+                        "en": "Related Feature"
+                    },
+                    "node_id": "32ee1609-d91e-11ef-b90d-1b51b0144d8c",
+                    "sortorder": 0,
+                    "visible": true,
+                    "widget_id": "ff3c400a-76ec-11e7-a793-784f435179ea"
+                }
+            ],
+            "color": "rgba(23,163,29,0.82)",
+            "config": {
+                "activeTabIndex": 0,
+                "nodes": [
+                    "0340d0a1-0801-11ed-9eef-0050568e7db6"
+                ],
+                "tabs": [
+                    {
+                        "icon": "fa fa-map-marker",
+                        "name": "Overview",
+                        "nodegroup_ids": [
+                            "0340d055-0801-11ed-9eef-0050568e7db6",
+                            "227359a9-4a50-11ef-b689-19c85e1db281",
+                            "0340d085-0801-11ed-9eef-0050568e7db6",
+                            "0340d073-0801-11ed-9eef-0050568e7db6",
+                            "0340d05b-0801-11ed-9eef-0050568e7db6",
+                            "b1773277-4976-11ef-b689-19c85e1db281",
+                            "abc06e3f-634c-11ef-b689-19c85e1db281",
+                            "0340d07c-0801-11ed-9eef-0050568e7db6",
+                            "9ef9c073-4977-11ef-b689-19c85e1db281",
+                            "0340d079-0801-11ed-9eef-0050568e7db6",
+                            "e3d06dd9-4967-11ef-b689-19c85e1db281",
+                            "0340d07f-0801-11ed-9eef-0050568e7db6",
+                            "0340d09a-0801-11ed-9eef-0050568e7db6",
+                            "6156a21a-d736-11ef-b90d-1b51b0144d8c",
+                            "ea6fa4f2-d736-11ef-b90d-1b51b0144d8c"
+                        ]
+                    },
+                    {
+                        "icon": "fa fa-image",
+                        "name": "Images",
+                        "nodegroup_ids": [
+                            "0340d064-0801-11ed-9eef-0050568e7db6"
+                        ]
+                    },
+                    {
+                        "icon": "fa fa-reorder",
+                        "name": "Classification",
+                        "nodegroup_ids": [
+                            "0340d06a-0801-11ed-9eef-0050568e7db6",
+                            "0340d04f-0801-11ed-9eef-0050568e7db6"
+                        ]
+                    },
+                    {
+                        "icon": "fa fa-stethoscope",
+                        "name": "Condition",
+                        "nodegroup_ids": [
+                            "0388b7bf-4987-11ef-b689-19c85e1db281",
+                            "e05410ad-4979-11ef-b689-19c85e1db281"
+                        ]
+                    },
+                    {
+                        "icon": "fa fa-external-link",
+                        "name": "References",
+                        "nodegroup_ids": [
+                            "fff04f69-4968-11ef-b689-19c85e1db281",
+                            "8ac0c923-4975-11ef-b689-19c85e1db281"
+                        ]
+                    }
+                ]
+            },
+            "deploymentdate": null,
+            "deploymentfile": null,
+            "description": {
+                "en": ""
+            },
+            "edges": [],
+            "functions_x_graphs": [],
+            "graphid": "32ee1608-d91e-11ef-b90d-1b51b0144d8c",
+            "iconclass": "fa fa-diamond",
+            "is_editable": true,
+            "isresource": false,
+            "jsonldcontext": null,
+            "name": {
+                "en": "Related Feature"
+            },
+            "nodegroups": [
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "32ee1609-d91e-11ef-b90d-1b51b0144d8c",
+                    "parentnodegroup_id": null
+                }
+            ],
+            "nodes": [
+                {
+                    "alias": "related_feature",
+                    "config": {
+                        "graphs": [
+                            {
+                                "graphid": "8066c2dc-c40a-11ef-b90d-1b51b0144d8c",
+                                "inverseRelationshipConcept": "ac41d9be-79db-4256-b368-2f4559cfbe55",
+                                "name": "Feature",
+                                "relationshipCollection": "00000000-0000-0000-0000-000000000005",
+                                "relationshipConcept": "ac41d9be-79db-4256-b368-2f4559cfbe55",
+                                "useOntologyRelationship": false
+                            }
+                        ],
+                        "searchDsl": "",
+                        "searchString": ""
+                    },
+                    "datatype": "resource-instance-list",
+                    "description": null,
+                    "exportable": true,
+                    "fieldname": "feature",
+                    "graph_id": "32ee1608-d91e-11ef-b90d-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": true,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": true,
+                    "name": "Related Feature",
+                    "nodegroup_id": "32ee1609-d91e-11ef-b90d-1b51b0144d8c",
+                    "nodeid": "32ee1609-d91e-11ef-b90d-1b51b0144d8c",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E18_Physical_Thing",
+                    "parentproperty": "",
+                    "sortorder": 3,
+                    "sourcebranchpublication_id": null
+                }
+            ],
+            "ontology_id": "e6e8db47-2ccf-11e6-927e-b8f6b115d7dd",
+            "publication": {
+                "graph_id": "32ee1608-d91e-11ef-b90d-1b51b0144d8c",
+                "notes": null,
+                "publicationid": "c86e82dc-02fc-11f0-b90d-1b51b0144d8c",
+                "published_time": "2025-03-17T01:55:16.618"
+            },
+            "relatable_resource_model_ids": [],
+            "resource_2_resource_constraints": [],
+            "root": {
+                "alias": "related_feature",
+                "config": {
+                    "graphs": [
+                        {
+                            "graphid": "8066c2dc-c40a-11ef-b90d-1b51b0144d8c",
+                            "inverseRelationshipConcept": "ac41d9be-79db-4256-b368-2f4559cfbe55",
+                            "name": "Feature",
+                            "relationshipCollection": "00000000-0000-0000-0000-000000000005",
+                            "relationshipConcept": "ac41d9be-79db-4256-b368-2f4559cfbe55",
+                            "useOntologyRelationship": false
+                        }
+                    ],
+                    "searchDsl": "",
+                    "searchString": ""
+                },
+                "datatype": "resource-instance-list",
+                "description": null,
+                "exportable": true,
+                "fieldname": "feature",
+                "graph_id": "32ee1608-d91e-11ef-b90d-1b51b0144d8c",
+                "hascustomalias": false,
+                "is_collector": true,
+                "isrequired": false,
+                "issearchable": true,
+                "istopnode": true,
+                "name": "Related Feature",
+                "nodegroup_id": "32ee1609-d91e-11ef-b90d-1b51b0144d8c",
+                "nodeid": "32ee1609-d91e-11ef-b90d-1b51b0144d8c",
+                "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E18_Physical_Thing",
+                "sortorder": 3,
+                "sourcebranchpublication_id": null
+            },
+            "slug": null,
+            "subtitle": {
+                "en": ""
+            },
+            "template_id": "50000000-0000-0000-0000-000000000004",
+            "version": ""
+        }
+    ],
+    "metadata": {
+        "db": "PostgreSQL 14.5 (Debian 14.5-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit",
+        "git hash": "fatal: detected dubious ownership in repository at '/home/mahs/mahs_project/arches'",
+        "os": "Linux",
+        "os version": "5.15.0-91-generic"
+    }
+}

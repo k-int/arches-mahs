@@ -1,0 +1,829 @@
+{
+    "graph": [
+        {
+            "author": "",
+            "cards": [
+                {
+                    "active": true,
+                    "cardid": "a0abfc22-03e2-11f0-b90e-1b51b0144d8c",
+                    "component_id": "f05e4d3a-53c1-11e8-b0ea-784f435179ea",
+                    "config": null,
+                    "constraints": [],
+                    "cssclass": null,
+                    "description": {
+                        "en": ""
+                    },
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "helpenabled": false,
+                    "helptext": {
+                        "en": ""
+                    },
+                    "helptitle": {
+                        "en": ""
+                    },
+                    "instructions": {
+                        "en": ""
+                    },
+                    "is_editable": true,
+                    "name": {
+                        "en": "Digital Asset Publication Event"
+                    },
+                    "nodegroup_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "sortorder": 8,
+                    "visible": true
+                }
+            ],
+            "cards_x_nodes_x_widgets": [
+                {
+                    "card_id": "a0abfc22-03e2-11f0-b90e-1b51b0144d8c",
+                    "config": {
+                        "defaultValue": "",
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Published Digital Asset URL (non-localized)",
+                        "maxLength": null,
+                        "placeholder": {
+                            "en": "Enter text"
+                        },
+                        "uneditable": false,
+                        "width": "100%%"
+                    },
+                    "id": "a0abfc2e-03e2-11f0-b90e-1b51b0144d8c",
+                    "label": {
+                        "en": "Published Digital Asset URL (non-localized)"
+                    },
+                    "node_id": "a0abfc2b-03e2-11f0-b90e-1b51b0144d8c",
+                    "sortorder": 7,
+                    "visible": true,
+                    "widget_id": "b465b4cf-b7ca-40e3-87d2-24801547e7be"
+                },
+                {
+                    "card_id": "a0abfc22-03e2-11f0-b90e-1b51b0144d8c",
+                    "config": {
+                        "defaultValue": {
+                            "en": {
+                                "direction": "ltr",
+                                "value": ""
+                            }
+                        },
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Publication Note - Other Platform",
+                        "maxLength": null,
+                        "placeholder": {
+                            "en": "Enter text"
+                        },
+                        "uneditable": false,
+                        "width": "100%"
+                    },
+                    "id": "a0abfc2f-03e2-11f0-b90e-1b51b0144d8c",
+                    "label": {
+                        "en": "Publication Note - Other Platform"
+                    },
+                    "node_id": "a0abfc23-03e2-11f0-b90e-1b51b0144d8c",
+                    "sortorder": 4,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000001"
+                },
+                {
+                    "card_id": "a0abfc22-03e2-11f0-b90e-1b51b0144d8c",
+                    "config": {
+                        "defaultValue": "",
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Date of Publication",
+                        "placeholder": {
+                            "en": ""
+                        }
+                    },
+                    "id": "a0abfc30-03e2-11f0-b90e-1b51b0144d8c",
+                    "label": {
+                        "en": "Date of Publication"
+                    },
+                    "node_id": "a0abfc25-03e2-11f0-b90e-1b51b0144d8c",
+                    "sortorder": 0,
+                    "visible": true,
+                    "widget_id": "adfd15ce-dbab-11e7-86d1-0fcf08612b27"
+                },
+                {
+                    "card_id": "a0abfc22-03e2-11f0-b90e-1b51b0144d8c",
+                    "config": {
+                        "defaultValue": "",
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Embedded YouTube URL (non-localized)",
+                        "maxLength": null,
+                        "placeholder": {
+                            "en": "Enter text"
+                        },
+                        "uneditable": false,
+                        "width": "100%%"
+                    },
+                    "id": "a0abfc31-03e2-11f0-b90e-1b51b0144d8c",
+                    "label": {
+                        "en": "Embedded YouTube URL (non-localized)"
+                    },
+                    "node_id": "a0abfc2c-03e2-11f0-b90e-1b51b0144d8c",
+                    "sortorder": 5,
+                    "visible": true,
+                    "widget_id": "c58e6015-db3d-4f04-8d67-55696eb662f9"
+                },
+                {
+                    "card_id": "a0abfc22-03e2-11f0-b90e-1b51b0144d8c",
+                    "config": {
+                        "defaultValue": {
+                            "en": {
+                                "direction": "ltr",
+                                "value": ""
+                            }
+                        },
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Embedded Skatchfab URL",
+                        "maxLength": null,
+                        "placeholder": {
+                            "en": "Enter text"
+                        },
+                        "sketchfab_placeholder": "Enter Sketchfab URL",
+                        "uneditable": false,
+                        "width": "100%"
+                    },
+                    "id": "a0abfc32-03e2-11f0-b90e-1b51b0144d8c",
+                    "label": {
+                        "en": "Embedded Skatchfab URL"
+                    },
+                    "node_id": "a0abfc26-03e2-11f0-b90e-1b51b0144d8c",
+                    "sortorder": 1,
+                    "visible": false,
+                    "widget_id": "10000000-0000-0000-0000-000000000005"
+                },
+                {
+                    "card_id": "a0abfc22-03e2-11f0-b90e-1b51b0144d8c",
+                    "config": {
+                        "defaultValue": {
+                            "en": {
+                                "direction": "ltr",
+                                "value": ""
+                            }
+                        },
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Published Digital Asset URL",
+                        "maxLength": null,
+                        "placeholder": {
+                            "en": "Enter text"
+                        },
+                        "sketchfab_placeholder": "Enter Sketchfab URL",
+                        "uneditable": false,
+                        "width": "100%"
+                    },
+                    "id": "a0abfc33-03e2-11f0-b90e-1b51b0144d8c",
+                    "label": {
+                        "en": "Published Digital Asset URL"
+                    },
+                    "node_id": "a0abfc24-03e2-11f0-b90e-1b51b0144d8c",
+                    "sortorder": 3,
+                    "visible": false,
+                    "widget_id": "10000000-0000-0000-0000-000000000005"
+                },
+                {
+                    "card_id": "a0abfc22-03e2-11f0-b90e-1b51b0144d8c",
+                    "config": {
+                        "defaultValue": {
+                            "en": {
+                                "direction": "ltr",
+                                "value": ""
+                            }
+                        },
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Embedded Youtube URL",
+                        "maxLength": null,
+                        "placeholder": {
+                            "en": "Enter text"
+                        },
+                        "uneditable": false,
+                        "width": "100%",
+                        "youtube_placeholder": "Enter YouTube URL"
+                    },
+                    "id": "a0abfc34-03e2-11f0-b90e-1b51b0144d8c",
+                    "label": {
+                        "en": "Embedded Youtube URL"
+                    },
+                    "node_id": "a0abfc2d-03e2-11f0-b90e-1b51b0144d8c",
+                    "sortorder": 2,
+                    "visible": false,
+                    "widget_id": "10000000-0000-0000-0000-000000000005"
+                },
+                {
+                    "card_id": "a0abfc22-03e2-11f0-b90e-1b51b0144d8c",
+                    "config": {
+                        "defaultValue": "",
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Embedded Sketchfab URL (non-localized)",
+                        "maxLength": null,
+                        "placeholder": {
+                            "en": "Enter text"
+                        },
+                        "uneditable": false,
+                        "width": "100%%"
+                    },
+                    "id": "a0abfc35-03e2-11f0-b90e-1b51b0144d8c",
+                    "label": {
+                        "en": "Embedded Sketchfab URL (non-localized)"
+                    },
+                    "node_id": "a0abfc28-03e2-11f0-b90e-1b51b0144d8c",
+                    "sortorder": 6,
+                    "visible": true,
+                    "widget_id": "b465b4cf-b7ca-40e3-87d2-24801547e7be"
+                }
+            ],
+            "color": "rgba(37,168,152,1)",
+            "config": {
+                "activeTabIndex": 2,
+                "tabs": [
+                    {
+                        "icon": "fa fa-map-marker",
+                        "name": "Overview",
+                        "nodegroup_ids": [
+                            "f3e6077b-02ce-11ef-b689-19c85e1db281",
+                            "298904ff-02cf-11ef-b689-19c85e1db281",
+                            "9a3b06d1-02d8-11ef-b689-19c85e1db281",
+                            "ad0bd19f-02d9-11ef-b689-19c85e1db281",
+                            "659d788b-02e3-11ef-b689-19c85e1db281",
+                            "abe85f45-49ec-11ef-b689-19c85e1db281",
+                            "0b365357-02ef-11ef-b689-19c85e1db281"
+                        ]
+                    },
+                    {
+                        "icon": "fa fa-video-camera",
+                        "name": "Imagery",
+                        "nodegroup_ids": [
+                            "aa9bf5f0-49f7-11ef-b689-19c85e1db281",
+                            "57bb7846-02e0-11ef-b689-19c85e1db281"
+                        ]
+                    },
+                    {
+                        "icon": "fa fa-paperclip",
+                        "name": "References",
+                        "nodegroup_ids": [
+                            "e86266db-02fc-11f0-b90d-1b51b0144d8c",
+                            "f0460c63-02fc-11f0-b90d-1b51b0144d8c",
+                            "f4dd1109-02fc-11f0-b90d-1b51b0144d8c",
+                            "fb44063d-02fc-11f0-b90d-1b51b0144d8c",
+                            "abe85f45-49ec-11ef-b689-19c85e1db281",
+                            "0b6d04e2-4a24-11ef-b689-19c85e1db281"
+                        ]
+                    }
+                ]
+            },
+            "deploymentdate": null,
+            "deploymentfile": null,
+            "description": {
+                "en": ""
+            },
+            "edges": [
+                {
+                    "description": null,
+                    "domainnode_id": "a0abfc27-03e2-11f0-b90e-1b51b0144d8c",
+                    "edgeid": "a0abfc36-03e2-11f0-b90e-1b51b0144d8c",
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by",
+                    "rangenode_id": "a0abfc28-03e2-11f0-b90e-1b51b0144d8c"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "edgeid": "a0abfc37-03e2-11f0-b90e-1b51b0144d8c",
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P108_has_produced",
+                    "rangenode_id": "a0abfc2a-03e2-11f0-b90e-1b51b0144d8c"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "a0abfc29-03e2-11f0-b90e-1b51b0144d8c",
+                    "edgeid": "a0abfc38-03e2-11f0-b90e-1b51b0144d8c",
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by",
+                    "rangenode_id": "a0abfc2c-03e2-11f0-b90e-1b51b0144d8c"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "a0abfc29-03e2-11f0-b90e-1b51b0144d8c",
+                    "edgeid": "a0abfc39-03e2-11f0-b90e-1b51b0144d8c",
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by",
+                    "rangenode_id": "a0abfc2d-03e2-11f0-b90e-1b51b0144d8c"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "a0abfc2a-03e2-11f0-b90e-1b51b0144d8c",
+                    "edgeid": "a0abfc3a-03e2-11f0-b90e-1b51b0144d8c",
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P3_has_note",
+                    "rangenode_id": "a0abfc23-03e2-11f0-b90e-1b51b0144d8c"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "a0abfc2a-03e2-11f0-b90e-1b51b0144d8c",
+                    "edgeid": "a0abfc3b-03e2-11f0-b90e-1b51b0144d8c",
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by",
+                    "rangenode_id": "a0abfc2b-03e2-11f0-b90e-1b51b0144d8c"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "edgeid": "a0abfc3c-03e2-11f0-b90e-1b51b0144d8c",
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span",
+                    "rangenode_id": "a0abfc25-03e2-11f0-b90e-1b51b0144d8c"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "edgeid": "a0abfc3d-03e2-11f0-b90e-1b51b0144d8c",
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P108_has_produced",
+                    "rangenode_id": "a0abfc29-03e2-11f0-b90e-1b51b0144d8c"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "a0abfc2a-03e2-11f0-b90e-1b51b0144d8c",
+                    "edgeid": "a0abfc3e-03e2-11f0-b90e-1b51b0144d8c",
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by",
+                    "rangenode_id": "a0abfc24-03e2-11f0-b90e-1b51b0144d8c"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "a0abfc27-03e2-11f0-b90e-1b51b0144d8c",
+                    "edgeid": "a0abfc3f-03e2-11f0-b90e-1b51b0144d8c",
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by",
+                    "rangenode_id": "a0abfc26-03e2-11f0-b90e-1b51b0144d8c"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "edgeid": "a0abfc40-03e2-11f0-b90e-1b51b0144d8c",
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P108_has_produced",
+                    "rangenode_id": "a0abfc27-03e2-11f0-b90e-1b51b0144d8c"
+                }
+            ],
+            "functions_x_graphs": [],
+            "graphid": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+            "iconclass": "fa fa-file-movie-o",
+            "is_editable": true,
+            "isresource": false,
+            "jsonldcontext": null,
+            "name": {
+                "en": "Digital Asset Publication Event"
+            },
+            "nodegroups": [
+                {
+                    "cardinality": "1",
+                    "legacygroupid": null,
+                    "nodegroupid": "0b365357-02ef-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "1",
+                    "legacygroupid": null,
+                    "nodegroupid": "0b6d04e2-4a24-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "1",
+                    "legacygroupid": null,
+                    "nodegroupid": "216fe651-0312-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "298904ff-02cf-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "1",
+                    "legacygroupid": null,
+                    "nodegroupid": "548b9382-49f2-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "57bb7846-02e0-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "659d788b-02e3-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "9a3b06d1-02d8-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "aa9bf5f0-49f7-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "abe85f45-49ec-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "ad0bd19f-02d9-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "1",
+                    "legacygroupid": null,
+                    "nodegroupid": "bc064427-49e4-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": "0b365357-02ef-11ef-b689-19c85e1db281"
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "cc9dab47-46b7-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "e86266db-02fc-11f0-b90d-1b51b0144d8c",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "f0460c63-02fc-11f0-b90d-1b51b0144d8c",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "1",
+                    "legacygroupid": null,
+                    "nodegroupid": "f3e6077b-02ce-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "f4dd1109-02fc-11f0-b90d-1b51b0144d8c",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "fb44063d-02fc-11f0-b90d-1b51b0144d8c",
+                    "parentnodegroup_id": null
+                }
+            ],
+            "nodes": [
+                {
+                    "alias": "digital_asset_publication_event",
+                    "config": {
+                        "en": ""
+                    },
+                    "datatype": "semantic",
+                    "description": null,
+                    "exportable": false,
+                    "fieldname": null,
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": true,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": true,
+                    "name": "Digital Asset Publication Event",
+                    "nodegroup_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E12_Production",
+                    "parentproperty": "",
+                    "sortorder": 9,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "publication_note_other_platform",
+                    "config": {},
+                    "datatype": "string",
+                    "description": null,
+                    "exportable": true,
+                    "fieldname": "publ_note",
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Publication Note - Other Platform",
+                    "nodegroup_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "a0abfc23-03e2-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E62_String",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P3_has_note",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "published_digital_asset_url",
+                    "config": {},
+                    "datatype": "string",
+                    "description": null,
+                    "exportable": true,
+                    "fieldname": "publishat",
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Published Digital Asset URL",
+                    "nodegroup_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "a0abfc24-03e2-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E42_Identifier",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "date_of_publication",
+                    "config": {
+                        "fuzzy_day_padding": 1,
+                        "fuzzy_month_padding": 1,
+                        "fuzzy_season_padding": 12,
+                        "fuzzy_year_padding": 1,
+                        "multiplier_if_approximate": 1,
+                        "multiplier_if_both": 1,
+                        "multiplier_if_uncertain": 1
+                    },
+                    "datatype": "edtf",
+                    "description": null,
+                    "exportable": false,
+                    "fieldname": null,
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Date of Publication",
+                    "nodegroup_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "a0abfc25-03e2-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "embedded_skatchfab_url",
+                    "config": {},
+                    "datatype": "string",
+                    "description": null,
+                    "exportable": true,
+                    "fieldname": "sf_url",
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Embedded Skatchfab URL",
+                    "nodegroup_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "a0abfc26-03e2-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E42_Identifier",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "published_digital_asset_sketchfab",
+                    "config": {},
+                    "datatype": "semantic",
+                    "description": null,
+                    "exportable": false,
+                    "fieldname": null,
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Published Digital Asset - Sketchfab",
+                    "nodegroup_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "a0abfc27-03e2-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.ics.forth.gr/isl/CRMdig/D13_Digital_Information_Carrier",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P108_has_produced",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "embedded_sketchfab_url_non_localized",
+                    "config": {
+                        "en": ""
+                    },
+                    "datatype": "non-localized-string",
+                    "description": null,
+                    "exportable": false,
+                    "fieldname": null,
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Embedded Sketchfab URL - non-localized",
+                    "nodegroup_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "a0abfc28-03e2-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E42_Identifier",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "published_digital_asset_youtube",
+                    "config": {},
+                    "datatype": "semantic",
+                    "description": null,
+                    "exportable": false,
+                    "fieldname": null,
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Published Digital Asset - Youtube",
+                    "nodegroup_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "a0abfc29-03e2-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.ics.forth.gr/isl/CRMdig/D13_Digital_Information_Carrier",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P108_has_produced",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "published_digital_asset_other_platform",
+                    "config": {},
+                    "datatype": "semantic",
+                    "description": null,
+                    "exportable": false,
+                    "fieldname": null,
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Published Digital Asset - Other Platform",
+                    "nodegroup_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "a0abfc2a-03e2-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.ics.forth.gr/isl/CRMdig/D13_Digital_Information_Carrier",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P108_has_produced",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "published_digital_asset_url_non_localized",
+                    "config": {
+                        "en": ""
+                    },
+                    "datatype": "non-localized-string",
+                    "description": null,
+                    "exportable": false,
+                    "fieldname": null,
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Published Digital Asset URL - non-localized",
+                    "nodegroup_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "a0abfc2b-03e2-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E42_Identifier",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "embedded_youtube_url_non_localized",
+                    "config": {
+                        "en": ""
+                    },
+                    "datatype": "non-localized-string",
+                    "description": null,
+                    "exportable": false,
+                    "fieldname": null,
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Embedded YouTube URL - non-localized",
+                    "nodegroup_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "a0abfc2c-03e2-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E42_Identifier",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "embedded_youtube_url",
+                    "config": {},
+                    "datatype": "string",
+                    "description": null,
+                    "exportable": true,
+                    "fieldname": "yt_url",
+                    "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Embedded Youtube URL",
+                    "nodegroup_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "a0abfc2d-03e2-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E42_Identifier",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                }
+            ],
+            "ontology_id": "e6e8db47-2ccf-11e6-927e-b8f6b115d7dd",
+            "publication": {
+                "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                "notes": null,
+                "publicationid": "a0abfc41-03e2-11f0-b90e-1b51b0144d8c",
+                "published_time": "2025-03-18T05:20:34.275"
+            },
+            "relatable_resource_model_ids": [],
+            "resource_2_resource_constraints": [],
+            "root": {
+                "alias": "digital_asset_publication_event",
+                "config": {
+                    "en": ""
+                },
+                "datatype": "semantic",
+                "description": null,
+                "exportable": false,
+                "fieldname": null,
+                "graph_id": "a0abfc20-03e2-11f0-b90e-1b51b0144d8c",
+                "hascustomalias": false,
+                "is_collector": true,
+                "isrequired": false,
+                "issearchable": true,
+                "istopnode": true,
+                "name": "Digital Asset Publication Event",
+                "nodegroup_id": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                "nodeid": "a0abfc21-03e2-11f0-b90e-1b51b0144d8c",
+                "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E12_Production",
+                "sortorder": 9,
+                "sourcebranchpublication_id": null
+            },
+            "slug": null,
+            "subtitle": {
+                "en": ""
+            },
+            "template_id": "50000000-0000-0000-0000-000000000004",
+            "version": ""
+        }
+    ],
+    "metadata": {
+        "db": "PostgreSQL 14.5 (Debian 14.5-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit",
+        "git hash": "fatal: detected dubious ownership in repository at '/home/mahs/mahs_project/arches'",
+        "os": "Linux",
+        "os version": "5.15.0-91-generic"
+    }
+}

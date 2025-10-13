@@ -1,0 +1,372 @@
+{
+    "graph": [
+        {
+            "author": "",
+            "cards": [
+                {
+                    "active": true,
+                    "cardid": "59e45ae2-44ee-11ef-9ef1-0050568e7db6",
+                    "component_id": "f05e4d3a-53c1-11e8-b0ea-784f435179ea",
+                    "config": null,
+                    "constraints": [],
+                    "cssclass": "",
+                    "description": {
+                        "en": ""
+                    },
+                    "graph_id": "59e45adf-44ee-11ef-9ef1-0050568e7db6",
+                    "helpenabled": false,
+                    "helptext": {
+                        "en": null
+                    },
+                    "helptitle": {
+                        "en": null
+                    },
+                    "instructions": {
+                        "en": "Define one Actor Type, n cultural periods, and (optionally) one from/to date range. Additional Actor Types or date ranges requires additional entries"
+                    },
+                    "is_editable": true,
+                    "name": {
+                        "en": "Actor Type Phase Assignment"
+                    },
+                    "nodegroup_id": "59e45ae0-44ee-11ef-9ef1-0050568e7db6",
+                    "sortorder": 1,
+                    "visible": true
+                }
+            ],
+            "cards_x_nodes_x_widgets": [
+                {
+                    "card_id": "59e45ae2-44ee-11ef-9ef1-0050568e7db6",
+                    "config": {
+                        "dateFormat": "YYYY-MM-DD",
+                        "defaultValue": "",
+                        "label": "Actor Type From Date",
+                        "maxDate": false,
+                        "minDate": false,
+                        "placeholder": "Enter date",
+                        "viewMode": "days"
+                    },
+                    "id": "59e45ae8-44ee-11ef-9ef1-0050568e7db6",
+                    "label": {
+                        "en": "Actor Type From Date"
+                    },
+                    "node_id": "59e45ae7-44ee-11ef-9ef1-0050568e7db6",
+                    "sortorder": 1,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000004"
+                },
+                {
+                    "card_id": "59e45ae2-44ee-11ef-9ef1-0050568e7db6",
+                    "config": {
+                        "defaultValue": "",
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Cultural Period",
+                        "options": [],
+                        "placeholder": {
+                            "en": "Select an option"
+                        }
+                    },
+                    "id": "59e45ae9-44ee-11ef-9ef1-0050568e7db6",
+                    "label": {
+                        "en": "Cultural Period"
+                    },
+                    "node_id": "59e45ae4-44ee-11ef-9ef1-0050568e7db6",
+                    "sortorder": 3,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000002"
+                },
+                {
+                    "card_id": "59e45ae2-44ee-11ef-9ef1-0050568e7db6",
+                    "config": {
+                        "dateFormat": "YYYY-MM-DD",
+                        "defaultValue": "",
+                        "label": "Actor Type To Date",
+                        "maxDate": false,
+                        "minDate": false,
+                        "placeholder": "Enter date",
+                        "viewMode": "days"
+                    },
+                    "id": "59e45aea-44ee-11ef-9ef1-0050568e7db6",
+                    "label": {
+                        "en": "Actor Type To Date"
+                    },
+                    "node_id": "59e45ae5-44ee-11ef-9ef1-0050568e7db6",
+                    "sortorder": 2,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000004"
+                },
+                {
+                    "card_id": "59e45ae2-44ee-11ef-9ef1-0050568e7db6",
+                    "config": {
+                        "defaultValue": "",
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Actor Type",
+                        "options": [],
+                        "placeholder": {
+                            "en": "Select an option"
+                        }
+                    },
+                    "id": "59e45aeb-44ee-11ef-9ef1-0050568e7db6",
+                    "label": {
+                        "en": "Actor Type"
+                    },
+                    "node_id": "59e45ae6-44ee-11ef-9ef1-0050568e7db6",
+                    "sortorder": 0,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000002"
+                }
+            ],
+            "color": "rgba(57,168,88,1)",
+            "config": {},
+            "deploymentdate": null,
+            "deploymentfile": null,
+            "description": {
+                "en": ""
+            },
+            "edges": [
+                {
+                    "description": null,
+                    "domainnode_id": "59e45ae3-44ee-11ef-9ef1-0050568e7db6",
+                    "edgeid": "59e45aec-44ee-11ef-9ef1-0050568e7db6",
+                    "graph_id": "59e45adf-44ee-11ef-9ef1-0050568e7db6",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P78_is_identified_by",
+                    "rangenode_id": "59e45ae5-44ee-11ef-9ef1-0050568e7db6"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "59e45ae3-44ee-11ef-9ef1-0050568e7db6",
+                    "edgeid": "59e45aed-44ee-11ef-9ef1-0050568e7db6",
+                    "graph_id": "59e45adf-44ee-11ef-9ef1-0050568e7db6",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P78_is_identified_by",
+                    "rangenode_id": "59e45ae7-44ee-11ef-9ef1-0050568e7db6"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "59e45ae0-44ee-11ef-9ef1-0050568e7db6",
+                    "edgeid": "59e45aee-44ee-11ef-9ef1-0050568e7db6",
+                    "graph_id": "59e45adf-44ee-11ef-9ef1-0050568e7db6",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P42_assigned",
+                    "rangenode_id": "59e45ae4-44ee-11ef-9ef1-0050568e7db6"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "59e45ae0-44ee-11ef-9ef1-0050568e7db6",
+                    "edgeid": "59e45aef-44ee-11ef-9ef1-0050568e7db6",
+                    "graph_id": "59e45adf-44ee-11ef-9ef1-0050568e7db6",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span",
+                    "rangenode_id": "59e45ae3-44ee-11ef-9ef1-0050568e7db6"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "59e45ae0-44ee-11ef-9ef1-0050568e7db6",
+                    "edgeid": "59e45af0-44ee-11ef-9ef1-0050568e7db6",
+                    "graph_id": "59e45adf-44ee-11ef-9ef1-0050568e7db6",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P42_assigned",
+                    "rangenode_id": "59e45ae6-44ee-11ef-9ef1-0050568e7db6"
+                }
+            ],
+            "functions_x_graphs": [],
+            "graphid": "59e45adf-44ee-11ef-9ef1-0050568e7db6",
+            "iconclass": "fa fa-users",
+            "is_editable": true,
+            "isresource": false,
+            "jsonldcontext": null,
+            "name": {
+                "en": "Actor Type Phase Assignment"
+            },
+            "nodegroups": [
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "59e45ae0-44ee-11ef-9ef1-0050568e7db6",
+                    "parentnodegroup_id": null
+                }
+            ],
+            "nodes": [
+                {
+                    "alias": "actor_type_phase_assignment",
+                    "config": {},
+                    "datatype": "semantic",
+                    "description": "",
+                    "exportable": false,
+                    "fieldname": "",
+                    "graph_id": "59e45adf-44ee-11ef-9ef1-0050568e7db6",
+                    "hascustomalias": false,
+                    "is_collector": true,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": true,
+                    "name": "Actor Type Phase Assignment",
+                    "nodegroup_id": "59e45ae0-44ee-11ef-9ef1-0050568e7db6",
+                    "nodeid": "59e45ae0-44ee-11ef-9ef1-0050568e7db6",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E17_Type_Assignment",
+                    "parentproperty": "",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "actor_type_time_span",
+                    "config": {},
+                    "datatype": "semantic",
+                    "description": "Represents a single node in a graph",
+                    "exportable": false,
+                    "fieldname": "",
+                    "graph_id": "59e45adf-44ee-11ef-9ef1-0050568e7db6",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Actor Type Time Span",
+                    "nodegroup_id": "59e45ae0-44ee-11ef-9ef1-0050568e7db6",
+                    "nodeid": "59e45ae3-44ee-11ef-9ef1-0050568e7db6",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "cultural_period",
+                    "config": {
+                        "rdmCollection": "1b7660de-1f07-4263-81cf-c00ca35b5034"
+                    },
+                    "datatype": "concept",
+                    "description": "Represents a single node in a graph",
+                    "exportable": false,
+                    "fieldname": "",
+                    "graph_id": "59e45adf-44ee-11ef-9ef1-0050568e7db6",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Cultural Period",
+                    "nodegroup_id": "59e45ae0-44ee-11ef-9ef1-0050568e7db6",
+                    "nodeid": "59e45ae4-44ee-11ef-9ef1-0050568e7db6",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E55_Type",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P42_assigned",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "actor_type_to_date",
+                    "config": {
+                        "dateFormat": "YYYY-MM-DD"
+                    },
+                    "datatype": "date",
+                    "description": "Represents a single node in a graph",
+                    "exportable": false,
+                    "fieldname": "",
+                    "graph_id": "59e45adf-44ee-11ef-9ef1-0050568e7db6",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Actor Type To Date",
+                    "nodegroup_id": "59e45ae0-44ee-11ef-9ef1-0050568e7db6",
+                    "nodeid": "59e45ae5-44ee-11ef-9ef1-0050568e7db6",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E49_Time_Appellation",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P78_is_identified_by",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "actor_type",
+                    "config": {
+                        "rdmCollection": null
+                    },
+                    "datatype": "concept",
+                    "description": "Represents a single node in a graph",
+                    "exportable": false,
+                    "fieldname": "",
+                    "graph_id": "59e45adf-44ee-11ef-9ef1-0050568e7db6",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Actor Type",
+                    "nodegroup_id": "59e45ae0-44ee-11ef-9ef1-0050568e7db6",
+                    "nodeid": "59e45ae6-44ee-11ef-9ef1-0050568e7db6",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E55_Type",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P42_assigned",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "actor_type_from_date",
+                    "config": {
+                        "dateFormat": "YYYY-MM-DD"
+                    },
+                    "datatype": "date",
+                    "description": "Represents a single node in a graph",
+                    "exportable": false,
+                    "fieldname": "",
+                    "graph_id": "59e45adf-44ee-11ef-9ef1-0050568e7db6",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Actor Type From Date",
+                    "nodegroup_id": "59e45ae0-44ee-11ef-9ef1-0050568e7db6",
+                    "nodeid": "59e45ae7-44ee-11ef-9ef1-0050568e7db6",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E49_Time_Appellation",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P78_is_identified_by",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                }
+            ],
+            "ontology_id": "e6e8db47-2ccf-11e6-927e-b8f6b115d7dd",
+            "publication": {
+                "graph_id": "59e45adf-44ee-11ef-9ef1-0050568e7db6",
+                "notes": null,
+                "publicationid": "1cfedc03-8bae-11ef-b90d-1b51b0144d8c",
+                "published_time": "2024-10-16T06:02:20.277"
+            },
+            "relatable_resource_model_ids": [],
+            "resource_2_resource_constraints": [],
+            "root": {
+                "alias": "actor_type_phase_assignment",
+                "config": {},
+                "datatype": "semantic",
+                "description": "",
+                "exportable": false,
+                "fieldname": "",
+                "graph_id": "59e45adf-44ee-11ef-9ef1-0050568e7db6",
+                "hascustomalias": false,
+                "is_collector": true,
+                "isrequired": false,
+                "issearchable": true,
+                "istopnode": true,
+                "name": "Actor Type Phase Assignment",
+                "nodegroup_id": "59e45ae0-44ee-11ef-9ef1-0050568e7db6",
+                "nodeid": "59e45ae0-44ee-11ef-9ef1-0050568e7db6",
+                "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E17_Type_Assignment",
+                "sortorder": 0,
+                "sourcebranchpublication_id": null
+            },
+            "slug": null,
+            "subtitle": {
+                "en": ""
+            },
+            "template_id": "50000000-0000-0000-0000-000000000001",
+            "version": ""
+        }
+    ],
+    "metadata": {
+        "db": "PostgreSQL 14.5 (Debian 14.5-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit",
+        "git hash": "fatal: detected dubious ownership in repository at '/home/mahs/mahs_project/arches'",
+        "os": "Linux",
+        "os version": "5.15.0-91-generic"
+    }
+}

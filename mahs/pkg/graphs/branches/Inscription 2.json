@@ -1,0 +1,476 @@
+{
+    "graph": [
+        {
+            "author": "",
+            "cards": [
+                {
+                    "active": true,
+                    "cardid": "c7de0226-48fe-11ef-b689-19c85e1db281",
+                    "component_id": "f05e4d3a-53c1-11e8-b0ea-784f435179ea",
+                    "config": null,
+                    "constraints": [],
+                    "cssclass": null,
+                    "description": {
+                        "en": ""
+                    },
+                    "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                    "helpenabled": false,
+                    "helptext": {
+                        "en": null
+                    },
+                    "helptitle": {
+                        "en": null
+                    },
+                    "instructions": {
+                        "en": null
+                    },
+                    "is_editable": true,
+                    "name": {
+                        "en": "Inscription 2"
+                    },
+                    "nodegroup_id": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "sortorder": 7,
+                    "visible": true
+                }
+            ],
+            "cards_x_nodes_x_widgets": [
+                {
+                    "card_id": "c7de0226-48fe-11ef-b689-19c85e1db281",
+                    "config": {
+                        "defaultValue": {
+                            "en": {
+                                "direction": "ltr",
+                                "value": ""
+                            }
+                        },
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Inscription Notes",
+                        "maxLength": null,
+                        "placeholder": {
+                            "en": "Enter text"
+                        },
+                        "uneditable": false,
+                        "width": "100%"
+                    },
+                    "id": "c7de022d-48fe-11ef-b689-19c85e1db281",
+                    "label": {
+                        "en": "Inscription Notes"
+                    },
+                    "node_id": "c7de0228-48fe-11ef-b689-19c85e1db281",
+                    "sortorder": 5,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000005"
+                },
+                {
+                    "card_id": "c7de0226-48fe-11ef-b689-19c85e1db281",
+                    "config": {
+                        "defaultValue": null,
+                        "label": "Inscribed",
+                        "subtitle": "Click to switch"
+                    },
+                    "id": "c7de022e-48fe-11ef-b689-19c85e1db281",
+                    "label": {
+                        "en": "Inscribed"
+                    },
+                    "node_id": "c7de022c-48fe-11ef-b689-19c85e1db281",
+                    "sortorder": 0,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000006"
+                },
+                {
+                    "card_id": "c7de0226-48fe-11ef-b689-19c85e1db281",
+                    "config": {
+                        "defaultValue": "",
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Inscription Language",
+                        "options": [],
+                        "placeholder": {
+                            "en": "Select an option"
+                        }
+                    },
+                    "id": "c7de022f-48fe-11ef-b689-19c85e1db281",
+                    "label": {
+                        "en": "Inscription Language"
+                    },
+                    "node_id": "c7de0227-48fe-11ef-b689-19c85e1db281",
+                    "sortorder": 1,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000012"
+                },
+                {
+                    "card_id": "c7de0226-48fe-11ef-b689-19c85e1db281",
+                    "config": {
+                        "defaultValue": "",
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Inscription Script",
+                        "options": [],
+                        "placeholder": {
+                            "en": "Select an option"
+                        }
+                    },
+                    "id": "c7de0230-48fe-11ef-b689-19c85e1db281",
+                    "label": {
+                        "en": "Inscription Script"
+                    },
+                    "node_id": "c7de022a-48fe-11ef-b689-19c85e1db281",
+                    "sortorder": 2,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000012"
+                },
+                {
+                    "card_id": "c7de0226-48fe-11ef-b689-19c85e1db281",
+                    "config": {
+                        "defaultValue": {
+                            "en": {
+                                "direction": "ltr",
+                                "value": ""
+                            }
+                        },
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Inscription Transcript",
+                        "maxLength": null,
+                        "placeholder": {
+                            "en": "Enter text"
+                        },
+                        "uneditable": false,
+                        "width": "100%"
+                    },
+                    "id": "c7de0231-48fe-11ef-b689-19c85e1db281",
+                    "label": {
+                        "en": "Inscription Transcript"
+                    },
+                    "node_id": "c7de0229-48fe-11ef-b689-19c85e1db281",
+                    "sortorder": 3,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000005"
+                },
+                {
+                    "card_id": "c7de0226-48fe-11ef-b689-19c85e1db281",
+                    "config": {
+                        "defaultValue": {
+                            "en": {
+                                "direction": "ltr",
+                                "value": ""
+                            }
+                        },
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Placement",
+                        "maxLength": null,
+                        "placeholder": {
+                            "en": "Enter text"
+                        },
+                        "uneditable": false,
+                        "width": "100%"
+                    },
+                    "id": "c7de0232-48fe-11ef-b689-19c85e1db281",
+                    "label": {
+                        "en": "Placement"
+                    },
+                    "node_id": "c7de022b-48fe-11ef-b689-19c85e1db281",
+                    "sortorder": 4,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000001"
+                }
+            ],
+            "color": "rgba(93,122,222,1)",
+            "config": {
+                "nodes": [
+                    "54275930-fccd-11ec-9eef-0050568e7db6"
+                ]
+            },
+            "deploymentdate": null,
+            "deploymentfile": null,
+            "description": {
+                "en": ""
+            },
+            "edges": [
+                {
+                    "description": null,
+                    "domainnode_id": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "edgeid": "c7de0233-48fe-11ef-b689-19c85e1db281",
+                    "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P140i_was_attributed_by",
+                    "rangenode_id": "c7de022c-48fe-11ef-b689-19c85e1db281"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "edgeid": "c7de0234-48fe-11ef-b689-19c85e1db281",
+                    "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type",
+                    "rangenode_id": "c7de022a-48fe-11ef-b689-19c85e1db281"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "edgeid": "c7de0235-48fe-11ef-b689-19c85e1db281",
+                    "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P128i_is_carried_by",
+                    "rangenode_id": "c7de022b-48fe-11ef-b689-19c85e1db281"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "edgeid": "c7de0236-48fe-11ef-b689-19c85e1db281",
+                    "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type",
+                    "rangenode_id": "c7de0227-48fe-11ef-b689-19c85e1db281"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "edgeid": "c7de0237-48fe-11ef-b689-19c85e1db281",
+                    "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P3_has_note",
+                    "rangenode_id": "c7de0228-48fe-11ef-b689-19c85e1db281"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "edgeid": "c7de0238-48fe-11ef-b689-19c85e1db281",
+                    "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P3_has_note",
+                    "rangenode_id": "c7de0229-48fe-11ef-b689-19c85e1db281"
+                }
+            ],
+            "functions_x_graphs": [],
+            "graphid": "c7de0224-48fe-11ef-b689-19c85e1db281",
+            "iconclass": "fa fa-cube",
+            "is_editable": true,
+            "isresource": false,
+            "jsonldcontext": null,
+            "name": {
+                "en": "Inscription 2"
+            },
+            "nodegroups": [
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                }
+            ],
+            "nodes": [
+                {
+                    "alias": "inscription_2",
+                    "config": {},
+                    "datatype": "semantic",
+                    "description": "",
+                    "exportable": false,
+                    "fieldname": null,
+                    "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": true,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": true,
+                    "name": "Inscription 2",
+                    "nodegroup_id": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "nodeid": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E34_Inscription",
+                    "parentproperty": "",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "inscription_language",
+                    "config": {
+                        "rdmCollection": "b539ba8b-2b70-45fb-8373-25fbfb652910"
+                    },
+                    "datatype": "concept-list",
+                    "description": null,
+                    "exportable": true,
+                    "fieldname": "inscr_lang",
+                    "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Inscription Language",
+                    "nodegroup_id": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "nodeid": "c7de0227-48fe-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E56_Language",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "inscription_notes",
+                    "config": {},
+                    "datatype": "string",
+                    "description": null,
+                    "exportable": true,
+                    "fieldname": "inscr_note",
+                    "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Inscription Notes",
+                    "nodegroup_id": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "nodeid": "c7de0228-48fe-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E62_String",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P3_has_note",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "inscription_transcript",
+                    "config": {},
+                    "datatype": "string",
+                    "description": null,
+                    "exportable": true,
+                    "fieldname": "inscrtrans",
+                    "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Inscription Transcript",
+                    "nodegroup_id": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "nodeid": "c7de0229-48fe-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E62_String",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P3_has_note",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "inscription_script",
+                    "config": {
+                        "rdmCollection": "4fad6989-f1d9-4151-a19f-60e97bf313e9"
+                    },
+                    "datatype": "concept-list",
+                    "description": null,
+                    "exportable": true,
+                    "fieldname": "insc_scrip",
+                    "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Inscription Script",
+                    "nodegroup_id": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "nodeid": "c7de022a-48fe-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E55_Type",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "placement",
+                    "config": {},
+                    "datatype": "string",
+                    "description": null,
+                    "exportable": true,
+                    "fieldname": "placement",
+                    "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Placement",
+                    "nodegroup_id": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "nodeid": "c7de022b-48fe-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.ics.forth.gr/isl/CRMsci/S20_Physical_Feature",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P128i_is_carried_by",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "inscribed",
+                    "config": {
+                        "falseLabel": {
+                            "en": "No"
+                        },
+                        "i18n_properties": [
+                            "trueLabel",
+                            "falseLabel"
+                        ],
+                        "trueLabel": {
+                            "en": "Yes"
+                        }
+                    },
+                    "datatype": "boolean",
+                    "description": null,
+                    "exportable": true,
+                    "fieldname": "inscribed",
+                    "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Inscribed",
+                    "nodegroup_id": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                    "nodeid": "c7de022c-48fe-11ef-b689-19c85e1db281",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P140i_was_attributed_by",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                }
+            ],
+            "ontology_id": "e6e8db47-2ccf-11e6-927e-b8f6b115d7dd",
+            "publication": {
+                "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                "notes": null,
+                "publicationid": "1dbed616-8bae-11ef-b90d-1b51b0144d8c",
+                "published_time": "2024-10-16T06:02:22.865"
+            },
+            "relatable_resource_model_ids": [],
+            "resource_2_resource_constraints": [],
+            "root": {
+                "alias": "inscription_2",
+                "config": {},
+                "datatype": "semantic",
+                "description": "",
+                "exportable": false,
+                "fieldname": null,
+                "graph_id": "c7de0224-48fe-11ef-b689-19c85e1db281",
+                "hascustomalias": false,
+                "is_collector": true,
+                "isrequired": false,
+                "issearchable": true,
+                "istopnode": true,
+                "name": "Inscription 2",
+                "nodegroup_id": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                "nodeid": "c7de0225-48fe-11ef-b689-19c85e1db281",
+                "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E34_Inscription",
+                "sortorder": 0,
+                "sourcebranchpublication_id": null
+            },
+            "slug": null,
+            "subtitle": {
+                "en": ""
+            },
+            "template_id": "50000000-0000-0000-0000-000000000003",
+            "version": ""
+        }
+    ],
+    "metadata": {
+        "db": "PostgreSQL 14.5 (Debian 14.5-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit",
+        "git hash": "fatal: detected dubious ownership in repository at '/home/mahs/mahs_project/arches'",
+        "os": "Linux",
+        "os version": "5.15.0-91-generic"
+    }
+}

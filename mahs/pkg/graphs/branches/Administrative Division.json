@@ -1,0 +1,516 @@
+{
+    "graph": [
+        {
+            "author": "",
+            "cards": [
+                {
+                    "active": true,
+                    "cardid": "9dc7f3fa-0539-11f0-b90e-1b51b0144d8c",
+                    "component_id": "f05e4d3a-53c1-11e8-b0ea-784f435179ea",
+                    "config": null,
+                    "constraints": [],
+                    "cssclass": "",
+                    "description": {
+                        "en": ""
+                    },
+                    "graph_id": "9dc7f3f8-0539-11f0-b90e-1b51b0144d8c",
+                    "helpenabled": false,
+                    "helptext": {
+                        "en": ""
+                    },
+                    "helptitle": {
+                        "en": ""
+                    },
+                    "instructions": {
+                        "en": ""
+                    },
+                    "is_editable": true,
+                    "name": {
+                        "en": "Administrative Division"
+                    },
+                    "nodegroup_id": "9dc7f3f9-0539-11f0-b90e-1b51b0144d8c",
+                    "sortorder": 18,
+                    "visible": true
+                }
+            ],
+            "cards_x_nodes_x_widgets": [
+                {
+                    "card_id": "9dc7f3fa-0539-11f0-b90e-1b51b0144d8c",
+                    "config": {
+                        "defaultValue": "",
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Administrative Subdivision Type",
+                        "options": [],
+                        "placeholder": {
+                            "en": "Select an option"
+                        }
+                    },
+                    "id": "9dc7f3fe-0539-11f0-b90e-1b51b0144d8c",
+                    "label": {
+                        "en": "Administrative Subdivision Type"
+                    },
+                    "node_id": "9dc7f3fc-0539-11f0-b90e-1b51b0144d8c",
+                    "sortorder": 1,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000002"
+                },
+                {
+                    "card_id": "9dc7f3fa-0539-11f0-b90e-1b51b0144d8c",
+                    "config": {
+                        "defaultValue": {
+                            "en": {
+                                "direction": "ltr",
+                                "value": ""
+                            }
+                        },
+                        "i18n_properties": [
+                            "placeholder"
+                        ],
+                        "label": "Administrative Subdivision Name",
+                        "maxLength": null,
+                        "placeholder": {
+                            "en": "Enter text"
+                        },
+                        "uneditable": false,
+                        "width": "100%"
+                    },
+                    "id": "9dc7f3ff-0539-11f0-b90e-1b51b0144d8c",
+                    "label": {
+                        "en": "Administrative Subdivision Name"
+                    },
+                    "node_id": "9dc7f3fb-0539-11f0-b90e-1b51b0144d8c",
+                    "sortorder": 0,
+                    "visible": true,
+                    "widget_id": "10000000-0000-0000-0000-000000000001"
+                }
+            ],
+            "color": "rgba(19,173,26,0.82)",
+            "config": {
+                "activeTabIndex": 0,
+                "nodes": [
+                    "0340d0a1-0801-11ed-9eef-0050568e7db6"
+                ],
+                "tabs": [
+                    {
+                        "icon": "fa fa-map-marker",
+                        "name": "Overview",
+                        "nodegroup_ids": [
+                            "0340d055-0801-11ed-9eef-0050568e7db6",
+                            "227359a9-4a50-11ef-b689-19c85e1db281",
+                            "0340d085-0801-11ed-9eef-0050568e7db6",
+                            "0340d073-0801-11ed-9eef-0050568e7db6",
+                            "0340d05b-0801-11ed-9eef-0050568e7db6",
+                            "b1773277-4976-11ef-b689-19c85e1db281",
+                            "abc06e3f-634c-11ef-b689-19c85e1db281",
+                            "0340d07c-0801-11ed-9eef-0050568e7db6",
+                            "9ef9c073-4977-11ef-b689-19c85e1db281",
+                            "0340d079-0801-11ed-9eef-0050568e7db6",
+                            "e3d06dd9-4967-11ef-b689-19c85e1db281",
+                            "0340d07f-0801-11ed-9eef-0050568e7db6",
+                            "0340d09a-0801-11ed-9eef-0050568e7db6",
+                            "6156a21a-d736-11ef-b90d-1b51b0144d8c",
+                            "ea6fa4f2-d736-11ef-b90d-1b51b0144d8c"
+                        ]
+                    },
+                    {
+                        "icon": "fa fa-image",
+                        "name": "Images",
+                        "nodegroup_ids": [
+                            "0340d064-0801-11ed-9eef-0050568e7db6"
+                        ]
+                    },
+                    {
+                        "icon": "fa fa-reorder",
+                        "name": "Classification",
+                        "nodegroup_ids": [
+                            "0340d06a-0801-11ed-9eef-0050568e7db6",
+                            "0340d04f-0801-11ed-9eef-0050568e7db6"
+                        ]
+                    },
+                    {
+                        "icon": "fa fa-stethoscope",
+                        "name": "Condition",
+                        "nodegroup_ids": [
+                            "0388b7bf-4987-11ef-b689-19c85e1db281",
+                            "e05410ad-4979-11ef-b689-19c85e1db281"
+                        ]
+                    },
+                    {
+                        "icon": "fa fa-external-link",
+                        "name": "References",
+                        "nodegroup_ids": [
+                            "fff04f69-4968-11ef-b689-19c85e1db281",
+                            "8ac0c923-4975-11ef-b689-19c85e1db281"
+                        ]
+                    }
+                ]
+            },
+            "deploymentdate": null,
+            "deploymentfile": null,
+            "description": {
+                "en": ""
+            },
+            "edges": [
+                {
+                    "description": null,
+                    "domainnode_id": "9dc7f3f9-0539-11f0-b90e-1b51b0144d8c",
+                    "edgeid": "9dc7f400-0539-11f0-b90e-1b51b0144d8c",
+                    "graph_id": "9dc7f3f8-0539-11f0-b90e-1b51b0144d8c",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P89_falls_within",
+                    "rangenode_id": "9dc7f3fd-0539-11f0-b90e-1b51b0144d8c"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "9dc7f3fd-0539-11f0-b90e-1b51b0144d8c",
+                    "edgeid": "9dc7f401-0539-11f0-b90e-1b51b0144d8c",
+                    "graph_id": "9dc7f3f8-0539-11f0-b90e-1b51b0144d8c",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type",
+                    "rangenode_id": "9dc7f3fc-0539-11f0-b90e-1b51b0144d8c"
+                },
+                {
+                    "description": null,
+                    "domainnode_id": "9dc7f3fd-0539-11f0-b90e-1b51b0144d8c",
+                    "edgeid": "9dc7f402-0539-11f0-b90e-1b51b0144d8c",
+                    "graph_id": "9dc7f3f8-0539-11f0-b90e-1b51b0144d8c",
+                    "name": null,
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P87_is_identified_by",
+                    "rangenode_id": "9dc7f3fb-0539-11f0-b90e-1b51b0144d8c"
+                }
+            ],
+            "functions_x_graphs": [],
+            "graphid": "9dc7f3f8-0539-11f0-b90e-1b51b0144d8c",
+            "iconclass": "fa fa-diamond",
+            "is_editable": true,
+            "isresource": false,
+            "jsonldcontext": null,
+            "name": {
+                "en": "Administrative Division"
+            },
+            "nodegroups": [
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "0340d04f-0801-11ed-9eef-0050568e7db6",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "1",
+                    "legacygroupid": null,
+                    "nodegroupid": "0340d055-0801-11ed-9eef-0050568e7db6",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "0340d05b-0801-11ed-9eef-0050568e7db6",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "0340d064-0801-11ed-9eef-0050568e7db6",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "0340d06a-0801-11ed-9eef-0050568e7db6",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "0340d06d-0801-11ed-9eef-0050568e7db6",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "0340d073-0801-11ed-9eef-0050568e7db6",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "0340d079-0801-11ed-9eef-0050568e7db6",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "0340d07c-0801-11ed-9eef-0050568e7db6",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "0340d07f-0801-11ed-9eef-0050568e7db6",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "0340d085-0801-11ed-9eef-0050568e7db6",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "0340d09a-0801-11ed-9eef-0050568e7db6",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "0388b7bf-4987-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "09873a20-d91d-11ef-b90d-1b51b0144d8c",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "227359a9-4a50-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "404441ac-d91d-11ef-b90d-1b51b0144d8c",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "6156a21a-d736-11ef-b90d-1b51b0144d8c",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "8ac0c923-4975-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "9ef9c073-4977-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "1",
+                    "legacygroupid": null,
+                    "nodegroupid": "a3645d49-c3ed-11ef-b90d-1b51b0144d8c",
+                    "parentnodegroup_id": "b1773277-4976-11ef-b689-19c85e1db281"
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "abc06e3f-634c-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "b1773277-4976-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "1",
+                    "legacygroupid": null,
+                    "nodegroupid": "de21a162-d91d-11ef-b90d-1b51b0144d8c",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "e05410ad-4979-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "1",
+                    "legacygroupid": null,
+                    "nodegroupid": "e3d06dd3-4967-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": "e3d06dd9-4967-11ef-b689-19c85e1db281"
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "e3d06dd5-4967-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": "e3d06dd9-4967-11ef-b689-19c85e1db281"
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "e3d06dd7-4967-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": "e3d06dd9-4967-11ef-b689-19c85e1db281"
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "e3d06dd9-4967-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "ea6fa4f2-d736-11ef-b90d-1b51b0144d8c",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "ebb1cfce-d91c-11ef-b90d-1b51b0144d8c",
+                    "parentnodegroup_id": null
+                },
+                {
+                    "cardinality": "n",
+                    "legacygroupid": null,
+                    "nodegroupid": "fff04f69-4968-11ef-b689-19c85e1db281",
+                    "parentnodegroup_id": null
+                }
+            ],
+            "nodes": [
+                {
+                    "alias": "administrative_division",
+                    "config": {
+                        "en": ""
+                    },
+                    "datatype": "semantic",
+                    "description": "",
+                    "exportable": false,
+                    "fieldname": "",
+                    "graph_id": "9dc7f3f8-0539-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": true,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": true,
+                    "name": "Administrative Division",
+                    "nodegroup_id": "9dc7f3f9-0539-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "9dc7f3f9-0539-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E53_Place",
+                    "parentproperty": "",
+                    "sortorder": 12,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "administrative_subdivision_name",
+                    "config": {},
+                    "datatype": "string",
+                    "description": "Represents a single node in a graph",
+                    "exportable": false,
+                    "fieldname": "",
+                    "graph_id": "9dc7f3f8-0539-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Administrative Subdivision Name",
+                    "nodegroup_id": "9dc7f3f9-0539-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "9dc7f3fb-0539-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E44_Place_Appellation",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P87_is_identified_by",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "administrative_subdivision_type",
+                    "config": {
+                        "rdmCollection": "e8cdeabd-f63d-4077-b05f-50274742f519"
+                    },
+                    "datatype": "concept",
+                    "description": "Represents a single node in a graph",
+                    "exportable": false,
+                    "fieldname": "",
+                    "graph_id": "9dc7f3f8-0539-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Administrative Subdivision Type",
+                    "nodegroup_id": "9dc7f3f9-0539-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "9dc7f3fc-0539-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E55_Type",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                },
+                {
+                    "alias": "administration_subdivision",
+                    "config": {},
+                    "datatype": "semantic",
+                    "description": "Represents a single node in a graph",
+                    "exportable": false,
+                    "fieldname": "",
+                    "graph_id": "9dc7f3f8-0539-11f0-b90e-1b51b0144d8c",
+                    "hascustomalias": false,
+                    "is_collector": false,
+                    "isrequired": false,
+                    "issearchable": true,
+                    "istopnode": false,
+                    "name": "Administration Subdivision",
+                    "nodegroup_id": "9dc7f3f9-0539-11f0-b90e-1b51b0144d8c",
+                    "nodeid": "9dc7f3fd-0539-11f0-b90e-1b51b0144d8c",
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E53_Place",
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P89_falls_within",
+                    "sortorder": 0,
+                    "sourcebranchpublication_id": null
+                }
+            ],
+            "ontology_id": "e6e8db47-2ccf-11e6-927e-b8f6b115d7dd",
+            "publication": {
+                "graph_id": "9dc7f3f8-0539-11f0-b90e-1b51b0144d8c",
+                "notes": null,
+                "publicationid": "9dc7f403-0539-11f0-b90e-1b51b0144d8c",
+                "published_time": "2025-03-19T22:15:46.721"
+            },
+            "relatable_resource_model_ids": [],
+            "resource_2_resource_constraints": [],
+            "root": {
+                "alias": "administrative_division",
+                "config": {
+                    "en": ""
+                },
+                "datatype": "semantic",
+                "description": "",
+                "exportable": false,
+                "fieldname": "",
+                "graph_id": "9dc7f3f8-0539-11f0-b90e-1b51b0144d8c",
+                "hascustomalias": false,
+                "is_collector": true,
+                "isrequired": false,
+                "issearchable": true,
+                "istopnode": true,
+                "name": "Administrative Division",
+                "nodegroup_id": "9dc7f3f9-0539-11f0-b90e-1b51b0144d8c",
+                "nodeid": "9dc7f3f9-0539-11f0-b90e-1b51b0144d8c",
+                "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E53_Place",
+                "sortorder": 12,
+                "sourcebranchpublication_id": null
+            },
+            "slug": null,
+            "subtitle": {
+                "en": ""
+            },
+            "template_id": "50000000-0000-0000-0000-000000000004",
+            "version": ""
+        }
+    ],
+    "metadata": {
+        "db": "PostgreSQL 14.5 (Debian 14.5-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit",
+        "git hash": "fatal: detected dubious ownership in repository at '/home/mahs/mahs_project/arches'",
+        "os": "Linux",
+        "os version": "5.15.0-91-generic"
+    }
+}
