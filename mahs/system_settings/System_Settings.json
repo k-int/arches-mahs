@@ -152,7 +152,7 @@
                         "data": {
                             "feb95eae-fa14-11e6-9683-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "ltr",
+                                    "direction": "en",
                                     "value": "https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/search?paging-filter=1&tiles=true&format=tilecsv&reportlink=false&precision=6&total=2696&resource-type-filter=%5B%7B%22graphid%22%3A%22542758dc-fccd-11ec-9eef-0050568e7db6%22%2C%22name%22%3A%22Feature%22%2C%22inverted%22%3Afalse%7D%5D&advanced-search=%5B%7B%22op%22%3A%22and%22%2C%225427591c-fccd-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%22df9f407a-b656-4976-a655-626759cd742c%22%7D%7D%2C%7B%22op%22%3A%22or%22%2C%225427591c-fccd-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%228948a89f-11f2-4e81-9062-110e209af283%22%7D%7D%5D"
                                 }
                             },
@@ -176,7 +176,7 @@
                         "data": {
                             "feb95eae-fa14-11e6-9683-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "ltr",
+                                    "direction": "en",
                                     "value": "https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/search?paging-filter=1&tiles=true&format=tilecsv&reportlink=false&precision=6&total=2696&resource-type-filter=%5B%7B%22graphid%22%3A%22542758dc-fccd-11ec-9eef-0050568e7db6%22%2C%22name%22%3A%22Feature%22%2C%22inverted%22%3Afalse%7D%5D&advanced-search=%5B%7B%22op%22%3A%22or%22%2C%2254275919-fccd-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%22d7d42728-b9b9-4f5f-bc96-b2b699c4c18b%22%7D%7D%2C%7B%22op%22%3A%22or%22%2C%2254275919-fccd-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%22ddbe9d3c-a75b-4798-9ca8-6bd4d0524388%22%7D%7D%5D"
                                 }
                             },
@@ -200,7 +200,7 @@
                         "data": {
                             "feb95eae-fa14-11e6-9683-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "ltr",
+                                    "direction": "en",
                                     "value": "https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/search?paging-filter=1&tiles=true&format=tilecsv&reportlink=false&precision=6&total=27325&term-filter=%5B%7B%22inverted%22%3Afalse%2C%22type%22%3A%22string%22%2C%22context%22%3A%22%22%2C%22context_label%22%3A%22%22%2C%22id%22%3A%22Laamu%20(Hahdhunmathi)%22%2C%22text%22%3A%22Laamu%20(Hahdhunmathi)%22%2C%22value%22%3A%22Laamu%20(Hahdhunmathi)%22%7D%5D"
                                 }
                             },
@@ -239,7 +239,7 @@
                         "data": {
                             "feb95eae-fa14-11e6-9683-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "ltr",
+                                    "direction": "en",
                                     "value": "https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/search?paging-filter=1&tiles=true&format=tilecsv&reportlink=false&precision=6&total=753&advanced-search=%5B%7B%22op%22%3A%22and%22%2C%225b144afe-fc19-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22~%22%2C%22val%22%3A%22IDN-MLK-MLT-BDA%22%7D%7D%2C%7B%22op%22%3A%22or%22%2C%2254275916-fccd-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22~%22%2C%22val%22%3A%22IDN-MLK-MLT-BDA%22%7D%7D%2C%7B%22op%22%3A%22or%22%2C%220340d055-0801-11ed-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22~%22%2C%22val%22%3A%22IDN-MLK-MLT-BDA%22%7D%7D%2C%7B%22op%22%3A%22or%22%2C%22128a7531-f421-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22~%22%2C%22val%22%3A%22IDN-MLK-MLT-BDA%22%7D%7D%2C%7B%22op%22%3A%22or%22%2C%22128a7531-f421-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22~%22%2C%22val%22%3A%22IDN-MLK-MLT-BDA%22%7D%7D%2C%7B%22op%22%3A%22or%22%2C%224b5493b9-d67c-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22~%22%2C%22val%22%3A%22IDN-MLK-MLT-BDA%22%7D%7D%2C%7B%22op%22%3A%22and%22%2C%229ddf1673-4f10-11ed-9ef1-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%223dfe39d7-445e-4bc7-8277-b121a424b55a%22%7D%2C%229ddf1672-4f10-11ed-9ef1-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%22Banda%22%7D%7D%2C%7B%22op%22%3A%22or%22%2C%22dbfa6a52-f6ef-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%22Banda%22%7D%2C%22dbfa6a53-f6ef-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%223dfe39d7-445e-4bc7-8277-b121a424b55a%22%7D%7D%2C%7B%22op%22%3A%22or%22%2C%220340d0e3-0801-11ed-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%22Banda%22%7D%2C%220340d0e4-0801-11ed-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%223dfe39d7-445e-4bc7-8277-b121a424b55a%22%7D%7D%5D"
                                 }
                             },
@@ -263,7 +263,7 @@
                         "data": {
                             "feb95eae-fa14-11e6-9683-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "ltr",
+                                    "direction": "en",
                                     "value": "https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/search?paging-filter=1&tiles=true&format=tilecsv&reportlink=false&precision=6&total=42&term-filter=%5B%7B%22inverted%22%3Afalse%2C%22type%22%3A%22string%22%2C%22context%22%3A%22%22%2C%22context_label%22%3A%22%22%2C%22id%22%3A%22MAHS-IDN-MLK-MLT-LHT-S-003%22%2C%22text%22%3A%22MAHS-IDN-MLK-MLT-LHT-S-003%22%2C%22value%22%3A%22MAHS-IDN-MLK-MLT-LHT-S-003%22%7D%5D&advanced-search=%5B%7B%22op%22%3A%22and%22%2C%225b144afe-fc19-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22!~%22%2C%22val%22%3A%22MAHS-IDN-MLK-MLT-LHT-S-004%22%7D%7D%2C%7B%22op%22%3A%22or%22%2C%22128a7531-f421-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22!~%22%2C%22val%22%3A%22MAHS-IDN-MLK-MLT-LHT-S-004%22%7D%7D%2C%7B%22op%22%3A%22or%22%2C%220340d055-0801-11ed-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22!~%22%2C%22val%22%3A%22MAHS-IDN-MLK-MLT-LHT-S-004%22%7D%7D%2C%7B%22op%22%3A%22or%22%2C%2254275916-fccd-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22!~%22%2C%22val%22%3A%22MAHS-IDN-MLK-MLT-LHT-S-004%22%7D%7D%2C%7B%22op%22%3A%22or%22%2C%224b5493b9-d67c-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22!~%22%2C%22val%22%3A%22MAHS-IDN-MLK-MLT-LHT-S-004%22%7D%7D%2C%7B%22op%22%3A%22or%22%2C%2253f5cd7e-0bd4-11ed-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22!~%22%2C%22val%22%3A%22MAHS-IDN-MLK-MLT-LHT-S-004%22%7D%7D%5D"
                                 }
                             },
@@ -302,7 +302,7 @@
                         "data": {
                             "feb95eae-fa14-11e6-9683-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "ltr",
+                                    "direction": "en",
                                     "value": "https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/search?paging-filter=1&tiles=true&format=tilecsv&reportlink=false&precision=6&total=60076&term-filter=%5B%7B%22context%22%3A%22f0ee9156-0a82-48d7-8d88-ba9d8cb064c6%22%2C%22context_label%22%3A%22Keyword%22%2C%22id%22%3A0%2C%22text%22%3A%22Vernadoc%22%2C%22type%22%3A%22concept%22%2C%22value%22%3A%226bc64021-df0b-451d-8fc1-195c921adc2f%22%2C%22inverted%22%3Afalse%7D%5D"
                                 }
                             },
@@ -341,7 +341,7 @@
                         "data": {
                             "feb95eae-fa14-11e6-9683-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "ltr",
+                                    "direction": "en",
                                     "value": "https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/search?paging-filter=1&tiles=true&format=tilecsv&reportlink=false&precision=6&total=1354&term-filter=%5B%7B%22context%22%3A%22f0ee9156-0a82-48d7-8d88-ba9d8cb064c6%22%2C%22context_label%22%3A%22Keyword%22%2C%22id%22%3A2%2C%22text%22%3A%22Carswell%20Collection%22%2C%22type%22%3A%22concept%22%2C%22value%22%3A%221f654a8f-5a29-4489-ab27-35d88a3731c0%22%2C%22inverted%22%3Afalse%7D%5D"
                                 }
                             },
@@ -385,7 +385,7 @@
                         "data": {
                             "feb95eae-fa14-11e6-9683-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "ltr",
+                                    "direction": "en",
                                     "value": "https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/search?paging-filter=1&tiles=true&format=tilecsv&reportlink=false&precision=6&total=27531&term-filter=%5B%7B%22context%22%3A%22f0ee9156-0a82-48d7-8d88-ba9d8cb064c6%22%2C%22context_label%22%3A%22Keyword%22%2C%22id%22%3A19%2C%22text%22%3A%22Minpaku%22%2C%22type%22%3A%22concept%22%2C%22value%22%3A%225e3c8e68-e685-4010-925c-de88b768c491%22%2C%22inverted%22%3Afalse%7D%5D"
                                 }
                             },
@@ -429,7 +429,7 @@
                         "data": {
                             "feb95eae-fa14-11e6-9683-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "ltr",
+                                    "direction": "en",
                                     "value": "https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/search?paging-filter=1&tiles=true&format=tilecsv&reportlink=false&precision=6&total=24708&term-filter=%5B%7B%22context%22%3A%22f0ee9156-0a82-48d7-8d88-ba9d8cb064c6%22%2C%22context_label%22%3A%22Keyword%22%2C%22id%22%3A100%2C%22text%22%3A%22AGP%22%2C%22type%22%3A%22concept%22%2C%22value%22%3A%2212f85c26-5065-46ee-927e-9bc0eacf210b%22%2C%22inverted%22%3Afalse%7D%5D"
                                 }
                             },
@@ -473,14 +473,14 @@
                         "data": {
                             "feb95eae-fa14-11e6-9683-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "ltr",
+                                    "direction": "en",
                                     "value": "https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/search?paging-filter=1&tiles=true&format=tilecsv&reportlink=false&precision=6&total=1233&resource-type-filter=%5B%7B%22graphid%22%3A%225b144ae2-fc19-11ec-9eef-0050568e7db6%22%2C%22name%22%3A%22Site%22%2C%22inverted%22%3Afalse%7D%5D&advanced-search=%5B%7B%22op%22%3A%22and%22%2C%225b144b19-fc19-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%224e4cf7e3-b516-47c4-b4dd-054d2e7a4271%22%7D%7D%5D"
                                 }
                             },
                             "feb96005-fa14-11e6-aa8d-6c4008b05c4c": null,
                             "feb96126-fa14-11e6-9f19-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "ltr",
+                                    "direction": "en",
                                     "value": "Religious sites"
                                 }
                             },
@@ -497,7 +497,7 @@
                         "data": {
                             "feb95eae-fa14-11e6-9683-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "ltr",
+                                    "direction": "en",
                                     "value": "https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/search?paging-filter=1&tiles=true&format=tilecsv&reportlink=false&precision=6&total=27279&advanced-search=%5B%7B%22op%22%3A%22and%22%2C%22195c3090-111d-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22~%22%2C%22val%22%3A%22%22%7D%2C%22195c308d-111d-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%2296f26247-6ba2-4320-9c52-c7b630bc6a53%22%7D%2C%22195c3091-111d-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22~%22%2C%22val%22%3A%22%22%7D%2C%22195c3092-111d-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%22%22%7D%7D%5D"
                                 }
                             },
@@ -521,7 +521,7 @@
                         "data": {
                             "feb95eae-fa14-11e6-9683-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "ltr",
+                                    "direction": "en",
                                     "value": "https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/search?paging-filter=1&tiles=true&format=tilecsv&reportlink=false&precision=6&total=124&advanced-search=%5B%7B%22op%22%3A%22and%22%2C%2254275901-fccd-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%22c03f0859-4386-4a8e-bf60-c418e666d03f%22%7D%7D%2C%7B%22op%22%3A%22and%22%2C%2254275901-fccd-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%2245627a62-3dcd-477b-9341-c615017a34e8%22%7D%7D%2C%7B%22op%22%3A%22and%22%2C%2254275901-fccd-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%22cea210ab-0208-4e94-b36d-827944575ad4%22%7D%7D%2C%7B%22op%22%3A%22and%22%2C%2254275901-fccd-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%22b79f551c-5127-4f87-a1e8-c5074043f094%22%7D%7D%2C%7B%22op%22%3A%22and%22%2C%225427591c-fccd-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22%22%2C%22val%22%3A%226ab054e1-f61a-4d9e-96c1-352167d0ff03%22%7D%7D%2C%7B%22op%22%3A%22and%22%2C%2254275916-fccd-11ec-9eef-0050568e7db6%22%3A%7B%22op%22%3A%22~%22%2C%22val%22%3A%22MDV-SEN-HMD-S-001%22%7D%7D%5D&resource-type-filter=%5B%7B%22graphid%22%3A%22542758dc-fccd-11ec-9eef-0050568e7db6%22%2C%22name%22%3A%22Feature%22%2C%22inverted%22%3Afalse%7D%5D"
                                 }
                             },
