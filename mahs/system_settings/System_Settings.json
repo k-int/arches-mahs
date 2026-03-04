@@ -159,7 +159,7 @@
                             "feb96005-fa14-11e6-aa8d-6c4008b05c4c": null,
                             "feb96126-fa14-11e6-9f19-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "en",
+                                    "direction": "ltr",
                                     "value": "Mosques"
                                 }
                             },
@@ -183,7 +183,7 @@
                             "feb96005-fa14-11e6-aa8d-6c4008b05c4c": null,
                             "feb96126-fa14-11e6-9f19-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "en",
+                                    "direction": "ltr",
                                     "value": "Funerary monuments"
                                 }
                             },
@@ -222,7 +222,7 @@
                             ],
                             "feb96126-fa14-11e6-9f19-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "en",
+                                    "direction": "ltr",
                                     "value": "Laamu (Hahdhunmathi) records"
                                 }
                             },
@@ -246,7 +246,7 @@
                             "feb96005-fa14-11e6-aa8d-6c4008b05c4c": null,
                             "feb96126-fa14-11e6-9f19-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "en",
+                                    "direction": "ltr",
                                     "value": "Banda Records"
                                 }
                             },
@@ -285,7 +285,7 @@
                             ],
                             "feb96126-fa14-11e6-9f19-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "en",
+                                    "direction": "ltr",
                                     "value": "Masjid Wapauwe"
                                 }
                             },
@@ -324,7 +324,7 @@
                             ],
                             "feb96126-fa14-11e6-9f19-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "en",
+                                    "direction": "ltr",
                                     "value": "Aceh Architectural Heritage Documentation"
                                 }
                             },
@@ -363,13 +363,13 @@
                             ],
                             "feb96126-fa14-11e6-9f19-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "en",
+                                    "direction": "ltr",
                                     "value": "Carswell Collection"
                                 }
                             },
                             "feb9623d-fa14-11e6-a9c3-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "en",
+                                    "direction": "ltr",
                                     "value": "<p>The Carswell Collection at the Ashmolean Museum (University of Oxford) includes over 700 pieces that were collected in Mal&eacute; by Professor John Carswell during a visit to the Maldives in 1974.</p>\n"
                                 }
                             }
@@ -407,13 +407,13 @@
                             ],
                             "feb96126-fa14-11e6-9f19-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "en",
+                                    "direction": "ltr",
                                     "value": "Minpaku Maldivian Artefacts"
                                 }
                             },
                             "feb9623d-fa14-11e6-a9c3-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "en",
+                                    "direction": "ltr",
                                     "value": "<p>Japan&rsquo;s <a href=\"https://www.minpaku.ac.jp/en\">National Museum of Ethnology</a>&#39;s (Minpaku)&nbsp;holdings include pieces collected in the Maldives representing traditional objects that were in everyday use in the country through the first half of the twentieth century.</p>\n"
                                 }
                             }
@@ -451,13 +451,13 @@
                             ],
                             "feb96126-fa14-11e6-9f19-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "en",
+                                    "direction": "ltr",
                                     "value": "Aceh Geohazard Survey"
                                 }
                             },
                             "feb9623d-fa14-11e6-a9c3-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "en",
+                                    "direction": "ltr",
                                     "value": "<p>The Aceh Geohazard Survey&nbsp;investigated the interaction of geohazards and human settlement along the coast of Aceh, Indonesia over the past thousand years, combining multidisciplinary approaches of geology, geomorphology, history and archaeology to better understand the past occurrence of tsunami in Aceh, and the extent to which such events might have impacted past societies.</p>\n"
                                 }
                             }
@@ -504,7 +504,7 @@
                             "feb96005-fa14-11e6-aa8d-6c4008b05c4c": null,
                             "feb96126-fa14-11e6-9f19-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "en",
+                                    "direction": "ltr",
                                     "value": "Dhives Akuru"
                                 }
                             },
@@ -528,7 +528,7 @@
                             "feb96005-fa14-11e6-aa8d-6c4008b05c4c": null,
                             "feb96126-fa14-11e6-9f19-6c4008b05c4c": {
                                 "en": {
-                                    "direction": "en",
+                                    "direction": "ltr",
                                     "value": "Inscribed gravestones of Koagannu Cemetery - Seenu (Addu), Hulhumeedhoo"
                                 }
                             },
