@@ -7,7 +7,7 @@ from arches.app.utils.data_management.resources.formats.htmlfile import HtmlWrit
 from uuid import UUID
 
 
-def html_export_test(request):
+def html_export_site(request):
 
     html_writer = HtmlWriter()
     resource_list = html_writer.fetch_resource_objects_list(resourceinstanceids=['5e106bab-8993-4f84-9f81-852d30fd07ad'],
@@ -17,6 +17,6 @@ def html_export_test(request):
 
     return render(
         request,
-        'html_export/object.htm',
+        'html_export/site.htm',
         {"resources": [resource]},
     )

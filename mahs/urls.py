@@ -2,10 +2,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 from django.urls import include, path, re_path
-from .views.html_export_test import html_export_test
+from .views.html_export_site import html_export_site
+from .views.html_export_object import html_export_object
 
 urlpatterns = [
-    re_path(r"^html_export$", html_export_test, name="html_export"),
+    re_path(r"^html_export_site$", html_export_site, name="html_export_site"),
+    re_path(r"^html_export_object$", html_export_object, name="html_export_object"),
 ]
 
 # Ensure Arches core urls are superseded by project-level urls
