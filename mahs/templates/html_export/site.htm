@@ -148,8 +148,8 @@
             {% endif %}
             {% endwith %}
             {% endwith %}
-            {% endfor %}
             <hr>
+            {% endfor %}
          </section>
          {% endif %}
          
@@ -256,7 +256,6 @@
                <hr>
             </section>
          {% endif %}
-
 
          {# --- Classification Section --- #}
          {% if resource_data|has_key:"Functional Classification" or resource_data|has_key:"Formal Characteristics" or resource_data|has_key:"Keyword" %}
@@ -419,29 +418,29 @@
             <section class="keeptogether">
                <h3>Citations</h3>
                {% for item in resource_data|val_from_key:"Citation 4" %}
-               <h4>Citation Apellation</h4>
-               <p class="content">{{item|val_from_key:"Citation Apellation"|val_from_key:"@display_value"}}</p>
-               
-               {% with c_url=item|val_from_key:"Citation URL"|val_from_key:"url" %}
-               {% if c_url %}
-               <h4>Citation URL</h4>
-               <p class="content">{{ c_url }}</p>
-               {% endif %}
-               {% endwith %}
-               
-               {% with c_note=item|val_from_key:"Note on Citation"|val_from_key:"@display_value" %}
-               {% if c_note %}
-               <h4>Citation Description</h4>
-               <p class="content">{{ c_note }}</p>
-               {% endif %}
-               {% endwith %}
+                  <h4>Citation Apellation</h4>
+                  <p class="content">{{item|val_from_key:"Citation Apellation"|val_from_key:"@display_value"}}</p>
+                  
+                  {% with c_url=item|val_from_key:"Citation URL"|val_from_key:"url" %}
+                     {% if c_url %}
+                        <h4>Citation URL</h4>
+                        <p class="content">{{ c_url }}</p>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% with c_note=item|val_from_key:"Note on Citation"|val_from_key:"@display_value" %}
+                     {% if c_note %}
+                        <h4>Citation Description</h4>
+                        <p class="content">{{ c_note }}</p>
+                     {% endif %}
+                  {% endwith %}
                {% endfor %}
                <hr>
             </section>   
-            {% endif %}
+         {% endif %}
             
-            {# --- Images --- #}
-            {% if resource_data|has_key:"Information Carrier 2" %}
+         {# --- Images --- #}
+         {% if resource_data|has_key:"Information Carrier 2" %}
             <section class="keeptogether">
                <h3>Images</h3>
                {% for item in resource_data|val_from_key:"Information Carrier 2" %}
