@@ -694,9 +694,9 @@
                <section class="keeptogether">
                   <h3>Related Collection</h3>
                   <ul>
-                     {% for linked_resource in resource_data|val_from_key:"Related Object"|val_from_key:"instance_details" %}
+                     {% for linked_resource in resource_data|val_from_key:"Collection" %}
                      <li>
-                        <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
+                        <h4>{{ linked_resource|val_from_key:"@display_value" }}</h4>
                         <a class="content href="http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                            http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}
                         </a>
