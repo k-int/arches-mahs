@@ -344,17 +344,26 @@
 
             {# --- Condition and Preservation Section --- #}
             {% if resource_data|has_key:"Condition and Preservation" %}
-               <section class="keeptogether">
+            <section class="keeptogether">
                <h3>Condition and Preservation</h3>
+               
                {% for item in resource_data|val_from_key:"Condition and Preservation" %}
                   {% with state=item|val_from_key:"Condition Assessment"|val_from_key:"Condition State" %}
+
                      {% with c_type=state|val_from_key:"Condition Type"|val_from_key:"@display_value" %}
                         {% if c_type %}
                            <h4>Condition Type</h4>
                            <p class="content">{{ c_type }}</p>
                         {% endif %}
                      {% endwith %}
-                        
+               
+                     {% with c_date=state|val_from_key:"Condition Time Span"|val_from_key:"Date Condition Assessed"|val_from_key:"@display_value" %}
+                        {% if c_date %}
+                           <h4>Date Condition Assessed: </h4>
+                           <p class="content">{{ c_date }}</p>
+                        {% endif %}
+                     {% endwith %}
+
                      {% with d_type=state|val_from_key:"Disturbance Type"|val_from_key:"@display_value" %}
                         {% if d_type %}
                            <h4>Disturbance Type</h4>
@@ -368,14 +377,39 @@
                            <p class="content">{{ t_type }}</p>
                         {% endif %}
                      {% endwith %}
+
+                     {% with c_image=state|val_from_key:"Condition Image"|val_from_key:"file_details" %}
+                        {% if c_image %}
+                           {% for image in c_image %}
+                              {% with url=image|val_from_key:"url" %}
+                                 <h4>{{image|val_from_key:"name"}}</h4>
+                                 <img src="{{url}}">
+                              {% endwith %}
+                           {% endfor %}
+                        {% endif %}
+
+                     {% endwith %}
+
                   {% endwith %}
                         
-                  {% with pres=item|val_from_key:"Preservation"|val_from_key:"Preservation Status"|val_from_key:"@display_value" %}
-                     {% if pres %}
-                        <h4>Preservation Status: </h4>
-                        <p class="content">{{ pres }}</p>
-                     {% endif %}
+                  {% with preservation=item|val_from_key:"Preservation" %}
+                  
+                     {% with pres_status=preservation|val_from_key:"Preservation Status"|val_from_key:"@display_value" %}
+                        {% if pres_status %}
+                           <h4>Preservation Status: </h4>
+                           <p class="content">{{ pres_status }}</p>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with pres_type=preservation|val_from_key:"Required Preservation Type"|val_from_key:"@display_value" %}
+                        {% if pres_type %}
+                           <h4>Required Preservation Type: </h4>
+                           <p class="content">{{ pres_type }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
                   {% endwith %}
+
                {% endfor %}
                <hr>
                </section>
