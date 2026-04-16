@@ -4,10 +4,13 @@ from django.conf.urls.i18n import i18n_patterns
 from django.urls import include, path, re_path
 from .views.html_export_site import html_export_site
 from .views.html_export_object import html_export_object
+from .views.html_export_feature import html_export_feature
+
 
 urlpatterns = [
     re_path(r"^html_export_site$", html_export_site, name="html_export_site"),
     re_path(r"^html_export_object$", html_export_object, name="html_export_object"),
+    re_path(r"^html_export_feature$", html_export_feature, name="html_export_feature"),
 ]
 
 # Ensure Arches core urls are superseded by project-level urls
