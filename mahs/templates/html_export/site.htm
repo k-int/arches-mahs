@@ -32,7 +32,10 @@
             <section class="keeptogether">
                <ul>
                      {% for name in resource_data|val_from_key:"Name" %}
-                        <li><h4>{{name|val_from_key:"Name Type"|val_from_key:"value"}}:</h4> {{ name|val_from_key:"@display_value" }}</li>
+                        <li>
+                           <h4>{{name|val_from_key:"Name Type"|val_from_key:"value"}}</h4>
+                           <p>{{ name|val_from_key:"@display_value" }}</p>
+                        </li>
                      {% endfor %}
                </ul>
                <hr>
@@ -471,7 +474,7 @@
                   {% for linked_resource in resource_data|val_from_key:"Related Site"|val_from_key:"instance_details" %}
                   <li>
                      <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
-                     <a class="content href="http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                     <a class="content" href="http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                         http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}
                      </a>
                   </li>

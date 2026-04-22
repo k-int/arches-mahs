@@ -32,7 +32,10 @@
             <section class="keeptogether">
                <ul>
                      {% for name in resource_data|val_from_key:"Name" %}
-                        <li><h4>{{name|val_from_key:"Name Type"|val_from_key:"value"}}:</h4> {{ name|val_from_key:"@display_value" }}</li>
+                        <li>
+                           <h4>{{name|val_from_key:"Name Type"|val_from_key:"value"}}</h4>
+                           <p>{{ name|val_from_key:"@display_value" }}</p>
+                        </li>
                      {% endfor %}
                </ul>
                <hr>
@@ -67,10 +70,10 @@
             {% for item in resource_data|val_from_key:"Existence 9" %}
             
             {% with indeterminate=item|val_from_key:"Indeterminate"|val_from_key:"@display_value" %}
-            {% if indeterminate %}
-            <h4>Indeterminate</h4>
-            <p class="content">{{ indeterminate }}</p>
-            {% endif %}
+               {% if indeterminate %}
+                  <h4>Indeterminate</h4>
+                  <p class="content">{{ indeterminate }}</p>
+               {% endif %}
             {% endwith %}
             
             {% with beginning=item|val_from_key:"Time Period"|val_from_key:"Beginning of Existence" %}
@@ -473,45 +476,6 @@
                </section>   
             {% endif %}
 
-            {# --- Text Section --- #}
-            {% if resource_data|has_key:"Text" %}
-               <section class="keeptogether">
-                  <h3>Text</h3>
-                  {% for item in resource_data|val_from_key:"Text" %}
-                     
-                     {% with language=item|val_from_key:"Language"|val_from_key:"@display_value" %}
-                        {% if language %}
-                           <h4>Language</h4>
-                           <p class="content">{{item|val_from_key:"Language"|val_from_key:"@display_value"}}</p>
-                        {% endif %}
-                     {% endwith %}
-
-                     {% with notes=item|val_from_key:"Notes"|val_from_key:"@display_value" %}
-                        {% if notes %}
-                           <h4>Notes</h4>
-                           <p class="content">{{ notes }}</p>
-                        {% endif %}
-                     {% endwith %}
-
-                     {% with transcript=item|val_from_key:"Transcript"|val_from_key:"@display_value" %}
-                        {% if transcript %}
-                           <h4>Transcript</h4>
-                           <p class="content">{{ transcript }}</p>
-                        {% endif %}
-                     {% endwith %}
-
-                     {% with script=item|val_from_key:"Script"|val_from_key:"@display_value" %}
-                        {% if script %}
-                           <h4>Script</h4>
-                           <p class="content">{{ script }}</p>
-                        {% endif %}
-                     {% endwith %}
-                     
-                  {% endfor %}
-                  <hr>
-               </section>   
-            {% endif %}
-
             {# --- Inscription Section --- #}
             {% if resource_data|has_key:"Inscription 3" %}
                <section class="keeptogether">
@@ -655,7 +619,7 @@
                      {% for linked_resource in resource_data|val_from_key:"Site" %}
                      <li>
                         <h4>{{ linked_resource|val_from_key:"@display_value" }}</h4>
-                        <a class="content href="http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                        <a class="content" href="http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                            http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}
                         </a>
                      </li>
@@ -673,7 +637,7 @@
                      {% for linked_resource in resource_data|val_from_key:"Related Object"|val_from_key:"instance_details" %}
                      <li>
                         <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
-                        <a class="content href="http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                        <a class="content" href="http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                            http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}
                         </a>
                      </li>
@@ -692,7 +656,7 @@
                   {% for link in linked_resource|val_from_key:"instance_details" %}
                      <li>
                         <h4>{{ link|val_from_key:"display_value" }}</h4>
-                        <a class="content href="http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                        <a class="content" href="http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                            http://127.0.0.1:8000/resource/{{ link|val_from_key:'resourceId' }}
                         </a>
                      </li>
@@ -712,7 +676,7 @@
                      {% for link in linked_resource|val_from_key:"instance_details" %}
                         <li>
                            <h4>{{ link|val_from_key:"display_value" }}</h4>
-                           <a class="content href="http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                           <a class="content" href="http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                               http://127.0.0.1:8000/resource/{{ link|val_from_key:'resourceId' }}
                            </a>
                         </li>
@@ -731,7 +695,7 @@
                      {% for linked_resource in resource_data|val_from_key:"Collection" %}
                      <li>
                         <h4>{{ linked_resource|val_from_key:"@display_value" }}</h4>
-                        <a class="content href="http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                        <a class="content" href="http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                            http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}
                         </a>
                      </li>
@@ -741,8 +705,6 @@
                </section> 
             {% endif %}
 
-
-            
             <p>{{ resource_data }}</p>
 
          </main>
