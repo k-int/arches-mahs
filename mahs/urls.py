@@ -5,12 +5,18 @@ from django.urls import include, path, re_path
 from .views.html_export_site import html_export_site
 from .views.html_export_object import html_export_object
 from .views.html_export_feature import html_export_feature
+from .views.html_export_collection import html_export_collection
+from .views.html_export_oral_history import html_export_oral_history
+from .views.html_export_digital_asset import html_export_digital_asset
 
 
 urlpatterns = [
     re_path(r"^html_export_site$", html_export_site, name="html_export_site"),
     re_path(r"^html_export_object$", html_export_object, name="html_export_object"),
     re_path(r"^html_export_feature$", html_export_feature, name="html_export_feature"),
+    re_path(r"^html_export_collection$", html_export_collection, name="html_export_collection"),
+    re_path(r"^html_export_oral_history$", html_export_oral_history, name="html_export_oral_history"),
+    re_path(r"^html_export_digital_asset$", html_export_digital_asset, name="html_export_digital_asset"),
 ]
 
 # Ensure Arches core urls are superseded by project-level urls
