@@ -22,7 +22,7 @@
                     "instructions": {
                         "en": ""
                     },
-                    "is_editable": true,
+                    "is_editable": false,
                     "name": {
                         "en": "Related Site"
                     },
@@ -3268,11 +3268,11 @@
             },
             "relatable_resource_model_ids": [
                 "ed64662d-13e8-4f9e-8b4f-34b69dc39fdd",
+                "8066c2dc-c40a-11ef-b90d-1b51b0144d8c",
                 "5b144ae2-fc19-11ec-9eef-0050568e7db6",
                 "aaab9bcb-4ec1-4b6a-8af8-71b6fa17b934",
-                "ccbd1537-ac5e-11e6-84a5-026d961c88e6",
+                "c42a21b2-92ed-41f9-b670-64f02dee5f03",
                 "0340d04e-0801-11ed-9eef-0050568e7db6",
-                "8066c2dc-c40a-11ef-b90d-1b51b0144d8c",
                 "53f5cd56-0bd4-11ed-9eef-0050568e7db6",
                 "aaab9bcb-4ec1-4b6a-8af8-71b6fa17b934"
             ],
