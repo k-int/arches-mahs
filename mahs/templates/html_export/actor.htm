@@ -1,0 +1,120 @@
+{% load template_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Report</title>
+      {% include 'html_export/milligram.htm' %}
+      {% include 'html_export/custom_style.htm' %}
+   </head>
+
+   <body>
+      {% for resource in resources %}
+      {% with resource_data=resource.resource %}
+
+      <header>
+         {% include 'html_export/custom_header.htm' %}
+      </header>
+      
+      <main>
+         <h1>{{ resource.displayname }}</h1>
+         
+         {% with mahs_id=resource_data|val_from_key:"MAHS ID"|val_from_key:"@display_value" %}
+            <h4>MAHS ID</h4>
+            <p>{{ mahs_id }}</p>
+         {% endwith %}
+
+         {# --- Names Section --- #}
+         {% if resource_data|has_key:"Actor Apellation" %}
+            <section class="keeptogether">
+               {% with name=resource_data|val_from_key:"Actor Apellation"|val_from_key:"@display_value" %}
+                  {% if name %}
+                     <h4>Actor Apellation</h4>
+                     <p class="content">{{ name }}</p>
+                  {% endif %}
+               {% endwith %}
+               <hr>
+            </section>
+         {% endif %}
+
+         {# --- Activity Section --- #}
+         {% if resource_data|has_key:"Activity" %}
+            <section class="keeptogether">
+               <h3>Activity</h3>
+               {% with activity=resource_data|val_from_key:"Activity" %}
+
+                  {% with type=activity|val_from_key:"Actor Type"|val_from_key:"@display_value" %}
+                     <h4>Actor Type</h4>
+                     <p class="content">{{type}}</p>
+                  {% endwith %}
+                  
+                  {% with role=activity|val_from_key:"Role"|val_from_key:"@display_value" %}
+                     <h4>Role</h4>
+                     <p class="content">{{role}}</p>
+                  {% endwith %}
+                  
+                  {% with country=activity|val_from_key:"Country of Activity"|val_from_key:"@display_value" %}
+                     <h4>Country of Activity</h4>
+                     <p class="content">{{country}}</p>
+                  {% endwith %}
+
+               {% endwith %}
+               <hr>
+            </section>
+         {% endif %}
+
+         {# --- Images --- #}
+         {% if resource_data|has_key:"Information Carrier 3" %}
+            <section class="keeptogether">
+               <h3>Images</h3>
+               {% with carrier=resource_data|val_from_key:"Information Carrier 3" %}
+
+                  {% with caption=carrier|val_from_key:"Caption"|val_from_key:"@display_value" %}
+                     {% if caption %}
+                        <h4>Caption</h4>
+                        <p class="content">{{ caption }}</p>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% for file in carrier|val_from_key:"Information Carrier"|val_from_key:"file_details" %}
+                     {% with url=file|val_from_key:"url" %}
+                        <h4>{{file|val_from_key:"name"}}</h4>
+                        <img src="{{url}}">
+                     {% endwith %}
+                  {% endfor %}
+
+               {% endwith %}
+
+               <hr>
+            </section> 
+         {% endif %}
+
+         {# --- Reference Section --- #}
+         {% if resource_data|has_key:"Reference" %}
+            <section class="keeptogether">
+               <h3>References</h3>
+               {% with name=resource_data|val_from_key:"Reference"|val_from_key:"URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
+                  {% if name %}
+                     <h4>Reference</h4>
+                     <p class="content">{{ name }}</p>
+                  {% endif %}
+               {% endwith %}
+
+               {% with note=resource_data|val_from_key:"Reference"|val_from_key:"Note"|val_from_key:"@display_value" %}
+                  {% if note %}
+                     <h4>Reference Note</h4>
+                     <p class="content">{{ note }}</p>
+                  {% endif %}
+               {% endwith %}
+               <hr>
+            </section>
+         {% endif %}
+
+         </main>
+         {% endwith %}
+         {% endfor %}
+      </body>
+      </html>

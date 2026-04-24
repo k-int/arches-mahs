@@ -8,6 +8,7 @@ from .views.html_export_feature import html_export_feature
 from .views.html_export_collection import html_export_collection
 from .views.html_export_oral_history import html_export_oral_history
 from .views.html_export_digital_asset import html_export_digital_asset
+from .views.html_export_actor import html_export_actor
 
 
 urlpatterns = [
@@ -17,6 +18,7 @@ urlpatterns = [
     re_path(r"^html_export_collection$", html_export_collection, name="html_export_collection"),
     re_path(r"^html_export_oral_history$", html_export_oral_history, name="html_export_oral_history"),
     re_path(r"^html_export_digital_asset$", html_export_digital_asset, name="html_export_digital_asset"),
+    re_path(r"^html_export_actor$", html_export_actor, name="html_export_actor"),
 ]
 
 # Ensure Arches core urls are superseded by project-level urls
