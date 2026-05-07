@@ -129,8 +129,8 @@
                                 <p class="content">{{ i_site }}</p>
 
                                 {% for link in i_event|val_from_key:"Interview Site"|val_from_key:"instance_details" %}
-                                    <a class="content" href="http://127.0.0.1:8000/resource/{{ link|val_from_key:'resourceId' }}">
-                                        http://127.0.0.1:8000/resource/{{ link|val_from_key:'resourceId' }}
+                                    <a class="content" href="/resource/{{ link|val_from_key:'resourceId' }}">
+                                        /resource/{{ link|val_from_key:'resourceId' }}
                                     </a>
                                 {% endfor %}
                             </div>
