@@ -23,9 +23,12 @@
          <h1>{{ resource.displayname }}</h1>
          
          {% with mahs_id=resource_data|val_from_key:"MAHS ID"|val_from_key:"@display_value" %}
-               <h4>MAHS ID</h4>
-               <p>{{ mahs_id }}</p>
+            <h4>MAHS ID</h4>
+            <p class="content">{{ mahs_id }}</p>
          {% endwith %}
+
+         <h4>Arches ID</h4>
+         <p class="content">{{ resource.resourceinstanceid }}</p>
 
          {# --- Names Section --- #}
          {% if resource_data|has_key:"Collection Apellation" %}
@@ -34,7 +37,7 @@
                   {% for name in resource_data|val_from_key:"Collection Apellation" %}
                      <li>
                         <h4>{{name|val_from_key:"Apellation Type"|val_from_key:"value"}}</h4>
-                        <p>{{ name|val_from_key:"@display_value" }}</p>
+                        <p class="content">{{ name|val_from_key:"@display_value" }}</p>
                      </li>
                   {% endfor %}
                </ul>
@@ -62,14 +65,16 @@
          {% if resource_data|has_key:"Legal Entity" %}
             <section class="keeptogether">
                <h3>Legal Entity</h3>
-                  <h4>Institution Name</h4>
+                  {% if resource_data|val_from_key:"Legal Entity"|val_from_key:"Legal Entity Name"|val_from_key:"@display_value"|val_from_key:"@display_value" %}
+                     <h4>Institution Name</h4>
+                     <p class="content">{{resource_data|val_from_key:"Legal Entity"|val_from_key:"Legal Entity Name"}}</p>
+                  {% endif %}
+                  
+                  <h4>Institution Profile</h4>
                   <p class="content">{{resource_data|val_from_key:"Legal Entity"|val_from_key:"Institution Profile Assignment"|val_from_key:"Institution Profile"|val_from_key:"@display_value"}}</p>
-
-                  <h4>Institution Profile</h4>
+                  
+                  <h4>MAHS Partnership Description</h4>
                   <p class="content">{{resource_data|val_from_key:"Legal Entity"|val_from_key:"MAHS Partnership Description Assigment"|val_from_key:"MAHS Partnership Description"|val_from_key:"@display_value"}}</p>
-
-                  <h4>Institution Profile</h4>
-                  <p class="content">{{resource_data|val_from_key:"Legal Entity"|val_from_key:"Legal Entity Name"|val_from_key:"@display_value"}}</p>
 
                <hr>
             </section>
@@ -188,13 +193,22 @@
                   {% endwith %}
                   
                   {% for sub_item in item|val_from_key:"Spatial Coordinates Geometry" %}
-                     <h4>Geometry Qualifier</h4>
-                     <p class="content">{{sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value"}}</p>
-                     <h4>Latitude</h4>
-                     <p class="content">{{sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value"}}</p>
-                     <h4>Longitude</h4>
-                     <p class="content">{{sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value"}}</p>
-                  
+
+                     {% if sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value" %}
+                        <h4>Geometry Qualifier</h4>
+                        <p class="content">{{sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value"}}</p>
+                     {% endif %}
+
+                     {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value" %}
+                        <h4>Latitude</h4>
+                        <p class="content">{{sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value"}}</p>
+                     {% endif %}
+
+                     {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value" %}
+                        <h4>Longitude</h4>
+                        <p class="content">{{sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value"}}</p>
+                     {% endif %}
+                     
                      {% for feature in sub_item|val_from_key:"geojson"|val_from_key:"features" %}
                         <h4>Spatial Coordinates Geometry</h4>
                         <p class="content">{{ feature|val_from_key:"geometry" }}</p>
@@ -275,13 +289,10 @@
                      {% endwith %}
                   {% endfor %}
 
+                  <hr>
                {% endfor %}
-               <hr>
             </section> 
          {% endif %}
-
-
-         <p>{{ resource_data }}</p>
 
          </main>
          {% endwith %}

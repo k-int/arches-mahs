@@ -24,8 +24,11 @@
          
          {% with mahs_id=resource_data|val_from_key:"MAHS ID"|val_from_key:"@display_value" %}
             <h4>MAHS ID</h4>
-            <p>{{ mahs_id }}</p>
+            <p class="content">{{ mahs_id }}</p>
          {% endwith %}
+
+         <h4>Arches ID</h4>
+         <p class="content">{{ resource.resourceinstanceid }}</p>
 
          {# --- Names Section --- #}
          {% if resource_data|has_key:"Actor Apellation" %}
@@ -47,18 +50,24 @@
                {% with activity=resource_data|val_from_key:"Activity" %}
 
                   {% with type=activity|val_from_key:"Actor Type"|val_from_key:"@display_value" %}
-                     <h4>Actor Type</h4>
-                     <p class="content">{{type}}</p>
+                     {% if type %}
+                        <h4>Actor Type</h4>
+                        <p class="content">{{type}}</p>
+                     {% endif %}
                   {% endwith %}
                   
                   {% with role=activity|val_from_key:"Role"|val_from_key:"@display_value" %}
-                     <h4>Role</h4>
-                     <p class="content">{{role}}</p>
+                     {% if role %}
+                        <h4>Role</h4>
+                        <p class="content">{{role}}</p>
+                     {% endif %}
                   {% endwith %}
                   
                   {% with country=activity|val_from_key:"Country of Activity"|val_from_key:"@display_value" %}
-                     <h4>Country of Activity</h4>
-                     <p class="content">{{country}}</p>
+                     {% if country %}
+                        <h4>Country of Activity</h4>
+                        <p class="content">{{country}}</p>
+                     {% endif %}
                   {% endwith %}
 
                {% endwith %}

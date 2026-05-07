@@ -23,9 +23,14 @@
         <h1>{{ resource.displayname }}</h1>
         
         {% with mahs_id=resource_data|val_from_key:"MAHS ID"|val_from_key:"@display_value" %}
-            <h4>MAHS ID</h4>
-            <p>{{ mahs_id }}</p>
+        <h4>MAHS ID</h4>
+        <p class="content">{{ mahs_id }}</p>
         {% endwith %}
+
+        <h4>Arches ID</h4>
+        <p class="content">{{ resource.resourceinstanceid }}</p>
+
+        <hr>
 
         {# --- Title Section --- #}
         {% if resource_data|has_key:"Title" %}
@@ -176,7 +181,27 @@
             <h3>Interviewee(s)</h3>
 
             {% for interviewee in resource_data|val_from_key:"Interviewee" %}
-                <p class="content">{{interviewee|val_from_key:"Name of Inerviewee"|val_from_key:"@display_value"}}</p>
+                {% with name=interviewee|val_from_key:"Name of Inerviewee"|val_from_key:"@display_value" %}
+                    {% if name %}
+                        <h4>Name</h4>
+                        <p class="content">{{name}}</p>
+                    {% endif %}
+                {% endwith %}
+
+                {% with gender=interviewee|val_from_key:"Gender of Interviewee"|val_from_key:"@display_value" %}
+                    {% if gender %}
+                        <h4>Gender</h4>
+                        <p class="content">{{gender}}</p>
+                    {% endif %}
+                {% endwith %}
+
+                {% with age=interviewee|val_from_key:"Age of Interviewee"|val_from_key:"@display_value" %}
+                    {% if age %}
+                        <h4>Age</h4>
+                        <p class="content">{{age}}</p>
+                    {% endif %}
+                {% endwith %}
+
             {% endfor %}
 
             <hr>
@@ -215,15 +240,15 @@
         {% endif %}
 
         {# --- Related Resources section --- #}
-        {% if resource_data|has_key:"Related Resources" %}
+        {% if resource_data|has_key:"Related Resources" and resource_data|val_from_key:"Related Resources"|val_from_key:"@display_value" %}
             <section class="keeptogether">
                 <h3>Related Resources</h3>
                 <ul>
                     {% for linked_resource in resource_data|val_from_key:"Related Resources"|val_from_key:"instance_details" %}
                         <li>
                         <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
-                        <a class="content" href="http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                            http://127.0.0.1:8000/resource/{{ linked_resource|val_from_key:'resourceId' }}
+                        <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                            /resource/{{ linked_resource|val_from_key:'resourceId' }}
                         </a>
                         </li>
                     {% endfor %}
@@ -231,8 +256,6 @@
                 <hr>
             </section> 
         {% endif %}
-
-        <p>{{ resource_data }}</p>
 
         </main>
         {% endwith %}

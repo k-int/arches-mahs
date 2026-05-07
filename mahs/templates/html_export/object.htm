@@ -23,9 +23,12 @@
          <h1>{{ resource.displayname }}</h1>
          
          {% with mahs_id=resource_data|val_from_key:"MAHS ID"|val_from_key:"@display_value" %}
-               <h4>MAHS ID</h4>
-               <p>{{ mahs_id }}</p>
+            <h4>MAHS ID</h4>
+            <p class="content">{{ mahs_id }}</p>
          {% endwith %}
+
+         <h4>Arches ID</h4>
+         <p class="content">{{ resource.resourceinstanceid }}</p>
 
          {# --- Names Section --- #}
          {% if resource_data|has_key:"Name" %}
@@ -34,7 +37,7 @@
                      {% for name in resource_data|val_from_key:"Name" %}
                         <li>
                            <h4>{{name|val_from_key:"Name Type"|val_from_key:"value"}}</h4>
-                           <p>{{ name|val_from_key:"@display_value" }}</p>
+                           <p class="content">{{ name|val_from_key:"@display_value" }}</p>
                         </li>
                      {% endfor %}
                </ul>
@@ -161,42 +164,42 @@
             <section class="keeptogether">
                <h3>Measurement</h3>
                {% for item in resource_data|val_from_key:"Measurement 3" %}
-               {% with component=item|val_from_key:"Measured Component" %}
-               {% with comp_val=component|val_from_key:"@display_value" %}
-               {% if comp_val %}
-               <h4>Measured Component:</h4> 
-               <p class="content">{{ comp_val }}</p>
-               {% endif %}
-               {% endwith %}
-               
-               {% with m_type=component|val_from_key:"Measurement Event"|val_from_key:"Measurement Type"|val_from_key:"@display_value" %}
-               {% if m_type %}
-               <h4>Measurement Type:</h4> 
-               <p class="content">{{ m_type }}</p>
-               {% endif %}
-               {% endwith %}
-               
-               {% with m_unit=component|val_from_key:"Measurement Event"|val_from_key:"Measurement"|val_from_key:"Measurement Unit"|val_from_key:"@display_value" %}
-               {% if m_unit %}
-               <h4>Measurement Unit:</h4> 
-               <p class="content">{{ m_unit }}</p>
-               {% endif %}
-               {% endwith %}
-               
-               {% with m_val=component|val_from_key:"Measurement Event"|val_from_key:"Measurement"|val_from_key:"Measurement Value"|val_from_key:"@display_value" %}
-               {% if m_val %}
-               <h4>Measurement Value:</h4> 
-               <p class="content">{{ m_val }}</p>
-               {% endif %}
-               {% endwith %}
-               {% endwith %}
-               
-               {% with m_notes=item|val_from_key:"Notes on Measurement"|val_from_key:"@display_value" %}
-               {% if m_notes %}
-               <h4>Notes on Measurement:</h4> 
-               <p class="content">{{ m_notes }}</p>
-               {% endif %}
-               {% endwith %}
+                  {% with component=item|val_from_key:"Measured Component" %}
+                     {% with comp_val=component|val_from_key:"@display_value" %}
+                        {% if comp_val %}
+                           <h4>Measured Component:</h4> 
+                           <p class="content">{{ comp_val }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with m_type=component|val_from_key:"Measurement Event"|val_from_key:"Measurement Type"|val_from_key:"@display_value" %}
+                        {% if m_type %}
+                           <h4>Measurement Type:</h4> 
+                           <p class="content">{{ m_type }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with m_unit=component|val_from_key:"Measurement Event"|val_from_key:"Measurement"|val_from_key:"Measurement Unit"|val_from_key:"@display_value" %}
+                        {% if m_unit %}
+                           <h4>Measurement Unit:</h4> 
+                           <p class="content">{{ m_unit }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with m_val=component|val_from_key:"Measurement Event"|val_from_key:"Measurement"|val_from_key:"Measurement Value"|val_from_key:"@display_value" %}
+                        {% if m_val %}
+                           <h4>Measurement Value:</h4> 
+                           <p class="content">{{ m_val }}</p>
+                        {% endif %}
+                     {% endwith %}
+                  {% endwith %}
+                  
+                  {% with m_notes=item|val_from_key:"Notes on Measurement"|val_from_key:"@display_value" %}
+                     {% if m_notes %}
+                        <h4>Notes on Measurement:</h4> 
+                        <p class="content">{{ m_notes }}</p>
+                     {% endif %}
+                  {% endwith %}
                {% endfor %}
                <hr>
             </section>
@@ -226,34 +229,43 @@
                <h3>Location</h3>
                {% for item in resource_data|val_from_key:"Place 6" %}
                
-               {% for address in item|val_from_key:"Place Address" %}
-               <h4>Address Type</h4>
-               <p class="content">{{address|val_from_key:"Address Type"|val_from_key:"@display_value"}}</p>
-               
-               <h4>Address</h4>
-               <p class="content">{{address|val_from_key:"@display_value"}}</p>
-               {% endfor %}
-               
-               {% with p_desc=item|val_from_key:"Place Description Assignment"|val_from_key:"Place Description"|val_from_key:"@display_value" %}
-               {% if p_desc %}
-               <h4>Place Description</h4>
-               <p class="content">{{ p_desc }}</p>
-               {% endif %}
-               {% endwith %}
-               
-               {% for sub_item in item|val_from_key:"Spatial Coordinates Geometry" %}
-               <h4>Geometry Qualifier</h4>
-               <p class="content">{{sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value"}}</p>
-               <h4>Latitude</h4>
-               <p class="content">{{sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value"}}</p>
-               <h4>Longitude</h4>
-               <p class="content">{{sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value"}}</p>
-               
-               {% for feature in sub_item|val_from_key:"geojson"|val_from_key:"features" %}
-               <h4>Spatial Coordinates Geometry</h4>
-               <p class="content">{{ feature|val_from_key:"geometry" }}</p>
-               {% endfor %}
-               {% endfor %}
+                  {% for address in item|val_from_key:"Place Address" %}
+                     <h4>Address Type</h4>
+                     <p class="content">{{address|val_from_key:"Address Type"|val_from_key:"@display_value"}}</p>
+                     
+                     <h4>Address</h4>
+                     <p class="content">{{address|val_from_key:"@display_value"}}</p>
+                  {% endfor %}
+                  
+                  {% with p_desc=item|val_from_key:"Place Description Assignment"|val_from_key:"Place Description"|val_from_key:"@display_value" %}
+                     {% if p_desc %}
+                        <h4>Place Description</h4>
+                        <p class="content">{{ p_desc }}</p>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% for sub_item in item|val_from_key:"Spatial Coordinates Geometry" %}
+
+                     {% if sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value" %}
+                        <h4>Geometry Qualifier</h4>
+                        <p class="content">{{sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value"}}</p>
+                     {% endif %}
+
+                     {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value" %}
+                        <h4>Latitude</h4>
+                        <p class="content">{{sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value"}}</p>
+                     {% endif %}
+
+                     {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value" %}
+                        <h4>Longitude</h4>
+                        <p class="content">{{sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value"}}</p>
+                     {% endif %}
+                     
+                     {% for feature in sub_item|val_from_key:"geojson"|val_from_key:"features" %}
+                        <h4>Spatial Coordinates Geometry</h4>
+                        <p class="content">{{ feature|val_from_key:"geometry" }}</p>
+                     {% endfor %}
+                  {% endfor %}
                {% endfor %}
                <hr>
             </section>
@@ -390,8 +402,14 @@
                               {% endwith %}
                            {% endfor %}
                         {% endif %}
-
                      {% endwith %}
+
+                  {% with notes=item|val_from_key:"Condition and Preservation Description Assignment"|val_from_key:"Notes on Condition and Preservation"|val_from_key:"@display_value" %}
+                     {% if notes %}
+                        <h4>Condition notes</h4>
+                        <p class="content">{{ notes }}</p>  
+                     {% endif %}
+                  {% endwith %}
 
                   {% endwith %}
                         
@@ -423,14 +441,27 @@
                <section class="keeptogether">
                   <h3>External Identifiers</h3>
                      {% for item in resource_data|val_from_key:"External Identifier 4" %}
-                        <h4>External Xref</h4>
-                        <p class="content">{{item|val_from_key:"@display_value"}}</p>
-                        
-                        <h4>External Source</h4>
-                        <p class="content">{{item|val_from_key:"External Source"|val_from_key:"@display_value"}}</p>
-                        
-                        <h4>External Identifier Type</h4>
-                        <p class="content">{{item|val_from_key:"External Identifier Type"|val_from_key:"@display_value"}}</p>
+
+                        {% with xref=item|val_from_key:"@display_value" %}
+                           {% if xref %}
+                              <h4>External Xref</h4>
+                              <p class="content">{{xref}}</p>
+                           {% endif %}
+                        {% endwith %}
+
+                        {% with source=item|val_from_key:"External Source"|val_from_key:"@display_value" %}
+                           {% if source %}
+                              <h4>External Source</h4>
+                              <p class="content">{{source}}</p>
+                           {% endif %}
+                        {% endwith %}
+
+                        {% with type=item|val_from_key:"External Identifier Type"|val_from_key:"@display_value" %}
+                           {% if type %}
+                              <h4>External Identifier Type</h4>
+                              <p class="content">{{type}}</p>
+                           {% endif %}
+                        {% endwith %}
                         
                         {% with url=item|val_from_key:"External Identifier URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
                            {% if url %}
@@ -445,8 +476,9 @@
                               <p class="content">{{ x_desc }}</p>
                            {% endif %}
                         {% endwith %}
+                        
+                        <hr>
                      {% endfor %}
-                  <hr>
                </section>   
             {% endif %}
 
@@ -606,8 +638,8 @@
                         {% endwith %}
                      {% endfor %}
 
-                  {% endfor %}
                   <hr>
+                  {% endfor %}
                </section> 
             {% endif %}
 
@@ -704,8 +736,6 @@
                   <hr>
                </section> 
             {% endif %}
-
-            <p>{{ resource_data }}</p>
 
          </main>
          {% endwith %}

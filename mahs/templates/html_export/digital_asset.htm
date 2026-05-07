@@ -23,9 +23,12 @@
         <h1>{{ resource.displayname }}</h1>
         
         {% with mahs_id=resource_data|val_from_key:"MAHS ID"|val_from_key:"@display_value" %}
-            <h4>MAHS ID</h4>
-            <p>{{ mahs_id }}</p>
+        <h4>MAHS ID</h4>
+        <p class="content">{{ mahs_id }}</p>
         {% endwith %}
+
+        <h4>Arches ID</h4>
+        <p class="content">{{ resource.resourceinstanceid }}</p>
         <hr>
 
         {# --- Title Section --- #}
@@ -61,7 +64,7 @@
 
             {% with keyword=resource_data|val_from_key:"Keyword"|val_from_key:"@display_value" %}
                 {% if keyword %}
-                    <h4>Digital Asset Type</h4>    
+                    <h4>Keywords</h4>    
                     <p class="content">{{ keyword }}</p>
                 {% endif %}
             {% endwith %}
@@ -85,10 +88,12 @@
             {% endwith %}
 
             {% with update=resource_data|val_from_key:"Updated 4" %}
+                {% if update %}
                 <div class="keeptogether">
                     <h4>Update: {{update|val_from_key:"Date of Update"|val_from_key:"@display_value"}}</h3>
                     <p class="content">{{ update|val_from_key:"Update Description"|val_from_key:"@display_value" }}</p>
                 </div>
+                {% endif %}
             {% endwith %}
 
             <hr>
@@ -142,6 +147,22 @@
                         http://127.0.0.1:8000/resource/{{ actor|val_from_key:"resourceId" }}
                     </a>
                 {% endfor %}
+            {% endif %}
+
+            {% if resource_data|has_key:"Data Collection Event" %}
+                {% with collector=resource_data|val_from_key:"Data Collection Event"|val_from_key:"Data Collected By"|val_from_key:"@display_value" %}
+                    {% if collector %}
+                        <h4>Collected by</h4>
+                        <p class="content">{{ collector }}</p>
+                    {% endif %}
+                {% endwith %}
+
+                {% with date=resource_data|val_from_key:"Data Collection Event"|val_from_key:"Date of Data Collection"|val_from_key:"@display_value" %}
+                    {% if date %}
+                        <h4>Date of Collection</h4>
+                        <p class="content">{{ date }}</p>
+                    {% endif %}
+                {% endwith %}
             {% endif %}
 
             <hr>
@@ -222,9 +243,8 @@
                                 <a class="content" href="{{url}}">{{url}}</a>
                             {% endwith %}
                         {% endif %}
+                        {% endfor %}
                         <hr>
-                    {% endfor %}
-
                 {% endfor %}
             </section> 
         {% endif %}
@@ -370,8 +390,6 @@
                 <hr>
             </section> 
         {% endif %}
-
-        <p>{{ resource_data }}</p>
 
         </main>
         {% endwith %}
