@@ -221,18 +221,17 @@
          {% if resource_data|has_key:"Administrative Division" %}
             <section class="keeptogether">
                <h3>Administrative Division</h3>
-               <ul class="keeptogether">
+               <div class="keeptogether">
                   {% for division in resource_data|val_from_key:"Administrative Division" %}
                   {% with sub_div=division|val_from_key:"Administration Subdivision" %}
-                  <li>
-                     <div class="data-table">
-                        <div>{{sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value"}}</div>
-                        <div>: {{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</div>
-                     </div>
-                  </li>
+                  <div class="data-table">
+                     <div>{{sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value"}}</div>
+                     <div>: {{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</div>
+                  </div>
                   {% endwith %}
                   {% endfor %}
-               </ul>
+               </div>
+
                <hr>
             </section>
          {% endif %}
@@ -582,7 +581,9 @@
          {# --- Acknowledgement section --- #}
          {% if resource_data|has_key:"Acknowledgement" %}
             <section class="keeptogether">
-               <h1>Acknowledgement</h1>
+               <div class="h1-container">
+                  <h1>Acknowledgement</h1>
+               </div>
 
                {% with partners=resource_data|val_from_key:'Acknowledgement'|val_from_key:'Country Partners'|val_from_key:"@display_value" %}
                   {% if partners %}   
@@ -601,12 +602,11 @@
                {% with general=resource_data|val_from_key:'Acknowledgement'|val_from_key:'General Acknowledgement'|val_from_key:"@display_value"|safe %}
                   {% if general %}   
                      <h4>General Acknowledgement</h4>
-                     <p class="content">{{ general }}</p>
+                     <div class="acknowledgement-container">
+                        <p>{{ general }}</p>
+                     </div>
                   {% endif %}
                {% endwith %}
-
-
-
             </section>
             
             <section">
