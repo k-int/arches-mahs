@@ -65,14 +65,6 @@
                         <hr>
                      </div>
                   {% endfor %}
-
-                  {% for desc in resource_data|val_from_key:"Updated 4" %}
-                     <div class="keeptogether">
-                        <h3>Update: {{desc|val_from_key:"Date of Update"|val_from_key:"@display_value"}}</h3>
-                        <p class="content">{{ desc|val_from_key:"Update Description"|val_from_key:"@display_value" }}</p>
-                        <hr>
-                     </div>
-                  {% endfor %}
             </section>
          {% endif %}
 
