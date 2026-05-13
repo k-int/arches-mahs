@@ -62,11 +62,13 @@
          {% if resource_data|has_key:"Description Assignment" or resource_data|has_key:"Updated 4" %}
             <section">
                   {% for desc in resource_data|val_from_key:"Description Assignment" %}
-                     <div class="keeptogether">
-                        <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
-                        <p class="content">{{ desc|val_from_key:"Description"|val_from_key:"@display_value" }}</p>
-                        <hr>
-                     </div>
+                     {% if desc|val_from_key:"Description Type"|val_from_key:"value" != "Acknowledgement" %}   
+                        <div class="keeptogether">
+                           <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
+                           <p class="content">{{ desc|val_from_key:"Description"|val_from_key:"@display_value" }}</p>
+                           <hr>
+                        </div>
+                     {% endif %}
                   {% endfor %}
             </section>
          {% endif %}
@@ -606,13 +608,44 @@
          {# --- Acknowledgement section --- #}
          {% if resource_data|has_key:"Acknowledgement" %}
             <section class="keeptogether">
-               <h3>Acknowledgement</h3>
-               <div class="data-table">
-                  <div>Acknowledgement</div>
-                  <div>: {{ resource_data|val_from_key:'Acknowledgement'|val_from_key:'General Acknowledgement'|val_from_key:"@display_value"|safe }}</div>
-            </div>
-               <hr>
-            </section> 
+               <h1>Acknowledgement</h1>
+
+               {% with partners=resource_data|val_from_key:'Acknowledgement'|val_from_key:'Country Partners'|val_from_key:"@display_value" %}
+                  {% if partners %}   
+                     <h4>Country Partners</h4>
+                     <p class="content">{{ partners }}</p>
+                  {% endif %}
+               {% endwith %}
+
+               {% with team=resource_data|val_from_key:'Acknowledgement'|val_from_key:'Team Members'|val_from_key:"@display_value" %}
+                  {% if team %}   
+                     <h4>Field Team Members</h4>
+                     <p class="content">{{ team }}</p>
+                  {% endif %}
+               {% endwith %}
+
+               {% with general=resource_data|val_from_key:'Acknowledgement'|val_from_key:'General Acknowledgement'|val_from_key:"@display_value"|safe %}
+                  {% if general %}   
+                     <h4>General Acknowledgement</h4>
+                     <p class="content">{{ general }}</p>
+                  {% endif %}
+               {% endwith %}
+
+
+
+            </section>
+            
+            <section">
+               {% for desc in resource_data|val_from_key:"Description Assignment" %}
+                  {% if desc|val_from_key:"Description Type"|val_from_key:"value" == "Acknowledgement" %}   
+                     <div class="keeptogether">
+                        <h4>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
+                        <p class="content">{{ desc|val_from_key:"Description"|val_from_key:"@display_value" }}</p>
+                     </div>
+                  {% endif %}
+               {% endfor %}
+            </section>
+
          {% endif %}
 
       {% endwith %}
