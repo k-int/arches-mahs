@@ -176,8 +176,10 @@
 
                   {% with notes=item|val_from_key:"Periodization Description Assignment"|val_from_key:"Periodization Notes"|val_from_key:"@display_value" %}
                      {% if notes %}
-                        <h4>Periodization Notes</h4>
-                        <p class="content">: {{ notes }}</p>
+                     <div class="data-table">
+                        <div>Periodization Notes</div>
+                        <div>: {{ notes }}</div>
+                     </div>
                      {% endif %}
                   {% endwith %}
 
@@ -192,42 +194,14 @@
             <section class="keeptogether">
                <h3>Measurements</h3>
                {% for item in resource_data|val_from_key:"Measurement 3" %}
-                  {% with component=item|val_from_key:"Measured Component" %}
-                     {% with comp_val=component|val_from_key:"@display_value" %}
-                        {% if comp_val %}
-                           <div class="data-table">
-                              <div>Measured Component:</div>
-                              <div>: {{ comp_val }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
-                  
-                     {% with m_type=component|val_from_key:"Measurement Event"|val_from_key:"Measurement Type"|val_from_key:"@display_value" %}
-                        {% if m_type %}
-                           <div class="data-table">
-                              <div>Measurement Type</div>
-                              <div>: {{ m_type }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
-                  
-                     {% with m_unit=component|val_from_key:"Measurement Event"|val_from_key:"Measurement"|val_from_key:"Measurement Unit"|val_from_key:"@display_value" %}
-                        {% if m_unit %}
-                           <div class="data-table">
-                              <div>Measurement Unit:</div>
-                              <div>: {{ m_unit }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
-                  
-                     {% with m_val=component|val_from_key:"Measurement Event"|val_from_key:"Measurement"|val_from_key:"Measurement Value"|val_from_key:"@display_value" %}
-                        {% if m_val %}
-                           <div class="data-table">
-                              <div>Measurement Value:</div>
-                              <div>: {{ m_val }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
+
+                  {% with component=item|val_from_key:"Measured Component"|val_from_key:"Measurement Event" %}
+
+                     <div class="data-table">
+                        <div>{{component|val_from_key:"Measurement Type"|val_from_key:"@display_value"|capfirst}} ({{component|val_from_key:"Measurement"|val_from_key:"Measurement Unit"|val_from_key:"@display_value"}})</div>
+                        <div>: {{ component|val_from_key:"Measurement"|val_from_key:"Measurement Value"|val_from_key:"@display_value" }}</div>
+                     </div>
+
                   {% endwith %}
                   
                   {% with m_notes=item|val_from_key:"Notes on Measurement"|val_from_key:"@display_value" %}
