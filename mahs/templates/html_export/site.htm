@@ -26,8 +26,11 @@
             </a>
          </div>  
 
-         <h1>{{ resource.displayname }}</h1>
-         
+         <div class="h1-container">
+            <h1>{{ resource.displayname }}</h1>
+            <h1>Overview</h1>
+         </div>
+
          {% with mahs_id=resource_data|val_from_key:"MAHS ID"|val_from_key:"@display_value" %}
             <div class="data-table">
                <div>MAHS ID</div>
