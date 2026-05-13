@@ -65,7 +65,9 @@
                      {% if desc|val_from_key:"Description Type"|val_from_key:"value" != "Acknowledgement" %}   
                         <div class="keeptogether">
                            <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
-                           <p class="content">{{ desc|val_from_key:"Description"|val_from_key:"@display_value" }}</p>
+                           <div class="content-container">
+                              <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
+                           </div>
                            <hr>
                         </div>
                      {% endif %}
@@ -174,7 +176,7 @@
                      {% endif %}
                   {% endwith %} -->
 
-                  {% with notes=item|val_from_key:"Periodization Description Assignment"|val_from_key:"Periodization Notes"|val_from_key:"@display_value" %}
+                  {% with notes=item|val_from_key:"Periodization Description Assignment"|val_from_key:"Periodization Notes"|val_from_key:"@display_value"|safe %}
                      {% if notes %}
                      <div class="data-table">
                         <div>Periodization Notes</div>
@@ -204,7 +206,7 @@
 
                   {% endwith %}
                   
-                  {% with m_notes=item|val_from_key:"Notes on Measurement"|val_from_key:"@display_value" %}
+                  {% with m_notes=item|val_from_key:"Notes on Measurement"|val_from_key:"@display_value"|safe %}
                      {% if m_notes %}
                         <div class="data-table">
                            <div>Notes on Measurement:</div>
@@ -602,7 +604,7 @@
                {% with general=resource_data|val_from_key:'Acknowledgement'|val_from_key:'General Acknowledgement'|val_from_key:"@display_value"|safe %}
                   {% if general %}   
                      <h4>General Acknowledgement</h4>
-                     <div class="acknowledgement-container">
+                     <div class="content-container">
                         <p>{{ general }}</p>
                      </div>
                   {% endif %}
@@ -614,7 +616,9 @@
                   {% if desc|val_from_key:"Description Type"|val_from_key:"value" == "Acknowledgement" %}   
                      <div class="keeptogether">
                         <h4>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
-                        <p class="content">{{ desc|val_from_key:"Description"|val_from_key:"@display_value" }}</p>
+                        <div class="content-container">
+                           <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
+                        </div>
                      </div>
                   {% endif %}
                {% endfor %}
