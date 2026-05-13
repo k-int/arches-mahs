@@ -609,6 +609,17 @@
             </section> 
          {% endif %}
 
+         {# --- Acknowledgement section --- #}
+         {% if resource_data|has_key:"Acknowledgement" %}
+            <section class="keeptogether">
+               <h3>Acknowledgement</h3>
+               <div class="data-table">
+                  <div>Acknowledgement</div>
+                  <div>: {{ resource_data|val_from_key:'Acknowledgement'|val_from_key:'General Acknowledgement'|val_from_key:"@display_value"|safe }}</div>
+            </div>
+               <hr>
+            </section> 
+         {% endif %}
 
       {% endwith %}
       {% endfor %}
