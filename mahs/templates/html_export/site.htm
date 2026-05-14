@@ -521,9 +521,8 @@
             <section class="keeptogether">
                <h3>Citation</h3>
                {% for item in resource_data|val_from_key:"Citation 4" %}
-                  <div class="data-table">
-                     <div>Citation Apellation</div>
-                     <div>: {{item|val_from_key:"Citation Apellation"|val_from_key:"@display_value"}}</div>
+                     <h4>Citation Apellation:</h4>
+                     <p>{{item|val_from_key:"Citation Apellation"|val_from_key:"@display_value"}}</p>
                   </div>
                   
                   {% with c_url=item|val_from_key:"Citation URL"|val_from_key:"url" %}
