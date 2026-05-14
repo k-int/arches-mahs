@@ -43,11 +43,6 @@
             </div>
          {% endwith %}
 
-         <div class="data-table">
-            <div>Arches ID</div>
-            <div>: {{ resource.resourceinstanceid }}</div>
-         </div>
-
          {# --- Names Section --- #}
          {% if resource_data|has_key:"Name" %}
             <section class="keeptogether">
@@ -632,6 +627,15 @@
                {% endfor %}
             </section> 
          {% endif %}
+
+         {# --- ResourceID section --- #}
+            <section class="keeptogether">
+               <div class="h1-container">
+                  <h1>Resource ID</h1>
+               </div>
+               <p class="content">{{ resource.resourceinstanceid }}</p>
+
+            </section> 
 
          {# --- Related resources section --- #}
          {% if resource_data|has_key:"Related Site" %}
