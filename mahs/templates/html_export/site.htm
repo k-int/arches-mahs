@@ -551,50 +551,6 @@
                <hr>
             </section>   
          {% endif %}
-            
-         {# --- Images --- #}
-         {% if resource_data|has_key:"Information Carrier 2" %}
-            <section class="keeptogether">
-               <h3>Images</h3>
-               {% for item in resource_data|val_from_key:"Information Carrier 2" %}
-
-                  {% with caption=item|val_from_key:"Caption"|val_from_key:"@display_value" %}
-                     {% if caption %}
-                        <div class="data-table">
-                           <div>Caption</div>
-                           <div>: {{ caption }}</div>
-                        </div>
-                     {% endif %}
-                  {% endwith %}
-                  
-                  {% for file in item|val_from_key:"Information Carrier"|val_from_key:"file_details" %}
-                     {% with url=file|val_from_key:"url" %}
-                        <h4>{{file|val_from_key:"name"}}</h4>
-                        <img src="{{url}}">
-                     {% endwith %}
-                  {% endfor %}
-                  <hr>
-               {% endfor %}
-            </section> 
-         {% endif %}
-
-         {# --- Related resources section --- #}
-         {% if resource_data|has_key:"Related Site" %}
-            <section class="keeptogether">
-               <h3>Related resources</h3>
-               <ul>
-                  {% for linked_resource in resource_data|val_from_key:"Related Site"|val_from_key:"instance_details" %}
-                  <li>
-                     <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
-                     <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                        /resource/{{ linked_resource|val_from_key:'resourceId' }}
-                     </a>
-                  </li>
-                  {% endfor %}
-               </ul>
-               <hr>
-            </section> 
-         {% endif %}
 
          {# --- Acknowledgement section --- #}
          {% if resource_data|has_key:"Acknowledgement" %}
@@ -640,6 +596,54 @@
                {% endfor %}
             </section>
 
+         {% endif %}
+            
+         {# --- Images --- #}
+         {% if resource_data|has_key:"Information Carrier 2" %}
+            <section class="keeptogether">
+               <div class="h1-container">
+                  <h1>{{ resource.displayname }}</h1>
+                  <h1>Images</h1>
+               </div>
+                  
+               {% for item in resource_data|val_from_key:"Information Carrier 2" %}
+
+                  {% with caption=item|val_from_key:"Caption"|val_from_key:"@display_value" %}
+                     {% if caption %}
+                        <div class="data-table">
+                           <div style="font-weight: bold">Caption</div>
+                           <div>: {{ caption }}</div>
+                        </div>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% for file in item|val_from_key:"Information Carrier"|val_from_key:"file_details" %}
+                     {% with url=file|val_from_key:"url" %}
+                        <!-- <h4>{{file|val_from_key:"name"}}</h4> -->
+                        <img src="{{url}}">
+                     {% endwith %}
+                  {% endfor %}
+                  <hr>
+               {% endfor %}
+            </section> 
+         {% endif %}
+
+         {# --- Related resources section --- #}
+         {% if resource_data|has_key:"Related Site" %}
+            <section class="keeptogether">
+               <h3>Related resources</h3>
+               <ul>
+                  {% for linked_resource in resource_data|val_from_key:"Related Site"|val_from_key:"instance_details" %}
+                  <li>
+                     <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
+                     <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                        /resource/{{ linked_resource|val_from_key:'resourceId' }}
+                     </a>
+                  </li>
+                  {% endfor %}
+               </ul>
+               <hr>
+            </section> 
          {% endif %}
 
       {% endwith %}
