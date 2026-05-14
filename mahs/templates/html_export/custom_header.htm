@@ -1,10 +1,14 @@
 {% load static %}
 {% load webpack_static from webpack_loader %}
+{% load l10n %}
+{% load tz %}
 
 <header class="main-header">
     <div>
         <p class="header-title">Maritime Asia Heritage Survey</p>
-        <p>Accessed date (UTC): {% now "Y/m/d, H:i" %}</p>
+        {% timezone "Asia/Tokyo" %}
+            <p>Accessed date: {% now "Y/m/d, H:i" %}</p>
+        {% endtimezone %}
     </div>
     <img class="logo" src="{% webpack_static 'img/MAHS-logo-official.jpg' %}" alt="MAHS-logo">
 </header>
