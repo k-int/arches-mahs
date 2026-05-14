@@ -194,7 +194,7 @@
          {# --- Measurement Section --- #}
          {% if resource_data|has_key:"Measurement 3" %}
             <section class="keeptogether">
-               <h3>Measurements</h3>
+               <h3>Measurement</h3>
                {% for item in resource_data|val_from_key:"Measurement 3" %}
 
                   {% with component=item|val_from_key:"Measured Component"|val_from_key:"Measurement Event" %}
@@ -234,68 +234,70 @@
                   {% endfor %}
                </div>
 
+               {% for item in resource_data|val_from_key:"Place 6" %}
+                  {% for address in item|val_from_key:"Place Address" %}
+                     {% with address_text=address|val_from_key:"@display_value" %}
+                        {% if address_text %}
+                           <div class="data-table">
+                              <div>Place Address</div>
+                              <div>: {{address_text}}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                  {% endfor %}
+               {% endfor %}
                <hr>
             </section>
          {% endif %}
 
-
          {# --- Location Section --- #}
          {% if resource_data|has_key:"Place 6" %}
             <section class="keeptogether">
-               <h3>Location</h3>
-               {% for item in resource_data|val_from_key:"Place 6" %}
+               <h3>Spatial Location</h3>
+               {% for item in resource_data|val_from_key:"Place 6" %}   
                
-                  {% for address in item|val_from_key:"Place Address" %}
+                  {% for sub_item in item|val_from_key:"Spatial Coordinates Geometry" %}
+                     {% if sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value" %}
                      <div class="data-table">
-                        <div>Address Type</div>
-                        <div>: {{address|val_from_key:"Address Type"|val_from_key:"@display_value"}}</div>
+                        <div>Geometry Qualifier</div>
+                        <div>: {{sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value"}}</div>
                      </div>
+                     {% endif %}
                      
+                     {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value" %}
                      <div class="data-table">
-                        <div>Address</div>
-                        <div>: {{address|val_from_key:"@display_value"}}</div>
+                        <div>Latitude</div>
+                        <div>: {{sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value"}}</div>
                      </div>
+                     {% endif %}
+                     
+                     {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value" %}
+                     <div class="data-table">
+                        <div>Longitude</div>
+                        <div>: {{sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value"}}</div>
+                     </div>
+                     {% endif %}
+                     
+                     <!-- {% for feature in sub_item|val_from_key:"geojson"|val_from_key:"features" %}
+                        <div class="data-table">
+                           <div>Spatial Coordinates Geometry</div>
+                           <div>: {{ feature|val_from_key:"geometry" }}</div>
+                        </div>
+                     {% endfor %} -->
+               
                   {% endfor %}
-                     
+
                   {% with p_desc=item|val_from_key:"Place Description Assignment"|val_from_key:"Place Description"|val_from_key:"@display_value" %}
                      {% if p_desc %}
+                        <hr>
+                        <h3>Description Location</h3>
                         <div class="data-table">
                            <div>Place Description</div>
                            <div>: {{ p_desc }}</div>
                         </div>
                      {% endif %}
                   {% endwith %}
-                  
-                  {% for sub_item in item|val_from_key:"Spatial Coordinates Geometry" %}
-                     {% if sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value" %}
-                        <div class="data-table">
-                           <div>Geometry Qualifier</div>
-                           <div>: {{sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value"}}</div>
-                        </div>
-                     {% endif %}
 
-                     {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value" %}
-                        <div class="data-table">
-                           <div>Latitude</div>
-                           <div>: {{sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value"}}</div>
-                        </div>
-                     {% endif %}
-
-                     {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value" %}
-                        <div class="data-table">
-                           <div>Longitude</div>
-                           <div>: {{sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value"}}</div>
-                        </div>
-                     {% endif %}
-                     
-                     {% for feature in sub_item|val_from_key:"geojson"|val_from_key:"features" %}
-                        <div class="data-table">
-                           <div>Spatial Coordinates Geometry</div>
-                           <div>: {{ feature|val_from_key:"geometry" }}</div>
-                        </div>
-                     {% endfor %}
-
-                  {% endfor %}
                {% endfor %}
                <hr>
             </section>
