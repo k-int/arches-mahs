@@ -631,13 +631,14 @@
          {# --- Related resources section --- #}
          {% if resource_data|has_key:"Related Site" %}
             <section class="keeptogether">
-               <h3>Related resources</h3>
+               <div class="h1-container">
+                  <h1>Related sites</h1>
+               </div>
                <ul>
                   {% for linked_resource in resource_data|val_from_key:"Related Site"|val_from_key:"instance_details" %}
                   <li>
-                     <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
                      <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                        /resource/{{ linked_resource|val_from_key:'resourceId' }}
+                        {{linked_resource|val_from_key:"display_value"}}
                      </a>
                   </li>
                   {% endfor %}
