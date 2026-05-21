@@ -59,7 +59,7 @@
          {% endif %}
 
          {# --- Descriptions Section --- #}
-         {% if resource_data|has_key:"Description Assignment" or resource_data|has_key:"Updated 4" %}
+         {% if resource_data|has_key:"Description Assignment"%}
             <section">
                   {% for desc in resource_data|val_from_key:"Description Assignment" %}
                      {% if desc|val_from_key:"Description Type"|val_from_key:"value" != "Acknowledgement" %}   
