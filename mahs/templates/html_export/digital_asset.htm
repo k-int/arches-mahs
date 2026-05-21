@@ -373,6 +373,14 @@
             </section> 
         {% endif %}
 
+        {# --- ResourceID section --- #}
+        <section class="keeptogether">
+            <div class="h1-container">
+                <h1>Resource ID</h1>
+            </div>
+            <p class="content">{{ resource.resourceinstanceid }}</p>
+        </section> 
+
         {# --- Related Collections section --- #}
         {% if resource_data|has_key:"Related Collection" %}
             <section class="keeptogether">

@@ -27,9 +27,6 @@
             <p class="content">{{ mahs_id }}</p>
          {% endwith %}
 
-         <h4>Arches ID</h4>
-         <p class="content">{{ resource.resourceinstanceid }}</p>
-
          {# --- Names Section --- #}
          {% if resource_data|has_key:"Name" %}
             <section class="keeptogether">
@@ -700,6 +697,14 @@
                <hr>
                </section> 
             {% endif %}
+
+            {# --- ResourceID section --- #}
+            <section class="keeptogether">
+               <div class="h1-container">
+                  <h1>Resource ID</h1>
+               </div>
+               <p class="content">{{ resource.resourceinstanceid }}</p>
+            </section> 
 
             {# --- Related Collections section --- #}
             {% if resource_data|has_key:"Collection" %}
