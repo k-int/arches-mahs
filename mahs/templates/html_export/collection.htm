@@ -53,20 +53,21 @@
             </section>
          {% endif %}
 
-         {# --- Collection Description Section --- #}
-         {% if resource_data|has_key:"Collection Description Assignment" %}
-            <section">
-               <h3>Collection Description Assignment</h3>
-
+         {# --- Descriptions Section --- #}
+         {% if resource_data|has_key:"Collection Description Assignment"%}
+         <section">
                {% with desc=resource_data|val_from_key:"Collection Description Assignment"|val_from_key:"Collection Profile"|val_from_key:"@display_value" %}
-                  {% if desc %}
-                     <h4>Collection Description Assignment</h4>
-                     <p class="content">{{ desc }}</p>
+                  {% if desc %}   
+                  <div class="keeptogether">
+                     <h3>Collection Description Assignment</h3>
+                     <div class="content-container">
+                           <p>{{ desc }}</p>
+                     </div>
+                     <hr>
+                  </div>
                   {% endif %}
                {% endwith %}
-            
-            <hr>
-            </section>
+         </section>
          {% endif %}
 
          {# --- Legal Entity Section --- #}

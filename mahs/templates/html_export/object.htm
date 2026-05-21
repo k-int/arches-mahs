@@ -54,14 +54,18 @@
          {% endif %}
 
          {# --- Descriptions Section --- #}
-         {% if resource_data|has_key:"Description Assignment" %}
+         {% if resource_data|has_key:"Description Assignment"%}
             <section">
                   {% for desc in resource_data|val_from_key:"Description Assignment" %}
-                     <div class="keeptogether">
-                        <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
-                        <p class="content">{{ desc|val_from_key:"Description"|val_from_key:"@display_value" }}</p>
-                        <hr>
-                     </div>
+                     {% if desc|val_from_key:"Description Type"|val_from_key:"value" != "Acknowledgement" %}   
+                        <div class="keeptogether">
+                           <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
+                           <div class="content-container">
+                              <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
+                           </div>
+                           <hr>
+                        </div>
+                     {% endif %}
                   {% endfor %}
             </section>
          {% endif %}
