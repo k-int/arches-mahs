@@ -22,9 +22,22 @@
     <main>
         <h1>{{ resource.displayname }}</h1>
         
+        <div class="arches-link-container">  
+            <a class="arches-link" href="/resource/{{ resource.resourceinstanceid }}">
+                <u>Site - {{ resource.displayname }}</u>
+            </a>
+        </div>  
+
+        <div class="title-container">
+            <h1>{{ resource.displayname }}</h1>
+            <h1>Overview</h1>
+        </div>
+
         {% with mahs_id=resource_data|val_from_key:"MAHS ID"|val_from_key:"@display_value" %}
-        <h4>MAHS ID</h4>
-        <p class="content">{{ mahs_id }}</p>
+        <div class="data-table mahs-id-container">
+            <div class="mahs-id">MAHS ID</div>
+            <div>: {{ mahs_id }}</div>
+        </div>
         {% endwith %}
 
         <hr>
