@@ -613,7 +613,7 @@
                         {% endif %}
                      {% endwith %}
                      
-                     {% for file in item|val_from_key:"Information Carrier"|val_from_key:"file_details" %}
+                     {% for file in item|val_from_key:"Information Carrier"|val_from_key:"file_details"|slice:":20" %}
                         {% with url=file|val_from_key:"url" %}
                            <h4>{{file|val_from_key:"name"}}</h4>
                            <img src="{{url}}">
