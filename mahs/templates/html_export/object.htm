@@ -76,12 +76,13 @@
             <h3>Periodization</h3>
             {% for item in resource_data|val_from_key:"Existence 9" %}
             
-            {% with indeterminate=item|val_from_key:"Indeterminate"|val_from_key:"@display_value" %}
-               {% if indeterminate %}
-                  <h4>Indeterminate</h4>
-                  <p class="content">{{ indeterminate }}</p>
-               {% endif %}
-            {% endwith %}
+               {% with indeterminate=item|val_from_key:"Indeterminate"|val_from_key:"@display_value" %}
+                  {% if indeterminate and indeterminate == 'True' %}
+                     <div class="data-table">
+                        <div>Indeterminate</div>
+                     </div>
+                  {% endif %}
+               {% endwith %}
             
             {% with beginning=item|val_from_key:"Time Period"|val_from_key:"Beginning of Existence" %}
             {% with b_type=beginning|val_from_key:"Start Date Type"|val_from_key:"@display_value" %}
