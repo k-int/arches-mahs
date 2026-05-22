@@ -41,6 +41,8 @@
          {# --- Names Section --- #}
          {% if resource_data|has_key:"Collection Apellation" %}
             <section class="keeptogether">
+               <hr>
+               <h3>Collection Apellation</h3>
                <ul>
                   {% for name in resource_data|val_from_key:"Collection Apellation" %}
                      <li>
@@ -51,30 +53,13 @@
                      </li>
                   {% endfor %}
                </ul>
-               <hr>
             </section>
-         {% endif %}
-
-         {# --- Descriptions Section --- #}
-         {% if resource_data|has_key:"Collection Description Assignment"%}
-         <section">
-               {% with desc=resource_data|val_from_key:"Collection Description Assignment"|val_from_key:"Collection Profile"|val_from_key:"@display_value" %}
-                  {% if desc %}   
-                  <div class="keeptogether">
-                     <h3>Collection Description Assignment</h3>
-                     <div class="content-container">
-                           <p>{{ desc }}</p>
-                     </div>
-                     <hr>
-                  </div>
-                  {% endif %}
-               {% endwith %}
-         </section>
          {% endif %}
 
          {# --- Legal Entity Section --- #}
          {% if resource_data|has_key:"Legal Entity" %}
             <section class="keeptogether">
+               <hr>
                <h3>Legal Entity</h3>
                   {% if resource_data|val_from_key:"Legal Entity"|val_from_key:"Legal Entity Name"|val_from_key:"@display_value"|val_from_key:"@display_value" %}
                      <div class="data-table">
@@ -90,32 +75,49 @@
                   
                   <div class="data-table">
                      <div>MAHS Partnership Description</div>
-                     <div>: {{resource_data|val_from_key:"Legal Entity"|val_from_key:"MAHS Partnership Description Assigment"|val_from_key:"MAHS Partnership Description"|val_from_key:"@display_value"}}</div>
+                     <div>{{resource_data|val_from_key:"Legal Entity"|val_from_key:"MAHS Partnership Description Assigment"|val_from_key:"MAHS Partnership Description"|val_from_key:"@display_value"}}</div>
                   </div>
 
-               <hr>
             </section>
+         {% endif %}
+
+         {# --- Descriptions Section --- #}
+         {% if resource_data|has_key:"Collection Description Assignment"%}
+         <section">
+               <hr>
+               {% with desc=resource_data|val_from_key:"Collection Description Assignment"|val_from_key:"Collection Profile"|val_from_key:"@display_value" %}
+                  {% if desc %}   
+                  <div class="keeptogether">
+                     <h3>Collection Description Assignment</h3>
+                     <div class="content-container">
+                           <p>{{ desc }}</p>
+                     </div>
+                  </div>
+                  {% endif %}
+               {% endwith %}
+         </section>
          {% endif %}
 
          {# --- Website Section --- #}
          {% if resource_data|has_key:"Website" %}
             <section class="keeptogether">
-               <h3>Website</h3>
                {% for item in resource_data|val_from_key:"Website" %}
-                  
-                  <div class="data-table">
-                     <div>{{item|val_from_key:"URL Type"|val_from_key:"@display_value"}}</div>
-                     <div>: {{item|val_from_key:"URL"|val_from_key:"url"}}</div>
-                  </div>
-
+                  <hr>
+                  <h3>Website</h3>
+                  <p class="content">
+                     <a href="{{item|val_from_key:"URL"|val_from_key:"url"}}">
+                        <u>{{item|val_from_key:"URL"|val_from_key:"url"}}</u>
+                     </a>
+                  </p>
                {% endfor %}
-               <hr>
          {% endif %}
 
          {# --- Classification Section --- #}
          {% if resource_data|has_key:"Keyword" %}
             <section class="keeptogether">
-               <h3>Classification</h3>
+               <div class="h1-container">
+                  <h1>Classification</h1>
+               </div>
 
                {% if resource_data|has_key:"Keyword" %}
                <h4>Keywords</h4>
@@ -123,13 +125,13 @@
                      <p class="content">{{item|val_from_key:"@display_value"}}</p>
                   {% endfor %}
                {% endif %}
-               <hr>
             </section>
          {% endif %}
 
          {# --- Current Status Section --- #}
          {% if resource_data|has_key:"Current Status 2" %}
-            <section class="keeptogether">   
+            <section class="keeptogether">
+               <hr>   
                <h3>Current Status</h3>
                {% for item in resource_data|val_from_key:"Current Status 2" %}
                   {% with authority=item|val_from_key:"Custodial Authority"%}
@@ -198,13 +200,13 @@
 
                {% endwith %}
                {% endfor %}
-               <hr>
             </section>
             {% endif %}
 
          {# --- Location Section --- #}
          {% if resource_data|has_key:"Place 6" %}
             <section class="keeptogether">
+               <hr>
                <h3>Location</h3>
                {% for item in resource_data|val_from_key:"Place 6" %}
                
@@ -260,13 +262,13 @@
                      {% endfor %}
                   {% endfor %}
                {% endfor %}
-               <hr>
             </section>
          {% endif %}
 
          {# --- Administrative Division Section --- #}
          {% if resource_data|has_key:"Administrative Division 2" %}
             <section class="keeptogether">
+               <hr>
                <h3>Administrative Division</h3>
                <ul class="keeptogether">
                   {% for division in resource_data|val_from_key:"Administrative Division 2" %}
@@ -280,14 +282,15 @@
                      {% endwith %}
                   {% endfor %}
                </ul>
-               <hr>
             </section>
          {% endif %}
 
          {# --- External Identifiers Section --- #}
          {% if resource_data|has_key:"External Identifier 4" %}
             <section class="keeptogether">
-               <h3>External Identifiers</h3>
+               <div class="h1-container">
+                  <h1>External Identifiers</h1>
+               </div>
                   {% for item in resource_data|val_from_key:"External Identifier 4" %}
                      <div class="data-table">
                         <div>External Xref</div>
@@ -318,13 +321,13 @@
                         {% endif %}
                      {% endwith %}
                   {% endfor %}
-               <hr>
             </section>   
          {% endif %}
 
          {# --- Images --- #}
          {% if resource_data|has_key:"Information Carrier 2" %}
             <section class="keeptogether">
+               <hr>
                <h3>Images</h3>
                {% for item in resource_data|val_from_key:"Information Carrier 2" %}
 
@@ -344,7 +347,6 @@
                      {% endwith %}
                   {% endfor %}
 
-                  <hr>
                {% endfor %}
             </section> 
          {% endif %}

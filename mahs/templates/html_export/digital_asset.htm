@@ -41,23 +41,21 @@
         {# --- Title Section --- #}
         {% if resource_data|has_key:"Title" %}
         <section class="keeptogether">
-            <h3>Title</h3>
-
             {% for title  in resource_data|val_from_key:"Title" %}
-                    <div class="keeptogether">
-                        <h4>{{title|val_from_key:"Title Type"|val_from_key:"@display_value"}}</h3>
-                        <p class="content">{{ title|val_from_key:"@display_value" }}</p>
-                    </div>
+                <div class="data-table mahs-id-container">
+                    <div>{{title|val_from_key:"Title Type"|val_from_key:"@display_value"}}</div>
+                    <div>: {{ title|val_from_key:"@display_value" }}</div>
+                </div>
             {% endfor %}
-
-            <hr>
         </section>
         {% endif %}
 
         {# --- Digital Asset Type --- #}
         {% if resource_data|has_key:"Digital Asset Type" or resource_data|has_key:"Keyword" %}
         <section class="keeptogether">
-            <h3>Classification</h3>
+            <div class="h1-container">
+                <h1>Classification</h1>
+            </div>
             {% for item in resource_data|val_from_key:"Digital Asset Type" %}
             
                 {% with type=item|val_from_key:"@display_value" %}
@@ -80,7 +78,6 @@
                 {% endif %}
             {% endwith %}
 
-            <hr>
         </section>
         {% endif %}
 
@@ -89,12 +86,12 @@
         <section">
             {% with desc=resource_data|val_from_key:"Description Assignment" %}
                 {% if desc|val_from_key:"Description Type"|val_from_key:"value" != "Acknowledgement" %}   
+                <hr>
                 <div class="keeptogether">
                     <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
                     <div class="content-container">
                         <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
                     </div>
-                    <hr>
                 </div>
                 {% endif %}
             {% endwith %}
@@ -105,6 +102,7 @@
         {% if resource_data|has_key:"Place of Data Collection" %}
         
         <section class="keeptogether">
+            <hr>
             <h3>Data Collection</h3>
             {% with place=resource_data|val_from_key:"Place of Data Collection" %}
                 {% if place %}
@@ -178,13 +176,13 @@
                 {% endwith %}
             {% endif %}
 
-            <hr>
         </section>
         {% endif %}
 
         {# --- Publication Section --- #}
         {% if resource_data|has_key:"Digital Asset Publication Event" %}
         <section class="keeptogether">
+            <hr>
             <h3>Publication</h3>
             
             {% with event=resource_data|val_from_key:"Digital Asset Publication Event" %}
@@ -235,13 +233,13 @@
                 {% endwith %}
 
             {% endwith %}
-            <hr>
         </section>
         {% endif %}
 
         {# --- Information Carrier --- #}
         {% if resource_data|has_key:"Information Carrier 2" %}
             <section class="keeptogether">
+                <hr>
                 <h3>Images and files</h3>
                 {% for item in resource_data|val_from_key:"Information Carrier 2" %}
 
@@ -267,7 +265,6 @@
                             {% endwith %}
                         {% endif %}
                         {% endfor %}
-                        <hr>
                 {% endfor %}
             </section> 
         {% endif %}
@@ -275,7 +272,9 @@
         {# --- External Identifiers Section --- #}
         {% if resource_data|has_key:"External Identifier 4" %}
             <section class="keeptogether">
-                <h3>External Identifiers</h3>
+                <div class="h1-container">
+                    <h1>External Identifiers</h1>
+                </div>
                     {% with xref=resource_data|val_from_key:"External Identifier 4" %}
                         <div class="data-table">
                             <div>External Xref</div>
@@ -306,13 +305,13 @@
                             {% endif %}
                         {% endwith %}
                     {% endwith %}
-                <hr>
             </section>   
         {% endif %}
 
         {# --- Copyrite Section --- #}
         {% if resource_data|has_key:"Copyright Assignment" %}
         <section class="keeptogether">
+            <hr>
             <h3>Copyright Assignment</h3>
 
             {% with copyright=resource_data|val_from_key:"Copyright Assignment"|val_from_key:"Copyright"|val_from_key:"@display_value" %}
@@ -324,13 +323,13 @@
                 {% endif %}
             {% endwith %}
 
-            <hr>
         </section>
         {% endif %}
 
         {# --- Related Sites section --- #}
         {% if resource_data|has_key:"Related Site" %}
             <section class="keeptogether">
+                <hr>
                 <h3>Related Sites</h3>
                 <ul>
                     {% for linked_resource in resource_data|val_from_key:"Related Site"|val_from_key:"instance_details" %}
@@ -342,13 +341,13 @@
                     </li>
                     {% endfor %}
                 </ul>
-                <hr>
             </section> 
         {% endif %}
 
         {# --- Related Objects section --- #}
         {% if resource_data|has_key:"Related Object" %}
             <section class="keeptogether">
+                <hr>
                 <h3>Related Objects</h3>
                 <ul>
                     {% for linked_resource in resource_data|val_from_key:"Related Object" %}
@@ -362,13 +361,13 @@
                     {% endfor %}
                     {% endfor %}
                 </ul>
-                <hr>
             </section> 
         {% endif %}
 
         {# --- Related Features section --- #}
         {% if resource_data|has_key:"Related Feature" %}
         <section class="keeptogether">
+            <hr>
             <h3>Related Feature</h3>
             {% for linked_resource in resource_data|val_from_key:"Related Feature"|val_from_key:"instance_details" %}
                 <ul>
@@ -380,13 +379,13 @@
                     </li>
                 </ul>   
             {% endfor %}
-            <hr>
             </section> 
         {% endif %}
 
         {# --- Related Digital Asset Section --- #}
         {% if resource_data|has_key:"Related Digital Asset" %}
         <section class="keeptogether">
+            <hr>
             <h3>Related Digital Asset</h3>
             {% for linked_resource in resource_data|val_from_key:"Related Digital Asset"|val_from_key:"instance_details" %}
                 <ul>
@@ -398,7 +397,6 @@
                     </li>
                 </ul>
             {% endfor %}
-            <hr>
             </section> 
         {% endif %}
 
@@ -413,6 +411,7 @@
         {# --- Related Collections section --- #}
         {% if resource_data|has_key:"Related Collection" %}
             <section class="keeptogether">
+                <hr>
                 <h3>Related Collection</h3>
                 {% with collection=resource_data|val_from_key:"Related Collection" %}
                 <ul>
@@ -424,7 +423,6 @@
                     </li>
                 </ul>
                 {% endwith %}
-                <hr>
             </section> 
         {% endif %}
 

@@ -54,7 +54,6 @@
                      </div>
                   {% endfor %}
                </ul>
-               <hr>
             </section>
          {% endif %}
 
@@ -62,13 +61,13 @@
          {% if resource_data|has_key:"Description Assignment"%}
             <section">
                   {% for desc in resource_data|val_from_key:"Description Assignment" %}
-                     {% if desc|val_from_key:"Description Type"|val_from_key:"value" != "Acknowledgement" %}   
+                     {% if desc|val_from_key:"Description Type"|val_from_key:"value" != "Acknowledgement" %}
+                        <hr>
                         <div class="keeptogether">
                            <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
                            <div class="content-container">
                               <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
                            </div>
-                           <hr>
                         </div>
                      {% endif %}
                   {% endfor %}
@@ -78,6 +77,7 @@
          {# --- Existence Section --- #}
          {% if resource_data|has_key:"Existence 9" %}
          <section class="keeptogether">
+            <hr>
             <h3>Periodization</h3>
             {% for item in resource_data|val_from_key:"Existence 9" %}
             
@@ -147,7 +147,6 @@
                   {% endwith %} -->
                {% endwith %}
                
-               
                {% with date=item|val_from_key:"Date" %}
                   {% with s_type=date|val_from_key:"Spot Date Type"|val_from_key:"@display_value" %}
                      {% if s_type %}
@@ -186,7 +185,6 @@
                   {% endwith %}
 
                {% endwith %}
-            <hr>
             {% endfor %}
          </section>
          {% endif %}
@@ -194,6 +192,7 @@
          {# --- Administrative Division Section --- #}
          {% if resource_data|has_key:"Administrative Division" %}
             <section class="keeptogether">
+               <hr>
                <h3>Administrative Division</h3>
                <div class="keeptogether">
                   {% for division in resource_data|val_from_key:"Administrative Division" %}
@@ -218,13 +217,13 @@
                      {% endwith %}
                   {% endfor %}
                {% endfor %}
-               <hr>
             </section>
          {% endif %}
 
          {# --- Location Section --- #}
          {% if resource_data|has_key:"Place 6" %}
             <section class="keeptogether">
+               <hr>
                <h3>Spatial Location</h3>
                {% for item in resource_data|val_from_key:"Place 6" %}   
                
@@ -382,13 +381,13 @@
                   {% endwith %}
                {% endwith %}
             {% endfor %}
-            <hr>
          </section>
          {% endif %}
          
          {# --- Condition and Preservation Section --- #}
          {% if resource_data|has_key:"Condition and Preservation" %}
          <section class="keeptogether">
+            <hr>
             <h3>Condition and Preservation</h3>
             {% for item in resource_data|val_from_key:"Condition and Preservation" %}
                {% with state=item|val_from_key:"Condition Assessment"|val_from_key:"Condition State" %}
@@ -484,13 +483,13 @@
                {% endif %}
                {% endwith %}
                {% endfor %}
-               <hr>
             </section>   
          {% endif %}
 
          {# --- Citations Section --- #}
          {% if resource_data|has_key:"Citation 4" %}
             <section class="keeptogether">
+               <hr>
                {% for item in resource_data|val_from_key:"Citation 4" %}
                      <h4>Citation Apellation:</h4>
                      <p>{{item|val_from_key:"Citation Apellation"|val_from_key:"@display_value"}}</p>

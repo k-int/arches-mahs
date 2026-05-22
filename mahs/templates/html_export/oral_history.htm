@@ -40,29 +40,28 @@
         </div>
         {% endwith %}
 
-        <hr>
-
         {# --- Title Section --- #}
         {% if resource_data|has_key:"Title" %}
         <section class="keeptogether">
+            <hr>
             <h3>Title</h3>
 
             {% with title=resource_data|val_from_key:"Title" %}
                 {% if title %}
-                    <div class="keeptogether">
-                        <h4>{{title|val_from_key:"Title Type"|val_from_key:"value"}}</h3>
-                        <p class="content">{{ title|val_from_key:"@display_value" }}</p>
+                    <div class="data-table">
+                        <div>{{title|val_from_key:"Title Type"|val_from_key:"value"}}</div>
+                        <div>{{ title|val_from_key:"@display_value" }}</div>
                     </div>
                 {% endif %}
             {% endwith %}
 
-            <hr>
         </section>
         {% endif %}
 
         {# --- Oral History Video Section --- #}
         {% if resource_data|has_key:"Oral History Video" %}
         <section class="keeptogether">
+            <hr>
             <h3>Oral History Video</h3>
 
             {% with video=resource_data|val_from_key:"Oral History Video" %}
@@ -70,7 +69,7 @@
                 {% with url=video|val_from_key:"Embedded URL"|val_from_key:"@display_value" %}
                     {% if url %}
                         <div class="data-table">
-                            <div>Oral History Video</div>
+                            <div>Link</div>
                             <div>: <a href={{ url }}>{{ url }}</a></div>
                         </div>
                     {% endif %}
@@ -96,13 +95,13 @@
 
             {% endwith %}
 
-            <hr>
         </section>
         {% endif %}
 
         {# --- Descriptions Section --- #}
         {% if resource_data|has_key:"Description Assignment"%}
         <section">
+            <hr>
             {% with desc=resource_data|val_from_key:"Description Assignment" %}
                 {% if desc|val_from_key:"Description Type"|val_from_key:"value" != "Acknowledgement" %}   
                 <div class="keeptogether">
@@ -110,7 +109,6 @@
                     <div class="content-container">
                         <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
                     </div>
-                    <hr>
                 </div>
                 {% endif %}
             {% endwith %}
@@ -120,16 +118,19 @@
         {# --- Interview Creation Section --- #}
         {% if resource_data|has_key:"Interview Creation Event" %}
         <section class="keeptogether">
-            <h3>Interview Creation Event</h3>
+            <div class="h1-container">
+                <h1>Interview Creation Event</h1>
+            </div>
 
             {% with i_event=resource_data|val_from_key:"Interview Creation Event" %}
                 {% if i_event %}
 
                     {% with i_site=i_event|val_from_key:"Interview Site"|val_from_key:"@display_value" %}
                         {% if i_site %}
-                            <div class="keeptogether">
-                                <h4>Interview Site</h3>
-                                <p class="content">{{ i_site }}</p>
+                                <div class="data-table">
+                                    <div>Interview Site</div>
+                                    <div>: {{ i_site }}</div>
+                                </div>
 
                                 {% for link in i_event|val_from_key:"Interview Site"|val_from_key:"instance_details" %}
                                     <a class="content" href="/resource/{{ link|val_from_key:'resourceId' }}">
@@ -142,18 +143,18 @@
 
                     {% with i_place=i_event|val_from_key:"Place of Interview"|val_from_key:"@display_value" %}
                         {% if i_place %}
-                            <div class="keeptogether">
-                                <h4>Place of Interview</h3>
-                                <p class="content">{{ i_place }}</p>
+                            <div class="data-table">
+                                <div>Place of Interview</div>
+                                <div>: {{ i_place }}</div>
                             </div>
                         {% endif %}
                     {% endwith %}
 
                     {% with i_date=i_event|val_from_key:"Interview Date"|val_from_key:"@display_value" %}
                         {% if i_date %}
-                            <div class="keeptogether">
-                                <h4>Interview Date</h3>
-                                <p class="content">{{ i_date }}</p>
+                            <div class="data-table">
+                                <div>Interview Date</div>
+                                <div>: {{ i_date }}</div>
                             </div>
                         {% endif %}
                     {% endwith %}
@@ -161,26 +162,26 @@
                 {% endif %}
             {% endwith %}
 
-            <hr>
         </section>
         {% endif %}
 
         {# --- Interviewer Section --- #}
         {% if resource_data|has_key:"Interviewer" %}
         <section class="keeptogether">
+            <hr>
             <h3>Interviewer(s)</h3>
 
             {% for interviewer in resource_data|val_from_key:"Interviewer" %}
                 <p class="content">{{interviewer|val_from_key:"Name of Interviewer"|val_from_key:"@display_value"}}</p>
             {% endfor %}
 
-            <hr>
         </section>
         {% endif %}
 
         {# --- Interviewee Section --- #}
         {% if resource_data|has_key:"Interviewee" %}
         <section class="keeptogether">
+            <hr>
             <h3>Interviewee(s)</h3>
 
             {% for interviewee in resource_data|val_from_key:"Interviewee" %}
@@ -213,14 +214,15 @@
 
             {% endfor %}
 
-            <hr>
         </section>
         {% endif %}
 
         {# --- Classification Section --- #}
         {% if resource_data|has_key:"Feature Classification 2" or resource_data|has_key:"Keyword" %}
         <section class="keeptogether">
-            <h3>Classification</h3>
+            <div class="h1-container">
+                <h1>Classification</h1>
+            </div>
             
             {% if resource_data|has_key:"Keyword" %}
             <div class="data-table">
@@ -228,13 +230,13 @@
                 <div>: {{resource_data|val_from_key:"Keyword"|val_from_key:"@display_value"}}</div>
             </div>
             {% endif %}
-            <hr>
         </section>
         {% endif %}
 
         {# --- Administrative Division Section --- #}
         {% if resource_data|has_key:"Administrative Division" %}
         <section class="keeptogether">
+            <hr>
             <h3>Administrative Division</h3>
             <ul class="keeptogether">
                 {% for division in resource_data|val_from_key:"Administrative Division" %}
@@ -248,7 +250,6 @@
                 {% endwith %}
                 {% endfor %}
             </ul>
-            <hr>
         </section>
         {% endif %}
 
@@ -263,6 +264,7 @@
         {# --- Related Resources section --- #}
         {% if resource_data|has_key:"Related Resources" and resource_data|val_from_key:"Related Resources"|val_from_key:"@display_value" %}
             <section class="keeptogether">
+                <hr>
                 <h3>Related Resources</h3>
                 <ul>
                     {% for linked_resource in resource_data|val_from_key:"Related Resources"|val_from_key:"instance_details" %}
@@ -274,7 +276,6 @@
                         </li>
                     {% endfor %}
                 </ul>
-                <hr>
             </section> 
         {% endif %}
 

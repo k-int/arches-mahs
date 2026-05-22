@@ -49,13 +49,13 @@
                      </div>
                   {% endif %}
                {% endwith %}
-               <hr>
             </section>
          {% endif %}
 
          {# --- Activity Section --- #}
          {% if resource_data|has_key:"Activity" %}
             <section class="keeptogether">
+               <hr>
                <h3>Activity</h3>
                {% with activity=resource_data|val_from_key:"Activity" %}
 
@@ -87,13 +87,13 @@
                   {% endwith %}
 
                {% endwith %}
-               <hr>
             </section>
          {% endif %}
 
          {# --- Images --- #}
          {% if resource_data|has_key:"Information Carrier 3" %}
             <section class="keeptogether">
+               <hr>
                <h3>Images</h3>
                {% with carrier=resource_data|val_from_key:"Information Carrier 3" %}
 
@@ -115,13 +115,13 @@
 
                {% endwith %}
 
-               <hr>
             </section> 
          {% endif %}
 
          {# --- Reference Section --- #}
          {% if resource_data|has_key:"Reference" %}
             <section class="keeptogether">
+               <hr>
                <h3>References</h3>
                {% with name=resource_data|val_from_key:"Reference"|val_from_key:"URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
                   {% if name %}
@@ -140,7 +140,6 @@
                      </div>
                   {% endif %}
                {% endwith %}
-               <hr>
             </section>
          {% endif %}
 

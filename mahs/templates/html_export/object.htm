@@ -41,6 +41,7 @@
          {# --- Names Section --- #}
          {% if resource_data|has_key:"Name" %}
             <section class="keeptogether">
+               <hr>
                <ul>
                      {% for name in resource_data|val_from_key:"Name" %}
                         <li>
@@ -51,7 +52,6 @@
                         </li>
                      {% endfor %}
                </ul>
-               <hr>
             </section>
          {% endif %}
 
@@ -61,11 +61,11 @@
                   {% for desc in resource_data|val_from_key:"Description Assignment" %}
                      {% if desc|val_from_key:"Description Type"|val_from_key:"value" != "Acknowledgement" %}   
                         <div class="keeptogether">
+                           <hr>
                            <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
                            <div class="content-container">
                               <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
                            </div>
-                           <hr>
                         </div>
                      {% endif %}
                   {% endfor %}
@@ -75,6 +75,7 @@
          {# --- Existence Section --- #}
          {% if resource_data|has_key:"Existence 9" %}
          <section class="keeptogether">
+            <hr>
             <h3>Periodization</h3>
             {% for item in resource_data|val_from_key:"Existence 9" %}
             
@@ -181,7 +182,6 @@
             {% endif %}
             {% endwith %}
             {% endwith %}
-            <hr>
             {% endfor %}
          </section>
          {% endif %}
@@ -189,6 +189,7 @@
          {# --- Measurement Section --- #}
          {% if resource_data|has_key:"Measurement 3" %}
             <section class="keeptogether">
+               <hr>
                <h3>Measurement</h3>
                {% for item in resource_data|val_from_key:"Measurement 3" %}
 
@@ -209,7 +210,6 @@
                         </div>
                      {% endif %}
                   {% endwith %}
-                  <hr>
                {% endfor %}
             </section>
          {% endif %}
@@ -217,6 +217,7 @@
          {# --- Administrative Division Section --- #}
          {% if resource_data|has_key:"Administrative Division" %}
             <section class="keeptogether">
+               <hr>
                <h3>Administrative Division</h3>
                <ul class="keeptogether">
                   {% for division in resource_data|val_from_key:"Administrative Division" %}
@@ -230,13 +231,13 @@
                   {% endwith %}
                   {% endfor %}
                </ul>
-               <hr>
             </section>
          {% endif %}
 
          {# --- Location Section --- #}
          {% if resource_data|has_key:"Place 6" %}
             <section class="keeptogether">
+               <hr>
                <h3>Location</h3>
                {% for item in resource_data|val_from_key:"Place 6" %}
                
@@ -292,14 +293,15 @@
                      {% endfor %}
                   {% endfor %}
                {% endfor %}
-               <hr>
             </section>
          {% endif %}
 
          {# --- Classification Section --- #}
          {% if resource_data|has_key:"Object Classification" or resource_data|has_key:"Keyword" %}
             <section class="keeptogether">
-               <h3>Classification</h3>
+               <div class="h1-container">
+                  <h1>Classification</h1>
+               </div>
                
                {% if resource_data|has_key:"Object Classification" %}
                   <h4>Object Classifications</h4>
@@ -314,14 +316,14 @@
                      <p class="content">{{item|val_from_key:"@display_value"}}</p>
                   {% endfor %}
                {% endif %}
-               <hr>
             </section>
             {% endif %}
 
             
             {# --- Current Status Section --- #}
             {% if resource_data|has_key:"Current Status 2" %}
-            <section class="keeptogether">   
+            <section class="keeptogether">
+               <hr>
                <h3>Current Status</h3>
                {% for item in resource_data|val_from_key:"Current Status 2" %}
                   {% with authority=item|val_from_key:"Custodial Authority"%}
@@ -386,14 +388,16 @@
 
                {% endwith %}
                {% endfor %}
-               <hr>
             </section>
             {% endif %}
 
             {# --- Condition and Preservation Section --- #}
             {% if resource_data|has_key:"Condition and Preservation" %}
             <section class="keeptogether">
-               <h3>Condition and Preservation</h3>
+
+               <div class="h1-container">
+                  <h1>Condition and Preservation</h1>
+               </div>
                
                {% for item in resource_data|val_from_key:"Condition and Preservation" %}
                   {% with state=item|val_from_key:"Condition Assessment"|val_from_key:"Condition State" %}
@@ -467,59 +471,59 @@
                   {% endwith %}
 
                {% endfor %}
-               <hr>
                </section>
             {% endif %}
 
             {# --- External Identifiers Section --- #}
             {% if resource_data|has_key:"External Identifier 4" %}
+
+               <div class="h1-container">
+                  <h1>References</h1>
+               </div>
+
                <section class="keeptogether">
                   <h3>External Identifiers</h3>
-                     {% for item in resource_data|val_from_key:"External Identifier 4" %}
-
-                        {% with xref=item|val_from_key:"@display_value" %}
-                           {% if xref %}
-                              <h4>External Xref</h4>
-                              <p class="content">{{xref}}</p>
-                           {% endif %}
-                        {% endwith %}
-
-                        {% with source=item|val_from_key:"External Source"|val_from_key:"@display_value" %}
-                           {% if source %}
-                              <h4>External Source</h4>
-                              <p class="content">{{source}}</p>
-                           {% endif %}
-                        {% endwith %}
-
-                        {% with type=item|val_from_key:"External Identifier Type"|val_from_key:"@display_value" %}
-                           {% if type %}
-                              <h4>External Identifier Type</h4>
-                              <p class="content">{{type}}</p>
-                           {% endif %}
-                        {% endwith %}
-                        
-                        {% with url=item|val_from_key:"External Identifier URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
-                           {% if url %}
-                              <h4>URL</h4>
-                              <p class="content">{{ url }}</p>
-                           {% endif %}
-                        {% endwith %}
-                        
-                        {% with x_desc=item|val_from_key:"External Reference Description Assignment"|val_from_key:"Note on External Reference or Source"|val_from_key:"@display_value" %}
-                           {% if x_desc %}
-                              <h4>Description</h4>
-                              <p class="content">{{ x_desc }}</p>
-                           {% endif %}
-                        {% endwith %}
-                        
-                        <hr>
-                     {% endfor %}
+                  {% for item in resource_data|val_from_key:"External Identifier 4" %}
+                  <div class="data-table">
+                     <div>External Xref</div>
+                     <div>: {{item|val_from_key:"@display_value"}}</div>
+                  </div>
+                  
+                  <div class="data-table">
+                     <div>External Source</div>
+                     <div>: {{item|val_from_key:"External Source"|val_from_key:"@display_value"}}</div>
+                  </div>
+                  
+                  <div class="data-table">
+                     <div>External Identifier Type</div>
+                     <div>: {{item|val_from_key:"External Identifier Type"|val_from_key:"@display_value"}}</div>
+                  </div>
+                  
+                  {% with url=item|val_from_key:"External Identifier URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
+                  {% if url %}
+                  <div class="data-table">
+                     <div>URL</div>
+                     <div>: {{ url }}</div>
+                  </div>
+                  {% endif %}
+                  {% endwith %}
+                  
+                  {% with x_desc=item|val_from_key:"External Reference Description Assignment"|val_from_key:"Note on External Reference or Source"|val_from_key:"@display_value" %}
+                  {% if x_desc %}
+                  <div class="data-table">
+                     <div>Description</div>
+                     <div>: {{ x_desc }}</div>
+                  </div>
+                  {% endif %}
+                  {% endwith %}
+                  {% endfor %}
                </section>   
             {% endif %}
 
             {# --- Citations Section --- #}
             {% if resource_data|has_key:"Citation 4" %}
                <section class="keeptogether">
+                  <hr>
                   <h3>Citations</h3>
                   {% for item in resource_data|val_from_key:"Citation 4" %}
                      <div class="data-table">
@@ -545,13 +549,13 @@
                         {% endif %}
                      {% endwith %}
                   {% endfor %}
-                  <hr>
                </section>   
             {% endif %}
 
             {# --- Inscription Section --- #}
             {% if resource_data|has_key:"Inscription 3" %}
                <section class="keeptogether">
+                  <hr>
                   <h3>Inscription Notes</h3>
                   {% for item in resource_data|val_from_key:"Inscription 3" %}
                      
@@ -601,13 +605,13 @@
                      {% endwith %}
                      
                   {% endfor %}
-                  <hr>
                </section>   
             {% endif %}
 
             {# --- Component Section --- #}
             {% if resource_data|has_key:"Component 3" %}
                <section class="keeptogether">
+                  <hr>
                   <h3>Components</h3>
                   {% for item in resource_data|val_from_key:"Component 3" %}
                      
@@ -648,13 +652,13 @@
                      {% endwith %}
                      
                   {% endfor %}
-                  <hr>
                </section>   
             {% endif %}
 
             {# --- Provenance Section --- #}
             {% if resource_data|has_key:"Provenance" %}
                <section class="keeptogether">
+                  <hr>
                   <h3>Provenance</h3>
                   {% for item in resource_data|val_from_key:"Provenance" %}
 
@@ -672,7 +676,6 @@
                         {% endif %}
                      {% endwith %}
                      
-                     <hr>
                   {% endfor %}
                </section>   
             {% endif %}
@@ -706,12 +709,11 @@
                         </div>
                      {% endif %}
                   {% endwith %}
-                  <hr>
                </section>
             
                <section">
                {% for desc in resource_data|val_from_key:"Description Assignment" %}
-                  {% if desc|val_from_key:"Description Type"|val_from_key:"value" == "Acknowledgement" %}   
+                  {% if desc|val_from_key:"Description Type"|val_from_key:"value" == "Acknowledgement" %}
                      <div class="keeptogether">
                         <h4>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
                         <div class="content-container">
@@ -720,7 +722,6 @@
                      </div>
                   {% endif %}
                {% endfor %}
-               <hr>
             </section>
 
          {% endif %}
@@ -728,6 +729,7 @@
             {# --- Images --- #}
             {% if resource_data|has_key:"Information Carrier 2" %}
                <section class="keeptogether">
+                  <hr>
                   <h3>Images</h3>
                   {% for item in resource_data|val_from_key:"Information Carrier 2" %}
 
@@ -745,7 +747,6 @@
                         {% endwith %}
                      {% endfor %}
 
-                  <hr>
                   {% endfor %}
                </section> 
             {% endif %}
@@ -753,6 +754,7 @@
             {# --- Related Sites section --- #}
             {% if resource_data|has_key:"Site" %}
                <section class="keeptogether">
+                  <hr>
                   <h3>Related Sites</h3>
                   <ul>
                      {% for linked_resource in resource_data|val_from_key:"Site" %}
@@ -764,13 +766,13 @@
                      </li>
                      {% endfor %}
                   </ul>
-                  <hr>
                </section> 
             {% endif %}
 
             {# --- Related Objects section --- #}
             {% if resource_data|has_key:"Related Object" %}
                <section class="keeptogether">
+                  <hr>
                   <h3>Related Objects</h3>
                   <ul>
                      {% for linked_resource in resource_data|val_from_key:"Related Object"|val_from_key:"instance_details" %}
@@ -782,13 +784,13 @@
                      </li>
                      {% endfor %}
                   </ul>
-                  <hr>
                </section> 
             {% endif %}
 
             {# --- Related Features section --- #}
             {% if resource_data|has_key:"Related Feature" %}
             <section class="keeptogether">
+               <hr>
                <h3>Related Feature</h3>
                {% for linked_resource in resource_data|val_from_key:"Related Feature" %}
                   <ul>
@@ -802,13 +804,13 @@
                   {% endfor %}
                   </ul>   
                {% endfor %}
-               <hr>
                </section> 
             {% endif %}
 
             {# --- Related Digital Asset Section --- #}
             {% if resource_data|has_key:"Related Digital Asset" %}
             <section class="keeptogether">
+               <hr>
                <h3>Related Digital Asset</h3>
                {% for linked_resource in resource_data|val_from_key:"Related Digital Asset" %}
                   <ul>
@@ -822,7 +824,6 @@
                      {% endfor %}
                   </ul>
                {% endfor %}
-               <hr>
                </section> 
             {% endif %}
 
@@ -837,6 +838,7 @@
             {# --- Related Collections section --- #}
             {% if resource_data|has_key:"Collection" %}
                <section class="keeptogether">
+                  <hr>
                   <h3>Related Collection</h3>
                   <ul>
                      {% for linked_resource in resource_data|val_from_key:"Collection" %}
@@ -848,7 +850,6 @@
                      </li>
                      {% endfor %}
                   </ul>
-                  <hr>
                </section> 
             {% endif %}
 
