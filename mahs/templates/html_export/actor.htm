@@ -43,8 +43,10 @@
             <section class="keeptogether">
                {% with name=resource_data|val_from_key:"Actor Apellation"|val_from_key:"@display_value" %}
                   {% if name %}
-                     <h4>Actor Apellation</h4>
-                     <p class="content">{{ name }}</p>
+                     <div class="data-table">
+                        <div>Actor Apellation</div>
+                        <div>: {{ name }}</div>
+                     </div>
                   {% endif %}
                {% endwith %}
                <hr>
@@ -59,22 +61,28 @@
 
                   {% with type=activity|val_from_key:"Actor Type"|val_from_key:"@display_value" %}
                      {% if type %}
-                        <h4>Actor Type</h4>
-                        <p class="content">{{type}}</p>
+                        <div class="data-table">
+                           <div>Actor Type</div>
+                           <div>: {{type}}</div>
+                        </div>
                      {% endif %}
                   {% endwith %}
                   
                   {% with role=activity|val_from_key:"Role"|val_from_key:"@display_value" %}
                      {% if role %}
-                        <h4>Role</h4>
-                        <p class="content">{{role}}</p>
+                        <div class="data-table">
+                           <div>Role</div>
+                           <div>: {{role}}</div>
+                        </div>
                      {% endif %}
                   {% endwith %}
                   
                   {% with country=activity|val_from_key:"Country of Activity"|val_from_key:"@display_value" %}
                      {% if country %}
-                        <h4>Country of Activity</h4>
-                        <p class="content">{{country}}</p>
+                        <div class="data-table">
+                           <div>Country of Activity</div>
+                           <div>: {{country}}</div>
+                        </div>
                      {% endif %}
                   {% endwith %}
 
@@ -91,8 +99,10 @@
 
                   {% with caption=carrier|val_from_key:"Caption"|val_from_key:"@display_value" %}
                      {% if caption %}
-                        <h4>Caption</h4>
-                        <p class="content">{{ caption }}</p>
+                        <div class="data-table">
+                           <div>Caption</div>
+                           <div>: {{ caption }}</div>
+                        </div>
                      {% endif %}
                   {% endwith %}
                   
@@ -115,15 +125,19 @@
                <h3>References</h3>
                {% with name=resource_data|val_from_key:"Reference"|val_from_key:"URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
                   {% if name %}
-                     <h4>Reference</h4>
-                     <p class="content">{{ name }}</p>
+                     <div class="data-table">
+                        <div>Reference</div>
+                        <div>: {{ name }}</div>
+                     </div>
                   {% endif %}
                {% endwith %}
 
                {% with note=resource_data|val_from_key:"Reference"|val_from_key:"Note"|val_from_key:"@display_value" %}
                   {% if note %}
-                     <h4>Reference Note</h4>
-                     <p class="content">{{ note }}</p>
+                     <div class="data-table">
+                        <div>Reference Note</div>
+                        <div>: {{ note }}</div>
+                     </div>
                   {% endif %}
                {% endwith %}
                <hr>

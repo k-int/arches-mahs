@@ -44,8 +44,10 @@
                <ul>
                      {% for name in resource_data|val_from_key:"Name" %}
                         <li>
-                           <h4>{{name|val_from_key:"Name Type"|val_from_key:"value"}}</h4>
-                           <p class="content">{{ name|val_from_key:"@display_value" }}</p>
+                           <div class="data-table">
+                              <div>{{name|val_from_key:"Name Type"|val_from_key:"value"}}</div>
+                              <div>: {{ name|val_from_key:"@display_value" }}</div>
+                           </div>
                         </li>
                      {% endfor %}
                </ul>
@@ -87,22 +89,28 @@
             {% with beginning=item|val_from_key:"Time Period"|val_from_key:"Beginning of Existence" %}
             {% with b_type=beginning|val_from_key:"Start Date Type"|val_from_key:"@display_value" %}
             {% if b_type %}
-            <h4>Start Date Type</h4>
-            <p class="content">{{ b_type }}</p>
+            <div class="data-table">
+               <div>Start Date Type</div>
+               <div>: {{ b_type }}</div>
+            </div>
             {% endif %}
             {% endwith %}
             
             {% with b_text=beginning|val_from_key:"Beginning of Existence Time Span"|val_from_key:"Start Date of Existence text"|val_from_key:"@display_value" %}
             {% if b_text %}
-            <h4>Start Date of Existence (text)</h4> 
-            <p class="content">{{ b_text }}</p>
+            <div class="data-table">
+               <div>Start Date of Existence (text)</div>
+               <div>: {{ b_text }}</div>
+            </div>
             {% endif %}
             {% endwith %}
             
             {% with b_edtf=beginning|val_from_key:"Beginning of Existence Time Span"|val_from_key:"Start Date of Existence edtf"|val_from_key:"@display_value" %}
             {% if b_edtf %}
-            <h4>Start Date of Existence (edtf)</h4> 
-            <p class="content">{{ b_edtf }}</p>
+            <div class="data-table">
+               <div>Start Date of Existence (edtf)</div>
+               <div>: {{ b_edtf }}</div>
+            </div>
             {% endif %}
             {% endwith %}
             {% endwith %}
@@ -110,52 +118,66 @@
             {% with end=item|val_from_key:"Time Period"|val_from_key:"End of Existence" %}
             {% with e_type=end|val_from_key:"End Date Type"|val_from_key:"@display_value" %}
             {% if e_type %}
-            <h4>End Date Type</h4> 
-            <p class="content">{{ e_type }}</p>
+            <div class="data-table">
+               <div>End Date Type</div>
+               <div>: {{ e_type }}</div>
+            </div>
             {% endif %}
             {% endwith %}
             
             {% with e_text=end|val_from_key:"End of Existence Time Span"|val_from_key:"End Date of Existence text"|val_from_key:"@display_value" %}
             {% if e_text %}
-            <h4>End Date of Existence (text)</h4> 
-            <p class="content">{{ e_text }}</p>
+            <div class="data-table">
+               <div>End Date of Existence (text)</div>
+               <div>: {{ e_text }}</div>
+            </div>
             {% endif %}
             {% endwith %}
             
             {% with e_edtf=end|val_from_key:"End of Existence Time Span"|val_from_key:"End Date of Existence edtf"|val_from_key:"@display_value" %}
             {% if e_edtf %}
-            <h4>End Date of Existence (edtf)</h4> 
-            <p class="content">{{ e_edtf }}</p>
+            <div class="data-table">
+               <div>End Date of Existence (edtf)</div>
+               <div>: {{ e_edtf }}</div>
+            </div>
             {% endif %}
             {% endwith %}
             {% endwith %}
             
             {% with notes=item|val_from_key:"Periodization Description Assignment"|val_from_key:"Periodization Notes"|val_from_key:"@display_value" %}
             {% if notes %}
-            <h4>Periodization Notes</h4>
-            <p class="content">{{ notes }}</p>
+            <div class="data-table">
+               <div>Periodization Notes</div>
+               <div>: {{ notes }}</div>
+            </div>
             {% endif %}
             {% endwith %}
             
             {% with date=item|val_from_key:"Date" %}
             {% with s_type=date|val_from_key:"Spot Date Type"|val_from_key:"@display_value" %}
             {% if s_type %}
-            <h4>Spot Date Type</h4>
-            <p class="content">{{ s_type }}</p>
+            <div class="data-table">
+               <div>Spot Date Type</div>
+               <div>: {{ s_type }}</div>
+            </div>
             {% endif %}
             {% endwith %}
             
             {% with s_text=date|val_from_key:"Spot Date text"|val_from_key:"@display_value" %}
             {% if s_text %}
-            <h4>Spot Date (text)</h4>
-            <p class="content">{{ s_text }}</p>
+            <div class="data-table">
+               <div>Spot Date (text)</div>
+               <div>: {{ s_text }}</div>
+            </div>
             {% endif %}
             {% endwith %}
             
             {% with s_edtf=date|val_from_key:"Spot Date edtf"|val_from_key:"@display_value" %}
             {% if s_edtf %}
-            <h4>Spot Date (edtf)</h4>
-            <p class="content">{{ s_edtf }}</p>
+            <div class="data-table">
+               <div>Spot Date (edtf)</div>
+               <div>: {{ s_edtf }}</div>
+            </div>
             {% endif %}
             {% endwith %}
             {% endwith %}
@@ -200,8 +222,10 @@
                   {% for division in resource_data|val_from_key:"Administrative Division" %}
                   {% with sub_div=division|val_from_key:"Administration Subdivision" %}
                   <li>
-                     <h4>{{sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value"}}</h4>
-                     <p class="content">{{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</p>
+                     <div class="data-table">
+                        <div>{{sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value"}}</div>
+                        <div>: {{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</div>
+                     </div>
                   </li>
                   {% endwith %}
                   {% endfor %}
@@ -217,40 +241,54 @@
                {% for item in resource_data|val_from_key:"Place 6" %}
                
                   {% for address in item|val_from_key:"Place Address" %}
-                     <h4>Address Type</h4>
-                     <p class="content">{{address|val_from_key:"Address Type"|val_from_key:"@display_value"}}</p>
+                     <div class="data-table">
+                        <div>Address Type</div>
+                        <div>: {{address|val_from_key:"Address Type"|val_from_key:"@display_value"}}</div>
+                     </div>
                      
-                     <h4>Address</h4>
-                     <p class="content">{{address|val_from_key:"@display_value"}}</p>
+                     <div class="data-table">
+                        <div>Address</div>
+                        <div>: {{address|val_from_key:"@display_value"}}</div>
+                     </div>
                   {% endfor %}
                   
                   {% with p_desc=item|val_from_key:"Place Description Assignment"|val_from_key:"Place Description"|val_from_key:"@display_value" %}
                      {% if p_desc %}
-                        <h4>Place Description</h4>
-                        <p class="content">{{ p_desc }}</p>
+                        <div class="data-table">
+                           <div>Place Description</div>
+                           <div>: {{ p_desc }}</div>
+                        </div>
                      {% endif %}
                   {% endwith %}
                   
                   {% for sub_item in item|val_from_key:"Spatial Coordinates Geometry" %}
 
                      {% if sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value" %}
-                        <h4>Geometry Qualifier</h4>
-                        <p class="content">{{sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value"}}</p>
+                        <div class="data-table">
+                           <div>Geometry Qualifier</div>
+                           <div>: {{sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value"}}</div>
+                        </div>
                      {% endif %}
 
                      {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value" %}
-                        <h4>Latitude</h4>
-                        <p class="content">{{sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value"}}</p>
+                        <div class="data-table">
+                           <div>Latitude</div>
+                           <div>: {{sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value"}}</div>
+                        </div>
                      {% endif %}
 
                      {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value" %}
-                        <h4>Longitude</h4>
-                        <p class="content">{{sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value"}}</p>
+                        <div class="data-table">
+                           <div>Longitude</div>
+                           <div>: {{sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value"}}</div>
+                        </div>
                      {% endif %}
                      
                      {% for feature in sub_item|val_from_key:"geojson"|val_from_key:"features" %}
-                        <h4>Spatial Coordinates Geometry</h4>
-                        <p class="content">{{ feature|val_from_key:"geometry" }}</p>
+                        <div class="data-table">
+                           <div>Spatial Coordinates Geometry</div>
+                           <div>: {{ feature|val_from_key:"geometry" }}</div>
+                        </div>
                      {% endfor %}
                   {% endfor %}
                {% endfor %}
@@ -311,30 +349,38 @@
                   
                   {% with prot=item|val_from_key:"Protection"|val_from_key:"Protection Status"|val_from_key:"@display_value" %}
                      {% if prot %}
-                        <h4>Protection Status</h4>
-                        <p class="content">{{ prot }}</p>
+                        <div class="data-table">
+                           <div>Protection Status</div>
+                           <div>: {{ prot }}</div>
+                        </div>
                      {% endif %}
                   {% endwith %}
                   
                   {% with p_desc=item|val_from_key:"Protection"|val_from_key:"Protection Status Description Assignment"|val_from_key:"Protection Status Description"|val_from_key:"@display_value" %}
                      {% if p_desc %}
-                        <h4>Protection Status Description</h4>
-                        <p class="content">{{ p_desc }}</p>
+                        <div class="data-table">
+                           <div>Protection Status Description</div>
+                           <div>: {{ p_desc }}</div>
+                        </div>
                      {% endif %}
                   {% endwith %}
                   
                   {% with usage=item|val_from_key:"Current Usage" %}
                   {% with u_type=usage|val_from_key:"Current Usage Type"|val_from_key:"@display_value" %}
                      {% if u_type %}
-                        <h4>Current Usage Type</h4>
-                        <p class="content">{{ u_type }}</p>
+                        <div class="data-table">
+                           <div>Current Usage Type</div>
+                           <div>: {{ u_type }}</div>
+                        </div>
                      {% endif %}
                   {% endwith %}
                   
                   {% with u_desc=usage|val_from_key:"Current Usage Description Assignment"|val_from_key:"Current Usage Description"|val_from_key:"@display_value" %}
                      {% if u_desc %}
-                        <h4>Current Usage Description</h4>
-                        <p class="content">{{ u_desc }}</p>
+                        <div class="data-table">
+                           <div>Current Usage Description</div>
+                           <div>: {{ u_desc }}</div>
+                        </div>
                      {% endif %}
                   {% endwith %}
 
@@ -393,8 +439,10 @@
 
                   {% with notes=item|val_from_key:"Condition and Preservation Description Assignment"|val_from_key:"Notes on Condition and Preservation"|val_from_key:"@display_value" %}
                      {% if notes %}
-                        <h4>Condition notes</h4>
-                        <p class="content">{{ notes }}</p>  
+                        <div class="data-table">
+                           <div>Condition notes</div>
+                           <div>: {{ notes }}</div>
+                        </div>
                      {% endif %}
                   {% endwith %}
 
@@ -474,20 +522,26 @@
                <section class="keeptogether">
                   <h3>Citations</h3>
                   {% for item in resource_data|val_from_key:"Citation 4" %}
-                     <h4>Citation Apellation</h4>
-                     <p class="content">{{item|val_from_key:"Citation Apellation"|val_from_key:"@display_value"}}</p>
+                     <div class="data-table">
+                        <div>Citation Apellation</div>
+                        <div>: {{item|val_from_key:"Citation Apellation"|val_from_key:"@display_value"}}</div>
+                     </div>
                      
                      {% with c_url=item|val_from_key:"Citation URL"|val_from_key:"url" %}
                         {% if c_url %}
-                           <h4>Citation URL</h4>
-                           <p class="content">{{ c_url }}</p>
+                           <div class="data-table">
+                              <div>Citation URL</div>
+                              <div>: {{ c_url }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
                      
                      {% with c_note=item|val_from_key:"Note on Citation"|val_from_key:"@display_value" %}
                         {% if c_note %}
-                           <h4>Citation Description</h4>
-                           <p class="content">{{ c_note }}</p>
+                           <div class="data-table">
+                              <div>Citation Description</div>
+                              <div>: {{ c_note }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
                   {% endfor %}
@@ -503,36 +557,46 @@
                      
                      {% with script=item|val_from_key:"Inscription Script"|val_from_key:"@display_value" %}
                         {% if script %}
-                           <h4>Inscription Script</h4>
-                           <p class="content">{{ script }}</p>
+                           <div class="data-table">
+                              <div>Inscription Script</div>
+                              <div>: {{ script }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
 
                      {% with placement=item|val_from_key:"Placement"|val_from_key:"@display_value" %}
                         {% if placement %}
-                           <h4>Placement</h4>
-                           <p class="content">{{ placement }}</p>
+                           <div class="data-table">
+                              <div>Placement</div>
+                              <div>: {{ placement }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
 
                      {% with language=item|val_from_key:"Inscription Language"|val_from_key:"@display_value" %}
                         {% if language %}
-                           <h4>Inscription Language</h4>
-                           <p class="content">{{ language }}</p>
+                           <div class="data-table">
+                              <div>Inscription Language</div>
+                              <div>: {{ language }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
 
                      {% with notes=item|val_from_key:"Inscription Notes"|val_from_key:"@display_value" %}
                         {% if notes %}
-                           <h4>Inscription Notes</h4>
-                           <p class="content">{{ notes }}</p>
+                           <div class="data-table">
+                              <div>Inscription Notes</div>
+                              <div>: {{ notes }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
 
                      {% with transcript=item|val_from_key:"Inscription Transcript"|val_from_key:"@display_value" %}
                         {% if transcript %}
-                           <h4>Inscription Transcript</h4>
-                           <p class="content">{{ transcript }}</p>
+                           <div class="data-table">
+                              <div>Inscription Transcript</div>
+                              <div>: {{ transcript }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
                      
@@ -549,29 +613,37 @@
                      
                      {% with technique=item|val_from_key:"Technique"|val_from_key:"@display_value" %}
                         {% if technique %}
-                           <h4>Technique</h4>
-                           <p class="content">{{ technique }}</p>
+                           <div class="data-table">
+                              <div>Technique</div>
+                              <div>: {{ technique }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
 
                      {% with c_type=item|val_from_key:"Component Type"|val_from_key:"@display_value" %}
                         {% if c_type %}
-                           <h4>Component Type</h4>
-                           <p class="content">{{ c_type }}</p>
+                           <div class="data-table">
+                              <div>Component Type</div>
+                              <div>: {{ c_type }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
 
                      {% with c_desc=item|val_from_key:"Component Description"|val_from_key:"@display_value" %}
                         {% if c_desc %}
-                           <h4>Component Description</h4>
-                           <p class="content">{{ c_desc }}</p>
+                           <div class="data-table">
+                              <div>Component Description</div>
+                              <div>: {{ c_desc }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
 
                      {% with material=item|val_from_key:"Material"|val_from_key:"@display_value" %}
                         {% if material %}
-                           <h4>Material</h4>
-                           <p class="content">{{ material }}</p>
+                           <div class="data-table">
+                              <div>Material</div>
+                              <div>: {{ material }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
                      

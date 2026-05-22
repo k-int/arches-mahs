@@ -62,8 +62,10 @@
             
                 {% with type=item|val_from_key:"@display_value" %}
                     {% if type %}
-                        <h4>Digital Asset Type</h4>
-                        <p class="content">{{ type }}</p>
+                        <div class="data-table">
+                            <div>Digital Asset Type</div>
+                            <div>: {{ type }}</div>
+                        </div>
                     {% endif %}
                 {% endwith %}
 
@@ -71,8 +73,10 @@
 
             {% with keyword=resource_data|val_from_key:"Keyword"|val_from_key:"@display_value" %}
                 {% if keyword %}
-                    <h4>Keywords</h4>    
-                    <p class="content">{{ keyword }}</p>
+                    <div class="data-table">
+                        <div>Keywords</div>
+                        <div>: {{ keyword }}</div>
+                    </div>
                 {% endif %}
             {% endwith %}
 
@@ -107,8 +111,10 @@
 
                     {% with place_site=place|val_from_key:"Site of Data Collection"|val_from_key:"@display_value" %}
                         {% if place_site %}
-                            <h4>Place Site</h3>
-                            <p class="content">{{ place_site }}</p>
+                            <div class="data-table">
+                                <div>Place Site</div>
+                                <div>: {{ place_site }}</div>
+                            </div>
 
                             {% with resourceId=place|val_from_key:"Site of Data Collection"|val_from_key:"resourceId" %}
                                 <a class="content" href="/resource/{{ resourceId }}">
@@ -120,15 +126,19 @@
 
                     {% with place_long=place|val_from_key:"Longitude"|val_from_key:"@display_value" %}
                         {% if place_long %}
-                            <h4>Longitude</h3>
-                            <p class="content">{{ place_long }}</p>
+                            <div class="data-table">
+                                <div>Longitude</div>
+                                <div>: {{ place_long }}</div>
+                            </div>
                         {% endif %}
                     {% endwith %}
 
                     {% with place_lat=place|val_from_key:"Latitude"|val_from_key:"@display_value" %}
                         {% if place_lat %}
-                            <h4>Longitude</h3>
-                            <p class="content">{{ place_lat }}</p>
+                            <div class="data-table">
+                                <div>Latitude</div>
+                                <div>: {{ place_lat }}</div>
+                            </div>
                         {% endif %}
                     {% endwith %}
 
@@ -137,8 +147,10 @@
 
             {% if resource_data|has_key:"Digital Asset Production Event" %}
                 {% for actor in resource_data|val_from_key:"Digital Asset Production Event"|val_from_key:"Digital Asset Created By"|val_from_key:"instance_details" %}
-                    <h4>Digital Asset Created By</h4>
-                    <p class="content">{{actor|val_from_key:"display_value"}}</p>
+                    <div class="data-table">
+                        <div>Digital Asset Created By</div>
+                        <div>: {{actor|val_from_key:"display_value"}}</div>
+                    </div>
 
                     <a class="content" href="/resource/{{ actor|val_from_key:"resourceId" }}">
                         /resource/{{ actor|val_from_key:"resourceId" }}
@@ -149,15 +161,19 @@
             {% if resource_data|has_key:"Data Collection Event" %}
                 {% with collector=resource_data|val_from_key:"Data Collection Event"|val_from_key:"Data Collected By"|val_from_key:"@display_value" %}
                     {% if collector %}
-                        <h4>Collected by</h4>
-                        <p class="content">{{ collector }}</p>
+                        <div class="data-table">
+                            <div>Collected by</div>
+                            <div>: {{ collector }}</div>
+                        </div>
                     {% endif %}
                 {% endwith %}
 
                 {% with date=resource_data|val_from_key:"Data Collection Event"|val_from_key:"Date of Data Collection"|val_from_key:"@display_value" %}
                     {% if date %}
-                        <h4>Date of Collection</h4>
-                        <p class="content">{{ date }}</p>
+                        <div class="data-table">
+                            <div>Date of Collection</div>
+                            <div>: {{ date }}</div>
+                        </div>
                     {% endif %}
                 {% endwith %}
             {% endif %}
@@ -175,36 +191,46 @@
 
                 {% with asset_url=event|val_from_key:"Published Digital Asset - Other Platform"|val_from_key:"Published Digital Asset URL - non-localized"|val_from_key:"@display_value" %}
                     {% if asset_url %}
-                        <h4>Digital Asset URL</h4>
-                        <p class="content">{{ asset_url }}</p>
+                        <div class="data-table">
+                            <div>Digital Asset URL</div>
+                            <div>: {{ asset_url }}</div>
+                        </div>
                     {% endif %}
                 {% endwith %}
 
                 {% with sketchfab_url=event|val_from_key:"Published Digital Asset - Sketchfab"|val_from_key:"Embedded Sketchfab URL - non-localized"|val_from_key:"@display_value" %}
                     {% if sketchfab_url %}
-                        <h4>Sketchfab URL</h4>
-                        <p class="content">{{ sketchfab_url }}</p>
+                        <div class="data-table">
+                            <div>Sketchfab URL</div>
+                            <div>: {{ sketchfab_url }}</div>
+                        </div>
                     {% endif %}
                 {% endwith %}
 
                 {% with youtube_url=event|val_from_key:"Published Digital Asset - Youtube"|val_from_key:"Embedded YouTube URL - non-localized"|val_from_key:"@display_value" %}
                     {% if youtube_url %}
-                        <h4>YouTube URL</h4>
-                        <p class="content">{{ youtube_url }}</p>
+                        <div class="data-table">
+                            <div>YouTube URL</div>
+                            <div>: {{ youtube_url }}</div>
+                        </div>
                     {% endif %}
                 {% endwith %}
 
                 {% with pub_date=event|val_from_key:"Date of Publication"|val_from_key:"@display_value" %}
                     {% if pub_date %}
-                        <h4>Date of Publication</h4>
-                        <p class="content">{{ pub_date }}</p>
+                        <div class="data-table">
+                            <div>Date of Publication</div>
+                            <div>: {{ pub_date }}</div>
+                        </div>
                     {% endif %}
                 {% endwith %}
 
                 {% with pub_note=event|val_from_key:"Published Digital Asset - Other Platform"|val_from_key:"Publication Note - Other Platform"|val_from_key:"@display_value" %}
                     {% if pub_note %}
-                        <h4>Publication Note - Other Platform</h4>
-                        <p class="content">{{ pub_note }}</p>
+                        <div class="data-table">
+                            <div>Publication Note - Other Platform</div>
+                            <div>: {{ pub_note }}</div>
+                        </div>
                     {% endif %}
                 {% endwith %}
 
@@ -251,14 +277,20 @@
             <section class="keeptogether">
                 <h3>External Identifiers</h3>
                     {% with xref=resource_data|val_from_key:"External Identifier 4" %}
-                        <h4>External Xref</h4>
-                        <p class="content">{{xref|val_from_key:"@display_value"}}</p>
+                        <div class="data-table">
+                            <div>External Xref</div>
+                            <div>: {{xref|val_from_key:"@display_value"}}</div>
+                        </div>
                         
-                        <h4>External Source</h4>
-                        <p class="content">{{xref|val_from_key:"External Source"|val_from_key:"@display_value"}}</p>
+                        <div class="data-table">
+                            <div>External Source</div>
+                            <div>: {{xref|val_from_key:"External Source"|val_from_key:"@display_value"}}</div>
+                        </div>
                         
-                        <h4>External Identifier Type</h4>
-                        <p class="content">{{xref|val_from_key:"External Identifier Type"|val_from_key:"@display_value"}}</p>
+                        <div class="data-table">
+                            <div>External Identifier Type</div>
+                            <div>: {{xref|val_from_key:"External Identifier Type"|val_from_key:"@display_value"}}</div>
+                        </div>
                         
                         {% with url=xref|val_from_key:"External Identifier URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
                             {% if url %}

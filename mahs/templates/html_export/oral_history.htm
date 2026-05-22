@@ -69,27 +69,28 @@
 
                 {% with url=video|val_from_key:"Embedded URL"|val_from_key:"@display_value" %}
                     {% if url %}
-                        <h4>Oral History Video</h4>
-                        <p class="content">
-                            <a href={{ url }}>
-                                {{ url }}
-                            </a>
-                        </p>
-
+                        <div class="data-table">
+                            <div>Oral History Video</div>
+                            <div>: <a href={{ url }}>{{ url }}</a></div>
+                        </div>
                     {% endif %}
                 {% endwith %}
 
                 {% with language=video|val_from_key:"Language"|val_from_key:"@display_value" %}
                     {% if language %}
-                        <h4>Language</h4>
-                        <p class="content">{{ language }}</p>
+                        <div class="data-table">
+                            <div>Language</div>
+                            <div>: {{ language }}</div>
+                        </div>
                     {% endif %}
                 {% endwith %}
 
                 {% with creator=video|val_from_key:"Video Created By"|val_from_key:"@display_value" %}
                     {% if creator %}
-                        <h4>Created By</h4>
-                        <p class="content">{{ creator }}</p>
+                        <div class="data-table">
+                            <div>Created By</div>
+                            <div>: {{ creator }}</div>
+                        </div>
                     {% endif %}
                 {% endwith %}
 
@@ -185,22 +186,28 @@
             {% for interviewee in resource_data|val_from_key:"Interviewee" %}
                 {% with name=interviewee|val_from_key:"Name of Inerviewee"|val_from_key:"@display_value" %}
                     {% if name %}
-                        <h4>Name</h4>
-                        <p class="content">{{name}}</p>
+                        <div class="data-table">
+                            <div>Name</div>
+                            <div>: {{name}}</div>
+                        </div>
                     {% endif %}
                 {% endwith %}
 
                 {% with gender=interviewee|val_from_key:"Gender of Interviewee"|val_from_key:"@display_value" %}
                     {% if gender %}
-                        <h4>Gender</h4>
-                        <p class="content">{{gender}}</p>
+                        <div class="data-table">
+                            <div>Gender</div>
+                            <div>: {{gender}}</div>
+                        </div>
                     {% endif %}
                 {% endwith %}
 
                 {% with age=interviewee|val_from_key:"Age of Interviewee"|val_from_key:"@display_value" %}
                     {% if age %}
-                        <h4>Age</h4>
-                        <p class="content">{{age}}</p>
+                        <div class="data-table">
+                            <div>Age</div>
+                            <div>: {{age}}</div>
+                        </div>
                     {% endif %}
                 {% endwith %}
 
@@ -216,8 +223,10 @@
             <h3>Classification</h3>
             
             {% if resource_data|has_key:"Keyword" %}
-            <h4>Keywords</h4>
-            <p class="content">{{resource_data|val_from_key:"Keyword"|val_from_key:"@display_value"}}</p>
+            <div class="data-table">
+                <div>Keywords</div>
+                <div>: {{resource_data|val_from_key:"Keyword"|val_from_key:"@display_value"}}</div>
+            </div>
             {% endif %}
             <hr>
         </section>
@@ -231,8 +240,10 @@
                 {% for division in resource_data|val_from_key:"Administrative Division" %}
                 {% with sub_div=division|val_from_key:"Administration Subdivision" %}
                 <li>
-                    <h4>{{sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value"}}</h4>
-                    <p class="content">{{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</p>
+                    <div class="data-table">
+                        <div>{{sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value"}}</div>
+                        <div>: {{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</div>
+                    </div>
                 </li>
                 {% endwith %}
                 {% endfor %}
