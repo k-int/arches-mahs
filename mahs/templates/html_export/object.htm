@@ -73,7 +73,7 @@
          {# --- Existence Section --- #}
          {% if resource_data|has_key:"Existence 9" %}
          <section class="keeptogether">
-            <h3>Existence</h3>
+            <h3>Periodization</h3>
             {% for item in resource_data|val_from_key:"Existence 9" %}
             
             {% with indeterminate=item|val_from_key:"Indeterminate"|val_from_key:"@display_value" %}
