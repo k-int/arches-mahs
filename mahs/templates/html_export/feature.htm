@@ -635,6 +635,54 @@
                </section>   
             {% endif %}
 
+            {# --- Acknowledgement section --- #}
+            {% if resource_data|has_key:"Acknowledgement" %}
+               <section class="keeptogether">
+                  <div class="h1-container">
+                     <h1>Acknowledgement</h1>
+                  </div>
+
+                  {% with partners=resource_data|val_from_key:'Acknowledgement'|val_from_key:'Country Partners'|val_from_key:"@display_value" %}
+                     {% if partners %}   
+                        <h4>Country Partners</h4>
+                        <p class="content">{{ partners }}</p>
+                     {% endif %}
+                  {% endwith %}
+
+                  {% with team=resource_data|val_from_key:'Acknowledgement'|val_from_key:'Team Members'|val_from_key:"@display_value" %}
+                     {% if team %}   
+                        <h4>Field Team Members</h4>
+                        <p class="content">{{ team }}</p>
+                     {% endif %}
+                  {% endwith %}
+
+                  {% with general=resource_data|val_from_key:'Acknowledgement'|val_from_key:'General Acknowledgement'|val_from_key:"@display_value"|safe %}
+                     {% if general %}   
+                        <h4>General Acknowledgement</h4>
+                        <div class="content-container">
+                           <p>{{ general }}</p>
+                        </div>
+                     {% endif %}
+                  {% endwith %}
+                  <hr>
+               </section>
+            
+               <section">
+               {% for desc in resource_data|val_from_key:"Description Assignment" %}
+                  {% if desc|val_from_key:"Description Type"|val_from_key:"value" == "Acknowledgement" %}   
+                     <div class="keeptogether">
+                        <h4>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
+                        <div class="content-container">
+                           <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
+                        </div>
+                     </div>
+                  {% endif %}
+               {% endfor %}
+               <hr>
+               </section>
+
+            {% endif %}
+
             {# --- Images --- #}
             {% if resource_data|has_key:"Information Carrier 2" %}
                <section class="keeptogether">
