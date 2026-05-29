@@ -630,11 +630,12 @@
             {# --- External Identifiers Section --- #}
             {% if resource_data|has_key:"External Identifier 4" %}
 
-               <div class="h1-container">
-                  <h1>References</h1>
-               </div>
+            
+            <section class="keeptogether">
+                  <div class="h1-container">
+                     <h1>References</h1>
+                  </div>
 
-               <section class="keeptogether">
                   <h3>External Identifiers</h3>
                   {% for item in resource_data|val_from_key:"External Identifier 4" %}
                   <div class="data-table">
@@ -652,23 +653,23 @@
                      <div>: {{item|val_from_key:"External Identifier Type"|val_from_key:"@display_value"}}</div>
                   </div>
                   
-                  {% with url=item|val_from_key:"External Identifier URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
-                  {% if url %}
-                  <div class="data-table">
-                     <div>URL</div>
-                     <div>: {{ url }}</div>
-                  </div>
-                  {% endif %}
-                  {% endwith %}
-                  
-                  {% with x_desc=item|val_from_key:"External Reference Description Assignment"|val_from_key:"Note on External Reference or Source"|val_from_key:"@display_value" %}
-                  {% if x_desc %}
-                  <div class="data-table">
-                     <div>Description</div>
-                     <div>: {{ x_desc }}</div>
-                  </div>
-                  {% endif %}
-                  {% endwith %}
+                     {% with url=item|val_from_key:"External Identifier URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
+                        {% if url %}
+                        <div class="data-table">
+                           <div>URL</div>
+                           <div>: {{ url }}</div>
+                        </div>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with x_desc=item|val_from_key:"External Reference Description Assignment"|val_from_key:"Note on External Reference or Source"|val_from_key:"@display_value" %}
+                        {% if x_desc %}
+                        <div class="data-table">
+                           <div>Description</div>
+                           <div>: {{ x_desc }}</div>
+                        </div>
+                        {% endif %}
+                     {% endwith %}
                   {% endfor %}
                </section>   
             {% endif %}
@@ -753,8 +754,10 @@
             {# --- Images --- #}
             {% if resource_data|has_key:"Information Carrier 2" %}
                <section class="keeptogether">
-                  <hr>
-                  <h3>Images</h3>
+                  <div class="h1-container">
+                     <h1>{{ resource.displayname }}</h1>
+                     <h1>Images</h1>
+                  </div>
                   {% for item in resource_data|val_from_key:"Information Carrier 2" %}
 
                      {% with caption=item|val_from_key:"Caption"|val_from_key:"@display_value" %}
