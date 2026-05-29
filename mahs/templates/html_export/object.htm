@@ -497,10 +497,8 @@
 
                      {% with transcript=item|val_from_key:"Inscription Transcript"|val_from_key:"@display_value" %}
                         {% if transcript %}
-                           <div class="data-table">
-                              <div>Inscription Transcript</div>
-                              <div>: {{ transcript }}</div>
-                           </div>
+                           <h4>Inscription Transcript</h4>
+                           <p class="content">{{ transcript }}</p>
                         {% endif %}
                      {% endwith %}
                      
