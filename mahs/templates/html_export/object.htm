@@ -26,7 +26,7 @@
       <main>
          <div class="arches-link-container">  
             <a class="arches-link" href="/resource/{{ resource.resourceinstanceid }}">
-               <u>Site - {{ resource.displayname }}</u>
+               <u>Object - {{ resource.displayname }}</u>
             </a>
          </div>  
 
@@ -45,15 +45,12 @@
          {# --- Names Section --- #}
          {% if resource_data|has_key:"Name" %}
             <section class="keeptogether">
-               <hr>
                <ul>
                      {% for name in resource_data|val_from_key:"Name" %}
-                        <li>
-                           <div class="data-table">
-                              <div>{{name|val_from_key:"Name Type"|val_from_key:"value"}}</div>
-                              <div>: {{ name|val_from_key:"@display_value" }}</div>
-                           </div>
-                        </li>
+                        <div class="data-table">
+                           <div>{{name|val_from_key:"Name Type"|val_from_key:"value"}}</div>
+                           <div>: {{ name|val_from_key:"@display_value" }}</div>
+                        </div>
                      {% endfor %}
                </ul>
             </section>
