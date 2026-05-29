@@ -274,28 +274,38 @@
             {# --- Current Status Section --- #}
             {% if resource_data|has_key:"Current Status 2" %}
             <section class="keeptogether">
-               <hr>
+               
+               <div class="h1-container">
+                  <h1>Condition</h1>
+               </div>
+
                <h3>Current Status</h3>
                {% for item in resource_data|val_from_key:"Current Status 2" %}
                   {% with authority=item|val_from_key:"Custodial Authority"%}
                      {% with a_name=authority|val_from_key:"Custodial Authority Name"|val_from_key:"@display_value" %}
                         {% if a_name %}
-                           <h4>Custodial Authority Name</h4>
-                           <p class="content">{{ a_name }}</p>
+                           <div class="data-table">
+                              <div>Custodial Authority Name</div>
+                              <div>: {{ a_name }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
                      
                      {% with a_status=authority|val_from_key:"Custodial Authority Status 2"|val_from_key:"@display_value" %}
                         {% if a_status %}
-                           <h4>Custodial Authority Status</h4>
-                           <p class="content">{{ a_status }}</p>
+                           <div class="data-table">
+                              <div>Custodial Authority Status</div>
+                              <div>: {{ a_status }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
                      
                      {% with a_desc=authority|val_from_key:"Custodial Authority Description Assignment"|val_from_key:"Custodial Authority Description"|val_from_key:"@display_value" %}
                         {% if a_desc %}
-                           <h4>Custodial Authority Description</h4>
-                           <p class="content">{{ a_desc }}</p>
+                           <div class="data-table">
+                              <div>Custodial Authority Description</div>
+                              <div>: {{ a_desc }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
                   {% endwith %}
@@ -346,60 +356,56 @@
             {% if resource_data|has_key:"Condition and Preservation" %}
             <section class="keeptogether">
 
-               <div class="h1-container">
-                  <h1>Condition and Preservation</h1>
-               </div>
+               <hr>
+               <h3>Condition and Preservation</h3>
                
                {% for item in resource_data|val_from_key:"Condition and Preservation" %}
                   {% with state=item|val_from_key:"Condition Assessment"|val_from_key:"Condition State" %}
 
                      {% with c_type=state|val_from_key:"Condition Type"|val_from_key:"@display_value" %}
                         {% if c_type %}
-                           <h4>Condition Type</h4>
-                           <p class="content">{{ c_type }}</p>
+                           <div class="data-table">
+                              <div>Condition Type</div>
+                              <div>: {{ c_type }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
                
                      {% with c_date=state|val_from_key:"Condition Time Span"|val_from_key:"Date Condition Assessed"|val_from_key:"@display_value" %}
                         {% if c_date %}
-                           <h4>Date Condition Assessed: </h4>
-                           <p class="content">{{ c_date }}</p>
+                           <div class="data-table">
+                              <div>Date Condition Assessed: </div>
+                              <div>: {{ c_date }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
 
                      {% with d_type=state|val_from_key:"Disturbance Type"|val_from_key:"@display_value" %}
                         {% if d_type %}
-                           <h4>Disturbance Type</h4>
-                           <p class="content">{{ d_type }}</p>
+                           <div class="data-table">
+                              <div>Disturbance Type</div>
+                              <div>: {{ d_type }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
                      
                      {% with t_type=state|val_from_key:"Threat Type"|val_from_key:"@display_value" %}
                         {% if t_type %}
-                           <h4>Threat Type</h4>
-                           <p class="content">{{ t_type }}</p>
+                           <div class="data-table">
+                              <div>Threat Type</div>
+                              <div>: {{ t_type }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
 
-                     {% with c_image=state|val_from_key:"Condition Image"|val_from_key:"file_details" %}
-                        {% if c_image %}
-                           {% for image in c_image %}
-                              {% with url=image|val_from_key:"url" %}
-                                 <h4>{{image|val_from_key:"name"}}</h4>
-                                 <img src="{{url}}">
-                              {% endwith %}
-                           {% endfor %}
+                     {% with notes=item|val_from_key:"Condition and Preservation Description Assignment"|val_from_key:"Notes on Condition and Preservation"|val_from_key:"@display_value" %}
+                        {% if notes %}
+                           <div class="data-table">
+                              <div>Condition notes</div>
+                              <div>: {{ notes }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
-
-                  {% with notes=item|val_from_key:"Condition and Preservation Description Assignment"|val_from_key:"Notes on Condition and Preservation"|val_from_key:"@display_value" %}
-                     {% if notes %}
-                        <div class="data-table">
-                           <div>Condition notes</div>
-                           <div>: {{ notes }}</div>
-                        </div>
-                     {% endif %}
-                  {% endwith %}
 
                   {% endwith %}
                         
@@ -407,18 +413,36 @@
                   
                      {% with pres_status=preservation|val_from_key:"Preservation Status"|val_from_key:"@display_value" %}
                         {% if pres_status %}
-                           <h4>Preservation Status: </h4>
-                           <p class="content">{{ pres_status }}</p>
+                           <div class="data-table">
+                              <div>Preservation Status</div>
+                              <div>: {{ pres_status }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
 
                      {% with pres_type=preservation|val_from_key:"Required Preservation Type"|val_from_key:"@display_value" %}
                         {% if pres_type %}
-                           <h4>Required Preservation Type: </h4>
-                           <p class="content">{{ pres_type }}</p>
+                           <div class="data-table">
+                              <div>Required Preservation Type: </div>
+                              <div>: {{ pres_type }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
                      
+                  {% endwith %}
+
+                  {% with state=item|val_from_key:"Condition Assessment"|val_from_key:"Condition State" %}
+                     {% with c_image=state|val_from_key:"Condition Image"|val_from_key:"file_details" %}
+                           {% if c_image %}
+                              {% for image in c_image %}
+                                 {% with url=image|val_from_key:"url" %}
+                                    <h4>Condition Image</h4>
+                                    <p>{{image|val_from_key:"name"}}</p>
+                                    <img src="{{url}}">
+                                 {% endwith %}
+                              {% endfor %}
+                           {% endif %}
+                     {% endwith %}
                   {% endwith %}
 
                {% endfor %}
@@ -475,11 +499,10 @@
             {% if resource_data|has_key:"Citation 4" %}
                <section class="keeptogether">
                   <hr>
-                  <h3>Citations</h3>
                   {% for item in resource_data|val_from_key:"Citation 4" %}
-                     <div class="data-table">
-                        <div>Citation Apellation</div>
-                        <div>: {{item|val_from_key:"Citation Apellation"|val_from_key:"@display_value"}}</div>
+                        
+                     <h4>Citation Apellation:</h4>
+                        <p>{{item|val_from_key:"Citation Apellation"|val_from_key:"@display_value"}}</p>
                      </div>
                      
                      {% with c_url=item|val_from_key:"Citation URL"|val_from_key:"url" %}
