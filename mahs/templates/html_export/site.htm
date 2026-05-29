@@ -148,14 +148,6 @@
                {% endwith %}
                
                {% with date=item|val_from_key:"Date" %}
-                  {% with s_type=date|val_from_key:"Spot Date Type"|val_from_key:"@display_value" %}
-                     {% if s_type %}
-                     <div class="data-table">
-                        <div>Spot Date Type</div>
-                        <div>: {{ s_type }}</div>
-                     </div>
-                     {% endif %}
-                  {% endwith %}
                   
                   {% with s_text=date|val_from_key:"Spot Date text"|val_from_key:"@display_value" %}
                      {% if s_text %}
