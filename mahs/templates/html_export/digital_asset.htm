@@ -330,6 +330,18 @@
         </section>
         {% endif %}
 
+        {# --- ResourceID section --- #}
+        <section class="keeptogether">
+            <div class="h1-container">
+                <h1>Resource ID</h1>
+            </div>
+            <p class="content">{{ resource.resourceinstanceid }}</p>
+        </section> 
+
+        <div class="h1-container">
+            <h1>Related resources</h1>
+        </div>
+        
         {# --- Related Sites section --- #}
         {% if resource_data|has_key:"Related Site" %}
             <section class="keeptogether">
@@ -338,9 +350,8 @@
                 <ul>
                     {% for linked_resource in resource_data|val_from_key:"Related Site"|val_from_key:"instance_details" %}
                     <li>
-                        <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
                         <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                            /resource/{{ linked_resource|val_from_key:'resourceId' }}
+                            {{ linked_resource|val_from_key:'display_value' }}
                         </a>
                     </li>
                     {% endfor %}
@@ -355,14 +366,13 @@
                 <h3>Related Objects</h3>
                 <ul>
                     {% for linked_resource in resource_data|val_from_key:"Related Object" %}
-                    {% for link in linked_resource|val_from_key:"instance_details" %}
-                        <li>
-                            <h4>{{ link|val_from_key:"display_value" }}</h4>
-                            <a class="content" href="/resource/{{ link|val_from_key:'resourceId' }}">
-                                /resource/{{ link|val_from_key:'resourceId' }}
-                            </a>
-                        </li>
-                    {% endfor %}
+                        {% for link in linked_resource|val_from_key:"instance_details" %}
+                            <li>
+                                <a class="content" href="/resource/{{ link|val_from_key:'resourceId' }}">
+                                    {{ link|val_from_key:'display_value' }}
+                                </a>
+                            </li>
+                        {% endfor %}
                     {% endfor %}
                 </ul>
             </section> 
@@ -376,10 +386,9 @@
             {% for linked_resource in resource_data|val_from_key:"Related Feature"|val_from_key:"instance_details" %}
                 <ul>
                     <li>
-                    <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
-                    <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                        /resource/{{ linked_resource|val_from_key:'resourceId' }}
-                    </a>
+                        <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                            {{ linked_resource|val_from_key:'display_value' }}
+                        </a>
                     </li>
                 </ul>   
             {% endfor %}
@@ -394,9 +403,8 @@
             {% for linked_resource in resource_data|val_from_key:"Related Digital Asset"|val_from_key:"instance_details" %}
                 <ul>
                     <li>
-                        <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
                         <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                            /resource/{{ linked_resource|val_from_key:'resourceId' }}
+                            {{ linked_resource|val_from_key:'display_value' }}
                         </a>
                     </li>
                 </ul>
@@ -404,29 +412,39 @@
             </section> 
         {% endif %}
 
-        {# --- ResourceID section --- #}
-        <section class="keeptogether">
-            <div class="h1-container">
-                <h1>Resource ID</h1>
-            </div>
-            <p class="content">{{ resource.resourceinstanceid }}</p>
-        </section> 
-
         {# --- Related Collections section --- #}
         {% if resource_data|has_key:"Related Collection" %}
             <section class="keeptogether">
                 <hr>
                 <h3>Related Collection</h3>
                 {% with collection=resource_data|val_from_key:"Related Collection" %}
-                <ul>
-                    <li>
-                    <h4>{{ collection|val_from_key:"@display_value" }}</h4>
-                    <a class="content" href="/resource/{{ collection|val_from_key:'resourceId' }}">
-                        /resource/{{ collection|val_from_key:'resourceId' }}
-                    </a>
-                    </li>
-                </ul>
+                    <ul>
+                        <li>
+                            <a class="content" href="/resource/{{ collection|val_from_key:'resourceId' }}">
+                                {{ collection|val_from_key:'@display_value' }}
+                            </a>
+                        </li>
+                    </ul>
                 {% endwith %}
+            </section> 
+        {% endif %}
+
+        {# --- Related Oral History section --- #}
+        {% if resource_data|has_key:"Related Oral History" %}
+            <section class="keeptogether">
+                <hr>
+                <h3>Related Oral History</h3>
+                <ul>
+                    {% for linked_resource in resource_data|val_from_key:"Related Oral History" %}
+                        {% for link in linked_resource|val_from_key:"instance_details" %}
+                            <li>
+                                <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                                    {{ linked_resource|val_from_key:'@display_value' }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
             </section> 
         {% endif %}
 

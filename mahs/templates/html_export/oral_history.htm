@@ -268,15 +268,16 @@
         {# --- Related Resources section --- #}
         {% if resource_data|has_key:"Related Resources" and resource_data|val_from_key:"Related Resources"|val_from_key:"@display_value" %}
             <section class="keeptogether">
-                <hr>
-                <h3>Related Resources</h3>
+                <div class="h1-container">
+                    <h1>Related Resources</h1>
+                </div>
                 <ul>
                     {% for linked_resource in resource_data|val_from_key:"Related Resources"|val_from_key:"instance_details" %}
                         <li>
                         <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
-                        <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                            /resource/{{ linked_resource|val_from_key:'resourceId' }}
-                        </a>
+                            <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                                {{ linked_resource|val_from_key:'display_value' }}
+                            </a>
                         </li>
                     {% endfor %}
                 </ul>

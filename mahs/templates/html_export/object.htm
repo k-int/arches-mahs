@@ -449,6 +449,132 @@
                </section>
             {% endif %}
 
+            {# --- Inscription Section --- #}
+            {% if resource_data|has_key:"Inscription 3" %}
+               <section class="keeptogether">
+               
+               <div class="h1-container">
+                  <h1>Inscription</h1>
+               </div>
+
+                  {% for item in resource_data|val_from_key:"Inscription 3" %}
+                     
+                     {% with script=item|val_from_key:"Inscription Script"|val_from_key:"@display_value" %}
+                        {% if script %}
+                           <div class="data-table">
+                              <div>Inscription Script</div>
+                              <div>: {{ script }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with placement=item|val_from_key:"Placement"|val_from_key:"@display_value" %}
+                        {% if placement %}
+                           <div class="data-table">
+                              <div>Placement</div>
+                              <div>: {{ placement }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with language=item|val_from_key:"Inscription Language"|val_from_key:"@display_value" %}
+                        {% if language %}
+                           <div class="data-table">
+                              <div>Inscription Language</div>
+                              <div>: {{ language }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with notes=item|val_from_key:"Inscription Notes"|val_from_key:"@display_value" %}
+                        {% if notes %}
+                           <div class="data-table">
+                              <div>Inscription Notes</div>
+                              <div>: {{ notes }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with transcript=item|val_from_key:"Inscription Transcript"|val_from_key:"@display_value" %}
+                        {% if transcript %}
+                           <div class="data-table">
+                              <div>Inscription Transcript</div>
+                              <div>: {{ transcript }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                     
+                  {% endfor %}
+               </section>   
+            {% endif %}
+
+            {# --- Component Section --- #}
+            {% if resource_data|has_key:"Component 3" %}
+               <section class="keeptogether">
+                  <div class="h1-container">
+                     <h1>Components</h1>
+                  </div>
+                  {% for item in resource_data|val_from_key:"Component 3" %}
+                     
+                     {% with technique=item|val_from_key:"Technique"|val_from_key:"@display_value" %}
+                        {% if technique %}
+                           <div class="data-table">
+                              <div>Technique</div>
+                              <div>: {{ technique }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with c_type=item|val_from_key:"Component Type"|val_from_key:"@display_value" %}
+                        {% if c_type %}
+                           <div class="data-table">
+                              <div>Component Type</div>
+                              <div>: {{ c_type }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with c_desc=item|val_from_key:"Component Description"|val_from_key:"@display_value" %}
+                        {% if c_desc %}
+                           <div class="data-table">
+                              <div>Component Description</div>
+                              <div>: {{ c_desc }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with material=item|val_from_key:"Material"|val_from_key:"@display_value" %}
+                        {% if material %}
+                           <div class="data-table">
+                              <div>Material</div>
+                              <div>: {{ material }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                     
+                  {% endfor %}
+               </section>   
+            {% endif %}
+
+            {# --- Provenance Section --- #}
+            {% if resource_data|has_key:"Provenance" %}
+               <section class="keeptogether">
+                  <div class="h1-container">
+                     <h1>Provenance</h1>
+                  </div>
+
+                  {% for item in resource_data|val_from_key:"Provenance" %}
+                     {% with sub_div=item|val_from_key:"Provenance  Administration Subdivision" %}
+                        <div class="data-table">
+                           <div>{{sub_div|val_from_key:"Provenance  Administrative Subdivision Name"|val_from_key:"@display_value"}}</div>
+                           <div>: {{ sub_div|val_from_key:"Provenance  Administrative Subdivision Type"|val_from_key:"@display_value" }}</div>
+                        </div>
+                     {% endwith %}
+                  {% endfor %}
+
+               </section>   
+            {% endif %}
+
             {# --- External Identifiers Section --- #}
             {% if resource_data|has_key:"External Identifier 4" %}
 
@@ -526,134 +652,6 @@
                </section>   
             {% endif %}
 
-            {# --- Inscription Section --- #}
-            {% if resource_data|has_key:"Inscription 3" %}
-               <section class="keeptogether">
-                  <hr>
-                  <h3>Inscription Notes</h3>
-                  {% for item in resource_data|val_from_key:"Inscription 3" %}
-                     
-                     {% with script=item|val_from_key:"Inscription Script"|val_from_key:"@display_value" %}
-                        {% if script %}
-                           <div class="data-table">
-                              <div>Inscription Script</div>
-                              <div>: {{ script }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
-
-                     {% with placement=item|val_from_key:"Placement"|val_from_key:"@display_value" %}
-                        {% if placement %}
-                           <div class="data-table">
-                              <div>Placement</div>
-                              <div>: {{ placement }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
-
-                     {% with language=item|val_from_key:"Inscription Language"|val_from_key:"@display_value" %}
-                        {% if language %}
-                           <div class="data-table">
-                              <div>Inscription Language</div>
-                              <div>: {{ language }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
-
-                     {% with notes=item|val_from_key:"Inscription Notes"|val_from_key:"@display_value" %}
-                        {% if notes %}
-                           <div class="data-table">
-                              <div>Inscription Notes</div>
-                              <div>: {{ notes }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
-
-                     {% with transcript=item|val_from_key:"Inscription Transcript"|val_from_key:"@display_value" %}
-                        {% if transcript %}
-                           <div class="data-table">
-                              <div>Inscription Transcript</div>
-                              <div>: {{ transcript }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
-                     
-                  {% endfor %}
-               </section>   
-            {% endif %}
-
-            {# --- Component Section --- #}
-            {% if resource_data|has_key:"Component 3" %}
-               <section class="keeptogether">
-                  <hr>
-                  <h3>Components</h3>
-                  {% for item in resource_data|val_from_key:"Component 3" %}
-                     
-                     {% with technique=item|val_from_key:"Technique"|val_from_key:"@display_value" %}
-                        {% if technique %}
-                           <div class="data-table">
-                              <div>Technique</div>
-                              <div>: {{ technique }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
-
-                     {% with c_type=item|val_from_key:"Component Type"|val_from_key:"@display_value" %}
-                        {% if c_type %}
-                           <div class="data-table">
-                              <div>Component Type</div>
-                              <div>: {{ c_type }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
-
-                     {% with c_desc=item|val_from_key:"Component Description"|val_from_key:"@display_value" %}
-                        {% if c_desc %}
-                           <div class="data-table">
-                              <div>Component Description</div>
-                              <div>: {{ c_desc }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
-
-                     {% with material=item|val_from_key:"Material"|val_from_key:"@display_value" %}
-                        {% if material %}
-                           <div class="data-table">
-                              <div>Material</div>
-                              <div>: {{ material }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
-                     
-                  {% endfor %}
-               </section>   
-            {% endif %}
-
-            {# --- Provenance Section --- #}
-            {% if resource_data|has_key:"Provenance" %}
-               <section class="keeptogether">
-                  <hr>
-                  <h3>Provenance</h3>
-                  {% for item in resource_data|val_from_key:"Provenance" %}
-
-                     {% with name=item|val_from_key:"Provenance  Administration Subdivision"|val_from_key:"Provenance  Administrative Subdivision Name"|val_from_key:"@display_value" %}
-                        {% if name %}
-                           <h4>Provenance Administration Subdivision Name</h4>
-                           <p class="content">{{ name }}</p>
-                        {% endif %}
-                     {% endwith %}
-
-                     {% with type=item|val_from_key:"Provenance  Administration Subdivision"|val_from_key:"Provenance  Administrative Subdivision Type"|val_from_key:"@display_value" %}
-                        {% if type %}
-                           <h4>Provenance Administration Subdivision Type</h4>
-                           <p class="content">{{ type }}</p>
-                        {% endif %}
-                     {% endwith %}
-                     
-                  {% endfor %}
-               </section>   
-            {% endif %}
-
             {# --- Acknowledgement section --- #}
             {% if resource_data|has_key:"Acknowledgement" %}
                <section class="keeptogether">
@@ -725,17 +723,28 @@
                </section> 
             {% endif %}
 
+            
+            {# --- ResourceID section --- #}
+            <section class="keeptogether">
+               <div class="h1-container">
+                  <h1>Resource ID</h1>
+               </div>
+               <p class="content">{{ resource.resourceinstanceid }}</p>
+            </section> 
+
+            <div class="h1-container">
+               <h1>Related resources</h1>
+            </div>
             {# --- Related Sites section --- #}
+
             {% if resource_data|has_key:"Site" %}
                <section class="keeptogether">
-                  <hr>
-                  <h3>Related Sites</h3>
+                  <h3 style="margin-top:15px;">Related Sites</h3>
                   <ul>
                      {% for linked_resource in resource_data|val_from_key:"Site" %}
                      <li>
-                        <h4>{{ linked_resource|val_from_key:"@display_value" }}</h4>
                         <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                           /resource/{{ linked_resource|val_from_key:'resourceId' }}
+                           {{ linked_resource|val_from_key:'@display_value' }}
                         </a>
                      </li>
                      {% endfor %}
@@ -751,9 +760,8 @@
                   <ul>
                      {% for linked_resource in resource_data|val_from_key:"Related Object"|val_from_key:"instance_details" %}
                      <li>
-                        <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
                         <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                           /resource/{{ linked_resource|val_from_key:'resourceId' }}
+                           {{ linked_resource|val_from_key:'display_value' }}
                         </a>
                      </li>
                      {% endfor %}
@@ -765,14 +773,13 @@
             {% if resource_data|has_key:"Related Feature" %}
             <section class="keeptogether">
                <hr>
-               <h3>Related Feature</h3>
+               <h3>Related Features</h3>
                {% for linked_resource in resource_data|val_from_key:"Related Feature" %}
                   <ul>
                   {% for link in linked_resource|val_from_key:"instance_details" %}
                      <li>
-                        <h4>{{ link|val_from_key:"display_value" }}</h4>
                         <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                           /resource/{{ link|val_from_key:'resourceId' }}
+                           {{ linked_resource|val_from_key:'@display_value' }}
                         </a>
                      </li>
                   {% endfor %}
@@ -785,14 +792,13 @@
             {% if resource_data|has_key:"Related Digital Asset" %}
             <section class="keeptogether">
                <hr>
-               <h3>Related Digital Asset</h3>
+               <h3>Related Digital Assets</h3>
                {% for linked_resource in resource_data|val_from_key:"Related Digital Asset" %}
                   <ul>
                      {% for link in linked_resource|val_from_key:"instance_details" %}
                         <li>
-                           <h4>{{ link|val_from_key:"display_value" }}</h4>
                            <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                              /resource/{{ link|val_from_key:'resourceId' }}
+                              {{ linked_resource|val_from_key:'@display_value' }}
                            </a>
                         </li>
                      {% endfor %}
@@ -801,25 +807,17 @@
                </section> 
             {% endif %}
 
-            {# --- ResourceID section --- #}
-            <section class="keeptogether">
-               <div class="h1-container">
-                  <h1>Resource ID</h1>
-               </div>
-               <p class="content">{{ resource.resourceinstanceid }}</p>
-            </section> 
-
             {# --- Related Collections section --- #}
             {% if resource_data|has_key:"Collection" %}
                <section class="keeptogether">
+
                   <hr>
-                  <h3>Related Collection</h3>
+                  <h3>Related Collections</h3>
                   <ul>
                      {% for linked_resource in resource_data|val_from_key:"Collection" %}
                      <li>
-                        <h4>{{ linked_resource|val_from_key:"@display_value" }}</h4>
                         <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                           /resource/{{ linked_resource|val_from_key:'resourceId' }}
+                           {{ linked_resource|val_from_key:'@display_value' }}
                         </a>
                      </li>
                      {% endfor %}
