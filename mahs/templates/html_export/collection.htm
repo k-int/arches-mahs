@@ -205,6 +205,37 @@
             </section>
             {% endif %}
 
+         {# --- Administrative Division Section --- #}
+         {% if resource_data|has_key:"Administrative Division 2" %}
+            <section class="keeptogether">
+               <hr>
+               <h3>Administrative Division</h3>
+               <ul class="keeptogether">
+                  {% for division in resource_data|val_from_key:"Administrative Division 2" %}
+                     {% with sub_div=division|val_from_key:"Administration Subdivision" %}
+                        <div class="data-table">
+                           <div>{{sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value"}}</div>
+                           <div>: {{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</div>
+                        </div>
+                     {% endwith %}
+                  {% endfor %}
+
+                  {% for item in resource_data|val_from_key:"Place 6" %}
+                     {% for address in item|val_from_key:"Place Address" %}
+                        {% with address_text=address|val_from_key:"@display_value" %}
+                           {% if address_text %}
+                              <div class="data-table">
+                                 <div>Place Address</div>
+                                 <div>: {{address_text}}</div>
+                              </div>
+                           {% endif %}
+                        {% endwith %}
+                     {% endfor %}
+                  {% endfor %}
+               </ul>
+            </section>
+         {% endif %}
+
          {# --- Location Section --- #}
          {% if resource_data|has_key:"Place 6" %}
             <section class="keeptogether">
@@ -219,60 +250,43 @@
                      </div>
                   {% endfor %}
                   
+                  
+                  {% for sub_item in item|val_from_key:"Spatial Coordinates Geometry" %}
+                  
+                  {% if sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value" %}
+                  <div class="data-table">
+                     <div>Geometry Qualifier</div>
+                     <div>: {{sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value"}}</div>
+                  </div>
+                  {% endif %}
+                  
+                  {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value" %}
+                  <div class="data-table">
+                     <div>Latitude</div>
+                     <div>: {{sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value"}}</div>
+                  </div>
+                  {% endif %}
+                  
+                  {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value" %}
+                  <div class="data-table">
+                     <div>Longitude</div>
+                     <div>: {{sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value"}}</div>
+                  </div>
+                  {% endif %}
+                  
                   {% with p_desc=item|val_from_key:"Place Description Assignment"|val_from_key:"Place Description"|val_from_key:"@display_value" %}
                      {% if p_desc %}
+                        <hr>
+                        <h3>Description Location</h3>
                         <div class="data-table">
                            <div>Place Description</div>
                            <div>: {{ p_desc }}</div>
                         </div>
                      {% endif %}
                   {% endwith %}
-                  
-                  {% for sub_item in item|val_from_key:"Spatial Coordinates Geometry" %}
 
-                     {% if sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value" %}
-                        <div class="data-table">
-                           <div>Geometry Qualifier</div>
-                           <div>: {{sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value"}}</div>
-                        </div>
-                     {% endif %}
-
-                     {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value" %}
-                        <div class="data-table">
-                           <div>Latitude</div>
-                           <div>: {{sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value"}}</div>
-                        </div>
-                     {% endif %}
-
-                     {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value" %}
-                        <div class="data-table">
-                           <div>Longitude</div>
-                           <div>: {{sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value"}}</div>
-                        </div>
-                     {% endif %}
-                     
                   {% endfor %}
                {% endfor %}
-            </section>
-         {% endif %}
-
-         {# --- Administrative Division Section --- #}
-         {% if resource_data|has_key:"Administrative Division 2" %}
-            <section class="keeptogether">
-               <hr>
-               <h3>Administrative Division</h3>
-               <ul class="keeptogether">
-                  {% for division in resource_data|val_from_key:"Administrative Division 2" %}
-                     {% with sub_div=division|val_from_key:"Administration Subdivision" %}
-                     <li>
-                        <div class="data-table">
-                           <div>{{sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value"}}</div>
-                           <div>: {{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</div>
-                        </div>
-                     </li>
-                     {% endwith %}
-                  {% endfor %}
-               </ul>
             </section>
          {% endif %}
 
