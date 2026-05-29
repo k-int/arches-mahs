@@ -566,8 +566,8 @@
                   {% for item in resource_data|val_from_key:"Provenance" %}
                      {% with sub_div=item|val_from_key:"Provenance  Administration Subdivision" %}
                         <div class="data-table">
-                           <div>{{sub_div|val_from_key:"Provenance  Administrative Subdivision Name"|val_from_key:"@display_value"}}</div>
-                           <div>: {{ sub_div|val_from_key:"Provenance  Administrative Subdivision Type"|val_from_key:"@display_value" }}</div>
+                           <div>{{ sub_div|val_from_key:"Provenance  Administrative Subdivision Type"|val_from_key:"@display_value" }}</div>
+                           <div>: {{sub_div|val_from_key:"Provenance  Administrative Subdivision Name"|val_from_key:"@display_value"}}</div>
                         </div>
                      {% endwith %}
                   {% endfor %}
