@@ -214,11 +214,6 @@
                
                   {% for address in item|val_from_key:"Place Address" %}
                      <div class="data-table">
-                        <div>Address Type</div>
-                        <div>: {{address|val_from_key:"Address Type"|val_from_key:"@display_value"}}</div>
-                     </div>
-                     
-                     <div class="data-table">
                         <div>Address</div>
                         <div>: {{address|val_from_key:"@display_value"}}</div>
                      </div>
