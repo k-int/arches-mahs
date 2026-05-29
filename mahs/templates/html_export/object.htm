@@ -699,8 +699,10 @@
             {# --- Images --- #}
             {% if resource_data|has_key:"Information Carrier 2" %}
                <section class="keeptogether">
-                  <hr>
-                  <h3>Images</h3>
+                  <div class="h1-container">
+                  <h1>{{ resource.displayname }}</h1>
+                  <h1>Images</h1>
+               </div>
                   {% for item in resource_data|val_from_key:"Information Carrier 2" %}
 
                      {% with caption=item|val_from_key:"Caption"|val_from_key:"@display_value" %}
