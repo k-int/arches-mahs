@@ -54,6 +54,23 @@
         </section>
         {% endif %}
 
+        {# --- Descriptions Section --- #}
+        {% if resource_data|has_key:"Description Assignment"%}
+        <section">
+            {% with desc=resource_data|val_from_key:"Description Assignment" %}
+                {% if desc|val_from_key:"Description Type"|val_from_key:"value" != "Acknowledgement" %}   
+                <hr>
+                <div class="keeptogether">
+                    <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
+                    <div class="content-container">
+                        <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
+                    </div>
+                </div>
+                {% endif %}
+            {% endwith %}
+        </section>
+        {% endif %}
+
         {# --- Digital Asset Type --- #}
         {% if resource_data|has_key:"Digital Asset Type" or resource_data|has_key:"Keyword" %}
         <section class="keeptogether">
@@ -85,44 +102,28 @@
         </section>
         {% endif %}
 
-        {# --- Descriptions Section --- #}
-        {% if resource_data|has_key:"Description Assignment"%}
-        <section">
-            {% with desc=resource_data|val_from_key:"Description Assignment" %}
-                {% if desc|val_from_key:"Description Type"|val_from_key:"value" != "Acknowledgement" %}   
-                <hr>
-                <div class="keeptogether">
-                    <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
-                    <div class="content-container">
-                        <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
-                    </div>
-                </div>
-                {% endif %}
-            {% endwith %}
-        </section>
-        {% endif %}
-
         {# --- Creation Section --- #}
         {% if resource_data|has_key:"Place of Data Collection" %}
         
         <section class="keeptogether">
-            <hr>
-            <h3>Data Collection</h3>
+            <div class="h1-container">
+                <h1>Data Collection</h1>
+            </div>
             {% with place=resource_data|val_from_key:"Place of Data Collection" %}
                 {% if place %}
 
-                    {% with place_site=place|val_from_key:"Site of Data Collection"|val_from_key:"@display_value" %}
+                    {% with place_site=place|val_from_key:"Site of Data Collection" %}
                         {% if place_site %}
+
                             <div class="data-table">
-                                <div>Place Site</div>
-                                <div>: {{ place_site }}</div>
+                                <div>Interview Site</div>
+                                <div>
+                                    <a href="/resource/{{ place_site|val_from_key:'resourceId' }}">
+                                                : {{ place_site|val_from_key:'@display_value' }}
+                                    </a>
+                                </div>
                             </div>
 
-                            {% with resourceId=place|val_from_key:"Site of Data Collection"|val_from_key:"resourceId" %}
-                                <a class="content" href="/resource/{{ resourceId }}">
-                                    /resource/{{ resourceId }}
-                                </a>
-                            {% endwith %}
                         {% endif %}
                     {% endwith %}
 
@@ -186,8 +187,9 @@
         {# --- Publication Section --- #}
         {% if resource_data|has_key:"Digital Asset Publication Event" %}
         <section class="keeptogether">
-            <hr>
-            <h3>Publication</h3>
+            <div class="h1-container">
+                <h1>Publication</h1>
+            </div>
             
             {% with event=resource_data|val_from_key:"Digital Asset Publication Event" %}
 
@@ -243,8 +245,10 @@
         {# --- Information Carrier --- #}
         {% if resource_data|has_key:"Information Carrier 2" %}
             <section class="keeptogether">
-                <hr>
-                <h3>Images and files</h3>
+                <div class="h1-container">
+                    <h1>{{ resource.displayname }}</h1>
+                    <h1>Images and files</h1>
+                </div>
                 {% for item in resource_data|val_from_key:"Information Carrier 2" %}
 
                     {% with caption=item|val_from_key:"Caption"|val_from_key:"@display_value" %}
@@ -277,8 +281,10 @@
         {% if resource_data|has_key:"External Identifier 4" %}
             <section class="keeptogether">
                 <div class="h1-container">
-                    <h1>External Identifiers</h1>
+                    <h1>References</h1>
                 </div>
+                
+                <h3>External Identifiers</h3>
                     {% with xref=resource_data|val_from_key:"External Identifier 4" %}
                         <div class="data-table">
                             <div>External Xref</div>
@@ -297,15 +303,19 @@
                         
                         {% with url=xref|val_from_key:"External Identifier URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
                             {% if url %}
-                                <h4>URL</h4>
-                                <p class="content">{{ url }}</p>
+                            <div class="data-table">
+                                <div>URL</div>
+                                <div>: {{ url }}</div>
+                            </div>
                             {% endif %}
                         {% endwith %}
                         
-                        {% with x_desc=item|val_from_key:"External Reference Description Assignment"|val_from_key:"Note on External Reference or Source"|val_from_key:"@display_value" %}
+                        {% with x_desc=xref|val_from_key:"External Reference Description Assignment"|val_from_key:"Note on External Reference or Source"|val_from_key:"@display_value" %}
                             {% if x_desc %}
-                                <h4>Description</h4>
-                                <p class="content">{{ x_desc }}</p>
+                                <div class="data-table">
+                                    <div>Description</div>
+                                    <div>: {{ x_desc }}</div>
+                                </div>
                             {% endif %}
                         {% endwith %}
                     {% endwith %}
@@ -316,12 +326,11 @@
         {% if resource_data|has_key:"Copyright Assignment" %}
         <section class="keeptogether">
             <hr>
-            <h3>Copyright Assignment</h3>
 
             {% with copyright=resource_data|val_from_key:"Copyright Assignment"|val_from_key:"Copyright"|val_from_key:"@display_value" %}
                 {% if copyright %}
                     <div class="keeptogether">
-                        <h4>Copyright</h3>
+                        <h4>Copyright Assignment</h3>
                         <p class="content">{{ copyright }}</p>
                     </div>
                 {% endif %}
