@@ -209,7 +209,7 @@
          {% if resource_data|has_key:"Place 6" %}
             <section class="keeptogether">
                <hr>
-               <h3>Location</h3>
+               <h3>Spatial Location</h3>
                {% for item in resource_data|val_from_key:"Place 6" %}
                
                   {% for address in item|val_from_key:"Place Address" %}
