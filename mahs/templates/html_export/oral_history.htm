@@ -47,14 +47,12 @@
         {# --- Title Section --- #}
         {% if resource_data|has_key:"Title" %}
         <section class="keeptogether">
-            <hr>
-            <h3>Title</h3>
 
             {% with title=resource_data|val_from_key:"Title" %}
                 {% if title %}
                     <div class="data-table">
-                        <div>{{title|val_from_key:"Title Type"|val_from_key:"value"}}</div>
-                        <div>{{ title|val_from_key:"@display_value" }}</div>
+                        <div>{{ title|val_from_key:"Title Type"|val_from_key:"value" }}</div>
+                        <div>: {{ title|val_from_key:"@display_value" }}</div>
                     </div>
                 {% endif %}
             {% endwith %}
@@ -119,6 +117,24 @@
         </section>
         {% endif %}
 
+        {# --- Administrative Division Section --- #}
+        {% if resource_data|has_key:"Administrative Division" %}
+        <section class="keeptogether">
+            <hr>
+            <h3>Administrative Division</h3>
+            <ul class="keeptogether">
+                {% for division in resource_data|val_from_key:"Administrative Division" %}
+                {% with sub_div=division|val_from_key:"Administration Subdivision" %}
+                    <div class="data-table">
+                        <div>{{sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value"}}</div>
+                        <div>: {{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</div>
+                    </div>
+                {% endwith %}
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
         {# --- Interview Creation Section --- #}
         {% if resource_data|has_key:"Interview Creation Event" %}
         <section class="keeptogether">
@@ -131,17 +147,18 @@
 
                     {% with i_site=i_event|val_from_key:"Interview Site"|val_from_key:"@display_value" %}
                         {% if i_site %}
+                        
+                            {% for link in i_event|val_from_key:"Interview Site"|val_from_key:"instance_details" %}
                                 <div class="data-table">
                                     <div>Interview Site</div>
-                                    <div>: {{ i_site }}</div>
+                                    <div>
+                                        <a href="/resource/{{ link|val_from_key:'resourceId' }}">
+                                                    : {{ link|val_from_key:'display_value' }}
+                                        </a>
+                                    </div>
                                 </div>
+                            {% endfor %}
 
-                                {% for link in i_event|val_from_key:"Interview Site"|val_from_key:"instance_details" %}
-                                    <a class="content" href="/resource/{{ link|val_from_key:'resourceId' }}">
-                                        /resource/{{ link|val_from_key:'resourceId' }}
-                                    </a>
-                                {% endfor %}
-                            </div>
                         {% endif %}
                     {% endwith %}
 
@@ -172,11 +189,12 @@
         {# --- Interviewer Section --- #}
         {% if resource_data|has_key:"Interviewer" %}
         <section class="keeptogether">
-            <hr>
-            <h3>Interviewer(s)</h3>
 
             {% for interviewer in resource_data|val_from_key:"Interviewer" %}
-                <p class="content">{{interviewer|val_from_key:"Name of Interviewer"|val_from_key:"@display_value"}}</p>
+                <div class="data-table">
+                    <div>Interviewers</div>
+                    <div>: {{interviewer|val_from_key:"Name of Interviewer"|val_from_key:"@display_value"}}</div>
+                </div>
             {% endfor %}
 
         </section>
@@ -189,33 +207,35 @@
             <h3>Interviewee(s)</h3>
 
             {% for interviewee in resource_data|val_from_key:"Interviewee" %}
-                {% with name=interviewee|val_from_key:"Name of Inerviewee"|val_from_key:"@display_value" %}
-                    {% if name %}
-                        <div class="data-table">
-                            <div>Name</div>
-                            <div>: {{name}}</div>
-                        </div>
-                    {% endif %}
-                {% endwith %}
+            {% with name=interviewee|val_from_key:"Name of Inerviewee"|val_from_key:"@display_value" %}
+            {% if name %}
+            <div class="data-table">
+                <div>Name</div>
+                <div>: {{name}}</div>
+            </div>
+            {% endif %}
+            {% endwith %}
+            
+            {% with gender=interviewee|val_from_key:"Gender of Interviewee"|val_from_key:"@display_value" %}
+            {% if gender %}
+            <div class="data-table">
+                <div>Gender</div>
+                <div>: {{gender}}</div>
+            </div>
+            {% endif %}
+            {% endwith %}
+            
+            {% with age=interviewee|val_from_key:"Age of Interviewee"|val_from_key:"@display_value" %}
+            {% if age %}
+            <div class="data-table">
+                <div>Age</div>
+                <div>: {{age}}</div>
+            </div>
+            {% endif %}
+            {% endwith %}
 
-                {% with gender=interviewee|val_from_key:"Gender of Interviewee"|val_from_key:"@display_value" %}
-                    {% if gender %}
-                        <div class="data-table">
-                            <div>Gender</div>
-                            <div>: {{gender}}</div>
-                        </div>
-                    {% endif %}
-                {% endwith %}
-
-                {% with age=interviewee|val_from_key:"Age of Interviewee"|val_from_key:"@display_value" %}
-                    {% if age %}
-                        <div class="data-table">
-                            <div>Age</div>
-                            <div>: {{age}}</div>
-                        </div>
-                    {% endif %}
-                {% endwith %}
-
+            <br>
+            
             {% endfor %}
 
         </section>
@@ -229,31 +249,9 @@
             </div>
             
             {% if resource_data|has_key:"Keyword" %}
-            <div class="data-table">
-                <div>Keywords</div>
-                <div>: {{resource_data|val_from_key:"Keyword"|val_from_key:"@display_value"}}</div>
-            </div>
+                <h4>Keywords</h4>
+                    <p class="content">{{resource_data|val_from_key:"Keyword"|val_from_key:"@display_value"}}</p>                        
             {% endif %}
-        </section>
-        {% endif %}
-
-        {# --- Administrative Division Section --- #}
-        {% if resource_data|has_key:"Administrative Division" %}
-        <section class="keeptogether">
-            <hr>
-            <h3>Administrative Division</h3>
-            <ul class="keeptogether">
-                {% for division in resource_data|val_from_key:"Administrative Division" %}
-                {% with sub_div=division|val_from_key:"Administration Subdivision" %}
-                <li>
-                    <div class="data-table">
-                        <div>{{sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value"}}</div>
-                        <div>: {{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</div>
-                    </div>
-                </li>
-                {% endwith %}
-                {% endfor %}
-            </ul>
         </section>
         {% endif %}
 
