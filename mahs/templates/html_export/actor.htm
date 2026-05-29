@@ -125,8 +125,9 @@
          {# --- Reference Section --- #}
          {% if resource_data|has_key:"Reference" %}
             <section class="keeptogether">
-               <hr>
-               <h3>References</h3>
+               <div class="title-container">
+                  <h1>References</h1>
+               </div>
                {% with name=resource_data|val_from_key:"Reference"|val_from_key:"URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
                   {% if name %}
                      <div class="data-table">
