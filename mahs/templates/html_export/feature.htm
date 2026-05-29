@@ -89,14 +89,6 @@
                {% endwith %}
                
                {% with beginning=item|val_from_key:"Time Period"|val_from_key:"Beginning of Existence" %}
-                  {% with b_type=beginning|val_from_key:"Start Date Type"|val_from_key:"@display_value" %}
-                     {% if b_type %}
-                        <div class="data-table">
-                           <div>Start Date Type</div>
-                           <div>: {{ b_type }}</div>
-                        </div>
-                     {% endif %}
-                  {% endwith %}
                   
                   {% with b_text=beginning|val_from_key:"Beginning of Existence Time Span"|val_from_key:"Start Date of Existence text"|val_from_key:"@display_value" %}
                      {% if b_text %}
@@ -107,25 +99,9 @@
                      {% endif %}
                   {% endwith %}
                   
-                  {% with b_edtf=beginning|val_from_key:"Beginning of Existence Time Span"|val_from_key:"Start Date of Existence edtf"|val_from_key:"@display_value" %}
-                     {% if b_edtf %}
-                        <div class="data-table">
-                           <div>Start Date of Existence (edtf)</div>
-                           <div>: {{ b_edtf }}</div>
-                        </div>
-                     {% endif %}
-                  {% endwith %}
                {% endwith %}
                
                {% with end=item|val_from_key:"Time Period"|val_from_key:"End of Existence" %}
-                  {% with e_type=end|val_from_key:"End Date Type"|val_from_key:"@display_value" %}
-                        {% if e_type %}
-                           <div class="data-table">
-                              <div>End Date Type</div>
-                              <div>: {{ e_type }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
                   
                      {% with e_text=end|val_from_key:"End of Existence Time Span"|val_from_key:"End Date of Existence text"|val_from_key:"@display_value" %}
                         {% if e_text %}
@@ -136,35 +112,10 @@
                         {% endif %}
                      {% endwith %}
                      
-                     {% with e_edtf=end|val_from_key:"End of Existence Time Span"|val_from_key:"End Date of Existence edtf"|val_from_key:"@display_value" %}
-                        {% if e_edtf %}
-                           <div class="data-table">
-                              <div>End Date of Existence (edtf)</div>
-                              <div>: {{ e_edtf }}</div>
-                           </div>
-                        {% endif %}
-                  {% endwith %}
-               {% endwith %}
-               
-               {% with notes=item|val_from_key:"Periodization Description Assignment"|val_from_key:"Periodization Notes"|val_from_key:"@display_value" %}
-                  {% if notes %}
-                     <div class="data-table">
-                        <div>Periodization Notes</div>
-                        <div>: {{ notes }}</div>
-                     </div>
-                  {% endif %}
                {% endwith %}
                
                {% with date=item|val_from_key:"Date" %}
-                  {% with s_type=date|val_from_key:"Spot Date Type"|val_from_key:"@display_value" %}
-                     {% if s_type %}
-                        <div class="data-table">
-                           <div>Spot Date Type</div>
-                           <div>: {{ s_type }}</div>
-                        </div>
-                     {% endif %}
-                  {% endwith %}
-                  
+               
                   {% with s_text=date|val_from_key:"Spot Date text"|val_from_key:"@display_value" %}
                      {% if s_text %}
                         <div class="data-table">
@@ -174,14 +125,15 @@
                      {% endif %}
                   {% endwith %}
                   
-                  {% with s_edtf=date|val_from_key:"Spot Date edtf"|val_from_key:"@display_value" %}
-                     {% if s_edtf %}
+                  {% with notes=item|val_from_key:"Periodization Description Assignment"|val_from_key:"Periodization Notes"|val_from_key:"@display_value" %}
+                     {% if notes %}
                         <div class="data-table">
-                           <div>Spot Date (edtf)</div>
-                           <div>: {{ s_edtf }}</div>
+                           <div>Periodization Notes</div>
+                           <div>: {{ notes }}</div>
                         </div>
                      {% endif %}
                   {% endwith %}
+
                {% endwith %}
             {% endfor %}
          </section>
