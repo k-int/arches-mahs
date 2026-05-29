@@ -45,8 +45,6 @@
          {# --- Names Section --- #}
          {% if resource_data|has_key:"Collection Apellation" %}
             <section class="keeptogether">
-               <hr>
-               <h3>Collection Apellation</h3>
                <ul>
                   {% for name in resource_data|val_from_key:"Collection Apellation" %}
                      <div class="data-table">
@@ -77,7 +75,7 @@
                   
                   <div class="data-table">
                      <div>MAHS Partnership Description</div>
-                     <div>{{resource_data|val_from_key:"Legal Entity"|val_from_key:"MAHS Partnership Description Assigment"|val_from_key:"MAHS Partnership Description"|val_from_key:"@display_value"}}</div>
+                     <div>: {{resource_data|val_from_key:"Legal Entity"|val_from_key:"MAHS Partnership Description Assigment"|val_from_key:"MAHS Partnership Description"|val_from_key:"@display_value"}}</div>
                   </div>
 
             </section>
@@ -113,97 +111,6 @@
                   </p>
                {% endfor %}
          {% endif %}
-
-         {# --- Classification Section --- #}
-         {% if resource_data|has_key:"Keyword" %}
-            <section class="keeptogether">
-               <div class="h1-container">
-                  <h1>Classification</h1>
-               </div>
-
-               {% if resource_data|has_key:"Keyword" %}
-               <h4>Keywords</h4>
-                  {% for item in resource_data|val_from_key:"Keyword" %}
-                     <p class="content">{{item|val_from_key:"@display_value"}}</p>
-                  {% endfor %}
-               {% endif %}
-            </section>
-         {% endif %}
-
-         {# --- Current Status Section --- #}
-         {% if resource_data|has_key:"Current Status 2" %}
-            <section class="keeptogether">
-               <hr>   
-               <h3>Current Status</h3>
-               {% for item in resource_data|val_from_key:"Current Status 2" %}
-                  {% with authority=item|val_from_key:"Custodial Authority"%}
-                     {% with a_name=authority|val_from_key:"Custodial Authority Name"|val_from_key:"@display_value" %}
-                        {% if a_name %}
-                           <h4>Custodial Authority Name</h4>
-                           <p class="content">{{ a_name }}</p>
-                        {% endif %}
-                     {% endwith %}
-                     
-                     {% with a_status=authority|val_from_key:"Custodial Authority Status 2"|val_from_key:"@display_value" %}
-                        {% if a_status %}
-                           <div class="data-table">
-                              <div>Custodial Authority Status</div>
-                              <div>: {{ a_status }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
-                     
-                     {% with a_desc=authority|val_from_key:"Custodial Authority Description Assignment"|val_from_key:"Custodial Authority Description"|val_from_key:"@display_value" %}
-                        {% if a_desc %}
-                           <div class="data-table">
-                              <div>Custodial Authority Description</div>
-                              <div>: {{ a_desc }}</div>
-                           </div>
-                        {% endif %}
-                     {% endwith %}
-                  {% endwith %}
-                  
-                  {% with prot=item|val_from_key:"Protection"|val_from_key:"Protection Status"|val_from_key:"@display_value" %}
-                     {% if prot %}
-                        <div class="data-table">
-                           <div>Protection Status</div>
-                           <div>: {{ prot }}</div>
-                        </div>
-                     {% endif %}
-                  {% endwith %}
-                  
-                  {% with p_desc=item|val_from_key:"Protection"|val_from_key:"Protection Status Description Assignment"|val_from_key:"Protection Status Description"|val_from_key:"@display_value" %}
-                     {% if p_desc %}
-                        <div class="data-table">
-                           <div>Protection Status Description</div>
-                           <div>: {{ p_desc }}</div>
-                        </div>
-                     {% endif %}
-                  {% endwith %}
-                  
-                  {% with usage=item|val_from_key:"Current Usage" %}
-                  {% with u_type=usage|val_from_key:"Current Usage Type"|val_from_key:"@display_value" %}
-                     {% if u_type %}
-                        <div class="data-table">
-                           <div>Current Usage Type</div>
-                           <div>: {{ u_type }}</div>
-                        </div>
-                     {% endif %}
-                  {% endwith %}
-                  
-                  {% with u_desc=usage|val_from_key:"Current Usage Description Assignment"|val_from_key:"Current Usage Description"|val_from_key:"@display_value" %}
-                     {% if u_desc %}
-                        <div class="data-table">
-                           <div>Current Usage Description</div>
-                           <div>: {{ u_desc }}</div>
-                        </div>
-                     {% endif %}
-                  {% endwith %}
-
-               {% endwith %}
-               {% endfor %}
-            </section>
-            {% endif %}
 
          {# --- Administrative Division Section --- #}
          {% if resource_data|has_key:"Administrative Division 2" %}
@@ -290,50 +197,153 @@
             </section>
          {% endif %}
 
-         {# --- External Identifiers Section --- #}
-         {% if resource_data|has_key:"External Identifier 4" %}
+         {# --- Classification Section --- #}
+         {% if resource_data|has_key:"Keyword" %}
             <section class="keeptogether">
                <div class="h1-container">
-                  <h1>External Identifiers</h1>
+                  <h1>Classification</h1>
                </div>
-                  {% for item in resource_data|val_from_key:"External Identifier 4" %}
-                     <div class="data-table">
-                        <div>External Xref</div>
-                        <div>: {{item|val_from_key:"@display_value"}}</div>
-                     </div>
-                     
-                     <div class="data-table">
-                        <div>External Source</div>
-                        <div>: {{item|val_from_key:"External Source"|val_from_key:"@display_value"}}</div>
-                     </div>
-                     
-                     <div class="data-table">
-                        <div>External Identifier Type</div>
-                        <div>: {{item|val_from_key:"External Identifier Type"|val_from_key:"@display_value"}}</div>
-                     </div>
-                     
-                     {% with url=item|val_from_key:"External Identifier URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
-                        {% if url %}
-                           <h4>URL</h4>
-                           <p class="content">{{ url }}</p>
-                        {% endif %}
-                     {% endwith %}
-                     
-                     {% with x_desc=item|val_from_key:"External Reference Description Assignment"|val_from_key:"Note on External Reference or Source"|val_from_key:"@display_value" %}
-                        {% if x_desc %}
-                           <h4>Description</h4>
-                           <p class="content">{{ x_desc }}</p>
-                        {% endif %}
-                     {% endwith %}
+
+               {% if resource_data|has_key:"Keyword" %}
+               <h4>Keywords</h4>
+                  {% for item in resource_data|val_from_key:"Keyword" %}
+                     <p class="content">{{item|val_from_key:"@display_value"}}</p>
                   {% endfor %}
+               {% endif %}
+            </section>
+         {% endif %}
+
+         {# --- Current Status Section --- #}
+         {% if resource_data|has_key:"Current Status 2" %}
+            <section class="keeptogether">
+               <div class="h1-container">
+                  <h1>Current Status</h1>
+               </div>
+               {% for item in resource_data|val_from_key:"Current Status 2" %}
+                  {% with authority=item|val_from_key:"Custodial Authority"%}
+                     {% with a_name=authority|val_from_key:"Custodial Authority Name"|val_from_key:"@display_value" %}
+                        {% if a_name %}
+                           <div class="data-table">
+                              <div>Custodial Authority Name</div>
+                              <div>: {{ a_name }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with a_status=authority|val_from_key:"Custodial Authority Status 2"|val_from_key:"@display_value" %}
+                        {% if a_status %}
+                           <div class="data-table">
+                              <div>Custodial Authority Status</div>
+                              <div>: {{ a_status }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with a_desc=authority|val_from_key:"Custodial Authority Description Assignment"|val_from_key:"Custodial Authority Description"|val_from_key:"@display_value" %}
+                        {% if a_desc %}
+                           <div class="data-table">
+                              <div>Custodial Authority Description</div>
+                              <div>: {{ a_desc }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                  {% endwith %}
+                  
+                  {% with prot=item|val_from_key:"Protection"|val_from_key:"Protection Status"|val_from_key:"@display_value" %}
+                     {% if prot %}
+                        <div class="data-table">
+                           <div>Protection Status</div>
+                           <div>: {{ prot }}</div>
+                        </div>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% with p_desc=item|val_from_key:"Protection"|val_from_key:"Protection Status Description Assignment"|val_from_key:"Protection Status Description"|val_from_key:"@display_value" %}
+                     {% if p_desc %}
+                        <div class="data-table">
+                           <div>Protection Status Description</div>
+                           <div>: {{ p_desc }}</div>
+                        </div>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% with usage=item|val_from_key:"Current Usage" %}
+                  {% with u_type=usage|val_from_key:"Current Usage Type"|val_from_key:"@display_value" %}
+                     {% if u_type %}
+                        <div class="data-table">
+                           <div>Current Usage Type</div>
+                           <div>: {{ u_type }}</div>
+                        </div>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% with u_desc=usage|val_from_key:"Current Usage Description Assignment"|val_from_key:"Current Usage Description"|val_from_key:"@display_value" %}
+                     {% if u_desc %}
+                        <div class="data-table">
+                           <div>Current Usage Description</div>
+                           <div>: {{ u_desc }}</div>
+                        </div>
+                     {% endif %}
+                  {% endwith %}
+
+               {% endwith %}
+               {% endfor %}
+            </section>
+            {% endif %}
+
+         {# --- External Identifiers Section --- #}
+         {% if resource_data|has_key:"External Identifier 4" %}
+
+            <div class="h1-container">
+               <h1>References</h1>
+            </div>
+
+            <section class="keeptogether">
+               <h3>External Identifiers</h3>
+               {% for item in resource_data|val_from_key:"External Identifier 4" %}
+               <div class="data-table">
+                  <div>External Xref</div>
+                  <div>: {{item|val_from_key:"@display_value"}}</div>
+               </div>
+               
+               <div class="data-table">
+                  <div>External Source</div>
+                  <div>: {{item|val_from_key:"External Source"|val_from_key:"@display_value"}}</div>
+               </div>
+               
+               <div class="data-table">
+                  <div>External Identifier Type</div>
+                  <div>: {{item|val_from_key:"External Identifier Type"|val_from_key:"@display_value"}}</div>
+               </div>
+               
+               {% with url=item|val_from_key:"External Identifier URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
+               {% if url %}
+               <div class="data-table">
+                  <div>URL</div>
+                  <div>: {{ url }}</div>
+               </div>
+               {% endif %}
+               {% endwith %}
+               
+               {% with x_desc=item|val_from_key:"External Reference Description Assignment"|val_from_key:"Note on External Reference or Source"|val_from_key:"@display_value" %}
+               {% if x_desc %}
+               <div class="data-table">
+                  <div>Description</div>
+                  <div>: {{ x_desc }}</div>
+               </div>
+               {% endif %}
+               {% endwith %}
+               {% endfor %}
             </section>   
          {% endif %}
 
          {# --- Images --- #}
          {% if resource_data|has_key:"Information Carrier 2" %}
             <section class="keeptogether">
-               <hr>
-               <h3>Images</h3>
+               <div class="h1-container">
+                  <h1>{{resource.displayname}}</h1>
+                  <h1>Images</h1>
+               </div>
                {% for item in resource_data|val_from_key:"Information Carrier 2" %}
 
                   {% with caption=item|val_from_key:"Caption"|val_from_key:"@display_value" %}
