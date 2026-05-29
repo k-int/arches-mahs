@@ -251,12 +251,6 @@
                         </div>
                      {% endif %}
                      
-                     {% for feature in sub_item|val_from_key:"geojson"|val_from_key:"features" %}
-                        <div class="data-table">
-                           <div>Spatial Coordinates Geometry</div>
-                           <div>: {{ feature|val_from_key:"geometry" }}</div>
-                        </div>
-                     {% endfor %}
                   {% endfor %}
                {% endfor %}
             </section>
