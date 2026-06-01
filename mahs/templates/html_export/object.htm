@@ -430,7 +430,8 @@
                      {% endwith %}
                      
                   {% endwith %}
-
+            </section>
+            <section class="keeptogether">
                   {% with state=item|val_from_key:"Condition Assessment"|val_from_key:"Condition State" %}
                      {% with c_image=state|val_from_key:"Condition Image"|val_from_key:"file_details" %}
                            {% if c_image %}
@@ -444,9 +445,9 @@
                            {% endif %}
                      {% endwith %}
                   {% endwith %}
+            </section>
 
                {% endfor %}
-               </section>
             {% endif %}
 
             {# --- Inscription Section --- #}
