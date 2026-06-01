@@ -354,8 +354,7 @@
         {# --- Related Sites section --- #}
         {% if resource_data|has_key:"Related Site" %}
             <section class="keeptogether">
-                <hr>
-                <h3>Related Sites</h3>
+                <h3 style="margin-top:15px;">Related Sites</h3>
                 <ul>
                     {% for linked_resource in resource_data|val_from_key:"Related Site"|val_from_key:"instance_details" %}
                     <li>
@@ -391,7 +390,7 @@
         {% if resource_data|has_key:"Related Feature" %}
         <section class="keeptogether">
             <hr>
-            <h3>Related Feature</h3>
+            <h3>Related Features</h3>
             {% for linked_resource in resource_data|val_from_key:"Related Feature"|val_from_key:"instance_details" %}
                 <ul>
                     <li>
@@ -408,7 +407,7 @@
         {% if resource_data|has_key:"Related Digital Asset" %}
         <section class="keeptogether">
             <hr>
-            <h3>Related Digital Asset</h3>
+            <h3>Related Digital Assets</h3>
             {% for linked_resource in resource_data|val_from_key:"Related Digital Asset"|val_from_key:"instance_details" %}
                 <ul>
                     <li>
@@ -442,7 +441,7 @@
         {% if resource_data|has_key:"Related Oral History" %}
             <section class="keeptogether">
                 <hr>
-                <h3>Related Oral History</h3>
+                <h3>Related Oral Histories</h3>
                 <ul>
                     {% for linked_resource in resource_data|val_from_key:"Related Oral History" %}
                         {% for link in linked_resource|val_from_key:"instance_details" %}

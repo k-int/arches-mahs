@@ -283,7 +283,7 @@
          {# --- Keyword Section --- #}
          {% if resource_data|has_key:"Keyword" %}
          <hr>   
-         <h3>Keyword</h3>
+         <h3>Keywords</h3>
 
             {% for item in resource_data|val_from_key:"Keyword" %}
                <p>{{item|val_from_key:"@display_value"}}</p>
