@@ -422,6 +422,8 @@ SHOW_LANGUAGE_SWITCH = len(LANGUAGES) > 1
 # See tests.views.search_tests.TestEsMappingModifier class for example
 # ES_MAPPING_MODIFIER_CLASSES = ["mahs.search.es_mapping_modifier.EsMappingModifier"]
 
+USE_TZ = True
+
 try:
     from .package_settings import *
 except ImportError:
