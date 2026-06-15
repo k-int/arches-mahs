@@ -9,6 +9,8 @@ from uuid import UUID
 
 def html_export_collection(request):
 
+    # 1aa4ecc5-de4d-4380-9bdc-810d347fb4d0
+
     html_writer = HtmlWriter()
     resource_list = html_writer.fetch_resource_objects_list(resourceinstanceids=['88c20e07-d4e0-4c86-b1ce-f9309e3fa6cd'],
                                                             allowed_graph_ids=['53f5cd56-0bd4-11ed-9eef-0050568e7db6'])
