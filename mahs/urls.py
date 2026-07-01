@@ -4,7 +4,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.urls import include, path
 
 urlpatterns = [
-    # project-level urls
+    path("", include("arches_pdf_exporting.urls")),
 ]
 
 # Ensure Arches core urls are superseded by project-level urls
