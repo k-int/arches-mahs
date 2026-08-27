@@ -424,7 +424,9 @@ SHOW_LANGUAGE_SWITCH = len(LANGUAGES) > 1
 # ES_MAPPING_MODIFIER_CLASSES = ["mahs.search.es_mapping_modifier.EsMappingModifier"]
 
 # Add PDF writer to FORMATTERS
-RESOURCE_FORMATTERS["pdf"] = "arches_pdf_exporting.utils.data_management.resources.formats.pdf.PdfWriter"
+RESOURCE_FORMATTERS["pdf"] = (
+    "arches_pdf_exporting.utils.data_management.resources.formats.pdf.PdfWriter"
+)
 
 try:
     from .package_settings import *
