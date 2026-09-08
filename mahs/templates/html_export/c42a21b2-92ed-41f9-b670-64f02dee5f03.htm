@@ -91,7 +91,7 @@
                   {% for file in carrier|val_from_key:"Information Carrier"|val_from_key:"file_details" %}
                      {% with url=file|val_from_key:"url" %}
                         <h4>{{file|val_from_key:"name"}}</h4>
-                        <img src="{{url}}">
+                        <img src="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp{{ url }}">
                      {% endwith %}
                   {% endfor %}
 
