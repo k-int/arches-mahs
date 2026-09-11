@@ -1,0 +1,398 @@
+{% load template_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Report</title>
+        {% include 'html_export/milligram.htm' %}
+        {% include 'html_export/custom_style.htm' %}
+    </head>
+
+    <body>
+        {% for resource in resources %}
+        {% with resource_data=resource.resource %}
+
+        <header>
+            {% include 'html_export/custom_header.htm' %}
+        </header>
+
+    <main>
+        <h1>{{ resource.displayname }}</h1>
+        
+        {% with mahs_id=resource_data|val_from_key:"MAHS ID"|val_from_key:"@display_value" %}
+        <h4>MAHS ID</h4>
+        <p class="content">{{ mahs_id }}</p>
+        {% endwith %}
+
+        <h4>Arches ID</h4>
+        <p class="content">{{ resource.resourceinstanceid }}</p>
+        <hr>
+
+        {# --- Title Section --- #}
+        {% if resource_data|has_key:"Title" %}
+        <section class="keeptogether">
+            <h3>Title</h3>
+
+            {% for title  in resource_data|val_from_key:"Title" %}
+                    <div class="keeptogether">
+                        <h4>{{title|val_from_key:"Title Type"|val_from_key:"@display_value"}}</h3>
+                        <p class="content">{{ title|val_from_key:"@display_value" }}</p>
+                    </div>
+            {% endfor %}
+
+            <hr>
+        </section>
+        {% endif %}
+
+        {# --- Digital Asset Type --- #}
+        {% if resource_data|has_key:"Digital Asset Type" or resource_data|has_key:"Keyword" %}
+        <section class="keeptogether">
+            <h3>Classification</h3>
+            {% for item in resource_data|val_from_key:"Digital Asset Type" %}
+            
+                {% with type=item|val_from_key:"@display_value" %}
+                    {% if type %}
+                        <h4>Digital Asset Type</h4>
+                        <p class="content">{{ type }}</p>
+                    {% endif %}
+                {% endwith %}
+
+            {% endfor %}
+
+            {% with keyword=resource_data|val_from_key:"Keyword"|val_from_key:"@display_value" %}
+                {% if keyword %}
+                    <h4>Keywords</h4>    
+                    <p class="content">{{ keyword }}</p>
+                {% endif %}
+            {% endwith %}
+
+            <hr>
+        </section>
+        {% endif %}
+
+        {# --- Description Section --- #}
+        {% if resource_data|has_key:"Description Assignment" %}
+        <section class="keeptogether">
+            <h3>Description Assignment</h3>
+
+            {% with desc=resource_data|val_from_key:"Description Assignment" %}
+                {% if desc %}
+                    <div class="keeptogether">
+                        <h4>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
+                        <p class="content">{{ desc|val_from_key:"Description"|val_from_key:"@display_value" }}</p>
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            {% with update=resource_data|val_from_key:"Updated 4" %}
+                {% if update %}
+                <div class="keeptogether">
+                    <h4>Update: {{update|val_from_key:"Date of Update"|val_from_key:"@display_value"}}</h3>
+                    <p class="content">{{ update|val_from_key:"Update Description"|val_from_key:"@display_value" }}</p>
+                </div>
+                {% endif %}
+            {% endwith %}
+
+            <hr>
+        </section>
+        {% endif %}
+
+        {# --- Creation Section --- #}
+        {% if resource_data|has_key:"Place of Data Collection" %}
+        
+        <section class="keeptogether">
+            <h3>Data Collection</h3>
+            {% with place=resource_data|val_from_key:"Place of Data Collection" %}
+                {% if place %}
+
+                    {% with place_site=place|val_from_key:"Site of Data Collection"|val_from_key:"@display_value" %}
+                        {% if place_site %}
+                            <h4>Place Site</h3>
+                            <p class="content">{{ place_site }}</p>
+
+                            {% with resourceId=place|val_from_key:"Site of Data Collection"|val_from_key:"resourceId" %}
+                                <a class="content" href="/resource/{{ resourceId }}">
+                                    /resource/{{ resourceId }}
+                                </a>
+                            {% endwith %}
+                        {% endif %}
+                    {% endwith %}
+
+                    {% with place_long=place|val_from_key:"Longitude"|val_from_key:"@display_value" %}
+                        {% if place_long %}
+                            <h4>Longitude</h3>
+                            <p class="content">{{ place_long }}</p>
+                        {% endif %}
+                    {% endwith %}
+
+                    {% with place_lat=place|val_from_key:"Latitude"|val_from_key:"@display_value" %}
+                        {% if place_lat %}
+                            <h4>Longitude</h3>
+                            <p class="content">{{ place_lat }}</p>
+                        {% endif %}
+                    {% endwith %}
+
+                {% endif %}
+            {% endwith %}
+
+            {% if resource_data|has_key:"Digital Asset Production Event" %}
+                {% for actor in resource_data|val_from_key:"Digital Asset Production Event"|val_from_key:"Digital Asset Created By"|val_from_key:"instance_details" %}
+                    <h4>Digital Asset Created By</h4>
+                    <p class="content">{{actor|val_from_key:"display_value"}}</p>
+
+                    <a class="content" href="/resource/{{ actor|val_from_key:"resourceId" }}">
+                        /resource/{{ actor|val_from_key:"resourceId" }}
+                    </a>
+                {% endfor %}
+            {% endif %}
+
+            {% if resource_data|has_key:"Data Collection Event" %}
+                {% with collector=resource_data|val_from_key:"Data Collection Event"|val_from_key:"Data Collected By"|val_from_key:"@display_value" %}
+                    {% if collector %}
+                        <h4>Collected by</h4>
+                        <p class="content">{{ collector }}</p>
+                    {% endif %}
+                {% endwith %}
+
+                {% with date=resource_data|val_from_key:"Data Collection Event"|val_from_key:"Date of Data Collection"|val_from_key:"@display_value" %}
+                    {% if date %}
+                        <h4>Date of Collection</h4>
+                        <p class="content">{{ date }}</p>
+                    {% endif %}
+                {% endwith %}
+            {% endif %}
+
+            <hr>
+        </section>
+        {% endif %}
+
+        {# --- Publication Section --- #}
+        {% if resource_data|has_key:"Digital Asset Publication Event" %}
+        <section class="keeptogether">
+            <h3>Publication</h3>
+            
+            {% with event=resource_data|val_from_key:"Digital Asset Publication Event" %}
+
+                {% with asset_url=event|val_from_key:"Published Digital Asset - Other Platform"|val_from_key:"Published Digital Asset URL - non-localized"|val_from_key:"@display_value" %}
+                    {% if asset_url %}
+                        <h4>Digital Asset URL</h4>
+                        <p class="content">{{ asset_url }}</p>
+                    {% endif %}
+                {% endwith %}
+
+                {% with sketchfab_url=event|val_from_key:"Published Digital Asset - Sketchfab"|val_from_key:"Embedded Sketchfab URL - non-localized"|val_from_key:"@display_value" %}
+                    {% if sketchfab_url %}
+                        <h4>Sketchfab URL</h4>
+                        <p class="content">{{ sketchfab_url }}</p>
+                    {% endif %}
+                {% endwith %}
+
+                {% with youtube_url=event|val_from_key:"Published Digital Asset - Youtube"|val_from_key:"Embedded YouTube URL - non-localized"|val_from_key:"@display_value" %}
+                    {% if youtube_url %}
+                        <h4>YouTube URL</h4>
+                        <p class="content">{{ youtube_url }}</p>
+                    {% endif %}
+                {% endwith %}
+
+                {% with pub_date=event|val_from_key:"Date of Publication"|val_from_key:"@display_value" %}
+                    {% if pub_date %}
+                        <h4>Date of Publication</h4>
+                        <p class="content">{{ pub_date }}</p>
+                    {% endif %}
+                {% endwith %}
+
+                {% with pub_note=event|val_from_key:"Published Digital Asset - Other Platform"|val_from_key:"Publication Note - Other Platform"|val_from_key:"@display_value" %}
+                    {% if pub_note %}
+                        <h4>Publication Note - Other Platform</h4>
+                        <p class="content">{{ pub_note }}</p>
+                    {% endif %}
+                {% endwith %}
+
+            {% endwith %}
+            <hr>
+        </section>
+        {% endif %}
+
+        {# --- Information Carrier --- #}
+        {% if resource_data|has_key:"Information Carrier 2" %}
+            <section class="keeptogether">
+                <h3>Images and files</h3>
+                {% for item in resource_data|val_from_key:"Information Carrier 2" %}
+
+                    {% with caption=item|val_from_key:"Caption"|val_from_key:"@display_value" %}
+                        {% if caption %}
+                        <h4>Caption</h4>
+                        <p class="content">{{ caption }}</p>
+                        {% endif %}
+                    {% endwith %}
+                    
+                    {% for file in item|val_from_key:"Information Carrier"|val_from_key:"file_details" %}
+                        {% if file|val_from_key:"type" == "image/jpeg" %}
+                            {% with url=file|val_from_key:"url" %}
+                                <h4>Image: {{file|val_from_key:"name"}}</h4>
+                                <img src="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp{{ url }}">
+                            {% endwith %}
+                        {% endif %}
+
+                        {% if file|val_from_key:"type" == "application/pdf" %}
+                            {% with url=file|val_from_key:"url" %}
+                                <h4>File: {{file|val_from_key:"name"}}</h4>
+                                <a class="content" href="{{url}}">{{url}}</a>
+                            {% endwith %}
+                        {% endif %}
+                        {% endfor %}
+                        <hr>
+                {% endfor %}
+            </section> 
+        {% endif %}
+
+        {# --- External Identifiers Section --- #}
+        {% if resource_data|has_key:"External Identifier 4" %}
+            <section class="keeptogether">
+                <h3>External Identifiers</h3>
+                    {% with xref=resource_data|val_from_key:"External Identifier 4" %}
+                        <h4>External Xref</h4>
+                        <p class="content">{{xref|val_from_key:"@display_value"}}</p>
+                        
+                        <h4>External Source</h4>
+                        <p class="content">{{xref|val_from_key:"External Source"|val_from_key:"@display_value"}}</p>
+                        
+                        <h4>External Identifier Type</h4>
+                        <p class="content">{{xref|val_from_key:"External Identifier Type"|val_from_key:"@display_value"}}</p>
+                        
+                        {% with url=xref|val_from_key:"External Identifier URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
+                            {% if url %}
+                                <h4>URL</h4>
+                                <p class="content">{{ url }}</p>
+                            {% endif %}
+                        {% endwith %}
+                        
+                        {% with x_desc=item|val_from_key:"External Reference Description Assignment"|val_from_key:"Note on External Reference or Source"|val_from_key:"@display_value" %}
+                            {% if x_desc %}
+                                <h4>Description</h4>
+                                <p class="content">{{ x_desc }}</p>
+                            {% endif %}
+                        {% endwith %}
+                    {% endwith %}
+                <hr>
+            </section>   
+        {% endif %}
+
+        {# --- Copyrite Section --- #}
+        {% if resource_data|has_key:"Copyright Assignment" %}
+        <section class="keeptogether">
+            <h3>Copyright Assignment</h3>
+
+            {% with copyright=resource_data|val_from_key:"Copyright Assignment"|val_from_key:"Copyright"|val_from_key:"@display_value" %}
+                {% if copyright %}
+                    <div class="keeptogether">
+                        <h4>Copyright</h3>
+                        <p class="content">{{ copyright }}</p>
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <hr>
+        </section>
+        {% endif %}
+
+        {# --- Related Sites section --- #}
+        {% if resource_data|has_key:"Related Site" %}
+            <section class="keeptogether">
+                <h3>Related Sites</h3>
+                <ul>
+                    {% for linked_resource in resource_data|val_from_key:"Related Site"|val_from_key:"instance_details" %}
+                    <li>
+                        <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
+                        <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                            /resource/{{ linked_resource|val_from_key:'resourceId' }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <hr>
+            </section> 
+        {% endif %}
+
+        {# --- Related Objects section --- #}
+        {% if resource_data|has_key:"Related Object" %}
+            <section class="keeptogether">
+                <h3>Related Objects</h3>
+                <ul>
+                    {% for linked_resource in resource_data|val_from_key:"Related Object" %}
+                    {% for link in linked_resource|val_from_key:"instance_details" %}
+                        <li>
+                            <h4>{{ link|val_from_key:"display_value" }}</h4>
+                            <a class="content" href="/resource/{{ link|val_from_key:'resourceId' }}">
+                                /resource/{{ link|val_from_key:'resourceId' }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+                <hr>
+            </section> 
+        {% endif %}
+
+        {# --- Related Features section --- #}
+        {% if resource_data|has_key:"Related Feature" %}
+        <section class="keeptogether">
+            <h3>Related Feature</h3>
+            {% for linked_resource in resource_data|val_from_key:"Related Feature"|val_from_key:"instance_details" %}
+                <ul>
+                    <li>
+                    <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
+                    <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                        /resource/{{ linked_resource|val_from_key:'resourceId' }}
+                    </a>
+                    </li>
+                </ul>   
+            {% endfor %}
+            <hr>
+            </section> 
+        {% endif %}
+
+        {# --- Related Digital Asset Section --- #}
+        {% if resource_data|has_key:"Related Digital Asset" %}
+        <section class="keeptogether">
+            <h3>Related Digital Asset</h3>
+            {% for linked_resource in resource_data|val_from_key:"Related Digital Asset"|val_from_key:"instance_details" %}
+                <ul>
+                    <li>
+                        <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
+                        <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                            /resource/{{ linked_resource|val_from_key:'resourceId' }}
+                        </a>
+                    </li>
+                </ul>
+            {% endfor %}
+            <hr>
+            </section> 
+        {% endif %}
+
+        {# --- Related Collections section --- #}
+        {% if resource_data|has_key:"Related Collection" %}
+            <section class="keeptogether">
+                <h3>Related Collection</h3>
+                {% with collection=resource_data|val_from_key:"Related Collection" %}
+                <ul>
+                    <li>
+                    <h4>{{ collection|val_from_key:"@display_value" }}</h4>
+                    <a class="content" href="/resource/{{ collection|val_from_key:'resourceId' }}">
+                        /resource/{{ collection|val_from_key:'resourceId' }}
+                    </a>
+                    </li>
+                </ul>
+                {% endwith %}
+                <hr>
+            </section> 
+        {% endif %}
+
+        </main>
+        {% endwith %}
+        {% endfor %}
+    </body>
+    </html>

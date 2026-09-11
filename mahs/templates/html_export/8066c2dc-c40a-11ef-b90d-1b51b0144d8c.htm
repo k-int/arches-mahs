@@ -1,0 +1,779 @@
+{% load template_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Report</title>
+      {% include 'html_export/milligram.htm' %}
+      {% include 'html_export/custom_style.htm' %}
+   </head>
+
+   <body>
+      {% for resource in resources %}
+      {% with resource_data=resource.resource %}
+
+      <header>
+         {% include 'html_export/custom_header.htm' %}
+      </header>
+      
+      <main>
+         <h1>{{ resource.displayname }}</h1>
+         
+         {% with mahs_id=resource_data|val_from_key:"MAHS ID"|val_from_key:"@display_value" %}
+            <h4>MAHS ID</h4>
+            <p class="content">{{ mahs_id }}</p>
+         {% endwith %}
+
+         <h4>Arches ID</h4>
+         <p class="content">{{ resource.resourceinstanceid }}</p>
+
+         {# --- Names Section --- #}
+         {% if resource_data|has_key:"Name" %}
+            <section class="keeptogether">
+               <ul>
+                     {% for name in resource_data|val_from_key:"Name" %}
+                        <li>
+                           <h4>{{name|val_from_key:"Name Type"|val_from_key:"value"}}</h4>
+                           <p class="content">{{ name|val_from_key:"@display_value" }}</p>
+                        </li>
+                     {% endfor %}
+               </ul>
+               <hr>
+            </section>
+         {% endif %}
+
+         {# --- Descriptions Section --- #}
+         {% if resource_data|has_key:"Description Assignment" or resource_data|has_key:"Updated 4" %}
+            <section">
+                  {% for desc in resource_data|val_from_key:"Description Assignment" %}
+                     <div class="keeptogether">
+                        <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
+                        <p class="content">{{ desc|val_from_key:"Description"|val_from_key:"@display_value" }}</p>
+                        <hr>
+                     </div>
+                  {% endfor %}
+
+                  {% for desc in resource_data|val_from_key:"Updated 4" %}
+                     <div class="keeptogether">
+                        <h3>Update: {{desc|val_from_key:"Date of Update"|val_from_key:"@display_value"}}</h3>
+                        <p class="content">{{ desc|val_from_key:"Update Description"|val_from_key:"@display_value" }}</p>
+                        <hr>
+                     </div>
+                  {% endfor %}
+            </section>
+         {% endif %}
+
+         {# --- Existence Section --- #}
+         {% if resource_data|has_key:"Existence 9" %}
+         <section class="keeptogether">
+            <h3>Existence</h3>
+            {% for item in resource_data|val_from_key:"Existence 9" %}
+            
+               {% with indeterminate=item|val_from_key:"Indeterminate"|val_from_key:"@display_value" %}
+                  {% if indeterminate %}
+                     <h4>Indeterminate</h4>
+                     <p class="content">{{ indeterminate }}</p>
+                  {% endif %}
+               {% endwith %}
+               
+               {% with beginning=item|val_from_key:"Time Period"|val_from_key:"Beginning of Existence" %}
+                  {% with b_type=beginning|val_from_key:"Start Date Type"|val_from_key:"@display_value" %}
+                     {% if b_type %}
+                        <h4>Start Date Type</h4>
+                        <p class="content">{{ b_type }}</p>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% with b_text=beginning|val_from_key:"Beginning of Existence Time Span"|val_from_key:"Start Date of Existence text"|val_from_key:"@display_value" %}
+                     {% if b_text %}
+                        <h4>Start Date of Existence (text)</h4> 
+                        <p class="content">{{ b_text }}</p>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% with b_edtf=beginning|val_from_key:"Beginning of Existence Time Span"|val_from_key:"Start Date of Existence edtf"|val_from_key:"@display_value" %}
+                     {% if b_edtf %}
+                        <h4>Start Date of Existence (edtf)</h4> 
+                        <p class="content">{{ b_edtf }}</p>
+                     {% endif %}
+                  {% endwith %}
+               {% endwith %}
+               
+               {% with end=item|val_from_key:"Time Period"|val_from_key:"End of Existence" %}
+                  {% with e_type=end|val_from_key:"End Date Type"|val_from_key:"@display_value" %}
+                        {% if e_type %}
+                           <h4>End Date Type</h4> 
+                           <p class="content">{{ e_type }}</p>
+                        {% endif %}
+                     {% endwith %}
+                  
+                     {% with e_text=end|val_from_key:"End of Existence Time Span"|val_from_key:"End Date of Existence text"|val_from_key:"@display_value" %}
+                        {% if e_text %}
+                           <h4>End Date of Existence (text)</h4> 
+                           <p class="content">{{ e_text }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with e_edtf=end|val_from_key:"End of Existence Time Span"|val_from_key:"End Date of Existence edtf"|val_from_key:"@display_value" %}
+                        {% if e_edtf %}
+                           <h4>End Date of Existence (edtf)</h4> 
+                           <p class="content">{{ e_edtf }}</p>
+                        {% endif %}
+                  {% endwith %}
+               {% endwith %}
+               
+               {% with notes=item|val_from_key:"Periodization Description Assignment"|val_from_key:"Periodization Notes"|val_from_key:"@display_value" %}
+                  {% if notes %}
+                     <h4>Periodization Notes</h4>
+                     <p class="content">{{ notes }}</p>
+                  {% endif %}
+               {% endwith %}
+               
+               {% with date=item|val_from_key:"Date" %}
+                  {% with s_type=date|val_from_key:"Spot Date Type"|val_from_key:"@display_value" %}
+                     {% if s_type %}
+                        <h4>Spot Date Type</h4>
+                        <p class="content">{{ s_type }}</p>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% with s_text=date|val_from_key:"Spot Date text"|val_from_key:"@display_value" %}
+                     {% if s_text %}
+                        <h4>Spot Date (text)</h4>
+                        <p class="content">{{ s_text }}</p>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% with s_edtf=date|val_from_key:"Spot Date edtf"|val_from_key:"@display_value" %}
+                     {% if s_edtf %}
+                        <h4>Spot Date (edtf)</h4>
+                        <p class="content">{{ s_edtf }}</p>
+                     {% endif %}
+                  {% endwith %}
+               {% endwith %}
+            <hr>
+            {% endfor %}
+         </section>
+         {% endif %}
+
+         {# --- Measurement Section --- #}
+         {% if resource_data|has_key:"Measurement 3" %}
+            <section class="keeptogether">
+               <h3>Measurement</h3>
+               {% for item in resource_data|val_from_key:"Measurement 3" %}
+                  {% with component=item|val_from_key:"Measured Component" %}
+                     {% with comp_val=component|val_from_key:"@display_value" %}
+                        {% if comp_val %}
+                           <h4>Measured Component:</h4> 
+                           <p class="content">{{ comp_val }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with m_type=component|val_from_key:"Measurement Event"|val_from_key:"Measurement Type"|val_from_key:"@display_value" %}
+                        {% if m_type %}
+                           <h4>Measurement Type:</h4> 
+                           <p class="content">{{ m_type }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with m_unit=component|val_from_key:"Measurement Event"|val_from_key:"Measurement"|val_from_key:"Measurement Unit"|val_from_key:"@display_value" %}
+                        {% if m_unit %}
+                           <h4>Measurement Unit:</h4> 
+                           <p class="content">{{ m_unit }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with m_val=component|val_from_key:"Measurement Event"|val_from_key:"Measurement"|val_from_key:"Measurement Value"|val_from_key:"@display_value" %}
+                        {% if m_val %}
+                           <h4>Measurement Value:</h4> 
+                           <p class="content">{{ m_val }}</p>
+                        {% endif %}
+                     {% endwith %}
+                  {% endwith %}
+                  
+                  {% with m_notes=item|val_from_key:"Notes on Measurement"|val_from_key:"@display_value" %}
+                     {% if m_notes %}
+                        <h4>Notes on Measurement:</h4> 
+                        <p class="content">{{ m_notes }}</p>
+                     {% endif %}
+                  {% endwith %}
+               {% endfor %}
+               <hr>
+            </section>
+         {% endif %}
+
+         {# --- Administrative Division Section --- #}
+         {% if resource_data|has_key:"Administrative Division" %}
+            <section class="keeptogether">
+               <h3>Administrative Division</h3>
+               <ul class="keeptogether">
+                  {% for division in resource_data|val_from_key:"Administrative Division" %}
+                  {% with sub_div=division|val_from_key:"Administration Subdivision" %}
+                  <li>
+                     <h4>{{sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value"}}</h4>
+                     <p class="content">{{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</p>
+                  </li>
+                  {% endwith %}
+                  {% endfor %}
+               </ul>
+               <hr>
+            </section>
+         {% endif %}
+
+         {# --- Location Section --- #}
+         {% if resource_data|has_key:"Place 6" %}
+            <section class="keeptogether">
+               <h3>Location</h3>
+               {% for item in resource_data|val_from_key:"Place 6" %}
+               
+                  {% for address in item|val_from_key:"Place Address" %}
+                     <h4>Address Type</h4>
+                     <p class="content">{{address|val_from_key:"Address Type"|val_from_key:"@display_value"}}</p>
+                     
+                     <h4>Address</h4>
+                     <p class="content">{{address|val_from_key:"@display_value"}}</p>
+                  {% endfor %}
+                  
+                  {% with p_desc=item|val_from_key:"Place Description Assignment"|val_from_key:"Place Description"|val_from_key:"@display_value" %}
+                     {% if p_desc %}
+                        <h4>Place Description</h4>
+                        <p class="content">{{ p_desc }}</p>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% for sub_item in item|val_from_key:"Spatial Coordinates Geometry" %}
+                     {% if sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value" %}
+                        <h4>Geometry Qualifier</h4>
+                        <p class="content">{{sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value"}}</p>
+                     {% endif %}
+
+                     {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value" %}
+                        <h4>Latitude</h4>
+                        <p class="content">{{sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value"}}</p>
+                     {% endif %}
+
+                     {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value" %}
+                        <h4>Longitude</h4>
+                        <p class="content">{{sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value"}}</p>
+                     {% endif %}
+                     
+                     {% for feature in sub_item|val_from_key:"geojson"|val_from_key:"features" %}
+                        <h4>Spatial Coordinates Geometry</h4>
+                        <p class="content">{{ feature|val_from_key:"geometry" }}</p>
+                     {% endfor %}
+                  {% endfor %}
+               {% endfor %}
+               <hr>
+            </section>
+         {% endif %}
+
+         {# --- Classification Section --- #}
+         {% if resource_data|has_key:"Feature Classification 2" or resource_data|has_key:"Keyword" %}
+            <section class="keeptogether">
+               <h3>Classification</h3>
+               
+               {% if resource_data|has_key:"Feature Classification 2" %}
+                  <h4>Feature Classifications</h4>
+                  {% for item in resource_data|val_from_key:"Feature Classification 2" %}
+                     <p class="content">{{item|val_from_key:"@display_value"}}</p>
+                  {% endfor %}
+               {% endif %}
+
+               {% if resource_data|has_key:"Functional Classification" %}
+                  <h4>Functional Classifications</h4>
+                     {% for item in resource_data|val_from_key:"Functional Classification" %}
+                        <p class="content">{{item|val_from_key:"@display_value"}}</p>
+                     {% endfor %}
+               {% endif %}
+               
+               {% if resource_data|has_key:"Keyword" %}
+               <h4>Keywords</h4>
+                  {% for item in resource_data|val_from_key:"Keyword" %}
+                     <p class="content">{{item|val_from_key:"@display_value"}}</p>
+                  {% endfor %}
+               {% endif %}
+               <hr>
+            </section>
+            {% endif %}
+
+            
+            {# --- Current Status Section --- #}
+            {% if resource_data|has_key:"Current Status 2" %}
+            <section class="keeptogether">   
+               <h3>Current Status</h3>
+               {% for item in resource_data|val_from_key:"Current Status 2" %}
+                  {% with authority=item|val_from_key:"Custodial Authority"%}
+                     {% with a_name=authority|val_from_key:"Custodial Authority Name"|val_from_key:"@display_value" %}
+                        {% if a_name %}
+                           <h4>Custodial Authority Name</h4>
+                           <p class="content">{{ a_name }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with a_status=authority|val_from_key:"Custodial Authority Status 2"|val_from_key:"@display_value" %}
+                        {% if a_status %}
+                           <h4>Custodial Authority Status</h4>
+                           <p class="content">{{ a_status }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with a_desc=authority|val_from_key:"Custodial Authority Description Assignment"|val_from_key:"Custodial Authority Description"|val_from_key:"@display_value" %}
+                        {% if a_desc %}
+                           <h4>Custodial Authority Description</h4>
+                           <p class="content">{{ a_desc }}</p>
+                        {% endif %}
+                     {% endwith %}
+                  {% endwith %}
+                  
+                  {% with prot=item|val_from_key:"Protection"|val_from_key:"Protection Status"|val_from_key:"@display_value" %}
+                     {% if prot %}
+                        <h4>Protection Status</h4>
+                        <p class="content">{{ prot }}</p>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% with p_desc=item|val_from_key:"Protection"|val_from_key:"Protection Status Description Assignment"|val_from_key:"Protection Status Description"|val_from_key:"@display_value" %}
+                     {% if p_desc %}
+                        <h4>Protection Status Description</h4>
+                        <p class="content">{{ p_desc }}</p>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% with usage=item|val_from_key:"Current Usage" %}
+                  {% with u_type=usage|val_from_key:"Current Usage Type"|val_from_key:"@display_value" %}
+                     {% if u_type %}
+                        <h4>Current Usage Type</h4>
+                        <p class="content">{{ u_type }}</p>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% with u_desc=usage|val_from_key:"Current Usage Description Assignment"|val_from_key:"Current Usage Description"|val_from_key:"@display_value" %}
+                     {% if u_desc %}
+                        <h4>Current Usage Description</h4>
+                        <p class="content">{{ u_desc }}</p>
+                     {% endif %}
+                  {% endwith %}
+
+               {% endwith %}
+               {% endfor %}
+               <hr>
+            </section>
+            {% endif %}
+
+            {# --- Condition and Preservation Section --- #}
+            {% if resource_data|has_key:"Condition and Preservation" %}
+            <section class="keeptogether">
+               <h3>Condition and Preservation</h3>
+               
+               {% for item in resource_data|val_from_key:"Condition and Preservation" %}
+                  {% with state=item|val_from_key:"Condition Assessment"|val_from_key:"Condition State" %}
+
+                     {% with c_type=state|val_from_key:"Condition Type"|val_from_key:"@display_value" %}
+                        {% if c_type %}
+                           <h4>Condition Type</h4>
+                           <p class="content">{{ c_type }}</p>
+                        {% endif %}
+                     {% endwith %}
+               
+                     {% with c_date=state|val_from_key:"Condition Time Span"|val_from_key:"Date Condition Assessed"|val_from_key:"@display_value" %}
+                        {% if c_date %}
+                           <h4>Date Condition Assessed: </h4>
+                           <p class="content">{{ c_date }}</p>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with d_type=state|val_from_key:"Disturbance Type"|val_from_key:"@display_value" %}
+                        {% if d_type %}
+                           <h4>Disturbance Type</h4>
+                           <p class="content">{{ d_type }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with t_type=state|val_from_key:"Threat Type"|val_from_key:"@display_value" %}
+                        {% if t_type %}
+                           <h4>Threat Type</h4>
+                           <p class="content">{{ t_type }}</p>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with c_image=state|val_from_key:"Condition Image"|val_from_key:"file_details" %}
+                        {% if c_image %}
+                           {% for image in c_image %}
+                              {% with url=image|val_from_key:"url" %}
+                                 <h4>{{image|val_from_key:"name"}}</h4>
+                                 <img src="{{url}}">
+                              {% endwith %}
+                           {% endfor %}
+                        {% endif %}
+                     {% endwith %}
+
+                  {% with notes=item|val_from_key:"Condition and Preservation Description Assignment"|val_from_key:"Notes on Condition and Preservation"|val_from_key:"@display_value" %}
+                     {% if notes %}
+                        <h4>Condition notes</h4>
+                        <p class="content">{{ notes }}</p>  
+                     {% endif %}
+                  {% endwith %}
+
+                  {% endwith %}
+                        
+                  {% with preservation=item|val_from_key:"Preservation" %}
+                  
+                     {% with pres_status=preservation|val_from_key:"Preservation Status"|val_from_key:"@display_value" %}
+                        {% if pres_status %}
+                           <h4>Preservation Status: </h4>
+                           <p class="content">{{ pres_status }}</p>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with pres_type=preservation|val_from_key:"Required Preservation Type"|val_from_key:"@display_value" %}
+                        {% if pres_type %}
+                           <h4>Required Preservation Type: </h4>
+                           <p class="content">{{ pres_type }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                  {% endwith %}
+
+               {% endfor %}
+               <hr>
+               </section>
+            {% endif %}
+
+            {# --- External Identifiers Section --- #}
+            {% if resource_data|has_key:"External Identifier 4" %}
+               <section class="keeptogether">
+                  <h3>External Identifiers</h3>
+                     {% for item in resource_data|val_from_key:"External Identifier 4" %}
+                        <h4>External Xref</h4>
+                        <p class="content">{{item|val_from_key:"@display_value"}}</p>
+                        
+                        <h4>External Source</h4>
+                        <p class="content">{{item|val_from_key:"External Source"|val_from_key:"@display_value"}}</p>
+                        
+                        <h4>External Identifier Type</h4>
+                        <p class="content">{{item|val_from_key:"External Identifier Type"|val_from_key:"@display_value"}}</p>
+                        
+                        {% with url=item|val_from_key:"External Identifier URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
+                           {% if url %}
+                              <h4>URL</h4>
+                              <p class="content">{{ url }}</p>
+                           {% endif %}
+                        {% endwith %}
+                        
+                        {% with x_desc=item|val_from_key:"External Reference Description Assignment"|val_from_key:"Note on External Reference or Source"|val_from_key:"@display_value" %}
+                           {% if x_desc %}
+                              <h4>Description</h4>
+                              <p class="content">{{ x_desc }}</p>
+                           {% endif %}
+                        {% endwith %}
+                     {% endfor %}
+                  <hr>
+               </section>   
+            {% endif %}
+
+            {# --- Citations Section --- #}
+            {% if resource_data|has_key:"Citation 4" %}
+               <section class="keeptogether">
+                  <h3>Citations</h3>
+                  {% for item in resource_data|val_from_key:"Citation 4" %}
+                     <h4>Citation Apellation</h4>
+                     <p class="content">{{item|val_from_key:"Citation Apellation"|val_from_key:"@display_value"}}</p>
+                     
+                     {% with c_url=item|val_from_key:"Citation URL"|val_from_key:"url" %}
+                        {% if c_url %}
+                           <h4>Citation URL</h4>
+                           <p class="content">{{ c_url }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with c_note=item|val_from_key:"Note on Citation"|val_from_key:"@display_value" %}
+                        {% if c_note %}
+                           <h4>Citation Description</h4>
+                           <p class="content">{{ c_note }}</p>
+                        {% endif %}
+                     {% endwith %}
+                  {% endfor %}
+                  <hr>
+               </section>   
+            {% endif %}
+
+            {# --- Text Section --- #}
+            {% if resource_data|has_key:"Text" %}
+               <section class="keeptogether">
+                  <h3>Text</h3>
+                  {% for item in resource_data|val_from_key:"Text" %}
+                     
+                     {% with language=item|val_from_key:"Language"|val_from_key:"@display_value" %}
+                        {% if language %}
+                           <h4>Language</h4>
+                           <p class="content">{{item|val_from_key:"Language"|val_from_key:"@display_value"}}</p>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with notes=item|val_from_key:"Notes"|val_from_key:"@display_value" %}
+                        {% if notes %}
+                           <h4>Notes</h4>
+                           <p class="content">{{ notes }}</p>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with transcript=item|val_from_key:"Transcript"|val_from_key:"@display_value" %}
+                        {% if transcript %}
+                           <h4>Transcript</h4>
+                           <p class="content">{{ transcript }}</p>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with script=item|val_from_key:"Script"|val_from_key:"@display_value" %}
+                        {% if script %}
+                           <h4>Script</h4>
+                           <p class="content">{{ script }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                  {% endfor %}
+                  <hr>
+               </section>   
+            {% endif %}
+
+            {# --- Inscription Section --- #}
+            {% if resource_data|has_key:"Inscription 3" %}
+               <section class="keeptogether">
+                  <h3>Inscription Notes</h3>
+                  {% for item in resource_data|val_from_key:"Inscription 3" %}
+                     
+                     {% with script=item|val_from_key:"Inscription Script"|val_from_key:"@display_value" %}
+                        {% if script %}
+                           <h4>Inscription Script</h4>
+                           <p class="content">{{ script }}</p>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with placement=item|val_from_key:"Placement"|val_from_key:"@display_value" %}
+                        {% if placement %}
+                           <h4>Placement</h4>
+                           <p class="content">{{ placement }}</p>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with language=item|val_from_key:"Inscription Language"|val_from_key:"@display_value" %}
+                        {% if language %}
+                           <h4>Inscription Language</h4>
+                           <p class="content">{{ language }}</p>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with notes=item|val_from_key:"Inscription Notes"|val_from_key:"@display_value" %}
+                        {% if notes %}
+                           <h4>Inscription Notes</h4>
+                           <p class="content">{{ notes }}</p>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with transcript=item|val_from_key:"Inscription Transcript"|val_from_key:"@display_value" %}
+                        {% if transcript %}
+                           <h4>Inscription Transcript</h4>
+                           <p class="content">{{ transcript }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                  {% endfor %}
+                  <hr>
+               </section>   
+            {% endif %}
+
+            {# --- Component Section --- #}
+            {% if resource_data|has_key:"Component 3" %}
+               <section class="keeptogether">
+                  <h3>Components</h3>
+                  {% for item in resource_data|val_from_key:"Component 3" %}
+                     
+                     {% with technique=item|val_from_key:"Technique"|val_from_key:"@display_value" %}
+                        {% if technique %}
+                           <h4>Technique</h4>
+                           <p class="content">{{ technique }}</p>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with c_type=item|val_from_key:"Component Type"|val_from_key:"@display_value" %}
+                        {% if c_type %}
+                           <h4>Component Type</h4>
+                           <p class="content">{{ c_type }}</p>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with c_desc=item|val_from_key:"Component Description"|val_from_key:"@display_value" %}
+                        {% if c_desc %}
+                           <h4>Component Description</h4>
+                           <p class="content">{{ c_desc }}</p>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with material=item|val_from_key:"Material"|val_from_key:"@display_value" %}
+                        {% if material %}
+                           <h4>Material</h4>
+                           <p class="content">{{ material }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                  {% endfor %}
+                  <hr>
+               </section>   
+            {% endif %}
+
+            {# --- Provenance Section --- #}
+            {% if resource_data|has_key:"Provenance" %}
+               <section class="keeptogether">
+                  <h3>Provenance</h3>
+                  {% for item in resource_data|val_from_key:"Provenance" %}
+
+                     {% with name=item|val_from_key:"Provenance  Administration Subdivision"|val_from_key:"Provenance  Administrative Subdivision Name"|val_from_key:"@display_value" %}
+                        {% if name %}
+                           <h4>Provenance Administration Subdivision Name</h4>
+                           <p class="content">{{ name }}</p>
+                        {% endif %}
+                     {% endwith %}
+
+                     {% with type=item|val_from_key:"Provenance  Administration Subdivision"|val_from_key:"Provenance  Administrative Subdivision Type"|val_from_key:"@display_value" %}
+                        {% if type %}
+                           <h4>Provenance Administration Subdivision Type</h4>
+                           <p class="content">{{ type }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     <hr>
+                  {% endfor %}
+               </section>   
+            {% endif %}
+
+            {# --- Images --- #}
+            {% if resource_data|has_key:"Information Carrier 2" %}
+               <section class="keeptogether">
+                  <h3>Images</h3>
+                  {% for item in resource_data|val_from_key:"Information Carrier 2" %}
+
+                     {% with caption=item|val_from_key:"Caption"|val_from_key:"@display_value" %}
+                        {% if caption %}
+                           <h4>Caption</h4>
+                           <p class="content">{{ caption }}</p>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% for file in item|val_from_key:"Information Carrier"|val_from_key:"file_details" %}
+                        {% with url=file|val_from_key:"url" %}
+                           <h4>{{file|val_from_key:"name"}}</h4>
+                           <img src="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp{{ url }}">
+                        {% endwith %}
+                     {% endfor %}
+
+                     <hr>
+                  {% endfor %}
+               </section> 
+            {% endif %}
+
+            {# --- Related Sites section --- #}
+            {% if resource_data|has_key:"Site" %}
+               <section class="keeptogether">
+                  <h3>Related Sites</h3>
+                  <ul>
+                     {% for linked_resource in resource_data|val_from_key:"Site" %}
+                     <li>
+                        <h4>{{ linked_resource|val_from_key:"@display_value" }}</h4>
+                        <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                           /resource/{{ linked_resource|val_from_key:'resourceId' }}
+                        </a>
+                     </li>
+                     {% endfor %}
+                  </ul>
+                  <hr>
+               </section> 
+            {% endif %}
+
+            {# --- Related Objects section --- #}
+            {% if resource_data|has_key:"Related Object" %}
+               <section class="keeptogether">
+                  <h3>Related Objects</h3>
+                  <ul>
+                     {% for linked_resource in resource_data|val_from_key:"Related Object" %}
+                        {% for link in linked_resource|val_from_key:"instance_details" %}
+                           <li>
+                              <h4>{{ link|val_from_key:"display_value" }}</h4>
+                              <a class="content" href="/resource/{{ link|val_from_key:'resourceId' }}">
+                                 /resource/{{ link|val_from_key:'resourceId' }}
+                              </a>
+                           </li>
+                        {% endfor %}
+                     {% endfor %}
+                  </ul>
+                  <hr>
+               </section> 
+            {% endif %}
+
+            {# --- Related Features section --- #}
+            {% if resource_data|has_key:"Related Feature" %}
+            <section class="keeptogether">
+               <h3>Related Feature</h3>
+               {% for linked_resource in resource_data|val_from_key:"Related Feature" %}
+                  <ul>
+                  {% for link in linked_resource|val_from_key:"instance_details" %}
+                     <li>
+                        <h4>{{ link|val_from_key:"display_value" }}</h4>
+                        <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                           /resource/{{ link|val_from_key:'resourceId' }}
+                        </a>
+                     </li>
+                  {% endfor %}
+                  </ul>   
+               {% endfor %}
+               <hr>
+               </section> 
+            {% endif %}
+
+            {# --- Related Digital Asset Section --- #}
+            {% if resource_data|has_key:"Related Digital Asset" %}
+            <section class="keeptogether">
+               <h3>Related Digital Asset</h3>
+               {% for linked_resource in resource_data|val_from_key:"Related Digital Asset" %}
+                  <ul>
+                     {% for link in linked_resource|val_from_key:"instance_details" %}
+                        <li>
+                           <h4>{{ link|val_from_key:"display_value" }}</h4>
+                           <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                              /resource/{{ link|val_from_key:'resourceId' }}
+                           </a>
+                        </li>
+                     {% endfor %}
+                  </ul>
+               {% endfor %}
+               <hr>
+               </section> 
+            {% endif %}
+
+            {# --- Related Collections section --- #}
+            {% if resource_data|has_key:"Related Collection" %}
+               <section class="keeptogether">
+                  <h3>Related Collection</h3>
+                  <ul>
+                     {% for linked_resource in resource_data|val_from_key:"Related Collection" %}
+                        {% for link in linked_resource|val_from_key:"instance_details" %}
+                           <li>
+                              <h4>{{ link|val_from_key:"@display_value" }}</h4>
+                              <a class="content" href="/resource/{{ link|val_from_key:'resourceId' }}">
+                                 /resource/{{ link|val_from_key:'resourceId' }}
+                              </a>
+                           </li>
+                        {% endfor %}
+                     {% endfor %}
+                  </ul>
+                  <hr>
+               </section> 
+            {% endif %}
+            
+         </main>
+         {% endwith %}
+         {% endfor %}
+      </body>
+      </html>

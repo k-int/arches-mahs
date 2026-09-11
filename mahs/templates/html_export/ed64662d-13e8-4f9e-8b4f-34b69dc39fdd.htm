@@ -1,0 +1,264 @@
+{% load template_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Report</title>
+        {% include 'html_export/milligram.htm' %}
+        {% include 'html_export/custom_style.htm' %}
+    </head>
+
+    <body>
+        {% for resource in resources %}
+        {% with resource_data=resource.resource %}
+
+        <header>
+            {% include 'html_export/custom_header.htm' %}
+        </header>
+
+    <main>
+        <h1>{{ resource.displayname }}</h1>
+        
+        {% with mahs_id=resource_data|val_from_key:"MAHS ID"|val_from_key:"@display_value" %}
+        <h4>MAHS ID</h4>
+        <p class="content">{{ mahs_id }}</p>
+        {% endwith %}
+
+        <h4>Arches ID</h4>
+        <p class="content">{{ resource.resourceinstanceid }}</p>
+
+        <hr>
+
+        {# --- Title Section --- #}
+        {% if resource_data|has_key:"Title" %}
+        <section class="keeptogether">
+            <h3>Title</h3>
+
+            {% with title=resource_data|val_from_key:"Title" %}
+                {% if title %}
+                    <div class="keeptogether">
+                        <h4>{{title|val_from_key:"Title Type"|val_from_key:"value"}}</h3>
+                        <p class="content">{{ title|val_from_key:"@display_value" }}</p>
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <hr>
+        </section>
+        {% endif %}
+
+        {# --- Oral History Video Section --- #}
+        {% if resource_data|has_key:"Oral History Video" %}
+        <section class="keeptogether">
+            <h3>Oral History Video</h3>
+
+            {% with video=resource_data|val_from_key:"Oral History Video" %}
+
+                {% with url=video|val_from_key:"Embedded URL"|val_from_key:"@display_value" %}
+                    {% if url %}
+                        <h4>Oral History Video</h4>
+                        <p class="content">
+                            <a href={{ url }}>
+                                {{ url }}
+                            </a>
+                        </p>
+
+                    {% endif %}
+                {% endwith %}
+
+                {% with language=video|val_from_key:"Language"|val_from_key:"@display_value" %}
+                    {% if language %}
+                        <h4>Language</h4>
+                        <p class="content">{{ language }}</p>
+                    {% endif %}
+                {% endwith %}
+
+                {% with creator=video|val_from_key:"Video Created By"|val_from_key:"@display_value" %}
+                    {% if creator %}
+                        <h4>Created By</h4>
+                        <p class="content">{{ creator }}</p>
+                    {% endif %}
+                {% endwith %}
+
+            {% endwith %}
+
+            <hr>
+        </section>
+        {% endif %}
+
+        {# --- Description Section --- #}
+        {% if resource_data|has_key:"Description Assignment" %}
+        <section class="keeptogether">
+            <h3>Description Assignment</h3>
+
+            {% with desc=resource_data|val_from_key:"Description Assignment" %}
+                {% if desc %}
+                    <div class="keeptogether">
+                        <h4>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
+                        <p class="content">{{ desc|val_from_key:"Description"|val_from_key:"@display_value" }}</p>
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            {% with update=resource_data|val_from_key:"Updated 4" %}
+                <div class="keeptogether">
+                    <h4>Update: {{update|val_from_key:"Date of Update"|val_from_key:"@display_value"}}</h3>
+                    <p class="content">{{ update|val_from_key:"Update Description"|val_from_key:"@display_value" }}</p>
+                </div>
+            {% endwith %}
+
+            <hr>
+        </section>
+        {% endif %}
+
+        {# --- Interview Creation Section --- #}
+        {% if resource_data|has_key:"Interview Creation Event" %}
+        <section class="keeptogether">
+            <h3>Interview Creation Event</h3>
+
+            {% with i_event=resource_data|val_from_key:"Interview Creation Event" %}
+                {% if i_event %}
+
+                    {% with i_site=i_event|val_from_key:"Interview Site"|val_from_key:"@display_value" %}
+                        {% if i_site %}
+                            <div class="keeptogether">
+                                <h4>Interview Site</h3>
+                                <p class="content">{{ i_site }}</p>
+
+                                {% for link in i_event|val_from_key:"Interview Site"|val_from_key:"instance_details" %}
+                                    <a class="content" href="/resource/{{ link|val_from_key:'resourceId' }}">
+                                        /resource/{{ link|val_from_key:'resourceId' }}
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+
+                    {% with i_place=i_event|val_from_key:"Place of Interview"|val_from_key:"@display_value" %}
+                        {% if i_place %}
+                            <div class="keeptogether">
+                                <h4>Place of Interview</h3>
+                                <p class="content">{{ i_place }}</p>
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+
+                    {% with i_date=i_event|val_from_key:"Interview Date"|val_from_key:"@display_value" %}
+                        {% if i_date %}
+                            <div class="keeptogether">
+                                <h4>Interview Date</h3>
+                                <p class="content">{{ i_date }}</p>
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+
+                {% endif %}
+            {% endwith %}
+
+            <hr>
+        </section>
+        {% endif %}
+
+        {# --- Interviewer Section --- #}
+        {% if resource_data|has_key:"Interviewer" %}
+        <section class="keeptogether">
+            <h3>Interviewer(s)</h3>
+
+            {% for interviewer in resource_data|val_from_key:"Interviewer" %}
+                <p class="content">{{interviewer|val_from_key:"Name of Interviewer"|val_from_key:"@display_value"}}</p>
+            {% endfor %}
+
+            <hr>
+        </section>
+        {% endif %}
+
+        {# --- Interviewee Section --- #}
+        {% if resource_data|has_key:"Interviewee" %}
+        <section class="keeptogether">
+            <h3>Interviewee(s)</h3>
+
+            {% for interviewee in resource_data|val_from_key:"Interviewee" %}
+                {% with name=interviewee|val_from_key:"Name of Inerviewee"|val_from_key:"@display_value" %}
+                    {% if name %}
+                        <h4>Name</h4>
+                        <p class="content">{{name}}</p>
+                    {% endif %}
+                {% endwith %}
+
+                {% with gender=interviewee|val_from_key:"Gender of Interviewee"|val_from_key:"@display_value" %}
+                    {% if gender %}
+                        <h4>Gender</h4>
+                        <p class="content">{{gender}}</p>
+                    {% endif %}
+                {% endwith %}
+
+                {% with age=interviewee|val_from_key:"Age of Interviewee"|val_from_key:"@display_value" %}
+                    {% if age %}
+                        <h4>Age</h4>
+                        <p class="content">{{age}}</p>
+                    {% endif %}
+                {% endwith %}
+
+            {% endfor %}
+
+            <hr>
+        </section>
+        {% endif %}
+
+        {# --- Classification Section --- #}
+        {% if resource_data|has_key:"Feature Classification 2" or resource_data|has_key:"Keyword" %}
+        <section class="keeptogether">
+            <h3>Classification</h3>
+            
+            {% if resource_data|has_key:"Keyword" %}
+            <h4>Keywords</h4>
+            <p class="content">{{resource_data|val_from_key:"Keyword"|val_from_key:"@display_value"}}</p>
+            {% endif %}
+            <hr>
+        </section>
+        {% endif %}
+
+        {# --- Administrative Division Section --- #}
+        {% if resource_data|has_key:"Administrative Division" %}
+        <section class="keeptogether">
+            <h3>Administrative Division</h3>
+            <ul class="keeptogether">
+                {% for division in resource_data|val_from_key:"Administrative Division" %}
+                {% with sub_div=division|val_from_key:"Administration Subdivision" %}
+                <li>
+                    <h4>{{sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value"}}</h4>
+                    <p class="content">{{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</p>
+                </li>
+                {% endwith %}
+                {% endfor %}
+            </ul>
+            <hr>
+        </section>
+        {% endif %}
+
+        {# --- Related Resources section --- #}
+        {% if resource_data|has_key:"Related Resources" and resource_data|val_from_key:"Related Resources"|val_from_key:"@display_value" %}
+            <section class="keeptogether">
+                <h3>Related Resources</h3>
+                <ul>
+                    {% for linked_resource in resource_data|val_from_key:"Related Resources"|val_from_key:"instance_details" %}
+                        <li>
+                        <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
+                        <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                            /resource/{{ linked_resource|val_from_key:'resourceId' }}
+                        </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <hr>
+            </section> 
+        {% endif %}
+
+        </main>
+        {% endwith %}
+        {% endfor %}
+    </body>
+    </html>
