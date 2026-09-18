@@ -80,7 +80,6 @@
                      {% endwith %}
                   {% endfor %}
                </ul>
-               <hr>
             </section>
          {% endif %}
 
@@ -91,6 +90,7 @@
                {% for desc in resource_data|val_from_key:"Description Assignment" %}
                   {% if desc|val_from_key:"Description Type"|val_from_key:"value" == "Primary Description" %}
                      <div>
+                        <hr> 
                         <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
                         <div class="content-container">
                            <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
@@ -102,6 +102,7 @@
                {% for desc in resource_data|val_from_key:"Description Assignment" %}
                   {% if desc|val_from_key:"Description Type"|val_from_key:"value" == "Oral History" %}
                      <div>
+                        <hr> 
                         <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
                         <div class="content-container">
                            <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
@@ -1029,8 +1030,8 @@
                </section> 
             {% endif %}
 
-      </main>
-      {% endwith %}
-      {% endfor %}
-   </body>
+         </main>
+         {% endwith %}
+         {% endfor %}
+      </body>
 </html>

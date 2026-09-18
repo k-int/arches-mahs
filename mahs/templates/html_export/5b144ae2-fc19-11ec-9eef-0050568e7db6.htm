@@ -80,7 +80,6 @@
                      {% endwith %}
                   {% endfor %}
                </ul>
-               <hr>
             </section>
          {% endif %}
 
@@ -91,6 +90,7 @@
                {% for desc in resource_data|val_from_key:"Description Assignment" %}
                   {% if desc|val_from_key:"Description Type"|val_from_key:"value" == "Primary Description" %}
                      <div>
+                        <hr>
                         <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
                         <div class="content-container">
                            <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
@@ -102,6 +102,7 @@
                {% for desc in resource_data|val_from_key:"Description Assignment" %}
                   {% if desc|val_from_key:"Description Type"|val_from_key:"value" == "Oral History" %}
                      <div>
+                        <hr>
                         <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
                         <div class="content-container">
                            <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
@@ -420,18 +421,17 @@
                      <div>: {{item|val_from_key:"@display_value"}}</div>
                   </div>
                {% endfor %}
-            </section>
          {% endif %}
 
          {# --- Keyword Section --- #}
          {% if resource_data|has_key:"Keyword" %}
-            <section class="keeptogether">
-               <hr>   
-               <h3>Keywords</h3>
-               {% for item in resource_data|val_from_key:"Keyword" %}
-                  <p>{{item|val_from_key:"@display_value"}}</p>
-               {% endfor %}   
-            </section>      
+         <hr>   
+         <h3>Keywords</h3>
+
+            {% for item in resource_data|val_from_key:"Keyword" %}
+               <p>{{item|val_from_key:"@display_value"}}</p>
+            {% endfor %} 
+            </section>        
          {% endif %}
             
          {# --- Current Status Section --- #}
@@ -753,5 +753,5 @@
       {% endwith %}
       {% endfor %}
       </main>
-   </body>
+</body>
 </html>

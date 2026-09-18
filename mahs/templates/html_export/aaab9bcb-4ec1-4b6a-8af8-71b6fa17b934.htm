@@ -222,7 +222,7 @@
                     {% if sketchfab_url %}
                         <div class="data-table">
                             <div>Sketchfab URL</div>
-                            <div>: {{ sketchfab_url }}</div>
+                            <div>: <a href="{{ sketchfab_url }}">: {{ sketchfab_url }}</a></div> 
                         </div>
                     {% endif %}
                 {% endwith %}
@@ -231,7 +231,7 @@
                     {% if youtube_url %}
                         <div class="data-table">
                             <div>YouTube URL</div>
-                            <div>: {{ youtube_url }}</div>
+                            <div>: <a href="{{ youtube_url }}">: {{ youtube_url }}</a></div>
                         </div>
                     {% endif %}
                 {% endwith %}
