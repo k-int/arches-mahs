@@ -113,7 +113,7 @@
 
                {% for desc in resource_data|val_from_key:"Description Assignment" %}
                   {% with type=desc|val_from_key:"Description Type"|val_from_key:"value" %}
-                     {% if type == "Field Notes" or type == "Comments" %}
+                     {% if type == "Field Notes" or type == "Comments" or type == "Background Information"%}
                         
                         {% ifchanged %}
                            {% if forloop.first or not header_rendered %}
@@ -122,8 +122,8 @@
                            {% endif %}
                         {% endifchanged %}
 
-                        <div class="keeptogether">
-                           <div>
+                        <div>
+                           <div class="content-container">
                               <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
                            </div>
                         </div>
@@ -134,7 +134,7 @@
 
                {% for desc in resource_data|val_from_key:"Description Assignment" %}
                   {% with type=desc|val_from_key:"Description Type"|val_from_key:"value" %}
-                     {% if type != "Acknowledgement" and type != "Primary Description" and type != "Comments" and type != "Field Notes" %}   
+                     {% if type != "Acknowledgement" and type != "Primary Description" and type != "Comments" and type != "Field Notes" and type != "Background Information" %}   
                         <div>
                            <hr>
                            <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
