@@ -1,0 +1,499 @@
+{% load template_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Report</title>
+      {% include 'html_export/milligram.htm' %}
+      {% include 'html_export/custom_style.htm' %}
+   </head>
+
+   <body>
+      {% for resource in resources %}
+      {% with resource_data=resource.resource %}
+
+      <header>
+         {% include 'html_export/custom_header.htm' %}
+      </header>
+      
+      <main>
+         <div class="arches-link-container">  
+            <a class="arches-link" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/report/{{ resource.resourceinstanceid }}">
+               <u>Collection - {{ resource.displayname }}</u>
+            </a>
+         </div>  
+
+         <div class="title-container">
+            <h1>{{ resource.displayname }}</h1>
+            <h1>Overview</h1>
+         </div>
+
+         {% with mahs_id=resource_data|val_from_key:"MAHS ID"|val_from_key:"@display_value" %}
+            <div class="data-table mahs-id-container">
+               <div class="mahs-id">MAHS ID</div>
+               <div>: {{ mahs_id }}</div>
+            </div>
+         {% endwith %}
+
+         {# --- Names Section --- #}
+         {% if resource_data|has_key:"Collection Apellation" %}
+            <section class="keeptogether">
+               <ul>
+                  {% for name in resource_data|val_from_key:"Collection Apellation" %}
+                     <div class="data-table">
+                        <div>{{name|val_from_key:"Apellation Type"|val_from_key:"value"}}</div>
+                        <div>: {{ name|val_from_key:"@display_value" }}</div>
+                     </div>
+                  {% endfor %}
+               </ul>
+            </section>
+         {% endif %}
+
+         {# --- Legal Entity Section --- #}
+         {% if resource_data|has_key:"Legal Entity" %}
+            <section class="keeptogether">
+               <hr>
+                  {% if resource_data|val_from_key:"Legal Entity"|val_from_key:"Legal Entity Name"|val_from_key:"@display_value"|val_from_key:"@display_value" %}
+                     <h3>Institution Name</h3>
+                     <div class="content-container">
+                           <p>{{resource_data|val_from_key:"Legal Entity"|val_from_key:"Legal Entity Name"}}</p>
+                     </div>
+                  {% endif %}
+
+                  <h3>Institution Profile</h3>
+                  <div class="content-container">
+                        <p>{{resource_data|val_from_key:"Legal Entity"|val_from_key:"Institution Profile Assignment"|val_from_key:"Institution Profile"|val_from_key:"@display_value"|safe}}</p>
+                  </div>
+                  
+                  <h3>MAHS Partnership Description</h3>
+                  <div class="content-container">
+                        <p>{{resource_data|val_from_key:"Legal Entity"|val_from_key:"MAHS Partnership Description Assigment"|val_from_key:"MAHS Partnership Description"|val_from_key:"@display_value"|safe}}</p>
+                  </div>
+
+            </section>
+         {% endif %}
+
+         {# --- Descriptions Section --- #}
+         {% if resource_data|has_key:"Collection Description Assignment"%}
+         <section>
+               <hr>
+               {% with desc=resource_data|val_from_key:"Collection Description Assignment"|val_from_key:"Collection Profile"|val_from_key:"@display_value" %}
+                  {% if desc %}   
+                  <div>
+                     <h3>Collection Description Assignment</h3>
+                     <div class="content-container">
+                           <p>{{ desc }}</p>
+                     </div>
+                  </div>
+                  {% endif %}
+               {% endwith %}
+         </section>
+         {% endif %}
+
+         {# --- Website Section --- #}
+         {% if resource_data|has_key:"Website" %}
+            <section class="keeptogether">
+               {% for item in resource_data|val_from_key:"Website" %}
+                  <hr>
+                  <h3>Website</h3>
+                  <p class="content">
+                     <a href="{{item|val_from_key:"URL"|val_from_key:"url"}}">
+                        {{item|val_from_key:"URL"|val_from_key:"url"}}
+                     </a>
+                  </p>
+               </section>
+               {% endfor %}
+         {% endif %}
+
+         {# --- Administrative Division Section --- #}
+         {% if resource_data|has_key:"Administrative Division 2" %}
+            <section class="keeptogether">
+               <hr>
+               <h3>Administrative Division</h3>
+               <div class="keeptogether">
+                  {% for division in resource_data|val_from_key:"Administrative Division 2" %}
+                     {% with sub_div=division|val_from_key:"Administration Subdivision" %}
+                        {% if sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value" == "Country" %}
+                           <div class="data-table">
+                              <div>Country</div>
+                              <div>: {{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                  {% endfor %}
+
+                  {% for division in resource_data|val_from_key:"Administrative Division 2" %}
+                     {% with sub_div=division|val_from_key:"Administration Subdivision" %}
+                        {% if sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value" == "Atoll" %}
+                           <div class="data-table">
+                              <div>Atoll</div>
+                              <div>: {{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                  {% endfor %}
+
+                  {% for division in resource_data|val_from_key:"Administrative Division 2" %}
+                     {% with sub_div=division|val_from_key:"Administration Subdivision" %}
+                        {% if sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value" == "Island" %}
+                           <div class="data-table">
+                              <div>Island</div>
+                              <div>: {{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                  {% endfor %}
+
+                  {% for division in resource_data|val_from_key:"Administrative Division 2" %}
+                     {% with sub_div=division|val_from_key:"Administration Subdivision" %}
+                        {% if sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value" == "Province" %}
+                           <div class="data-table">
+                              <div>Province</div>
+                              <div>: {{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                  {% endfor %}
+
+                  {% for division in resource_data|val_from_key:"Administrative Division 2" %}
+                     {% with sub_div=division|val_from_key:"Administration Subdivision" %}
+                        {% if sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value" == "District" %}
+                           <div class="data-table">
+                              <div>District</div>
+                              <div>: {{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                  {% endfor %}
+
+                  {% for division in resource_data|val_from_key:"Administrative Division 2" %}
+                     {% with sub_div=division|val_from_key:"Administration Subdivision" %}
+                        {% if sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value" == "Sub-district" %}
+                           <div class="data-table">
+                              <div>Sub-district</div>
+                              <div>: {{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                  {% endfor %}
+
+                  {% for division in resource_data|val_from_key:"Administrative Division 2" %}
+                     {% with sub_div=division|val_from_key:"Administration Subdivision" %}
+                        {% if sub_div|val_from_key:"Administrative Subdivision Type"|val_from_key:"@display_value" == "Locality" %}
+                           <div class="data-table">
+                              <div>Locality</div>
+                              <div>: {{ sub_div|val_from_key:"Administrative Subdivision Name"|val_from_key:"@display_value" }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                  {% endfor %}
+               </div>
+
+               {% for item in resource_data|val_from_key:"Place 6" %}
+                  {% for address in item|val_from_key:"Place Address" %}
+                     {% with address_text=address|val_from_key:"@display_value" %}
+                        {% if address_text %}
+                           <div class="data-table">
+                              <div>Place Address</div>
+                              <div>: {{address_text}}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                  {% endfor %}
+               {% endfor %}
+            </section>
+         {% endif %}
+
+         {# --- Location Section --- #}
+         {% if resource_data|has_key:"Place 6" %}
+            <section class="keeptogether">
+               <hr>
+               <h3>Spatial Location</h3>
+               {% for item in resource_data|val_from_key:"Place 6" %}
+                  
+                  {% for sub_item in item|val_from_key:"Spatial Coordinates Geometry" %}
+                  
+                  {% if sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value" %}
+                  <div class="data-table">
+                     <div>Geometry Qualifier</div>
+                     <div>: {{sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value"}}</div>
+                  </div>
+                  {% endif %}
+                  
+                  {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value" %}
+                  <div class="data-table">
+                     <div>Latitude</div>
+                     <div>: {{sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value"}}</div>
+                  </div>
+                  {% endif %}
+                  
+                  {% if sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value" %}
+                  <div class="data-table">
+                     <div>Longitude</div>
+                     <div>: {{sub_item|val_from_key:"Coordinates"|val_from_key:"Longitude"|val_from_key:"@display_value"}}</div>
+                  </div>
+                  {% endif %}
+                  
+                  {% with p_desc=item|val_from_key:"Place Description Assignment"|val_from_key:"Place Description"|val_from_key:"@display_value" %}
+                     {% if p_desc %}
+                        <hr>
+                        <h3>Description Location</h3>
+                        <div class="data-table">
+                           <div>Place Description</div>
+                           <div>: {{ p_desc }}</div>
+                        </div>
+                     {% endif %}
+                  {% endwith %}
+
+                  {% endfor %}
+               {% endfor %}
+            </section>
+         {% endif %}
+
+         {# --- Classification Section --- #}
+         {% if resource_data|has_key:"Keyword" %}
+            <section class="keeptogether">
+               <div class="h1-container">
+                  <h1>Classification</h1>
+               </div>
+
+               {% if resource_data|has_key:"Keyword" %}
+               <h4>Keywords</h4>
+                  {% for item in resource_data|val_from_key:"Keyword" %}
+                     <p class="content">{{item|val_from_key:"@display_value"}}</p>
+                  {% endfor %}
+               {% endif %}
+            </section>
+         {% endif %}
+
+         {# --- Current Status Section --- #}
+         {% if resource_data|has_key:"Current Status 2" %}
+            <section class="keeptogether">
+               <div class="h1-container">
+                  <h1>Current Status</h1>
+               </div>
+               {% for item in resource_data|val_from_key:"Current Status 2" %}
+                  {% with authority=item|val_from_key:"Custodial Authority"%}
+                     {% with a_name=authority|val_from_key:"Custodial Authority Name"|val_from_key:"@display_value" %}
+                        {% if a_name %}
+                           <div class="data-table">
+                              <div>Custodial Authority Name</div>
+                              <div>: {{ a_name }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with a_status=authority|val_from_key:"Custodial Authority Status 2"|val_from_key:"@display_value" %}
+                        {% if a_status %}
+                           <div class="data-table">
+                              <div>Custodial Authority Status</div>
+                              <div>: {{ a_status }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                     
+                     {% with a_desc=authority|val_from_key:"Custodial Authority Description Assignment"|val_from_key:"Custodial Authority Description"|val_from_key:"@display_value" %}
+                        {% if a_desc %}
+                           <div class="data-table">
+                              <div>Custodial Authority Description</div>
+                              <div>: {{ a_desc }}</div>
+                           </div>
+                        {% endif %}
+                     {% endwith %}
+                  {% endwith %}
+                  
+                  {% with prot=item|val_from_key:"Protection"|val_from_key:"Protection Status"|val_from_key:"@display_value" %}
+                     {% if prot %}
+                        <div class="data-table">
+                           <div>Protection Status</div>
+                           <div>: {{ prot }}</div>
+                        </div>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% with p_desc=item|val_from_key:"Protection"|val_from_key:"Protection Status Description Assignment"|val_from_key:"Protection Status Description"|val_from_key:"@display_value" %}
+                     {% if p_desc %}
+                        <div class="data-table">
+                           <div>Protection Status Description</div>
+                           <div>: {{ p_desc }}</div>
+                        </div>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% with usage=item|val_from_key:"Current Usage" %}
+                  {% with u_type=usage|val_from_key:"Current Usage Type"|val_from_key:"@display_value" %}
+                     {% if u_type %}
+                        <div class="data-table">
+                           <div>Current Usage Type</div>
+                           <div>: {{ u_type }}</div>
+                        </div>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% with u_desc=usage|val_from_key:"Current Usage Description Assignment"|val_from_key:"Current Usage Description"|val_from_key:"@display_value" %}
+                     {% if u_desc %}
+                        <div class="data-table">
+                           <div>Current Usage Description</div>
+                           <div>: {{ u_desc }}</div>
+                        </div>
+                     {% endif %}
+                  {% endwith %}
+
+               {% endwith %}
+               {% endfor %}
+            </section>
+            {% endif %}
+
+         {# --- External Identifiers Section --- #}
+         {% if resource_data|has_key:"External Identifier 4" %}
+
+            <div class="h1-container">
+               <h1>References</h1>
+            </div>
+
+            <section class="keeptogether">
+               <h3>External Identifiers</h3>
+               {% for item in resource_data|val_from_key:"External Identifier 4" %}
+
+                  {% ifchanged %}
+                     {% if not forloop.first %}
+                        <br>
+                     {% endif %}
+                  {% endifchanged %}
+               
+                  {% if item|val_from_key:"@display_value" %}
+                     <div class="data-table">
+                        <div>External Xref</div>
+                        <div>: {{item|val_from_key:"@display_value"}}</div>
+                     </div>
+                  {% endif %}
+                  
+                  {% if item|val_from_key:"External Source"|val_from_key:"@display_value" %}
+                     <div class="data-table">
+                        <div>External Source</div>
+                        <div>: {{item|val_from_key:"External Source"|val_from_key:"@display_value"}}</div>
+                     </div>
+                  {% endif %}
+                  
+                  {% if item|val_from_key:"External Identifier Type"|val_from_key:"@display_value" %}
+                     <div class="data-table">
+                        <div>External Identifier Type</div>
+                        <div>: {{item|val_from_key:"External Identifier Type"|val_from_key:"@display_value"}}</div>
+                     </div>
+                  {% endif %}
+                  
+                  {% with url=item|val_from_key:"External Identifier URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
+                     {% if url %}
+                        <div class="data-table">
+                           <div>URL</div>
+                           <a href="{{url}}">: {{ url }}</a>
+                        </div>
+                     {% endif %}
+                  {% endwith %}
+                  
+                  {% with x_desc=item|val_from_key:"External Reference Description Assignment"|val_from_key:"Note on External Reference or Source"|val_from_key:"@display_value" %}
+                     {% if x_desc %}
+                        <div class="data-table">
+                           <div>Description</div>
+                           <div>: {{ x_desc }}</div>
+                        </div>
+                     {% endif %}
+                  {% endwith %}
+               {% endfor %}
+            </section>   
+         {% endif %}
+
+         {# --- Acknowledgement section --- #}
+         {% if resource_data|has_key:"Acknowledgement" %}
+            <section class="keeptogether">
+               <div class="h1-container">
+                  <h1>Acknowledgement</h1>
+               </div>
+
+               {% with partners=resource_data|val_from_key:'Acknowledgement'|val_from_key:'Country Partners'|val_from_key:"@display_value" %}
+                  {% if partners %}   
+                     <h4>Country Partners</h4>
+                     <p class="content">{{ partners }}</p>
+                  {% endif %}
+               {% endwith %}
+
+               {% with team=resource_data|val_from_key:'Acknowledgement'|val_from_key:'Team Members'|val_from_key:"@display_value" %}
+                  {% if team %}   
+                     <h4>Field Team Members</h4>
+                     <p class="content">{{ team }}</p>
+                  {% endif %}
+               {% endwith %}
+
+               {% with general=resource_data|val_from_key:'Acknowledgement'|val_from_key:'General Acknowledgement'|val_from_key:"@display_value"|safe %}
+                  {% if general %}   
+                     <h4>General Acknowledgement</h4>
+                     <div class="content-container">
+                        <p>{{ general }}</p>
+                     </div>
+                  {% endif %}
+               {% endwith %}
+            </section>
+            
+            <section">
+               {% for desc in resource_data|val_from_key:"Description Assignment" %}
+                  {% if desc|val_from_key:"Description Type"|val_from_key:"value" == "Acknowledgement" %}   
+                     <div class="keeptogether">
+                        <h4>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
+                        <div class="content-container">
+                           <p>{{ desc|val_from_key:"Description"|val_from_key:"@display_value"|safe }}</p>
+                        </div>
+                     </div>
+                  {% endif %}
+               {% endfor %}
+            </section>
+
+         {% endif %}
+
+         {# --- Images --- #}
+         {% if resource_data|has_key:"Information Carrier 2" %}
+         <section class="keeptogether">
+            <div class="h1-container">
+               <h1>{{resource.displayname}}</h1>
+               <h1>Images</h1>
+            </div>
+            {% for item in resource_data|val_from_key:"Information Carrier 2" %}
+
+               {% with caption=item|val_from_key:"Caption"|val_from_key:"@display_value" %}
+               {% if caption %}
+               <div class="data-table">
+                  <div>Caption</div>
+                  <div>: {{ caption }}</div>
+               </div>
+               {% endif %}
+               {% endwith %}
+            
+               {% for file in item|val_from_key:"Information Carrier"|val_from_key:"file_details" %}
+                  <div class="keeptogether">
+                     {% with url=file|val_from_key:"url" %}
+                        <h4>{{file|val_from_key:"name"}}</h4>
+                        <img src="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp{{ url }}">
+                     {% endwith %}
+                  </div>
+               {% endfor %}
+
+            {% endfor %}
+            </section> 
+         {% endif %}
+
+         {# --- ResourceID section --- #}
+         <section class="keeptogether">
+            <div class="h1-container">
+               <h1>Resource ID</h1>
+            </div>
+            <p class="content">{{ resource.resourceinstanceid }}</p>
+
+         </section> 
+
+         </main>
+         {% endwith %}
+         {% endfor %}
+      </body>
+</html>
