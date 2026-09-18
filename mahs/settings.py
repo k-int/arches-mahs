@@ -143,6 +143,7 @@ INSTALLED_APPS = (
     "django_celery_results",
     # "silk",
     "mahs",  # Ensure the project is listed before any other arches applications
+    "arches_pdf_exporting",
 )
 
 # Placing this last ensures any templates provided by Arches Applications
@@ -264,7 +265,7 @@ CACHES = {
 }
 
 # Hide nodes and cards in a report that have no data
-HIDE_EMPTY_NODES_IN_REPORT = False
+HIDE_EMPTY_NODES_IN_REPORT = True
 
 BYPASS_UNIQUE_CONSTRAINT_TILE_VALIDATION = False
 BYPASS_REQUIRED_VALUE_TILE_VALIDATION = False
@@ -421,6 +422,11 @@ SHOW_LANGUAGE_SWITCH = len(LANGUAGES) > 1
 # Implement this class to associate custom documents to the ES resource index
 # See tests.views.search_tests.TestEsMappingModifier class for example
 # ES_MAPPING_MODIFIER_CLASSES = ["mahs.search.es_mapping_modifier.EsMappingModifier"]
+
+# Add PDF writer to FORMATTERS
+RESOURCE_FORMATTERS["pdf"] = (
+    "arches_pdf_exporting.utils.data_management.resources.formats.pdf.PdfWriter"
+)
 
 try:
     from .package_settings import *

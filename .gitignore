@@ -17,3 +17,8 @@ webpack-stats.json
 CACHE
 .tsconfig-paths.json
 .frontend-configuration-settings.json
+
+nohup.out
+*.mapping
+*.csv
+imports/
