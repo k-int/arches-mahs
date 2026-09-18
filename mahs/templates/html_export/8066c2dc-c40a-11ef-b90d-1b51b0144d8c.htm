@@ -760,44 +760,56 @@
             {# --- External Identifiers Section --- #}
             {% if resource_data|has_key:"External Identifier 4" %}
 
-            
-            <section class="keeptogether">
-                  <div class="h1-container">
-                     <h1>References</h1>
-                  </div>
+               <div class="h1-container">
+                  <h1>References</h1>
+               </div>
 
+               <section class="keeptogether">
                   <h3>External Identifiers</h3>
                   {% for item in resource_data|val_from_key:"External Identifier 4" %}
-                  <div class="data-table">
-                     <div>External Xref</div>
-                     <div>: {{item|val_from_key:"@display_value"}}</div>
-                  </div>
+
+                     {% ifchanged %}
+                        {% if not forloop.first %}
+                           <br>
+                        {% endif %}
+                     {% endifchanged %}
                   
-                  <div class="data-table">
-                     <div>External Source</div>
-                     <div>: {{item|val_from_key:"External Source"|val_from_key:"@display_value"}}</div>
-                  </div>
-                  
-                  <div class="data-table">
-                     <div>External Identifier Type</div>
-                     <div>: {{item|val_from_key:"External Identifier Type"|val_from_key:"@display_value"}}</div>
-                  </div>
-                  
+                     {% if item|val_from_key:"@display_value" %}
+                        <div class="data-table">
+                           <div>External Xref</div>
+                           <div>: {{item|val_from_key:"@display_value"}}</div>
+                        </div>
+                     {% endif %}
+                     
+                     {% if item|val_from_key:"External Source"|val_from_key:"@display_value" %}
+                        <div class="data-table">
+                           <div>External Source</div>
+                           <div>: {{item|val_from_key:"External Source"|val_from_key:"@display_value"}}</div>
+                        </div>
+                     {% endif %}
+                     
+                     {% if item|val_from_key:"External Identifier Type"|val_from_key:"@display_value" %}
+                        <div class="data-table">
+                           <div>External Identifier Type</div>
+                           <div>: {{item|val_from_key:"External Identifier Type"|val_from_key:"@display_value"}}</div>
+                        </div>
+                     {% endif %}
+                     
                      {% with url=item|val_from_key:"External Identifier URL"|val_from_key:"@display_value"|json_to_obj|val_from_key:"url" %}
                         {% if url %}
-                        <div class="data-table">
-                           <div>URL</div>
-                           <div>: {{ url }}</div>
-                        </div>
+                           <div class="data-table">
+                              <div>URL</div>
+                              <a href="{{url}}">: {{ url }}</a>
+                           </div>
                         {% endif %}
                      {% endwith %}
                      
                      {% with x_desc=item|val_from_key:"External Reference Description Assignment"|val_from_key:"Note on External Reference or Source"|val_from_key:"@display_value" %}
                         {% if x_desc %}
-                        <div class="data-table">
-                           <div>Description</div>
-                           <div>: {{ x_desc }}</div>
-                        </div>
+                           <div class="data-table">
+                              <div>Description</div>
+                              <div>: {{ x_desc }}</div>
+                           </div>
                         {% endif %}
                      {% endwith %}
                   {% endfor %}
