@@ -420,113 +420,115 @@
             <p class="content">{{ resource.resourceinstanceid }}</p>
         </section> 
 
-        <div class="h1-container">
-            <h1>Related resources</h1>
-        </div>
-        
-        {# --- Related Sites section --- #}
-        {% if resource_data|has_key:"Related Site" %}
-            <section class="keeptogether">
-                <h3 style="margin-top:15px;">Related Sites</h3>
-                <ul>
-                    {% for linked_resource in resource_data|val_from_key:"Related Site"|val_from_key:"instance_details" %}
-                    <li>
-                        <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                            {{ linked_resource|val_from_key:'display_value' }}
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </section> 
-        {% endif %}
-
-        {# --- Related Objects section --- #}
-        {% if resource_data|has_key:"Related Object" %}
-            <section class="keeptogether">
-                <hr>
-                <h3>Related Objects</h3>
-                <ul>
-                    {% for linked_resource in resource_data|val_from_key:"Related Object" %}
-                        {% for link in linked_resource|val_from_key:"instance_details" %}
-                            <li>
-                                <a class="content" href="/resource/{{ link|val_from_key:'resourceId' }}">
-                                    {{ link|val_from_key:'display_value' }}
-                                </a>
-                            </li>
+        {% if resource_data|has_key:"Related Site" or resource_data|has_key:"Related Object" or resource_data|has_key:"Related Feature" or resource_data|has_key:"Related Digital Asset" or resource_data|has_key:"Related Collection" or resource_data|has_key:"Related Oral History" %}
+            <div class="h1-container">
+                <h1>Related resources</h1>
+            </div>
+            
+            {# --- Related Sites section --- #}
+            {% if resource_data|has_key:"Related Site" %}
+                <section class="keeptogether">
+                    <h3 style="margin-top:15px;">Related Sites</h3>
+                    <ul>
+                        {% for linked_resource in resource_data|val_from_key:"Related Site"|val_from_key:"instance_details" %}
+                        <li>
+                            <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                                {{ linked_resource|val_from_key:'display_value' }}
+                            </a>
+                        </li>
                         {% endfor %}
-                    {% endfor %}
-                </ul>
-            </section> 
-        {% endif %}
+                    </ul>
+                </section> 
+            {% endif %}
 
-        {# --- Related Features section --- #}
-        {% if resource_data|has_key:"Related Feature" %}
-        <section class="keeptogether">
-            <hr>
-            <h3>Related Features</h3>
-            {% for linked_resource in resource_data|val_from_key:"Related Feature"|val_from_key:"instance_details" %}
-                <ul>
-                    <li>
-                        <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                            {{ linked_resource|val_from_key:'display_value' }}
-                        </a>
-                    </li>
-                </ul>   
-            {% endfor %}
-            </section> 
-        {% endif %}
+            {# --- Related Objects section --- #}
+            {% if resource_data|has_key:"Related Object" %}
+                <section class="keeptogether">
+                    <hr>
+                    <h3>Related Objects</h3>
+                    <ul>
+                        {% for linked_resource in resource_data|val_from_key:"Related Object" %}
+                            {% for link in linked_resource|val_from_key:"instance_details" %}
+                                <li>
+                                    <a class="content" href="/resource/{{ link|val_from_key:'resourceId' }}">
+                                        {{ link|val_from_key:'display_value' }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </section> 
+            {% endif %}
 
-        {# --- Related Digital Asset Section --- #}
-        {% if resource_data|has_key:"Related Digital Asset" %}
-        <section class="keeptogether">
-            <hr>
-            <h3>Related Digital Assets</h3>
-            {% for linked_resource in resource_data|val_from_key:"Related Digital Asset"|val_from_key:"instance_details" %}
-                <ul>
-                    <li>
-                        <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                            {{ linked_resource|val_from_key:'display_value' }}
-                        </a>
-                    </li>
-                </ul>
-            {% endfor %}
-            </section> 
-        {% endif %}
-
-        {# --- Related Collections section --- #}
-        {% if resource_data|has_key:"Related Collection" %}
+            {# --- Related Features section --- #}
+            {% if resource_data|has_key:"Related Feature" %}
             <section class="keeptogether">
                 <hr>
-                <h3>Related Collection</h3>
-                {% with collection=resource_data|val_from_key:"Related Collection" %}
+                <h3>Related Features</h3>
+                {% for linked_resource in resource_data|val_from_key:"Related Feature"|val_from_key:"instance_details" %}
                     <ul>
                         <li>
-                            <a class="content" href="/resource/{{ collection|val_from_key:'resourceId' }}">
-                                {{ collection|val_from_key:'@display_value' }}
+                            <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                                {{ linked_resource|val_from_key:'display_value' }}
+                            </a>
+                        </li>
+                    </ul>   
+                {% endfor %}
+                </section> 
+            {% endif %}
+
+            {# --- Related Digital Asset Section --- #}
+            {% if resource_data|has_key:"Related Digital Asset" %}
+            <section class="keeptogether">
+                <hr>
+                <h3>Related Digital Assets</h3>
+                {% for linked_resource in resource_data|val_from_key:"Related Digital Asset"|val_from_key:"instance_details" %}
+                    <ul>
+                        <li>
+                            <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                                {{ linked_resource|val_from_key:'display_value' }}
                             </a>
                         </li>
                     </ul>
-                {% endwith %}
-            </section> 
-        {% endif %}
+                {% endfor %}
+                </section> 
+            {% endif %}
 
-        {# --- Related Oral History section --- #}
-        {% if resource_data|has_key:"Related Oral History" %}
-            <section class="keeptogether">
-                <hr>
-                <h3>Related Oral Histories</h3>
-                <ul>
-                    {% for linked_resource in resource_data|val_from_key:"Related Oral History" %}
-                        {% for link in linked_resource|val_from_key:"instance_details" %}
+            {# --- Related Collections section --- #}
+            {% if resource_data|has_key:"Related Collection" %}
+                <section class="keeptogether">
+                    <hr>
+                    <h3>Related Collection</h3>
+                    {% with collection=resource_data|val_from_key:"Related Collection" %}
+                        <ul>
                             <li>
-                                <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                                    {{ linked_resource|val_from_key:'@display_value' }}
+                                <a class="content" href="/resource/{{ collection|val_from_key:'resourceId' }}">
+                                    {{ collection|val_from_key:'@display_value' }}
                                 </a>
                             </li>
+                        </ul>
+                    {% endwith %}
+                </section> 
+            {% endif %}
+
+            {# --- Related Oral History section --- #}
+            {% if resource_data|has_key:"Related Oral History" %}
+                <section class="keeptogether">
+                    <hr>
+                    <h3>Related Oral Histories</h3>
+                    <ul>
+                        {% for linked_resource in resource_data|val_from_key:"Related Oral History" %}
+                            {% for link in linked_resource|val_from_key:"instance_details" %}
+                                <li>
+                                    <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                                        {{ linked_resource|val_from_key:'@display_value' }}
+                                    </a>
+                                </li>
+                            {% endfor %}
                         {% endfor %}
-                    {% endfor %}
-                </ul>
-            </section> 
+                    </ul>
+                </section> 
+            {% endif %}
         {% endif %}
 
         </main>
