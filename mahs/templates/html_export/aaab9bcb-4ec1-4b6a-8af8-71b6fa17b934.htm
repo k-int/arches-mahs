@@ -281,7 +281,7 @@
 
                         {% if file|val_from_key:"type" == "application/pdf" %}
                             {% with url=file|val_from_key:"url" %}
-                                <h4>Preview of {{file|val_from_key:"name"}}</h4>
+                                <h4>{{file|val_from_key:"name"}}</h4>
                                 <a class="content" href="{{url}}">{{url}}</a>
                             {% endwith %}
                         {% endif %}
