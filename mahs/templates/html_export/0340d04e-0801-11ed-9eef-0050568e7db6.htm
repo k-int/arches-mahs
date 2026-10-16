@@ -223,23 +223,30 @@
                <h3>Measurement</h3>
                {% for item in resource_data|val_from_key:"Measurement 3" %}
 
-                  {% with component=item|val_from_key:"Measured Component"|val_from_key:"Measurement Event" %}
+                  <div class="data-table">
+                     <div>Component</div>
+                     <div>: {{item|val_from_key:"Measured Component"|val_from_key:"@display_value"}}</div>
+                  </div>
 
+                  {% with component=item|val_from_key:"Measured Component"|val_from_key:"Measurement Event" %}
                      <div class="data-table">
                         <div>{{component|val_from_key:"Measurement Type"|val_from_key:"@display_value"|capfirst}} ({{component|val_from_key:"Measurement"|val_from_key:"Measurement Unit"|val_from_key:"@display_value"}})</div>
                         <div>: {{ component|val_from_key:"Measurement"|val_from_key:"Measurement Value"|val_from_key:"@display_value" }}</div>
                      </div>
-
                   {% endwith %}
                   
                   {% with m_notes=item|val_from_key:"Notes on Measurement"|val_from_key:"@display_value"|safe %}
                      {% if m_notes %}
                         <div class="data-table">
-                           <div>Notes on Measurement:</div>
+                           <div>Notes on Measurement</div>
                            <div>: {{ m_notes }}</div>
                         </div>
                      {% endif %}
                   {% endwith %}
+
+                  {% if not forloop.last %}
+                     <br>
+                  {% endif %}
                {% endfor %}
             </section>
          {% endif %}
