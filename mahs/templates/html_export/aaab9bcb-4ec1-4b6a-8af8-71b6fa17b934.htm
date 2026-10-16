@@ -134,7 +134,7 @@
                             <div class="data-table">
                                 <div>Site</div>
                                 <div>
-                                    <a href="/resource/{{ place_site|val_from_key:'resourceId' }}">
+                                    <a href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ place_site|val_from_key:'resourceId' }}">
                                                 : {{ place_site|val_from_key:'@display_value' }}
                                     </a>
                                 </div>
@@ -171,7 +171,7 @@
                         <div>: {{actor|val_from_key:"display_value"}}</div>
                     </div>
 
-                    <a class="content" href="/resource/{{ actor|val_from_key:"resourceId" }}">
+                    <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ actor|val_from_key:"resourceId" }}">
                         /resource/{{ actor|val_from_key:"resourceId" }}
                     </a>
                 {% endfor %}
@@ -432,7 +432,7 @@
                     <ul>
                         {% for linked_resource in resource_data|val_from_key:"Related Site"|val_from_key:"instance_details" %}
                         <li>
-                            <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                            <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                                 {{ linked_resource|val_from_key:'display_value' }}
                             </a>
                         </li>
@@ -450,7 +450,7 @@
                         {% for linked_resource in resource_data|val_from_key:"Related Object" %}
                             {% for link in linked_resource|val_from_key:"instance_details" %}
                                 <li>
-                                    <a class="content" href="/resource/{{ link|val_from_key:'resourceId' }}">
+                                    <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ link|val_from_key:'resourceId' }}">
                                         {{ link|val_from_key:'display_value' }}
                                     </a>
                                 </li>
@@ -468,7 +468,7 @@
                 {% for linked_resource in resource_data|val_from_key:"Related Feature"|val_from_key:"instance_details" %}
                     <ul>
                         <li>
-                            <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                            <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                                 {{ linked_resource|val_from_key:'display_value' }}
                             </a>
                         </li>
@@ -485,7 +485,7 @@
                 {% for linked_resource in resource_data|val_from_key:"Related Digital Asset"|val_from_key:"instance_details" %}
                     <ul>
                         <li>
-                            <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                            <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                                 {{ linked_resource|val_from_key:'display_value' }}
                             </a>
                         </li>
@@ -502,7 +502,7 @@
                     {% with collection=resource_data|val_from_key:"Related Collection" %}
                         <ul>
                             <li>
-                                <a class="content" href="/resource/{{ collection|val_from_key:'resourceId' }}">
+                                <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ collection|val_from_key:'resourceId' }}">
                                     {{ collection|val_from_key:'@display_value' }}
                                 </a>
                             </li>
@@ -520,7 +520,7 @@
                         {% for linked_resource in resource_data|val_from_key:"Related Oral History" %}
                             {% for link in linked_resource|val_from_key:"instance_details" %}
                                 <li>
-                                    <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                                    <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                                         {{ linked_resource|val_from_key:'@display_value' }}
                                     </a>
                                 </li>

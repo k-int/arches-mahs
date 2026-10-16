@@ -963,7 +963,7 @@
                      <ul>
                         {% for linked_resource in resource_data|val_from_key:"Site" %}
                         <li>
-                           <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                           <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                               {{ linked_resource|val_from_key:'@display_value' }}
                            </a>
                         </li>
@@ -980,7 +980,7 @@
                      <ul>
                         {% for linked_resource in resource_data|val_from_key:"Related Object"|val_from_key:"instance_details" %}
                         <li>
-                           <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                           <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                               {{ linked_resource|val_from_key:'display_value' }}
                            </a>
                         </li>
@@ -998,7 +998,7 @@
                      <ul>
                      {% for link in linked_resource|val_from_key:"instance_details" %}
                         <li>
-                           <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                           <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                               {{ linked_resource|val_from_key:'@display_value' }}
                            </a>
                         </li>
@@ -1017,7 +1017,7 @@
                      <ul>
                         {% for link in linked_resource|val_from_key:"instance_details" %}
                            <li>
-                              <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                              <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                                  {{ linked_resource|val_from_key:'@display_value' }}
                               </a>
                            </li>
@@ -1036,7 +1036,7 @@
                      <ul>
                         {% for linked_resource in resource_data|val_from_key:"Collection" %}
                         <li>
-                           <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                           <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                               {{ linked_resource|val_from_key:'@display_value' }}
                            </a>
                         </li>

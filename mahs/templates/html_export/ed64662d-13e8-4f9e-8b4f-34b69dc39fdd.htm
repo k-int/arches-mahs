@@ -229,7 +229,7 @@
                                 <div class="data-table">
                                     <div>Interview Site</div>
                                     <div>
-                                        <a href="/resource/{{ link|val_from_key:'resourceId' }}">
+                                        <a href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ link|val_from_key:'resourceId' }}">
                                                     : {{ link|val_from_key:'display_value' }}
                                         </a>
                                     </div>
@@ -383,7 +383,7 @@
                     {% for linked_resource in resource_data|val_from_key:"Related Resources"|val_from_key:"instance_details" %}
                         <li>
                         <h4>{{ linked_resource|val_from_key:"display_value" }}</h4>
-                            <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                            <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                                 {{ linked_resource|val_from_key:'display_value' }}
                             </a>
                         </li>
