@@ -913,7 +913,7 @@
                   </div>
                   {% for item in resource_data|val_from_key:"Information Carrier 2" %}
 
-                     {% if item|val_from_key:"Information Carrier Format Type"|val_from_key:"value" == "JPEG" or item|val_from_key:"Information Carrier Format Type"|val_from_key:"value" == "PNG" %} 
+                     {% if item|val_from_key:"Information Carrier Format Type"|val_from_key:"value" == "JPEG" or item|val_from_key:"Information Carrier Format Type"|val_from_key:"value" == "JPG" or item|val_from_key:"Information Carrier Format Type"|val_from_key:"value" == "PNG" %}    
 
                         {% with caption=item|val_from_key:"Caption"|val_from_key:"@display_value" %}
                            {% if caption %}
