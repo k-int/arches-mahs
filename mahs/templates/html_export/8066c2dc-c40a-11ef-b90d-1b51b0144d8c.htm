@@ -222,23 +222,30 @@
                <h3>Measurement</h3>
                {% for item in resource_data|val_from_key:"Measurement 3" %}
 
-                  {% with component=item|val_from_key:"Measured Component"|val_from_key:"Measurement Event" %}
+                  <div class="data-table">
+                     <div>Component</div>
+                     <div>: {{item|val_from_key:"Measured Component"|val_from_key:"@display_value"}}</div>
+                  </div>
 
+                  {% with component=item|val_from_key:"Measured Component"|val_from_key:"Measurement Event" %}
                      <div class="data-table">
                         <div>{{component|val_from_key:"Measurement Type"|val_from_key:"@display_value"|capfirst}} ({{component|val_from_key:"Measurement"|val_from_key:"Measurement Unit"|val_from_key:"@display_value"}})</div>
                         <div>: {{ component|val_from_key:"Measurement"|val_from_key:"Measurement Value"|val_from_key:"@display_value" }}</div>
                      </div>
-
                   {% endwith %}
                   
                   {% with m_notes=item|val_from_key:"Notes on Measurement"|val_from_key:"@display_value"|safe %}
                      {% if m_notes %}
                         <div class="data-table">
-                           <div>Notes on Measurement:</div>
+                           <div>Notes on Measurement</div>
                            <div>: {{ m_notes }}</div>
                         </div>
                      {% endif %}
                   {% endwith %}
+
+                  {% if not forloop.last %}
+                     <br>
+                  {% endif %}
                {% endfor %}
             </section>
          {% endif %}
@@ -345,11 +352,15 @@
          {# --- Location Section --- #}
          {% if resource_data|has_key:"Place 6" %}
             <section class="keeptogether">
-               <hr>
-               <h3>Spatial Location</h3>
                {% for item in resource_data|val_from_key:"Place 6" %}
                
-                  {% for sub_item in item|val_from_key:"Spatial Coordinates Geometry" %}
+               {% for sub_item in item|val_from_key:"Spatial Coordinates Geometry" %}
+               
+                     {% if sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value" or sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value" %}
+                        <hr>
+                        <h3>Spatial Location</h3>
+                     {% endif %}
+
                      {% if sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value" %}
                         <div class="data-table">
                            <div>Geometry Qualifier</div>
@@ -830,7 +841,7 @@
                         {% if c_url %}
                            <div class="data-table">
                               <div>Citation URL</div>
-                              <div>: {{ c_url }}</div>
+                              <div><a href="{{ c_url }}">: {{ c_url }}</a></div>
                            </div>
                         {% endif %}
                      {% endwith %}
@@ -839,7 +850,7 @@
                         {% if c_note %}
                            <div class="data-table">
                               <div>Citation Description</div>
-                              <div>: {{ c_note }}</div>
+                              <div class="desc-text">: {{ c_note }}</div>
                            </div>
                         {% endif %}
                      {% endwith %}
@@ -902,21 +913,29 @@
                   </div>
                   {% for item in resource_data|val_from_key:"Information Carrier 2" %}
 
-                     {% with caption=item|val_from_key:"Caption"|val_from_key:"@display_value" %}
-                        {% if caption %}
-                           <h4>Caption</h4>
-                           <p class="content">{{ caption }}</p>
+                     {% if item|val_from_key:"Information Carrier Format Type"|val_from_key:"value" == "JPEG" or item|val_from_key:"Information Carrier Format Type"|val_from_key:"value" == "PNG" %} 
+
+                        {% with caption=item|val_from_key:"Caption"|val_from_key:"@display_value" %}
+                           {% if caption %}
+                              <h4>Caption</h4>
+                              <p class="content">{{ caption }}</p>
+                           {% endif %}
+                        {% endwith %}
+                        
+                        {% for file in item|val_from_key:"Information Carrier"|val_from_key:"file_details" %}
+                           <div class="keeptogether">
+                              {% with url=file|val_from_key:"url" %}
+                                 <h4>{{file|val_from_key:"name"}}</h4>
+                                 <img src="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp{{ url }}">
+                              {% endwith %}
+                           </div>
+                        {% endfor %}
+
+                        {% if not forloop.last %}
+                           <br>
                         {% endif %}
-                     {% endwith %}
-                     
-                     {% for file in item|val_from_key:"Information Carrier"|val_from_key:"file_details" %}
-                        <div class="keeptogether">
-                           {% with url=file|val_from_key:"url" %}
-                              <h4>{{file|val_from_key:"name"}}</h4>
-                              <img src="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp{{ url }}">
-                           {% endwith %}
-                        </div>
-                     {% endfor %}
+
+                     {% endif %}
 
                   {% endfor %}
                </section> 
@@ -930,120 +949,123 @@
                <p class="content">{{ resource.resourceinstanceid }}</p>
             </section> 
 
-            <div class="h1-container">
-               <h1>Related resources</h1>
-            </div>
+            {% if resource_data|has_key:"Site" or resource_data|has_key:"Related Object" or resource_data|has_key:"Related Feature" or resource_data|has_key:"Related Digital Asset" or resource_data|has_key:"Related Collection" or resource_data|has_key:"Related Oral History" %}
 
-            {% if resource_data|has_key:"Site" %}
-               <section class="keeptogether">
-                  <h3 style="margin-top:15px;">Related Sites</h3>
-                  <ul>
-                     {% for linked_resource in resource_data|val_from_key:"Site" %}
-                     <li>
-                        <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                           {{ linked_resource|val_from_key:'@display_value' }}
-                        </a>
-                     </li>
-                     {% endfor %}
-                  </ul>
-               </section> 
-            {% endif %}
+               <div class="h1-container">
+                  <h1>Related resources</h1>
+               </div>
 
-            {# --- Related Objects section --- #}
-            {% if resource_data|has_key:"Related Object" %}
+               {% if resource_data|has_key:"Site" %}
+                  <section class="keeptogether">
+                     <h3 style="margin-top:15px;">Related Sites</h3>
+                     <ul>
+                        {% for linked_resource in resource_data|val_from_key:"Site" %}
+                        <li>
+                           <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                              {{ linked_resource|val_from_key:'@display_value' }}
+                           </a>
+                        </li>
+                        {% endfor %}
+                     </ul>
+                  </section> 
+               {% endif %}
+
+               {# --- Related Objects section --- #}
+               {% if resource_data|has_key:"Related Object" %}
+                  <section class="keeptogether">
+                     <hr>
+                     <h3>Related Objects</h3>
+                     <ul>
+                        {% for linked_resource in resource_data|val_from_key:"Related Object" %}
+                           {% for object in linked_resource|val_from_key:"instance_details" %}
+                              <li>
+                                 <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ object|val_from_key:'resourceId' }}">
+                                    {{ linked_resource|val_from_key:'@display_value' }}
+                                 </a>
+                              </li>
+                           {% endfor %}
+                        {% endfor %}
+                     </ul>
+                  </section> 
+               {% endif %}
+
+               {# --- Related Features section --- #}
+               {% if resource_data|has_key:"Related Feature" %}
                <section class="keeptogether">
                   <hr>
-                  <h3>Related Objects</h3>
-                  <ul>
-                     {% for linked_resource in resource_data|val_from_key:"Related Object" %}
-                        {% for object in linked_resource|val_from_key:"instance_details" %}
-                           <li>
-                              <a class="content" href="/resource/{{ object|val_from_key:'resourceId' }}">
-                                 {{ linked_resource|val_from_key:'@display_value' }}
-                              </a>
-                           </li>
-                        {% endfor %}
-                     {% endfor %}
-                  </ul>
-               </section> 
-            {% endif %}
-
-            {# --- Related Features section --- #}
-            {% if resource_data|has_key:"Related Feature" %}
-            <section class="keeptogether">
-               <hr>
-               <h3>Related Features</h3>
-               {% for linked_resource in resource_data|val_from_key:"Related Feature" %}
-                  <ul>
-                  {% for link in linked_resource|val_from_key:"instance_details" %}
-                     <li>
-                        <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                           {{ linked_resource|val_from_key:'@display_value' }}
-                        </a>
-                     </li>
-                  {% endfor %}
-                  </ul>   
-               {% endfor %}
-               </section> 
-            {% endif %}
-
-            {# --- Related Digital Asset Section --- #}
-            {% if resource_data|has_key:"Related Digital Asset" %}
-            <section class="keeptogether">
-               <hr>
-               <h3>Related Digital Assets</h3>
-               {% for linked_resource in resource_data|val_from_key:"Related Digital Asset" %}
-                  <ul>
+                  <h3>Related Features</h3>
+                  {% for linked_resource in resource_data|val_from_key:"Related Feature" %}
+                     <ul>
                      {% for link in linked_resource|val_from_key:"instance_details" %}
                         <li>
-                           <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                           <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                               {{ linked_resource|val_from_key:'@display_value' }}
                            </a>
                         </li>
                      {% endfor %}
-                  </ul>
-               {% endfor %}
-               </section> 
-            {% endif %}
+                     </ul>   
+                  {% endfor %}
+                  </section> 
+               {% endif %}
 
-            {# --- Related Collections section --- #}
-            {% if resource_data|has_key:"Related Collection" %}
+               {# --- Related Digital Asset Section --- #}
+               {% if resource_data|has_key:"Related Digital Asset" %}
                <section class="keeptogether">
                   <hr>
-                  <h3>Related Collections</h3>
-                  <ul>
-                     {% for linked_resource in resource_data|val_from_key:"Related Collection" %}
+                  <h3>Related Digital Assets</h3>
+                  {% for linked_resource in resource_data|val_from_key:"Related Digital Asset" %}
+                     <ul>
                         {% for link in linked_resource|val_from_key:"instance_details" %}
                            <li>
-                              <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                              <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ linked_resource|val_from_key:'resourceId' }}">
                                  {{ linked_resource|val_from_key:'@display_value' }}
                               </a>
                            </li>
                         {% endfor %}
-                     {% endfor %}
-                  </ul>
-               </section> 
+                     </ul>
+                  {% endfor %}
+                  </section> 
+               {% endif %}
+
+               {# --- Related Collections section --- #}
+               {% if resource_data|has_key:"Related Collection" %}
+                  <section class="keeptogether">
+                     <hr>
+                     <h3>Related Collections</h3>
+                     <ul>
+                        {% for linked_resource in resource_data|val_from_key:"Related Collection" %}
+                           {% for link in linked_resource|val_from_key:"instance_details" %}
+                              <li>
+                                 <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                                    {{ linked_resource|val_from_key:'@display_value' }}
+                                 </a>
+                              </li>
+                           {% endfor %}
+                        {% endfor %}
+                     </ul>
+                  </section> 
+               {% endif %}
+
+               {# --- Related Oral History section --- #}
+               {% if resource_data|has_key:"Related Oral History" %}
+                  <section class="keeptogether">
+                     <hr>
+                     <h3>Related Oral History</h3>
+                     <ul>
+                        {% for linked_resource in resource_data|val_from_key:"Related Oral History" %}
+                           {% for link in linked_resource|val_from_key:"instance_details" %}
+                              <li>
+                                 <a class="content" href="https://arches.maritimeasiaheritage.cseas.kyoto-u.ac.jp/resource/{{ linked_resource|val_from_key:'resourceId' }}">
+                                    {{ linked_resource|val_from_key:'@display_value' }}
+                                 </a>
+                              </li>
+                           {% endfor %}
+                        {% endfor %}
+                     </ul>
+                  </section> 
+               {% endif %}
             {% endif %}
 
-            {# --- Related Oral History section --- #}
-            {% if resource_data|has_key:"Related Oral History" %}
-               <section class="keeptogether">
-                  <hr>
-                  <h3>Related Oral History</h3>
-                  <ul>
-                     {% for linked_resource in resource_data|val_from_key:"Related Oral History" %}
-                        {% for link in linked_resource|val_from_key:"instance_details" %}
-                           <li>
-                              <a class="content" href="/resource/{{ linked_resource|val_from_key:'resourceId' }}">
-                                 {{ linked_resource|val_from_key:'@display_value' }}
-                              </a>
-                           </li>
-                        {% endfor %}
-                     {% endfor %}
-                  </ul>
-               </section> 
-            {% endif %}
-            
          </main>
          {% endwith %}
          {% endfor %}
