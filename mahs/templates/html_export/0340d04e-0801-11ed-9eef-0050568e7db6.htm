@@ -353,11 +353,14 @@
          {# --- Location Section --- #}
          {% if resource_data|has_key:"Place 6" %}
             <section class="keeptogether">
-               <hr>
-               <h3>Spatial Location</h3>
                {% for item in resource_data|val_from_key:"Place 6" %}
                
                   {% for sub_item in item|val_from_key:"Spatial Coordinates Geometry" %}
+
+                     {% if sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value" or sub_item|val_from_key:"Coordinates"|val_from_key:"Latitude"|val_from_key:"@display_value" %}
+                        <hr>
+                        <h3>Spatial Location</h3>
+                     {% endif %}
 
                      {% if sub_item|val_from_key:"Geometry Qualifier"|val_from_key:"@display_value" %}
                         <div class="data-table">
