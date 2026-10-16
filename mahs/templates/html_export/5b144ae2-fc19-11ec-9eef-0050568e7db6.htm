@@ -134,7 +134,7 @@
 
                {% for desc in resource_data|val_from_key:"Description Assignment" %}
                   {% with type=desc|val_from_key:"Description Type"|val_from_key:"value" %}
-                     {% if type != "Acknowledgement" and type != "Primary Description" and type != "Comments" and type != "Field Notes" and type != "Background Information" %}   
+                     {% if type != "Acknowledgement" and type != "Primary Description" and type != "Oral History" and type != "Comments" and type != "Field Notes" and type != "Background Information" %}   
                         <div>
                            <hr>
                            <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
