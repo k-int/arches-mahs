@@ -134,7 +134,7 @@
 
                {% for desc in resource_data|val_from_key:"Description Assignment" %}
                   {% with type=desc|val_from_key:"Description Type"|val_from_key:"value" %}
-                     {% if type != "Acknowledgement" and type != "Primary Description" and type != "Comments" and type != "Field Notes" and type != "Background Information" %}   
+                     {% if type != "Acknowledgement" and type != "Primary Description" and type != "Oral History" and type != "Comments" and type != "Field Notes" and type != "Background Information" %}   
                         <div>
                            <hr>
                            <h3>{{desc|val_from_key:"Description Type"|val_from_key:"value"}}</h3>
@@ -913,7 +913,7 @@
                   </div>
                   {% for item in resource_data|val_from_key:"Information Carrier 2" %}
 
-                     {% if item|val_from_key:"Information Carrier Format Type"|val_from_key:"value" == "JPEG" or item|val_from_key:"Information Carrier Format Type"|val_from_key:"value" == "PNG" %} 
+                     {% if item|val_from_key:"Information Carrier Format Type"|val_from_key:"value" == "JPEG" or item|val_from_key:"Information Carrier Format Type"|val_from_key:"value" == "JPG" or item|val_from_key:"Information Carrier Format Type"|val_from_key:"value" == "PNG" %}    
 
                         {% with caption=item|val_from_key:"Caption"|val_from_key:"@display_value" %}
                            {% if caption %}
