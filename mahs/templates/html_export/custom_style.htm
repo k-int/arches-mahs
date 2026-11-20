@@ -111,8 +111,17 @@
 
     @media print {
         @page {
-            margin-top: 2cm;
-            margin-bottom: 2cm;
+            margin: 2cm;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .content,
+        .content-container {
+            margin-left: 0;
+            margin-right: 0;
         }
     }
 
