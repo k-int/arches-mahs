@@ -5,7 +5,7 @@
 
     body{
         color: rgb(80, 80, 80);
-        margin: 0 10vw 0 10vw;
+        margin: 2cm;
         font-size:  2rem;
         font-family: "Open Sans", sans-serif;
         font-weight: 400;
@@ -111,8 +111,11 @@
 
     @media print {
         @page {
-            margin-top: 2cm;
-            margin-bottom: 2cm;
+            margin: 2cm;
+        }
+
+        body {
+            margin: 0;
         }
     }
 
