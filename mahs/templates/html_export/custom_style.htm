@@ -1,6 +1,6 @@
 <style>
     *{
-        box-sizing: border-box;;
+        box-sizing: border-box;
     }
 
     body{
@@ -116,6 +116,11 @@
 
         body {
             margin: 0;
+        }
+
+        main header:not(.main-header) {
+            break-before: page;
+            page-break-before: always;
         }
     }
 
